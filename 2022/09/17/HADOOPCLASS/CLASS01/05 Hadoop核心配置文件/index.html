@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>小金毛L的世界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="核心配置三个服务器配置目标如下NameNode和SecondaryNameNode不要安装在同一台服务器ResourceManager也很消耗内存，不要和NameNode、SecondaryNameNode配置在同一台机器上。 配置文件路径： $HADOOP_HOME&#x2F;etc&#x2F;hadoop  文件目录：1.core-site.xml  配置内容 &lt;configuration&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小金毛L的世界">
+<meta property="og:url" content="http://example.com/2022/09/17/HADOOPCLASS/CLASS01/05%20Hadoop%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:site_name" content="小金毛L的世界">
+<meta property="og:description" content="核心配置三个服务器配置目标如下NameNode和SecondaryNameNode不要安装在同一台服务器ResourceManager也很消耗内存，不要和NameNode、SecondaryNameNode配置在同一台机器上。 配置文件路径： $HADOOP_HOME&#x2F;etc&#x2F;hadoop  文件目录：1.core-site.xml  配置内容 &lt;configuration&gt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022-09-04-00-58-25.png">
+<meta property="article:published_time" content="2022-09-17T13:32:48.643Z">
+<meta property="article:modified_time" content="2022-09-17T10:53:39.226Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022-09-04-00-58-25.png">
+  
+    <link rel="alternate" href="/atom.xml" title="小金毛L的世界" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小金毛L的世界</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-HADOOPCLASS/CLASS01/05 Hadoop核心配置文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/05%20Hadoop%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2022-09-17T13:32:48.643Z" itemprop="datePublished">2022-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="核心配置"><a href="#核心配置" class="headerlink" title="核心配置"></a>核心配置</h1><p>三个服务器配置目标如下<br><img src="/2022-09-04-00-58-25.png"><br>NameNode和SecondaryNameNode不要安装在同一台服务器<br>ResourceManager也很消耗内存，不要和NameNode、SecondaryNameNode配置在同一台机器上。</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>路径：</p>
+<pre><code>$HADOOP_HOME/etc/hadoop
+</code></pre>
+<h2 id="文件目录："><a href="#文件目录：" class="headerlink" title="文件目录："></a>文件目录：</h2><pre><code>1.core-site.xml
+</code></pre>
+<p>配置内容</p>
+<pre><code>&lt;configuration&gt;
+    &lt;!-- 指定NameNode的地址 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://hadoop102:8020&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 指定hadoop数据的存储目录 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;/opt/module/hadoop-3.1.3/data&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 配置HDFS网页登录使用的静态用户为atguigu --&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.http.staticuser.user&lt;/name&gt;
+        &lt;value&gt;atguigu&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ol start="2">
+<li></li>
+</ol>
+<pre><code>2.hdfs-site.xml、
+
+&lt;configuration&gt;
+    &lt;!-- nn web端访问地址--&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.http-address&lt;/name&gt;
+        &lt;value&gt;hadoop102:9870&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- 2nn web端访问地址--&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+        &lt;value&gt;hadoop104:9868&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ol start="3">
+<li></li>
+</ol>
+<pre><code>3.yarn-site.xml、
+&lt;configuration&gt;
+    &lt;!-- 指定MR走shuffle --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 指定ResourceManager的地址--&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+        &lt;value&gt;hadoop103&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 环境变量的继承 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.env-whitelist&lt;/name&gt;
+        &lt;value&gt;JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<ol start="4">
+<li></li>
+</ol>
+<pre><code>4.mapred-site.xml
+&lt;configuration&gt;
+    &lt;!-- 指定MapReduce程序运行在Yarn上 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="！！如果有问题报错在这四个路径再回来找文档"><a href="#！！如果有问题报错在这四个路径再回来找文档" class="headerlink" title="！！如果有问题报错在这四个路径再回来找文档"></a>！！如果有问题报错在这四个路径再回来找文档</h2><h1 id="WORK配置"><a href="#WORK配置" class="headerlink" title="WORK配置"></a>WORK配置</h1><h2 id="hadoop目录下，WORK里无用的机子要删除，并加上需要的服务器"><a href="#hadoop目录下，WORK里无用的机子要删除，并加上需要的服务器" class="headerlink" title="hadoop目录下，WORK里无用的机子要删除，并加上需要的服务器"></a>hadoop目录下，WORK里无用的机子要删除，并加上需要的服务器</h2><p>例如localhost不删除的话</p>
+<p>启动时就会加载localhost</p>
+<p>报错：</p>
+<pre><code>无法获取&quot;/opt/moudle/hadoop-3.1.3/logs/hadoop-root-nodemanager-hadoop103.out.2&quot; 的文件状态(stat): 没有那个文件或目录
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/17/HADOOPCLASS/CLASS01/05%20Hadoop%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" data-id="cl85yq6u70007ysqphvxfcwte" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/05-1%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%92%8C%E4%B8%80%E4%B8%AABUG/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/04-SSH/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/17/%E7%9F%AD%E7%AF%87%E5%B0%8F%E8%AF%B4/%E6%B1%89%E5%A0%A1%E5%8C%85%E3%80%81%E7%88%AC%E5%B1%B1%E8%BD%A6%E3%80%81%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/git/git%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/raid/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/paste%20image%E9%85%8D%E7%BD%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E5%8A%9B%E6%89%A3/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%89%BE%E5%87%BA%E4%B8%A4%E4%B8%AA%E7%9B%B8%E5%90%8C%E5%AD%97%E6%AF%8D%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>小金毛L的世界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.启动&#x2F;opt&#x2F;module&#x2F;had..路径下 HDFS初始化命令hdfs namenode -format  HDFS启动命令sbin&#x2F;start-dfs.sh  Yarn启动命令sbin&#x2F;start-yarn.sh  WEB页面入口NAMENOD数据信息E:http:&#x2F;&#x2F;hadoop102:9870 YARN任务信息:http:&#x2F;&#x2F;hadoop103:8088">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小金毛L的世界">
+<meta property="og:url" content="http://example.com/2022/09/17/HADOOPCLASS/CLASS01/06.%E5%90%AF%E5%8A%A8+%E5%86%8D%E5%88%9D%E5%A7%8B%E5%8C%96+%E5%8E%86%E5%8F%B2%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
+<meta property="og:site_name" content="小金毛L的世界">
+<meta property="og:description" content="1.启动&#x2F;opt&#x2F;module&#x2F;had..路径下 HDFS初始化命令hdfs namenode -format  HDFS启动命令sbin&#x2F;start-dfs.sh  Yarn启动命令sbin&#x2F;start-yarn.sh  WEB页面入口NAMENOD数据信息E:http:&#x2F;&#x2F;hadoop102:9870 YARN任务信息:http:&#x2F;&#x2F;hadoop103:8088">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022-09-04-14-44-05.png">
+<meta property="article:published_time" content="2022-09-17T13:32:48.647Z">
+<meta property="article:modified_time" content="2022-09-17T10:53:39.226Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022-09-04-14-44-05.png">
+  
+    <link rel="alternate" href="/atom.xml" title="小金毛L的世界" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小金毛L的世界</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-HADOOPCLASS/CLASS01/06.启动+再初始化+历史服务器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/06.%E5%90%AF%E5%8A%A8+%E5%86%8D%E5%88%9D%E5%A7%8B%E5%8C%96+%E5%8E%86%E5%8F%B2%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2022-09-17T13:32:48.647Z" itemprop="datePublished">2022-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-启动"><a href="#1-启动" class="headerlink" title="1.启动"></a>1.启动</h1><p>&#x2F;opt&#x2F;module&#x2F;had..路径下</p>
+<h2 id="HDFS初始化命令"><a href="#HDFS初始化命令" class="headerlink" title="HDFS初始化命令"></a>HDFS初始化命令</h2><pre><code>hdfs namenode -format
+</code></pre>
+<h2 id="HDFS启动命令"><a href="#HDFS启动命令" class="headerlink" title="HDFS启动命令"></a>HDFS启动命令</h2><pre><code>sbin/start-dfs.sh
+</code></pre>
+<h2 id="Yarn启动命令"><a href="#Yarn启动命令" class="headerlink" title="Yarn启动命令"></a>Yarn启动命令</h2><pre><code>sbin/start-yarn.sh
+</code></pre>
+<h1 id="WEB页面入口"><a href="#WEB页面入口" class="headerlink" title="WEB页面入口"></a>WEB页面入口</h1><p>NAMENOD数据信息E:<a target="_blank" rel="noopener" href="http://hadoop102:9870/">http://hadoop102:9870</a></p>
+<p>YARN任务信息:<a target="_blank" rel="noopener" href="http://hadoop103:8088/">http://hadoop103:8088</a></p>
+<h1 id="2-Namenode故障处理-x2F-再初始化"><a href="#2-Namenode故障处理-x2F-再初始化" class="headerlink" title="2.Namenode故障处理&#x2F;再初始化"></a>2.Namenode故障处理&#x2F;再初始化</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1.停止服务 </p>
+<pre><code>sbin/stop-dfs.sh
+</code></pre>
+<p>2.删除log和data文件</p>
+<pre><code>hadoop路径下
+rm -rf /data /log
+</code></pre>
+<p>3.重新初始化</p>
+<pre><code>hdfs namenode -format
+</code></pre>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p><img src="/2022-09-04-14-44-05.png"><br>在初始化后 NamespaceId和族群ID都产生变化<br>旧的data和log文件不能匹配</p>
+<p>似乎可以通过修改ID来解决？</p>
+<h1 id="3-配置历史服务器"><a href="#3-配置历史服务器" class="headerlink" title="3.配置历史服务器"></a>3.配置历史服务器</h1><p>hadoop内<br>配置文件：mapred-site.xml</p>
+<pre><code>    &lt;!-- 历史服务器端地址 --&gt;
+&lt;property&gt;
+    &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
+    &lt;value&gt;hadoop102:10020&lt;/value&gt;
+&lt;/property&gt;
+
+&lt;!-- 历史服务器web端地址 --&gt;
+&lt;property&gt;
+    &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
+    &lt;value&gt;hadoop102:19888&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<h2 id="NameNode出现重复的BUG"><a href="#NameNode出现重复的BUG" class="headerlink" title="NameNode出现重复的BUG"></a>NameNode出现重复的BUG</h2><p>启动时出现Namnode重复，要求杀死进程</p>
+<p>关闭时出现</p>
+<pre><code>NodeManager did not stop gracefully after 5 seconds: kill
+</code></pre>
+<p>出错原因是，启动dfs后，依旧在102上启动yarn。全部关闭后在103上启动即可解决</p>
+<h2 id="历史服务器的开启和关闭"><a href="#历史服务器的开启和关闭" class="headerlink" title="历史服务器的开启和关闭"></a>历史服务器的开启和关闭</h2><pre><code>mapred --daemon start historyserver
+mapred --daemon stop historyserver
+</code></pre>
+<p>其中mapred –daemon是控制单节点启动关闭的命令</p>
+<h2 id="历史服务器的查看窗口"><a href="#历史服务器的查看窗口" class="headerlink" title="历史服务器的查看窗口"></a>历史服务器的查看窗口</h2><pre><code>http://hadoop102:19888/jobhistory
+</code></pre>
+<h1 id="4-配置聚集日志"><a href="#4-配置聚集日志" class="headerlink" title="4.配置聚集日志"></a>4.配置聚集日志</h1><p>我</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/17/HADOOPCLASS/CLASS01/06.%E5%90%AF%E5%8A%A8+%E5%86%8D%E5%88%9D%E5%A7%8B%E5%8C%96+%E5%8E%86%E5%8F%B2%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-id="cl85yq6uc000fysqp0l3ubfes" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/08%20HADOOP%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%E5%92%8C%E6%95%B4%E5%90%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/05-1%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%92%8C%E4%B8%80%E4%B8%AABUG/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/17/%E7%9F%AD%E7%AF%87%E5%B0%8F%E8%AF%B4/%E6%B1%89%E5%A0%A1%E5%8C%85%E3%80%81%E7%88%AC%E5%B1%B1%E8%BD%A6%E3%80%81%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/git/git%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/raid/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/paste%20image%E9%85%8D%E7%BD%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E5%8A%9B%E6%89%A3/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%89%BE%E5%87%BA%E4%B8%A4%E4%B8%AA%E7%9B%B8%E5%90%8C%E5%AD%97%E6%AF%8D%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

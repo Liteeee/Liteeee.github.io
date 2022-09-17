@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>小金毛L的世界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="命令表一、基础命令1、pwd：定位当前工作的绝对目录 2、touch：创建文件 3、cat：查看文件 4、vi：编辑文件 5、vim：编辑文件（基于安装了vim编辑器） 6、mkdir：创建目录 7、rmdir：删除目录（只能删除空目录） 8、rm：删除文件或目录（-f 强制删除） 9、reboot：重启系统 10、shutdown：关闭系统 11、init0：关闭系统（init命令可改变系统运行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小金毛L的世界">
+<meta property="og:url" content="http://example.com/2022/09/17/HADOOPCLASS/CLASS01/centos%E5%91%BD%E4%BB%A4%E8%A1%A8/index.html">
+<meta property="og:site_name" content="小金毛L的世界">
+<meta property="og:description" content="命令表一、基础命令1、pwd：定位当前工作的绝对目录 2、touch：创建文件 3、cat：查看文件 4、vi：编辑文件 5、vim：编辑文件（基于安装了vim编辑器） 6、mkdir：创建目录 7、rmdir：删除目录（只能删除空目录） 8、rm：删除文件或目录（-f 强制删除） 9、reboot：重启系统 10、shutdown：关闭系统 11、init0：关闭系统（init命令可改变系统运行">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-17T13:32:48.655Z">
+<meta property="article:modified_time" content="2022-09-17T10:53:39.228Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小金毛L的世界" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小金毛L的世界</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-HADOOPCLASS/CLASS01/centos命令表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/centos%E5%91%BD%E4%BB%A4%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2022-09-17T13:32:48.655Z" itemprop="datePublished">2022-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="命令表"><a href="#命令表" class="headerlink" title="命令表"></a>命令表</h1><h2 id="一、基础命令"><a href="#一、基础命令" class="headerlink" title="一、基础命令"></a>一、基础命令</h2><pre><code>1、pwd：定位当前工作的绝对目录
+2、touch：创建文件
+3、cat：查看文件
+4、vi：编辑文件
+5、vim：编辑文件（基于安装了vim编辑器）
+6、mkdir：创建目录
+7、rmdir：删除目录（只能删除空目录）
+8、rm：删除文件或目录（-f 强制删除）
+9、reboot：重启系统
+10、shutdown：关闭系统
+11、init0：关闭系统（init命令可改变系统运行级别）
+12、date：显示或设置系统时间
+13、man：查询命令手册
+14、cd：改变工作目录
+15、chkconfig：检查、设置系统各项服务
+16、ls：显示当前目录的内容
+17、who：显示在线用户信息
+18、su：切换用户
+19、head：显示文件开头
+20、tail：显示文件末尾
+21、more：文本过滤
+22、grep：文本搜索
+23、locate：查找符合条件的文档
+24、whereis：查找二进制代码、源代码、man手册的位置
+25、sort：文本排序
+26、rcp：复制远程系统文件到本地
+27、scp：用于两linux主机间的CP
+28、wc：统计文件字数
+29、dir：显示目录、文件
+30、telnet：远程登录
+31、route：显示并设置linux系统路由表
+32、traceroute：显示数据包到主机的路径
+33、free：显示内存状态
+34、ps：显示当前进程状态
+35、top：显示实时进程状态
+36、kill：系统进程杀灭
+37、sudo：给予部分普通用户root权限
+38、halt：若系统运行级别在0~6，则可以关闭系统
+39、sleep：指定当前动作的延迟时间
+40、exit：返回上级shell
+41、logrotate：对系统日志就行轮转、压缩、删除
+42、clear：清屏
+43、crontab：提交和管理用户需要周期性执行的任务
+44、tar：备份归档压缩
+45、gzip：压缩一个文件
+46、zip：压缩目录、文件
+47、dump：备份文件系统
+48、chmod：修改权限（读r4、写w2、执行x1）（u用户、g用户组、o其他用户）
+49、ll、查看权限
+</code></pre>
+<h2 id="二、基本配置地址"><a href="#二、基本配置地址" class="headerlink" title="二、基本配置地址"></a>二、基本配置地址</h2><pre><code>1、永久挂载目录         /etc/fstab
+2、安装包位置            /mnt/cdrom/packages/
+3、永久网关配置地址  /etc/sysconfig/network
+4、网络配置地址        /etc/sysconfig/network-scripts/ifcfg-eth0
+5、关于网络命令        service  network （restart重启、stop停止、start启动）
+6、本地主机名解析地址/etc/hosts
+7、本地域名解析地址 /etc/resolv
+8、脚本编辑地址       /etc/sysconfig/network-soripts
+</code></pre>
+<h2 id="三、常用命令（基于root用户下）"><a href="#三、常用命令（基于root用户下）" class="headerlink" title="三、常用命令（基于root用户下）"></a>三、常用命令（基于root用户下）</h2><pre><code>1、软件安装命令       yum install -y (软件名)
+2、用户添加命令      useradd （-g指定用户组、-u指定UID、-p指定密码、-d指定宿主目录）
+3、删除用户命令      userdel  （-f强制删除、-r删除该用户全部信息）
+4、修改用户信息      usermod （-d修改宿主目录、-e修改有效期、-l修改用户名、-L锁定用户、-U解除锁定）
+5、添加用户组         groupadd（-g指定GID、-f强制执行）
+6、查询软件安装：   rpm -aq|grep 软件名
+7、selinux运行状态查询   getenforce
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/17/HADOOPCLASS/CLASS01/centos%E5%91%BD%E4%BB%A4%E8%A1%A8/" data-id="cl85yq6ud000gysqp95jx18xx" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02%20HDFS/01HDFS%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E5%92%8C%E9%9D%A2%E8%AF%95%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/08%20HADOOP%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%E5%92%8C%E6%95%B4%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/17/%E7%9F%AD%E7%AF%87%E5%B0%8F%E8%AF%B4/%E6%B1%89%E5%A0%A1%E5%8C%85%E3%80%81%E7%88%AC%E5%B1%B1%E8%BD%A6%E3%80%81%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/git/git%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/raid/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/paste%20image%E9%85%8D%E7%BD%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E5%8A%9B%E6%89%A3/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%89%BE%E5%87%BA%E4%B8%A4%E4%B8%AA%E7%9B%B8%E5%90%8C%E5%AD%97%E6%AF%8D%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>小金毛L的世界</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="HDFSHDFS（Hadoop Distributed File System），是一种分布式文件管理系统 一、性质优点：1.高容错，多副本 2.处理数据规模大 3.可以构建在廉价机器上，不怕出问题  HDFS的使用场景：适合一次写入，多次读出的场景。 缺点：1.不适合低延迟访问 2.不适合存储小文件（占用NN资源，寻址时间超过读取时间） 3.不支持并发写入（一文件一线程 4.不支持随机修改（只能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小金毛L的世界">
+<meta property="og:url" content="http://example.com/2022/09/17/HADOOPCLASS/CLASS02%20HDFS/01HDFS%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E5%92%8C%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="小金毛L的世界">
+<meta property="og:description" content="HDFSHDFS（Hadoop Distributed File System），是一种分布式文件管理系统 一、性质优点：1.高容错，多副本 2.处理数据规模大 3.可以构建在廉价机器上，不怕出问题  HDFS的使用场景：适合一次写入，多次读出的场景。 缺点：1.不适合低延迟访问 2.不适合存储小文件（占用NN资源，寻址时间超过读取时间） 3.不支持并发写入（一文件一线程 4.不支持随机修改（只能">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022-09-06-22-09-30.png">
+<meta property="og:image" content="http://example.com/2022-09-06-22-09-47.png">
+<meta property="article:published_time" content="2022-09-17T13:32:48.660Z">
+<meta property="article:modified_time" content="2022-09-17T10:53:39.229Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022-09-06-22-09-30.png">
+  
+    <link rel="alternate" href="/atom.xml" title="小金毛L的世界" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小金毛L的世界</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-HADOOPCLASS/CLASS02 HDFS/01HDFS基础理论和面试题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02%20HDFS/01HDFS%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E5%92%8C%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2022-09-17T13:32:48.660Z" itemprop="datePublished">2022-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h1><p>HDFS（Hadoop Distributed File System），是一种分布式文件管理系统</p>
+<h2 id="一、性质"><a href="#一、性质" class="headerlink" title="一、性质"></a>一、性质</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><pre><code>1.高容错，多副本
+2.处理数据规模大
+3.可以构建在廉价机器上，不怕出问题
+</code></pre>
+<p>HDFS的使用场景：适合一次写入，多次读出的场景。</p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><pre><code>1.不适合低延迟访问
+2.不适合存储小文件（占用NN资源，寻址时间超过读取时间）
+3.不支持并发写入（一文件一线程
+4.不支持随机修改（只能支持追加append
+</code></pre>
+<h2 id="二、组成架构"><a href="#二、组成架构" class="headerlink" title="二、组成架构"></a>二、组成架构</h2><h3 id="1-NN"><a href="#1-NN" class="headerlink" title="1.NN"></a>1.NN</h3><pre><code>1.管理HDFS命名空间
+2.管理副本策略
+3.数据块映射
+4.处理客户端请求
+</code></pre>
+<h3 id="2-DN"><a href="#2-DN" class="headerlink" title="2.DN"></a>2.DN</h3><pre><code>1.接受NN命令，存数据，读写数据
+</code></pre>
+<h3 id="3-Client"><a href="#3-Client" class="headerlink" title="3.Client"></a>3.Client</h3><pre><code>1.文件切分，在文件上传HDFS之前完成
+2.与NN交互→文件位置
+3.与DN交互→存取
+4.部分管理功能，如格式化NN
+5.部分HDFS增删改查功能
+</code></pre>
+<h3 id="4-2NN"><a href="#4-2NN" class="headerlink" title="4.2NN"></a>4.2NN</h3><pre><code>1.定期合并Fsimage和Edits，推送至NN
+2.紧急情况下可用于恢复NN（期间的数据可能会损失）
+3.考点：不完全是NN的备份
+</code></pre>
+<h1 id="HDFS面试题"><a href="#HDFS面试题" class="headerlink" title="HDFS面试题"></a>HDFS面试题</h1><p><img src="/2022-09-06-22-09-30.png"><br><img src="/2022-09-06-22-09-47.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/17/HADOOPCLASS/CLASS02%20HDFS/01HDFS%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E5%92%8C%E9%9D%A2%E8%AF%95%E9%A2%98/" data-id="cl85yq6uc000eysqp12yi34ll" data-title="" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02%20HDFS/02%E5%9F%BA%E7%A1%80SHELL%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/centos%E5%91%BD%E4%BB%A4%E8%A1%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/17/%E7%9F%AD%E7%AF%87%E5%B0%8F%E8%AF%B4/%E6%B1%89%E5%A0%A1%E5%8C%85%E3%80%81%E7%88%AC%E5%B1%B1%E8%BD%A6%E3%80%81%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/git/git%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/raid/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/paste%20image%E9%85%8D%E7%BD%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/17/%E5%8A%9B%E6%89%A3/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/%E6%89%BE%E5%87%BA%E4%B8%A4%E4%B8%AA%E7%9B%B8%E5%90%8C%E5%AD%97%E6%AF%8D%E6%9C%80%E9%95%BF%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Liteee的世界尽头</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="1-启动"><a href="#1-启动" class="headerlink" title="1.启动"></a>1.启动</h1><p>&#x2F;opt&#x2F;module&#x2F;had..路径下</p>
+<h2 id="HDFS初始化命令"><a href="#HDFS初始化命令" class="headerlink" title="HDFS初始化命令"></a>HDFS初始化命令</h2><pre><code>hdfs namenode -format
+</code></pre>
+<h2 id="HDFS启动命令"><a href="#HDFS启动命令" class="headerlink" title="HDFS启动命令"></a>HDFS启动命令</h2><pre><code>sbin/start-dfs.sh
+</code></pre>
+<h2 id="Yarn启动命令"><a href="#Yarn启动命令" class="headerlink" title="Yarn启动命令"></a>Yarn启动命令</h2><pre><code>sbin/start-yarn.sh
+</code></pre>
+<h1 id="WEB页面入口"><a href="#WEB页面入口" class="headerlink" title="WEB页面入口"></a>WEB页面入口</h1><p>NAMENOD数据信息E:<a target="_blank" rel="noopener" href="http://hadoop102:9870/">http://hadoop102:9870</a></p>
+<p>YARN任务信息:<a target="_blank" rel="noopener" href="http://hadoop103:8088/">http://hadoop103:8088</a></p>
+<h1 id="2-Namenode故障处理-x2F-再初始化"><a href="#2-Namenode故障处理-x2F-再初始化" class="headerlink" title="2.Namenode故障处理&#x2F;再初始化"></a>2.Namenode故障处理&#x2F;再初始化</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1.停止服务 </p>
+<pre><code>sbin/stop-dfs.sh
+</code></pre>
+<p>2.删除log和data文件</p>
+<pre><code>hadoop路径下
+rm -rf /data /log
+</code></pre>
+<p>3.重新初始化</p>
+<pre><code>hdfs namenode -format
+</code></pre>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p><img src="/2022-09-04-14-44-05.png"><br>在初始化后 NamespaceId和族群ID都产生变化<br>旧的data和log文件不能匹配</p>
+<p>似乎可以通过修改ID来解决？</p>
+<h1 id="3-配置历史服务器"><a href="#3-配置历史服务器" class="headerlink" title="3.配置历史服务器"></a>3.配置历史服务器</h1><p>hadoop内<br>配置文件：mapred-site.xml</p>
+<pre><code>    &lt;!-- 历史服务器端地址 --&gt;
+&lt;property&gt;
+    &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
+    &lt;value&gt;hadoop102:10020&lt;/value&gt;
+&lt;/property&gt;
+
+&lt;!-- 历史服务器web端地址 --&gt;
+&lt;property&gt;
+    &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
+    &lt;value&gt;hadoop102:19888&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<h2 id="NameNode出现重复的BUG"><a href="#NameNode出现重复的BUG" class="headerlink" title="NameNode出现重复的BUG"></a>NameNode出现重复的BUG</h2><p>启动时出现Namnode重复，要求杀死进程</p>
+<p>关闭时出现</p>
+<pre><code>NodeManager did not stop gracefully after 5 seconds: kill
+</code></pre>
+<p>出错原因是，启动dfs后，依旧在102上启动yarn。全部关闭后在103上启动即可解决</p>
+<h2 id="历史服务器的开启和关闭"><a href="#历史服务器的开启和关闭" class="headerlink" title="历史服务器的开启和关闭"></a>历史服务器的开启和关闭</h2><pre><code>mapred --daemon start historyserver
+mapred --daemon stop historyserver
+</code></pre>
+<p>其中mapred –daemon是控制单节点启动关闭的命令</p>
+<h2 id="历史服务器的查看窗口"><a href="#历史服务器的查看窗口" class="headerlink" title="历史服务器的查看窗口"></a>历史服务器的查看窗口</h2><pre><code>http://hadoop102:19888/jobhistory
+</code></pre>
+<h1 id="4-配置聚集日志"><a href="#4-配置聚集日志" class="headerlink" title="4.配置聚集日志"></a>4.配置聚集日志</h1><p>我</p>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

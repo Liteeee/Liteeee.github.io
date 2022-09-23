@@ -1,0 +1,881 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Liteee的世界尽头</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div id="home-head">
+    <div id="home-background" style="background-image: url(home.jpg)"></div>
+    
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Liteee的世界尽头</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+    
+</div>
+
+<div id="home-posts-wrap" class="">
+    <div id="home-posts">
+        <div id="posts">
+            
+
+<div class="post">
+    <a href="/2022/09/19/GAMES104/104笔记（二）/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/19
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="GAMES104第三节"><a href="#GAMES104第三节" class="headerlink" title="GAMES104第三节"></a>GAMES104第三节</h1><h2 id="Tick"><a href="#Tick" class="headerlink" title="Tick"></a>Tick</h2><p><img src="/./imgs/2022-09-19-23-14-59.png"></p>
+<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p><img src="/./imgs/2022-09-19-23-15-47.png"></p>
+<p>解决了表现的过程，每个GO(gameobject)都能完成一个完整的GO。</p>
+<h2 id="GO交互"><a href="#GO交互" class="headerlink" title="GO交互"></a>GO交互</h2><p>每个GO都在进行自己的周期，交互会改变周期的运作<br>1.避免HardCode，即模拟类算法（例如编写每一个单位的受伤TICK）<br>2.推荐Events机制，统一为一个受伤Events</p>
+<p><img src="/./imgs/2022-09-19-23-21-13.png"></p>
+<p>如图为U3d和UE的事件示例</p>
+<h2 id="GO管理"><a href="#GO管理" class="headerlink" title="GO管理"></a>GO管理</h2><p>游戏中会有海量的GO</p>
+<h4 id="实现标识方式："><a href="#实现标识方式：" class="headerlink" title="实现标识方式："></a>实现标识方式：</h4><ul>
+<li>独特的ID</li>
+<li>位置信息position</li>
+</ul>
+<h2 id="场景管理"><a href="#场景管理" class="headerlink" title="场景管理"></a>场景管理</h2><ul>
+<li>游戏中的场景资源分配经常会出现不均匀的现象（过于集中或分散）</li>
+<li>容易造成资源浪费<br><img src="/./imgs/2022-09-19-23-27-00.png"></li>
+</ul>
+<h2 id="场景管理方式"><a href="#场景管理方式" class="headerlink" title="场景管理方式"></a>场景管理方式</h2><h4 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h4><h4 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h4><h2 id="物体绑定方式"><a href="#物体绑定方式" class="headerlink" title="物体绑定方式"></a>物体绑定方式</h2><p>这个问题能够引申到GO的TICK之间的关联</p>
+<h4 id="传统TICK绑定机制"><a href="#传统TICK绑定机制" class="headerlink" title="传统TICK绑定机制"></a>传统TICK绑定机制</h4><ul>
+<li>人上车，人被绑到车上。</li>
+<li>人物的GO向车发送绑定信息</li>
+<li>绑定后，车的TICK运行时会改变人物的TICK</li>
+<li>人与车的TICK会产生时序性的问题，也会有循环依赖<br>例如车上的人与其他GO产生TICK变化同时，车也产生了TICK需要影响角色的TICK。</li>
+</ul>
+<h4 id="严格时序的消息传递机制"><a href="#严格时序的消息传递机制" class="headerlink" title="严格时序的消息传递机制"></a>严格时序的消息传递机制</h4><p><img src="/./imgs/2022-09-19-23-38-01.png"></p>
+<ul>
+<li>邮局：统一转发GO的消息，不允许GO单独发送消息<br>当每一个GO单独发消息时：可以精确规定发送方的【发送帧】，精确接收方的哪一帧才能接收到的【接受帧】，以及【接收帧】后多久（立即&#x2F;延迟）才开始【新的TICK】</li>
+<li>PreTick</li>
+<li>PostTick</li>
+</ul>
+<h1 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h1><h3 id="TICK过长的问题"><a href="#TICK过长的问题" class="headerlink" title="TICK过长的问题"></a>TICK过长的问题</h3><ul>
+<li>案例：一帧爆炸里面有上百个物体要运动<br>全部都在一个TICK里的话，可能会出现的TICK过长的问题</li>
+</ul>
+<p>解决案例：按照一定规则进行拆分成多P，拆分几十个TICK到多个帧数里。按照策略（部分GO并不影响体验的可以适当延迟），在尽可能保持玩家体验的前提下不让TICK太长。</p>
+<h3 id="TICK中RENDER和LOGIC线程关系"><a href="#TICK中RENDER和LOGIC线程关系" class="headerlink" title="TICK中RENDER和LOGIC线程关系"></a>TICK中RENDER和LOGIC线程关系</h3><p>TICK_LOGIC的运作通常会比RENDER早，而且一般分为不同的线程。<br>而Render中可能会有多个线程做数据准备（例如产生粒子）</p>
+<p>TICK_LOGIC产生的结果通常可能在RENDER之后。</p>
+<p>例如：从按下手柄到画产生变化的【延迟过程】<br>    【一个普通的延迟过程：TICK_LOGIC()产生结果-&gt;TICK_RENDER()画面运作]</p>
+<ul>
+<li>为了减少延迟感，提升实时感，仍然需要诸多策略。</li>
+<li>为了表现上同步，实际上分步。</li>
+</ul>
+<h3 id="空间划分处理动态GO的问题"><a href="#空间划分处理动态GO的问题" class="headerlink" title="空间划分处理动态GO的问题"></a>空间划分处理动态GO的问题</h3><p>一个场景的空间划分需要储备多种空间划分方法以应对多种情况。</p>
+<h3 id="组件模式的优缺点"><a href="#组件模式的优缺点" class="headerlink" title="组件模式的优缺点"></a>组件模式的优缺点</h3><p>————允许一个单一的实体跨越多个不同域而不会导致耦合<br>————组件之间会产生较多的信息查询</p>
+<h4 id="组件的使用情景："><a href="#组件的使用情景：" class="headerlink" title="组件的使用情景："></a>组件的使用情景：</h4><ul>
+<li>你有一个涉及多个域的大类，并且你希望这些域可以保持相互解耦。</li>
+<li>一个类越来越大、难以维护和继续开发。</li>
+<li>你希望重用代码，但是通过继承的方式不能精确、完全的复用。</li>
+</ul>
+<p>一个不太准确的使用情况：</p>
+<pre><code>例如把物理、动画、音乐作各作个Component。
+在一个【PlayerUpdate】的class中实现信息传递。
+而不要在一个动作的代码中执行它的音效。
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/19/GAMES104/104笔记（二）/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/19/力扣/哈希表/哈希表记频率+模拟+定义排序/">
+        <h2 class="post-title">【每日一题】哈希+模拟+Sort()自定义</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/19
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="按频率排序按数字降序"><a href="#按频率排序按数字降序" class="headerlink" title="按频率排序按数字降序"></a>按频率排序按数字降序</h1><h2 id="哈希-模拟-sort-重定"><a href="#哈希-模拟-sort-重定" class="headerlink" title="哈希+模拟+sort()重定"></a>哈希+模拟+sort()重定</h2><p>给你一个整数数组 nums ，请你将数组按照每个值的频率 升序 排序。如果有多个值的频率相同，请你按照数值本身将它们 降序 排序。 </p>
+<p>请你返回排序后的数组。<br>示例：</p>
+<pre><code>输入：[1,1,2,2,2,3,-1,99,88,88,7,12,13,12]
+输出：[99,13,7,3,-1,88,88,12,12,1,1,2,2,2]
+</code></pre>
+<p>##思路：</p>
+<ul>
+<li>map统计词频</li>
+<li>模拟（用计算机来模拟真实操作，通常需要用纸）此处用sort完成两种排序</li>
+<li>sort的新用法</li>
+</ul>
+<h4 id="sort（start，end-排序方式）"><a href="#sort（start，end-排序方式）" class="headerlink" title="sort（start，end,排序方式）"></a>sort（start，end,排序方式）</h4><p>其中，排序方式的参数可以是函数定义，也可以是函数调用<br>假设sort可以认为是排序完了之后再进行排序方式<br>    如果a与b相同，则按a与b的降序排列（a&gt;b）<br>    如果a与b不相同，则按他们的值a[]升序排列(a&lt;b)</p>
+<h4 id="巧妙之处在于map只用来查找，充分发挥哈希的优势-实际排序发生在nums中，也利用了vector的优势"><a href="#巧妙之处在于map只用来查找，充分发挥哈希的优势-实际排序发生在nums中，也利用了vector的优势" class="headerlink" title="巧妙之处在于map只用来查找，充分发挥哈希的优势,实际排序发生在nums中，也利用了vector的优势"></a>巧妙之处在于map只用来查找，充分发挥哈希的优势,实际排序发生在nums中，也利用了vector的优势</h4><p>代码:</p>
+<pre><code class="c++">class Solution &#123;
+public:
+    vector&lt;int&gt; frequencySort(vector&lt;int&gt;&amp; nums) &#123;
+        unoredered_map&lt;int,int&gt;map1;
+        for(auto&amp; i : nums)&#123;
+            map1[i]++;
+        &#125;
+        sort(nums.begin(), nums.end(), [&amp;](const int a, const int b) &#123;
+            if (map1[a] != map1[b]) &#123;
+                return map1[a] &lt; map1[b];
+            &#125;
+            return a &gt; b;
+        &#125;);
+        return nums;
+    &#125;
+&#125;;
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/hexo/" style="color: #00a596">
+                hexo
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/markdown/" style="color: #ffa2c4">
+                markdown
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/09/19/力扣/哈希表/哈希表记频率+模拟+定义排序/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/18/时间序列分析/时间序列分析第二节课/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="时间序列预处理-纯随机性检验"><a href="#时间序列预处理-纯随机性检验" class="headerlink" title="时间序列预处理-纯随机性检验"></a>时间序列预处理-纯随机性检验</h1><h2 id="纯随机序列定义（白噪声序列）"><a href="#纯随机序列定义（白噪声序列）" class="headerlink" title="纯随机序列定义（白噪声序列）"></a>纯随机序列定义（白噪声序列）</h2><p><img src="/./imgs/2022-09-18-12-49-53.png"><br>白噪声序列一定是平稳序列。是最简单的平稳序列。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><h4 id="1-纯随机性"><a href="#1-纯随机性" class="headerlink" title="1.纯随机性"></a>1.纯随机性</h4><pre><code>𝜸𝒌=𝟎,∀𝒌≠𝟎
+</code></pre>
+<p>说明序列各项之间没有任何关系。</p>
+<h4 id="2-方差齐性"><a href="#2-方差齐性" class="headerlink" title="2.方差齐性"></a>2.方差齐性</h4><pre><code>𝑫𝑿𝐭=𝜸𝟎=𝝈𝟐
+</code></pre>
+<p>序列中的每个变量的方差都相同。只有方差齐性时，最小二乘法估计的参数才是准确有效的。<br>异方差性质：无法满足方差齐性。<br>用途：检验模型的【残差】是否【方差齐性】，若不是则说明相关信息不足→非平稳随机序列分析（异方差模型）</p>
+<h2 id="纯随机性检验（白噪声检验）"><a href="#纯随机性检验（白噪声检验）" class="headerlink" title="纯随机性检验（白噪声检验）"></a>纯随机性检验（白噪声检验）</h2><h4 id="1-图检验"><a href="#1-图检验" class="headerlink" title="1.图检验"></a>1.图检验</h4><p>在零附件小幅度随机波动<br><img src="/./imgs/2022-09-18-13-43-19.png"></p>
+<h4 id="2-Barlett定理"><a href="#2-Barlett定理" class="headerlink" title="2.Barlett定理"></a>2.Barlett定理</h4><pre><code>𝝆𝒌ሶ~𝑵𝟎,𝟏𝒏,∀𝒌≠𝟎 （均值=0，方差为1/n的正态分布）
+</code></pre>
+<p>一个纯随机序列{𝑥𝑡,𝑡&#x3D;1,2,…,𝑛}的延迟K样本的ρ将服从上述分布</p>
+<h4 id="3-假设检验"><a href="#3-假设检验" class="headerlink" title="3.假设检验"></a>3.假设检验</h4><p>原假設：延遲期數小於或等於m的序列值之間相互獨立<br>备选假設：延遲期數小於或等於m的序列值之間有相關性19</p>
+<h4 id="4-检验统计量"><a href="#4-检验统计量" class="headerlink" title="4.检验统计量"></a>4.检验统计量</h4><p><img src="/./imgs/2022-09-18-14-00-36.png"></p>
+<p>n为观察期数，m为指定延期数</p>
+<p>注：当【Q大于𝜒1−𝛼2(𝑚)分位点 或 P &lt; α 】时，可以以【1 - α】拒绝原假设</p>
+<p><img src="/./imgs/2022-09-18-14-03-36.png"></p>
+<p>说明：LB是Q的修正，两者统称为Q统计量。记为𝑄𝐵𝑃和𝑄𝐿𝐵。往往普遍采用的是𝑄𝐿𝐵统计量</p>
+<h4 id="5-卡方分布"><a href="#5-卡方分布" class="headerlink" title="5.卡方分布"></a>5.卡方分布</h4><p><img src="/./imgs/2022-09-18-14-38-07.png"></p>
+<h2 id="纯随机性检验案例"><a href="#纯随机性检验案例" class="headerlink" title="纯随机性检验案例"></a>纯随机性检验案例</h2><p>1.白噪聲序列的r_k<br>2.计算LB<br>3.查卡方分布表<br>4.α&#x3D;0.05<br>5.P</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/时间序列分析第二节课/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/18/时间序列分析/作业一的分解/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="作业2-1"><a href="#作业2-1" class="headerlink" title="作业2-1"></a>作业2-1</h1><h2 id="CAL-ACF函数"><a href="#CAL-ACF函数" class="headerlink" title="CAL_ACF函数"></a>CAL_ACF函数</h2><pre><code class="python">def cal_acf(x, nlags):
+    x = np.array(x)
+    mean_x = np.mean(x)#求均值ex
+    print(&#39;ex:&#39;,mean_x)
+    length_x = x.shape[0]#序列长度
+    c_0 = np.mean((x-mean_x) **2)#E[（x-E(x)）^2]
+    print(&#39;c_0:&#39;,c_0)
+    c_k = np.sum((x[:(length_x-nlags)] - mean_x) * (x[nlags:] - mean_x)) / length_x
+    #从第零个元素到x-k个元素 x[:(length_x-nlags)]=记为Xi~Xk
+    #所以[X1~Xk(保留前k项目)-E(X)]*[Xk~Xn（删除前k项）-E（x)] / T
+    #累加len-k次
+</code></pre>
+<p>此处对应<br><img src="/./imgs/2022-09-15-17-19-02.png"></p>
+<pre><code class="python">    r_k = c_k / c_0
+    return r_k
+</code></pre>
+<p>此处对应<br><img src="/./imgs/2022-09-15-17-35-57.png"></p>
+<h2 id="标准差函数"><a href="#标准差函数" class="headerlink" title="标准差函数"></a>标准差函数</h2><p><img src="/./imgs/2022-09-15-17-40-27.png"><br>代码实现</p>
+<pre><code class="python">def cal_dev(r,j,n):
+    sum=np.sum(r*r)
+    print(sum)
+    temp2=sum*2+1
+    res=np.sqrt(temp2/n)
+    return res
+</code></pre>
+<h2 id="置信区间"><a href="#置信区间" class="headerlink" title="置信区间"></a>置信区间</h2><p><img src="/./imgs/2022-09-15-20-56-34.png"></p>
+<h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><pre><code class="python">    myacf = np.ones((17))
+    twosigma = np.ones((17))
+    for i in range(17):
+        myacf[i]=cal_acf(y,i)
+        print(i,myacf[:i])
+        twosigma[i] = cal_dev(myacf[:i],i,len(y))*1.96 #1.96置信区间
+</code></pre>
+<h1 id="作业2-2"><a href="#作业2-2" class="headerlink" title="作业2-2"></a>作业2-2</h1>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/作业一的分解/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/18/时间序列分析/时间序列分析第一节课/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="时间序列预处理–平稳性检验"><a href="#时间序列预处理–平稳性检验" class="headerlink" title="时间序列预处理–平稳性检验"></a>时间序列预处理–平稳性检验</h1><h1 id="代码随记"><a href="#代码随记" class="headerlink" title="代码随记"></a>代码随记</h1><h2 id="作业用到库函数"><a href="#作业用到库函数" class="headerlink" title="作业用到库函数"></a>作业用到库函数</h2><h3 id="1-np库"><a href="#1-np库" class="headerlink" title="1.np库"></a>1.np库</h3><p>生成元组</p>
+<pre><code>np.ones(shape, dtype=None, order=&#39;C&#39;)
+</code></pre>
+<p>1.shape：一个整数类型或者一个整数元组，用于定义数组的大小。如果仅指定一个整数类型变量，则返回一维数组。如果指定的是整数元组，则返回给定形状的数组。<br>2.dtype：可选参数，默认值为float。用于指定数组的数据类型。<br>3.order：指定内存重以行优先(‘C’)还是列优先(‘F’)顺序存储多维数组。</p>
+<h3 id="smlt函数库"><a href="#smlt函数库" class="headerlink" title="smlt函数库"></a>smlt函数库</h3><p>参考文献<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41103204/article/details/105810742">https://blog.csdn.net/qq_41103204/article/details/105810742</a></p>
+<h4 id="ACF"><a href="#ACF" class="headerlink" title="ACF"></a>ACF</h4><p>ACF 是一个完整的自相关函数。提供延迟自相关值<br>要点：表示【当前值】与【滞后值（延迟值）】之间的关系</p>
+<h4 id="PACF"><a href="#PACF" class="headerlink" title="PACF"></a>PACF</h4><p>PACF 是部分自相关函数或者偏自相关函数<br>要点：表示【残差】与【滞后值】之间的关系</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/时间序列分析第一节课/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/18/时间序列分析/函数整理/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="理论笔记"><a href="#理论笔记" class="headerlink" title="理论笔记"></a>理论笔记</h1><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h2 id="番外、基础表达式整理"><a href="#番外、基础表达式整理" class="headerlink" title="番外、基础表达式整理"></a>番外、基础表达式整理</h2><p>均值<br><img src="/./imgs/2022-09-15-00-22-39.png"><br>方差<br><img src="/./imgs/2022-09-15-00-22-46.png"><br>自协方差<br><img src="/./imgs/2022-09-15-00-23-21.png"><br>自相关函数ACF<br><img src="/./imgs/2022-09-15-00-23-30.png"></p>
+<h2 id="一、平稳时间序列"><a href="#一、平稳时间序列" class="headerlink" title="一、平稳时间序列"></a>一、平稳时间序列</h2><p>延迟K方差<br><img src="/./imgs/2022-09-15-00-26-53.png"><br>平稳时间序列的常数方差<br><img src="/./imgs/2022-09-15-00-26-30.png"></p>
+<h4 id="1-延迟k自相关系数"><a href="#1-延迟k自相关系数" class="headerlink" title="1.延迟k自相关系数"></a>1.延迟k自相关系数</h4><p><img src="/./imgs/2022-09-15-00-25-36.png"></p>
+<h4 id="自相关系数的特性："><a href="#自相关系数的特性：" class="headerlink" title="自相关系数的特性："></a>自相关系数的特性：</h4><ol>
+<li>規範性 𝜌0 &#x3D; 1且 𝜌𝑘 ≤ 1, ∀𝑘</li>
+<li>對稱性 𝜌𝑘 &#x3D; 𝜌−𝑘</li>
+<li>非負定性 對任意正整數m，相關陣Γ𝑚為對稱非負定陣</li>
+<li>非唯一性：一個平穩時間序列唯一決定它的自相關函數，但一個自相關函數<br>未必唯一對應著一個平穩時間序列。</li>
+</ol>
+<h4 id="与之相关的函数"><a href="#与之相关的函数" class="headerlink" title="与之相关的函数"></a>与之相关的函数</h4><p><img src="/2022-09-14-22-39-27.png"><br>理解：y是一个求方差函数，传入值是t与t+k的方差</p>
+<h2 id="二、图检验"><a href="#二、图检验" class="headerlink" title="二、图检验"></a>二、图检验</h2><p>系数：其中一個坐標軸是自相關係數，另一個坐標軸是延遲時期數。<br>检验步骤：<br><img src="/./imgs/2022-09-15-00-29-02.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/函数整理/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/GAMES104/104笔记（一）/">
+        <h2 class="post-title">GAMES104笔记（一）</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="GAMES104"><a href="#GAMES104" class="headerlink" title="GAMES104"></a>GAMES104</h1><h2 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h2><h3 id="功能层（Function-Layer）"><a href="#功能层（Function-Layer）" class="headerlink" title="功能层（Function Layer）"></a>功能层（Function Layer）</h3><p>媒体文件居多。<br><img src="/./imgs/2022-09-17-23-38-03.png"></p>
+<h3 id="资源层（Resource-Layer）"><a href="#资源层（Resource-Layer）" class="headerlink" title="资源层（Resource Layer）"></a>资源层（Resource Layer）</h3><p>作为功能层的接口。<br><img src="/./imgs/2022-09-17-23-38-16.png"></p>
+<h3 id="核心层（Core-Layer）"><a href="#核心层（Core-Layer）" class="headerlink" title="核心层（Core Layer）"></a>核心层（Core Layer）</h3><p>提供游戏需要的工具&#x2F;方法：例如内存管理、数学模块等等，<br>是游戏的逻辑管理的基础。</p>
+<h3 id="平台层（Platform-Layer）"><a href="#平台层（Platform-Layer）" class="headerlink" title="平台层（Platform Layer）"></a>平台层（Platform Layer）</h3><p>对不同平台进行处理：不同硬件的输入方式、渲染接口、功能特性等。</p>
+<h2 id="建立引擎的步骤"><a href="#建立引擎的步骤" class="headerlink" title="建立引擎的步骤"></a>建立引擎的步骤</h2><ul>
+<li>有了【平台层】，解决了不同平台特性的问题</li>
+<li>然后建立所有功能处理的内核，【核心层】</li>
+<li>再建立【资源层】对【资源进行加载和管理】</li>
+<li>接着我们建立【功能层】来进行与【游戏相关的操作】</li>
+<li>最后我们建立【工具层】将功能层进行的与游戏相关的操作【可视化为编辑器】出来供使用者们使用</li>
+</ul>
+<div STYLE="page-break-after: always;"></div>
+
+<h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><p><img src="/./imgs/2022-09-17-23-38-40.png"></p>
+<h1 id="1-从资源导入到游戏运行的过程"><a href="#1-从资源导入到游戏运行的过程" class="headerlink" title="1.从资源导入到游戏运行的过程"></a>1.从资源导入到游戏运行的过程</h1><h2 id="1-1-Importing"><a href="#1-1-Importing" class="headerlink" title="1.1 Importing"></a>1.1 Importing</h2><p>将不同的媒体数据(resource)载入为高效的数据形式(asset)<br>示例：</p>
+<pre><code>unity中：importing
+创建meta文件：记录资源设置
+创建引擎本地高效资源
+创建关联文件：关联原始资源与引擎实际资源
+GUID：资源唯一识别号
+</code></pre>
+<h2 id="1-2-关联资产-composite-asset"><a href="#1-2-关联资产-composite-asset" class="headerlink" title="1.2 关联资产(composite asset)"></a>1.2 关联资产(composite asset)</h2><p>将一个角色与他的资源(GUID mesh text animation等)关联起来（在内存中）</p>
+<h2 id="1-3-资源管理-Runtime-Asset-Manager"><a href="#1-3-资源管理-Runtime-Asset-Manager" class="headerlink" title="1.3 资源管理 Runtime Asset Manager"></a>1.3 资源管理 Runtime Asset Manager</h2><p>处理运行时的资源加载和卸载，把内存中的资源卸载下来，并且保持他们的关联性。<br>资源管理的关注面：</p>
+<pre><code>硬件性能：可以申请多少内存
+资源回收：回收资源时的耗时
+资源加载：加载耗时 - 同步异步处理
+</code></pre>
+<h2 id="1-3功能-x2F-玩法编辑（功能层）"><a href="#1-3功能-x2F-玩法编辑（功能层）" class="headerlink" title="1.3功能&#x2F;玩法编辑（功能层）"></a>1.3功能&#x2F;玩法编辑（功能层）</h2><h3 id="TICK"><a href="#TICK" class="headerlink" title="TICK"></a>TICK</h3><p>引擎里的时钟概念，是将游戏中所有模块执行一次的周期。现在通常为1&#x2F;30秒？<br><img src="/./imgs/2022-09-17-23-52-09.png"></p>
+<h3 id="TICK的模块划分"><a href="#TICK的模块划分" class="headerlink" title="TICK的模块划分"></a>TICK的模块划分</h3><p><img src="/./imgs/2022-09-17-23-57-00.png"></p>
+<h3 id="TickLogic"><a href="#TickLogic" class="headerlink" title="TickLogic"></a>TickLogic</h3><ul>
+<li>读取输入输出</li>
+<li>计算世界物理信息</li>
+<li>移动camera，角色和物体</li>
+<li>碰撞检测等</li>
+<li>以及各种游戏玩法的事都属于逻辑，比如角色A打到了角色B，因为不管看没看见，A都打到了B并造成了伤害</li>
+</ul>
+<h3 id="TickRender"><a href="#TickRender" class="headerlink" title="TickRender"></a>TickRender</h3><p>负责渲染</p>
+<h2 id="1-4-核心层"><a href="#1-4-核心层" class="headerlink" title="1.4 核心层"></a>1.4 核心层</h2><h3 id="1-4-1高性能计算"><a href="#1-4-1高性能计算" class="headerlink" title="1.4.1高性能计算"></a>1.4.1高性能计算</h3><p>需要重写一些运算以保证实时效率</p>
+<h3 id="1-4-2数据结构与容器"><a href="#1-4-2数据结构与容器" class="headerlink" title="1.4.2数据结构与容器"></a>1.4.2数据结构与容器</h3><p><img src="/./imgs/2022-09-18-01-23-03.png"><br>需要自定义一些高效访问的容器</p>
+<h3 id="1-4-3内存管理"><a href="#1-4-3内存管理" class="headerlink" title="1.4.3内存管理"></a>1.4.3内存管理</h3><p>游戏引擎的内存管理十分接近操作系统。游戏引擎的内存性能瓶颈：</p>
+<ul>
+<li>内存池（分配器）</li>
+<li>Cache Miss</li>
+<li>内存对齐</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/游戏引擎/" style="color: #00bcd4">
+                游戏引擎
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/09/17/GAMES104/104笔记（一）/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/HEXO/HEXO测试和模板/">
+        <h2 class="post-title">Hexo-Blog</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="hexo模板"><a href="#hexo模板" class="headerlink" title="hexo模板"></a>hexo模板</h1><pre><code>---
+title: hexo-blog
+date: 2017-01-13 16:07:32
+tags: [tag1,tag2]
+---
+</code></pre>
+<h1 id="MD的功能"><a href="#MD的功能" class="headerlink" title="MD的功能"></a>MD的功能</h1><p><em>这是斜体</em> 或 <em>这也是斜体</em><br><strong>这是粗体</strong><br><em><strong>这是加粗斜体</strong></em><br><del>这是删除线</del></p>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>行内形式：<a href="liteeee.github.io">我的博客</a></p>
+<pre><code>行内形式：[我的博客](https://)
+</code></pre>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
+<li>A</li>
+</ul>
+<ul>
+<li>B</li>
+</ul>
+<ul>
+<li>C</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table>
+<thead>
+<tr>
+<th>表头1</th>
+<th align="left">表头2</th>
+<th align="center">表头3</th>
+<th align="right">表头4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对其</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对其</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对其</td>
+<td align="right">右对齐</td>
+</tr>
+</tbody></table>
+<pre><code>| 表头1|表头2|表头3|表头4
+|-| :- | :-: | -: |
+|默认左对齐|左对齐|居中对其|右对齐|
+|默认左对齐|左对齐|居中对其|右对齐|
+|默认左对齐|左对齐|居中对其|右对齐|
+</code></pre>
+<p>教程来源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/56d99a3049a5">https://www.jianshu.com/p/56d99a3049a5</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/hexo/" style="color: #00a596">
+                hexo
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/markdown/" style="color: #ff7d73">
+                markdown
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/09/17/HEXO/HEXO测试和模板/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/短篇小说/汉堡包、爬山车、截止日期/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="汉堡包、爬山车、截止日期"><a href="#汉堡包、爬山车、截止日期" class="headerlink" title="汉堡包、爬山车、截止日期"></a>汉堡包、爬山车、截止日期</h1><h2 id="22-x2F-9-x2F-11-17：44斜阳，阳台窗边"><a href="#22-x2F-9-x2F-11-17：44斜阳，阳台窗边" class="headerlink" title="22&#x2F;9&#x2F;11 17：44斜阳，阳台窗边"></a>22&#x2F;9&#x2F;11 17：44斜阳，阳台窗边</h2><pre><code>    从阳台边醒来，望见远方如大雾一般若隐若现的淡蓝色海岸线。脚下车水马龙，好不热闹。仔细一看，这并非是什么阳台，而是活脱脱的一座摩天轮。摩天轮上只有一个船舱，但我无论如何都想不起自己是怎样上来的。
+    太阳被视野右侧高高瘦瘦的西式居民房所遮挡，卡其色的墙面与深蓝色的穹顶边缘泛着柔和的光线，散射在天空中，就像蛋黄奶油的馅料一样。
+    摩天轮还在缓慢爬升，大约在时钟上十刻的地方。虽然视野正在逐渐变得敞亮，却依然没有能够看清太阳的迹象。又或者那只是我此刻心理的假象，但在那之前，寒冷和饥饿可能会让我看不到下一轮太阳。我醒悟过来，慌忙地从随身斜跨的蓝色运动包中寻找食品。由于平日里的坏习惯，里面到处充满了开过的塑料袋。只剩下一个用纸包着的汉堡是完好无损的。里头是两片干瘪的面包，夹着一块干柴的混合肉片，缝隙间隐约可见芝士和酸黄瓜，拿在手上也没有丝毫温度，如果现在是下午的话，至少是清晨买来的吧。
+    没有任何犹豫的余地，我胡乱地将其往嘴里乱塞一通，芝士中透露着酸涩感和一丝番茄酱的甜味。没有饮料的话，实在有些令人生腻，是标准的工业流水线口味，打上不上不下的品牌的价格，便可用来度过枯燥无味的一天。
+    既然我是八九个小时前买来的这汉堡，那中间做了些什么，又是如何到这摩天轮顶上，我还是难以找到蛛丝马迹。虽然我一向认为自己是一个理性的人，至少足以完成理工科学士。但照着我的人生经历来说，可能是为了逃避某些事情，又或是在紧急情况下被人坑蒙到这里来也未尝得知。
+    把时间推到更久以前，依稀能够记得昨天晚上，在木栈桥道的灯光下。与一位友人相谈甚欢。从近况，到文学、爱好、计算性能等等，几乎无所不谈。友人穿着不对称的红白大衣，左手是束口的红色布料，从胸口到右手则是米黄色宽松的长袖，大衣之下是一条宽大的灯笼裤。本来在都市中应该也是引人注目的奇异造型，但是这一身浅色色调在黑夜中反而十分的低调。
+    我们聊到了他未发的新诗，新诗自然提到截稿日，而他也一如既往一副毫不关心的样子，好像世界的截止日期都已将至，一篇小诗的事情就像一个玩具恐龙在三百米高的克苏鲁水怪面前一般平静而渺小。现在，这个世界到处都在变得模糊，就像漫起大雾，但实际上却是天气晴朗，秋高气爽。楼下的车流来来往往，车笛的啼叫，轮胎摩擦地板的声音，引擎的轰鸣，却越发让我感到平静。就像四周的居住区，别墅区，大约已经住满了人，却没有一户人家开灯。不往公路上看的话，仿佛世界已经停止了运转。在模糊中，好像忘记掉未来的截止日期，忘记掉自己做过什么事情，反而会比较幸福。在白雾中，我不再思考自己为何来到这里，而是琢磨起昨晚灯火阑珊处的诗篇。
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/短篇小说/汉堡包、爬山车、截止日期/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/查漏补缺/git/git操作/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="GIT连接GITHUB"><a href="#GIT连接GITHUB" class="headerlink" title="GIT连接GITHUB"></a>GIT连接GITHUB</h1><pre><code>ssh-keygen -t rsa -C 生成公钥
+到github/gitee中添加公钥
+git remote add origin [仓库地址]
+</code></pre>
+<h1 id="常用基础操作"><a href="#常用基础操作" class="headerlink" title="常用基础操作"></a>常用基础操作</h1><h2 id="上传操作"><a href="#上传操作" class="headerlink" title="上传操作"></a>上传操作</h2><pre><code>git add . 添加到缓存区
+git commit -m &quot;code&quot; 提交到分支
+git push 上传
+</code></pre>
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><pre><code>git branch 显示分支 -a显示所有分支 -online显示线上分支
+git chekcout [branchName] 切换分支
+git branch [branchName] 创建分支
+git merge [branchName]  合并分支 
+    --allow-unrelated-histories在不同设备上创建新库并合并时
+</code></pre>
+<h1 id="版本控制操作"><a href="#版本控制操作" class="headerlink" title="版本控制操作"></a>版本控制操作</h1><p>HEAD可以理解为一个指针</p>
+<pre><code>git log 查看日志 --pretty=oneline 只看版本号和备注
+git reflog 比log多了[reset操作记录]和[删除操作记录],更全面
+
+git reset --hard [版本号] 更换版本
+git reset --hard HEAD^  回退一个版本
+git reset --hard HEAD~n 回退n个版本
+
+git reset --soft  ：1.仅在本地版本库移动指针。
+git reset --mixed : 1.移动本地版本库的指针；2.重置暂存区。（默认的参数）
+git reset --hard  : 1.移动本地版本库的指针；2.重置暂存区；3.重置工作区。
+</code></pre>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>.gitignore 用于配置不需要git控制的文件 支持正则表达式</p>
+<h2 id="文本规范"><a href="#文本规范" class="headerlink" title="文本规范"></a>文本规范</h2><pre><code>.gitignore 的格式规范如下：
+• 所有空行或者以 # 开头的行都会被 Git 忽略。
+• 可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。
+• 匹配模式可以以（/）开头防止递归。
+• 匹配模式可以以（/）结尾指定目录。
+• 要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。
+# 忽略所有的 .a 文件
+</code></pre>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>*.a
+# 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
+!lib.a
+# 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
+/TODO
+# 忽略任何目录下名为 build 的文件夹
+build/
+# 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
+doc/*.txt
+# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
+doc/**/*.pdf
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/查漏补缺/git/git操作/" class="go-post">阅读全文</a>
+</div>
+
+             
+<div class="page-current">
+    <div class="prev">
+        
+        <a href="/">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-left fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+    <div class="page-index">
+        
+        <span>
+            
+            
+            <a href="/">
+                <span class="page-num">
+                    1
+                </span>
+            </a>
+        </span>
+        
+        <span class="current">
+            2
+        </span>
+        
+        <span>
+            <a href="/page/3/">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+            <a href="/page/4">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+            
+        </span>
+        
+    </div>
+    <div class="next">
+        
+        <a href="/page/3/ ">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-right fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+</div>
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="Avator.png " alt="avatar">
+        </div>
+        <div class="name">
+            John Doe
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                Description...
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+        </div>
+        <div class="friend-links">
+            
+        </div>
+    </div>
+</div>
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

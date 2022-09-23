@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Liteee的世界尽头</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="时间序列预处理-纯随机性检验"><a href="#时间序列预处理-纯随机性检验" class="headerlink" title="时间序列预处理-纯随机性检验"></a>时间序列预处理-纯随机性检验</h1><h2 id="纯随机序列定义（白噪声序列）"><a href="#纯随机序列定义（白噪声序列）" class="headerlink" title="纯随机序列定义（白噪声序列）"></a>纯随机序列定义（白噪声序列）</h2><p><img src="/./imgs/2022-09-18-12-49-53.png"><br>白噪声序列一定是平稳序列。是最简单的平稳序列。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><h4 id="1-纯随机性"><a href="#1-纯随机性" class="headerlink" title="1.纯随机性"></a>1.纯随机性</h4><pre><code>𝜸𝒌=𝟎,∀𝒌≠𝟎
+</code></pre>
+<p>说明序列各项之间没有任何关系。</p>
+<h4 id="2-方差齐性"><a href="#2-方差齐性" class="headerlink" title="2.方差齐性"></a>2.方差齐性</h4><pre><code>𝑫𝑿𝐭=𝜸𝟎=𝝈𝟐
+</code></pre>
+<p>序列中的每个变量的方差都相同。只有方差齐性时，最小二乘法估计的参数才是准确有效的。<br>异方差性质：无法满足方差齐性。<br>用途：检验模型的【残差】是否【方差齐性】，若不是则说明相关信息不足→非平稳随机序列分析（异方差模型）</p>
+<h2 id="纯随机性检验（白噪声检验）"><a href="#纯随机性检验（白噪声检验）" class="headerlink" title="纯随机性检验（白噪声检验）"></a>纯随机性检验（白噪声检验）</h2><h4 id="1-图检验"><a href="#1-图检验" class="headerlink" title="1.图检验"></a>1.图检验</h4><p>在零附件小幅度随机波动<br><img src="/./imgs/2022-09-18-13-43-19.png"></p>
+<h4 id="2-Barlett定理"><a href="#2-Barlett定理" class="headerlink" title="2.Barlett定理"></a>2.Barlett定理</h4><pre><code>𝝆𝒌ሶ~𝑵𝟎,𝟏𝒏,∀𝒌≠𝟎 （均值=0，方差为1/n的正态分布）
+</code></pre>
+<p>一个纯随机序列{𝑥𝑡,𝑡&#x3D;1,2,…,𝑛}的延迟K样本的ρ将服从上述分布</p>
+<h4 id="3-假设检验"><a href="#3-假设检验" class="headerlink" title="3.假设检验"></a>3.假设检验</h4><p>原假設：延遲期數小於或等於m的序列值之間相互獨立<br>备选假設：延遲期數小於或等於m的序列值之間有相關性19</p>
+<h4 id="4-检验统计量"><a href="#4-检验统计量" class="headerlink" title="4.检验统计量"></a>4.检验统计量</h4><p><img src="/./imgs/2022-09-18-14-00-36.png"></p>
+<p>n为观察期数，m为指定延期数</p>
+<p>注：当【Q大于𝜒1−𝛼2(𝑚)分位点 或 P &lt; α 】时，可以以【1 - α】拒绝原假设</p>
+<p><img src="/./imgs/2022-09-18-14-03-36.png"></p>
+<p>说明：LB是Q的修正，两者统称为Q统计量。记为𝑄𝐵𝑃和𝑄𝐿𝐵。往往普遍采用的是𝑄𝐿𝐵统计量</p>
+<h4 id="5-卡方分布"><a href="#5-卡方分布" class="headerlink" title="5.卡方分布"></a>5.卡方分布</h4><p><img src="/./imgs/2022-09-18-14-38-07.png"></p>
+<h2 id="纯随机性检验案例"><a href="#纯随机性检验案例" class="headerlink" title="纯随机性检验案例"></a>纯随机性检验案例</h2><p>1.白噪聲序列的r_k<br>2.计算LB<br>3.查卡方分布表<br>4.α&#x3D;0.05<br>5.P</p>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

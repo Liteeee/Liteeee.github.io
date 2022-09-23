@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>每日一题，用ListNode实现链表 | Liteee的世界尽头</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>每日一题，用ListNode实现链表 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/23
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/C/" style="color: #00bcd4">
+                    C++
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/链表，力扣/" style="color: #ffa2c4">
+                    链表，力扣
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>get(index)：获取链表中第 index 个节点的值。如果索引无效，则返回-1。<br>addAtHead(val)：在链表的第一个元素之前添加一个值为 val 的节点。插入后，新节点将成为链表的第一个节点。<br>addAtTail(val)：将值为 val 的节点追加到链表的最后一个元素。<br>addAtIndex(index,val)：在链表中的第 index 个节点之前添加值为 val  的节点。如果 index 等于链表的长度，则该节点将附加到链表的末尾。如果 index 大于链表长度，则不会插入节点。如果index小于0，则在头部插入节点。<br>deleteAtIndex(index)：如果索引 index 有效，则删除链表中的第 index 个节点。</p>
+<pre><code>单链表中的节点应该具有两个属性：
+val 和 next。val 是当前节点的值，
+next 是指向下一个节点的指针/引用。
+如果要使用双向链表，
+则还需要一个属性 prev 以指示链表中的上一个节点。
+假设链表中的所有节点都是 0-index 的。
+</code></pre>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/design-linked-list">https://leetcode.cn/problems/design-linked-list</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="笔记："><a href="#笔记：" class="headerlink" title="笔记："></a>笔记：</h2><p>大部分过程都在注释里了：<br>写的时候容易出错的点有</p>
+<h4 id="异常判断漏写、少写等号"><a href="#异常判断漏写、少写等号" class="headerlink" title="异常判断漏写、少写等号"></a>异常判断漏写、少写等号</h4><pre><code>(index&lt;0 || index &gt;=size)//index=size时cur-&gt;next是空指针
+</code></pre>
+<h4 id="忘记写删除节点"><a href="#忘记写删除节点" class="headerlink" title="忘记写删除节点"></a>忘记写删除节点</h4><p>只修改了节点关系 忘记delete n</p>
+<pre><code>    ListNode *n=cur-&gt;next;
+    cur-&gt;next=cur-&gt;next-&gt;next;
+    delete n; //少写delete n会导致什么问题？
+</code></pre>
+<h4 id="赋值逻辑关系"><a href="#赋值逻辑关系" class="headerlink" title="赋值逻辑关系"></a>赋值逻辑关系</h4><p>当cur到达index之后</p>
+<ul>
+<li>cur-&gt;next-&gt;next;&#x2F;&#x2F;cur -&gt; index +2</li>
+<li>pre-&gt;next&#x3D;cur-&gt;next &#x2F;&#x2F;pre -&gt; next(index+1)</li>
+<li>pre&#x3D;cur-&gt;next &#x2F;&#x2F; pre&#x3D;(index+1), pre-&gt;next&#x3D;index+1 &#x3D;next</li>
+<li>ListNode *preCur&#x3D;new ListNode(val); &#x2F;&#x2F;给新节点赋值val</li>
+<li>cur&#x3D;cur-&gt;next;&#x2F;&#x2F;递进<br>（感觉还是有问题</li>
+</ul>
+<p>我的代码：</p>
+<pre><code class="c++">class MyLinkedList &#123;
+private:
+    int size;
+    ListNode *head;
+public:
+    MyLinkedList() &#123;
+        this-&gt;size = 0;
+        this-&gt;head = new ListNode(0);
+
+    &#125;
+    
+    int get(int index) &#123;
+        if(index&lt;0 || index &gt;=size)&#123;
+            return -1;
+        &#125;
+        else&#123;
+            ListNode *cur=head;
+            for(int i=0;i&lt;=index;i++)&#123;
+                cur=cur-&gt;next;
+            &#125;
+            return cur-&gt;val;
+        &#125;
+    &#125;
+    
+    void addAtHead(int val) &#123;
+        addAtIndex(0,val);
+    &#125;
+    
+    void addAtTail(int val) &#123;
+        addAtIndex(size,val);
+    &#125;
+    
+    void addAtIndex(int index, int val) &#123;
+        if(index&gt;size||index&lt;0)&#123;
+           return;
+        &#125;
+        else&#123;
+            size++;
+            ListNode *cur=head;
+            ListNode *preCur=new ListNode(val);//节点赋值
+            for(int i=0;i&lt;index;i++)&#123;
+                cur=cur-&gt;next;
+            &#125;//循环到index前一位
+            preCur-&gt;next=cur-&gt;next;//preCur-&gt;index (preCur是index位置,index变成index+1)
+            cur-&gt;next=preCur;//index-1 -&gt;preCur -&gt;index + 1
+        &#125;
+    &#125;
+    
+    void deleteAtIndex(int index) &#123;
+        if(index&lt;0||index&gt;=size)&#123;
+            return;
+        &#125;
+        size--;
+        ListNode *cur=head;
+         for(int i=0;i&lt;index;i++)&#123;
+                cur=cur-&gt;next;
+        &#125;//到达i-1
+        ListNode *n=cur-&gt;next;
+        cur-&gt;next=cur-&gt;next-&gt;next;
+        delete n;
+        //n只是用来删除的？
+        //cur(i-1)-&gt;index+1
+    &#125;
+&#125;;
+</code></pre>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

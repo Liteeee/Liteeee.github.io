@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Liteee的世界尽头</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1> </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="命令表"><a href="#命令表" class="headerlink" title="命令表"></a>命令表</h1><h2 id="一、基础命令"><a href="#一、基础命令" class="headerlink" title="一、基础命令"></a>一、基础命令</h2><pre><code>1、pwd：定位当前工作的绝对目录
+2、touch：创建文件
+3、cat：查看文件
+4、vi：编辑文件
+5、vim：编辑文件（基于安装了vim编辑器）
+6、mkdir：创建目录
+7、rmdir：删除目录（只能删除空目录）
+8、rm：删除文件或目录（-f 强制删除）
+9、reboot：重启系统
+10、shutdown：关闭系统
+11、init0：关闭系统（init命令可改变系统运行级别）
+12、date：显示或设置系统时间
+13、man：查询命令手册
+14、cd：改变工作目录
+15、chkconfig：检查、设置系统各项服务
+16、ls：显示当前目录的内容
+17、who：显示在线用户信息
+18、su：切换用户
+19、head：显示文件开头
+20、tail：显示文件末尾
+21、more：文本过滤
+22、grep：文本搜索
+23、locate：查找符合条件的文档
+24、whereis：查找二进制代码、源代码、man手册的位置
+25、sort：文本排序
+26、rcp：复制远程系统文件到本地
+27、scp：用于两linux主机间的CP
+28、wc：统计文件字数
+29、dir：显示目录、文件
+30、telnet：远程登录
+31、route：显示并设置linux系统路由表
+32、traceroute：显示数据包到主机的路径
+33、free：显示内存状态
+34、ps：显示当前进程状态
+35、top：显示实时进程状态
+36、kill：系统进程杀灭
+37、sudo：给予部分普通用户root权限
+38、halt：若系统运行级别在0~6，则可以关闭系统
+39、sleep：指定当前动作的延迟时间
+40、exit：返回上级shell
+41、logrotate：对系统日志就行轮转、压缩、删除
+42、clear：清屏
+43、crontab：提交和管理用户需要周期性执行的任务
+44、tar：备份归档压缩
+45、gzip：压缩一个文件
+46、zip：压缩目录、文件
+47、dump：备份文件系统
+48、chmod：修改权限（读r4、写w2、执行x1）（u用户、g用户组、o其他用户）
+49、ll、查看权限
+</code></pre>
+<h2 id="二、基本配置地址"><a href="#二、基本配置地址" class="headerlink" title="二、基本配置地址"></a>二、基本配置地址</h2><pre><code>1、永久挂载目录         /etc/fstab
+2、安装包位置            /mnt/cdrom/packages/
+3、永久网关配置地址  /etc/sysconfig/network
+4、网络配置地址        /etc/sysconfig/network-scripts/ifcfg-eth0
+5、关于网络命令        service  network （restart重启、stop停止、start启动）
+6、本地主机名解析地址/etc/hosts
+7、本地域名解析地址 /etc/resolv
+8、脚本编辑地址       /etc/sysconfig/network-soripts
+</code></pre>
+<h2 id="三、常用命令（基于root用户下）"><a href="#三、常用命令（基于root用户下）" class="headerlink" title="三、常用命令（基于root用户下）"></a>三、常用命令（基于root用户下）</h2><pre><code>1、软件安装命令       yum install -y (软件名)
+2、用户添加命令      useradd （-g指定用户组、-u指定UID、-p指定密码、-d指定宿主目录）
+3、删除用户命令      userdel  （-f强制删除、-r删除该用户全部信息）
+4、修改用户信息      usermod （-d修改宿主目录、-e修改有效期、-l修改用户名、-L锁定用户、-U解除锁定）
+5、添加用户组         groupadd（-g指定GID、-f强制执行）
+6、查询软件安装：   rpm -aq|grep 软件名
+7、selinux运行状态查询   getenforce
+</code></pre>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

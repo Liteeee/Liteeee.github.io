@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Liteee的世界尽头</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        <div id="home-head">
+    <div id="home-background" style="background-image: url(home.jpg)"></div>
+    
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Liteee的世界尽头</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+    
+</div>
+
+<div id="home-posts-wrap" class="">
+    <div id="home-posts">
+        <div id="posts">
+            
+
+<div class="post">
+    <a href="/2022/09/17/查漏补缺/raid/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="磁盘阵列（Redundant-Arrays-of-Independent-Disks，RAID）"><a href="#磁盘阵列（Redundant-Arrays-of-Independent-Disks，RAID）" class="headerlink" title="磁盘阵列（Redundant Arrays of Independent Disks，RAID）"></a>磁盘阵列（Redundant Arrays of Independent Disks，RAID）</h1><p>在单机时代，采用单块磁盘进行数据存储和读写的方式，由于寻址和读写的时间消耗，导致I&#x2F;O性能非常低，且存储容量还会受到限制。另外，单块磁盘极其容易出现物理故障，经常导致数据的丢失。因此大家就在想，有没有一种办法将多块独立的磁盘结合在一起组成一个技术方案，来提高数据的可靠性和I&#x2F;O性能呢。</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>RAID即独立磁盘冗余阵列，简称为「磁盘阵列」，用多个独立的磁盘组成在一起形成一个大的磁盘系统，从而实现比单块磁盘更好的存储性能和更高的可靠性。</p>
+<h1 id="常见方案分类"><a href="#常见方案分类" class="headerlink" title="常见方案分类"></a>常见方案分类</h1><h2 id="RAID0"><a href="#RAID0" class="headerlink" title="RAID0"></a>RAID0</h2><p>RAID0 简单的将多块磁盘组合在一起形成一个大容量的存储。写数据的时候，将数据分为N份，以独立的方式实现N块磁盘的读写，那么这N份数据会同时并发的写到磁盘中，因此执行性能非常的高.理论上为N倍。<br><img src="/2022-09-07-02-43-45.png"></p>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>它并不提供数据校验或冗余备份，因此一旦某块磁盘损坏了，数据就直接丢失，无法恢复了。因此RAID0就不可能用于高要求的业务中，但可以用在对可靠性要求不高，对读写性能要求高的场景中。</p>
+<h2 id="RAID-1"><a href="#RAID-1" class="headerlink" title="RAID 1"></a>RAID 1</h2><p>RAID1 是磁盘阵列中单位成本最高的一种方式。<br>两块磁盘无差别备份，空间只有R0的一半。<br><img src="/2022-09-07-02-45-28.png"></p>
+<h2 id="RAID-3"><a href="#RAID-3" class="headerlink" title="RAID 3"></a>RAID 3</h2><p>在R0的基础上，一个磁盘作奇偶校验。<br>如果有磁盘坏了，就用其他磁盘补上。<br>缺点是这一块磁盘频繁访问容易损坏。</p>
+<h2 id="RAID-5（最常用）"><a href="#RAID-5（最常用）" class="headerlink" title="RAID 5（最常用）"></a>RAID 5（最常用）</h2><p>将 存储性能、数据安全、存储成本 兼顾的一种方案<br>将奇偶校验信息分布到各个磁盘上<br>RAID5校验位算法原理：P &#x3D; D1 xor D2 xor D3 … xor Dn （D1,D2,D3 … Dn为数据块，P为校验，xor为异或运算）</p>
+<p>条件：三台以上磁盘，每次只能坏一个硬盘。两个或以上硬盘坏了无法恢复数据。<br><img src="/2022-09-07-02-49-51.png"></p>
+<h2 id="RAID6"><a href="#RAID6" class="headerlink" title="RAID6"></a>RAID6</h2><p>为什么RAID6这么牛呢，因为了双重校验的概念。<br>RAID6除了每块磁盘上都有同级数据XOR校验区以外，还有针对每个数据块的XOR校验区，这样的话，相当于每个数据块有两个校验保护措施，因此数据的冗余性更高了。</p>
+<p>但是RAID6的这种设计也带来了很高的复杂度，虽然数据冗余性好，读取的效率也比较高，但是写数据的性能就很差。因此RAID6在实际环境中应用的比较少。</p>
+<h2 id="RAID10-1-0"><a href="#RAID10-1-0" class="headerlink" title="RAID10(1+0)"></a>RAID10(1+0)</h2><p>看图，主要就是空间浪费<br><img src="/2022-09-07-02-52-16.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/查漏补缺/raid/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/查漏补缺/paste image配置/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>记录一下，一开始自己写路径有点晕，配了半小时，有点逆天<br>在拓展设置中</p>
+<pre><code>&quot;pasteImage.path&quot;: &quot;$&#123;currentFileDir&#125;/imgs&quot;,
+&quot;pasteImage.basePath&quot;: &quot;$&#123;currentFileDir&#125;&quot;,
+&quot;pasteImage.forceUnixStyleSeparator&quot;: true, //这个可以不用
+&quot;pasteImage.prefix&quot;: &quot;/&quot;,
+&quot;pasteImage.insertPattern&quot;: &quot;$&#123;imageSyntaxPrefix&#125;./imgs/$&#123;imageFileName&#125;$&#123;imageSyntaxSuffix&#125;&quot;,
+</code></pre>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44878336/article/details/125559109">https://blog.csdn.net/weixin_44878336/article/details/125559109</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/查漏补缺/paste image配置/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/力扣/贪心算法/找出两个相同字母最长子字符串/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/力扣/贪心算法/找出两个相同字母最长子字符串/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/力扣/基础竞赛语法/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="竞赛常用语法归档"><a href="#竞赛常用语法归档" class="headerlink" title="竞赛常用语法归档"></a>竞赛常用语法归档</h1><h2 id="归档原因"><a href="#归档原因" class="headerlink" title="归档原因"></a>归档原因</h2><p>学艺不精，切换使用的语言的频率比较高，经常出现语法混乱的情况</p>
+<h1 id="归档方式"><a href="#归档方式" class="headerlink" title="归档方式"></a>归档方式</h1><p>整理自己掌握一门语言的基本方式</p>
+<h2 id="竞赛语言"><a href="#竞赛语言" class="headerlink" title="竞赛语言"></a>竞赛语言</h2><pre><code>1.基础语法（循环+类型定义）
+2.数组，字符串，
+3.特殊列表？（例如PYTHON中元组和字典的区别
+4.哈希
+5.树结构
+6.基于语言特性，归档一些语法在运行速度上的差异
+（例如C++中subtr()跟string_view 的效率区别）
+</code></pre>
+<h2 id="开发语言"><a href="#开发语言" class="headerlink" title="开发语言"></a>开发语言</h2><pre><code>1.基础语法（循环+类型定义）
+2.面向对象
+3.数组（用数组可以实现大部分数据结构）
+4.文件操作
+5.内存管理+异常处理
+final.开发组件
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/力扣/基础竞赛语法/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/力扣/JAVA开发语法整理/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="1-基础语法（循环-类型定义）"><a href="#1-基础语法（循环-类型定义）" class="headerlink" title="1.基础语法（循环+类型定义）"></a>1.基础语法（循环+类型定义）</h2><p>基础打印</p>
+<pre><code>System.out.println(&quot;基本类型：byte 二进制位数：&quot; + Byte.SIZE);
+</code></pre>
+<p>八个基础类型</p>
+<pre><code>boolean(8位 1字节)
+byte(8位 1字节)
+char(16位 2字节)
+short(16位 2字节) 
+int(32位 4字节) 
+long(64位 8字节) 
+double(64位 8字节)
+赋值语法与C++一致
+</code></pre>
+<p>类型定义</p>
+<h2 id="2-面向对象"><a href="#2-面向对象" class="headerlink" title="2.面向对象"></a>2.面向对象</h2><h2 id="3-数组（用数组可以实现大部分数据结构）"><a href="#3-数组（用数组可以实现大部分数据结构）" class="headerlink" title="3.数组（用数组可以实现大部分数据结构）"></a>3.数组（用数组可以实现大部分数据结构）</h2><h2 id="4-文件操作"><a href="#4-文件操作" class="headerlink" title="4.文件操作"></a>4.文件操作</h2><h2 id="5-内存管理-异常处理"><a href="#5-内存管理-异常处理" class="headerlink" title="5.内存管理+异常处理"></a>5.内存管理+异常处理</h2><h2 id="final-开发组件"><a href="#final-开发组件" class="headerlink" title="final.开发组件"></a>final.开发组件</h2>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/力扣/JAVA开发语法整理/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/力扣/C++竞赛语法整理/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="C-竞赛语法"><a href="#C-竞赛语法" class="headerlink" title="C++ 竞赛语法"></a>C++ 竞赛语法</h1><h2 id="一、基础语法（循环-类型定义）"><a href="#一、基础语法（循环-类型定义）" class="headerlink" title="一、基础语法（循环+类型定义）"></a>一、基础语法（循环+类型定义）</h2><p>略</p>
+<h2 id="二】数组，字符串，"><a href="#二】数组，字符串，" class="headerlink" title="二】数组，字符串，"></a>二】数组，字符串，</h2><p>略</p>
+<h2 id="三、特殊列表？（例如PYTHON中元组和字典的区别"><a href="#三、特殊列表？（例如PYTHON中元组和字典的区别" class="headerlink" title="三、特殊列表？（例如PYTHON中元组和字典的区别"></a>三、特殊列表？（例如PYTHON中元组和字典的区别</h2><p>去重</p>
+<pre><code>set
+</code></pre>
+<p>略</p>
+<h2 id="四、哈希"><a href="#四、哈希" class="headerlink" title="四、哈希"></a>四、哈希</h2><h3 id="函数库"><a href="#函数库" class="headerlink" title="函数库"></a>函数库</h3><pre><code>&lt;unordered_map&gt;
+&lt;map&gt;
+</code></pre>
+<h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><p>两个函数的操作方法一致，区别在于内部实现上：</p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化:"></a>初始化:</h4><pre><code>unordered_map&lt;int,string&gt;newMap=&#123;&#123;5,"A"&#125;,&#123;6,"B"&#125;&#125;;
+</code></pre>
+<h4 id="插入-insert-x2F-emplace"><a href="#插入-insert-x2F-emplace" class="headerlink" title="插入.insert()&#x2F;emplace():"></a>插入.insert()&#x2F;emplace():</h4><pre><code>newMap.insert(pair&lt;int,string&gt;(3,&quot;C&quot;))//pair成对插入
+
+newMap.emplace(key,value)
+</code></pre>
+<h4 id="删除-erase-："><a href="#删除-erase-：" class="headerlink" title="删除.erase()："></a>删除.erase()：</h4><pre><code>auto res=newMap.erase(&quot;A&quot;)//未找到则返回0
+</code></pre>
+<h4 id="first-x2F-second-x2F-begin-x2F-end"><a href="#first-x2F-second-x2F-begin-x2F-end" class="headerlink" title="first&#x2F;second&#x2F;begin&#x2F;end"></a>first&#x2F;second&#x2F;begin&#x2F;end</h4><pre><code>it-&gt;first //元素的key值
+it-&gt;second //元素的value值
+it++ //下一个元素
+newMap.begin()/end()//迭代器可以访问的首位元素
+</code></pre>
+<h4 id="find-查找-x2F-判空"><a href="#find-查找-x2F-判空" class="headerlink" title=".find()查找&#x2F;判空:"></a>.find()查找&#x2F;判空:</h4><pre><code>auto iterator = myMap.find(2);//find()返回一个指向2的
+if (iterator != myMap.end()&#123;
+    it-&gt;second=new_value;
+&#125;
+</code></pre>
+<h4 id="值访问-newMap-key"><a href="#值访问-newMap-key" class="headerlink" title="值访问 newMap[key]"></a>值访问 newMap[key]</h4><pre><code>value=newMap[key]
+</code></pre>
+<h4 id="遍历-x2F-迭代器："><a href="#遍历-x2F-迭代器：" class="headerlink" title="遍历&#x2F;迭代器："></a>遍历&#x2F;迭代器：</h4><pre><code>auto iter = myMap.begin();//auto自动识别为迭代器类型unordered_map&lt;int,string&gt;::iterator
+while (iter!= myMap.end())
+&#123;  
+    cout &lt;&lt; iter-&gt;first &lt;&lt; &quot;,&quot; &lt;&lt; iter-&gt;second &lt;&lt; endl;  
+    ++iter;  
+&#125;  
+</code></pre>
+<h4 id="特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读"><a href="#特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读" class="headerlink" title="特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读"></a>特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读</h4><pre><code>for(auto x:newMap)//遍历整个map，输出key及其对应的value值
+&#123;
+    x.second = 0;	
+    cout&lt;&lt;x.second&lt;&lt;endl;//全是  00；但是循环外不变
+&#125;
+for(auto x:unomap)
+    cout&lt;&lt;x.first&lt;&lt;&quot;  &quot;&lt;&lt;x.second&lt;&lt;endl;
+
+//遍历整个map，输出key及其对应的value值
+</code></pre>
+<h3 id="map"><a href="#map" class="headerlink" title="map:"></a>map:</h3><p>使用红黑树进行内部实现（非严格平衡二叉搜索树）</p>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ol>
+<li>有序，每个节点都是一个元素</li>
+<li>操作时间与红黑树相同</li>
+<li>通过中序遍历可实现从小到大遍历</li>
+<li>时间复杂度低至log(n)</li>
+</ol>
+<h3 id="unordered-map："><a href="#unordered-map：" class="headerlink" title="unordered_map："></a>unordered_map：</h3><p>使用哈希表进行内部实现，把关键码映射到HASH表中的位置进行访问</p>
+<h4 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h4><ol>
+<li>无序，</li>
+<li>查找时间复杂度最低O(1)</li>
+<li>遍历顺序与输入顺序不同</li>
+<li>内存占用比红黑树高</li>
+</ol>
+<h2 id="5-树结构"><a href="#5-树结构" class="headerlink" title="5.树结构"></a>5.树结构</h2><h2 id="6-基于语言特性，归档一些语法在运行速度上的差异"><a href="#6-基于语言特性，归档一些语法在运行速度上的差异" class="headerlink" title="6.基于语言特性，归档一些语法在运行速度上的差异"></a>6.基于语言特性，归档一些语法在运行速度上的差异</h2><h4 id="ListNode"><a href="#ListNode" class="headerlink" title="ListNode"></a>ListNode</h4><p>初始化：</p>
+<pre><code>this-&gt;head = new ListNode(0);
+</code></pre>
+<p>节点赋值&#x2F;复制：</p>
+<pre><code>ListNode *cur = head;
+</code></pre>
+<p>属性结构（next&#x2F;val）：<br>节点的值<br>    num&#x3D;cur-&gt;val;<br>下一个节点<br>    cur &#x3D; cur-&gt;next;</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/力扣/C++竞赛语法整理/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/02基础SHELL语法/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="HDFS基础SHELL"><a href="#HDFS基础SHELL" class="headerlink" title="HDFS基础SHELL"></a>HDFS基础SHELL</h1><p>因为HDFS与LINUX的基础命令有大量相似，因此</p>
+<p>补充：执行路径在opt&#x2F;opt&#x2F;had..&#x2F;</p>
+<h2 id="1-HDFS中的特殊命令"><a href="#1-HDFS中的特殊命令" class="headerlink" title="1.HDFS中的特殊命令"></a>1.HDFS中的特殊命令</h2><pre><code>[-copyFromLocal [-f] [-p] &lt;localsrc&gt; ... &lt;dst&gt;]
+本地复制上传
+
+[-copyToLocal [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;]
+
+[-count [-q] &lt;path&gt; ...]
+WordCount？
+
+[-moveFromLocal &lt;localsrc&gt; ... &lt;dst&gt;]
+=[-put [-f] [-p] &lt;localsrc&gt; ... &lt;dst&gt;]
+本地剪贴上传
+
+[-moveToLocal &lt;src&gt; &lt;localdst&gt;]
+</code></pre>
+<h2 id="2-HDFS与LINUX相同的命令"><a href="#2-HDFS与LINUX相同的命令" class="headerlink" title="2.HDFS与LINUX相同的命令"></a>2.HDFS与LINUX相同的命令</h2><pre><code>    [-cp [-f] [-p] &lt;src&gt; ... &lt;dst&gt;]
+    [-df [-h] [&lt;path&gt; ...]]
+    [-du [-s] [-h] &lt;path&gt; ...]
+    [-get [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;]
+    [-getmerge [-nl] &lt;src&gt; &lt;localdst&gt;]
+    [-help [cmd ...]]
+    [-ls [-d] [-h] [-R] [&lt;path&gt; ...]]
+    [-mkdir [-p] &lt;path&gt; ...]
+    [-mv &lt;src&gt; ... &lt;dst&gt;]
+    [-rm [-f] [-r|-R] [-skipTrash] &lt;src&gt; ...]
+    [-rmdir [--ignore-fail-on-non-empty] &lt;dir&gt; ...]
+</code></pre>
+<h2 id="后面的学闷了-很困跳过先"><a href="#后面的学闷了-很困跳过先" class="headerlink" title="后面的学闷了 很困跳过先"></a>后面的学闷了 很困跳过先</h2>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/02基础SHELL语法/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/01HDFS基础理论和面试题/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h1><p>HDFS（Hadoop Distributed File System），是一种分布式文件管理系统</p>
+<h2 id="一、性质"><a href="#一、性质" class="headerlink" title="一、性质"></a>一、性质</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><pre><code>1.高容错，多副本
+2.处理数据规模大
+3.可以构建在廉价机器上，不怕出问题
+</code></pre>
+<p>HDFS的使用场景：适合一次写入，多次读出的场景。</p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><pre><code>1.不适合低延迟访问
+2.不适合存储小文件（占用NN资源，寻址时间超过读取时间）
+3.不支持并发写入（一文件一线程
+4.不支持随机修改（只能支持追加append
+</code></pre>
+<h2 id="二、组成架构"><a href="#二、组成架构" class="headerlink" title="二、组成架构"></a>二、组成架构</h2><h3 id="1-NN"><a href="#1-NN" class="headerlink" title="1.NN"></a>1.NN</h3><pre><code>1.管理HDFS命名空间
+2.管理副本策略
+3.数据块映射
+4.处理客户端请求
+</code></pre>
+<h3 id="2-DN"><a href="#2-DN" class="headerlink" title="2.DN"></a>2.DN</h3><pre><code>1.接受NN命令，存数据，读写数据
+</code></pre>
+<h3 id="3-Client"><a href="#3-Client" class="headerlink" title="3.Client"></a>3.Client</h3><pre><code>1.文件切分，在文件上传HDFS之前完成
+2.与NN交互→文件位置
+3.与DN交互→存取
+4.部分管理功能，如格式化NN
+5.部分HDFS增删改查功能
+</code></pre>
+<h3 id="4-2NN"><a href="#4-2NN" class="headerlink" title="4.2NN"></a>4.2NN</h3><pre><code>1.定期合并Fsimage和Edits，推送至NN
+2.紧急情况下可用于恢复NN（期间的数据可能会损失）
+3.考点：不完全是NN的备份
+</code></pre>
+<h1 id="HDFS面试题"><a href="#HDFS面试题" class="headerlink" title="HDFS面试题"></a>HDFS面试题</h1><p><img src="/2022-09-06-22-09-30.png"><br><img src="/2022-09-06-22-09-47.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/01HDFS基础理论和面试题/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/centos命令表/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="命令表"><a href="#命令表" class="headerlink" title="命令表"></a>命令表</h1><h2 id="一、基础命令"><a href="#一、基础命令" class="headerlink" title="一、基础命令"></a>一、基础命令</h2><pre><code>1、pwd：定位当前工作的绝对目录
+2、touch：创建文件
+3、cat：查看文件
+4、vi：编辑文件
+5、vim：编辑文件（基于安装了vim编辑器）
+6、mkdir：创建目录
+7、rmdir：删除目录（只能删除空目录）
+8、rm：删除文件或目录（-f 强制删除）
+9、reboot：重启系统
+10、shutdown：关闭系统
+11、init0：关闭系统（init命令可改变系统运行级别）
+12、date：显示或设置系统时间
+13、man：查询命令手册
+14、cd：改变工作目录
+15、chkconfig：检查、设置系统各项服务
+16、ls：显示当前目录的内容
+17、who：显示在线用户信息
+18、su：切换用户
+19、head：显示文件开头
+20、tail：显示文件末尾
+21、more：文本过滤
+22、grep：文本搜索
+23、locate：查找符合条件的文档
+24、whereis：查找二进制代码、源代码、man手册的位置
+25、sort：文本排序
+26、rcp：复制远程系统文件到本地
+27、scp：用于两linux主机间的CP
+28、wc：统计文件字数
+29、dir：显示目录、文件
+30、telnet：远程登录
+31、route：显示并设置linux系统路由表
+32、traceroute：显示数据包到主机的路径
+33、free：显示内存状态
+34、ps：显示当前进程状态
+35、top：显示实时进程状态
+36、kill：系统进程杀灭
+37、sudo：给予部分普通用户root权限
+38、halt：若系统运行级别在0~6，则可以关闭系统
+39、sleep：指定当前动作的延迟时间
+40、exit：返回上级shell
+41、logrotate：对系统日志就行轮转、压缩、删除
+42、clear：清屏
+43、crontab：提交和管理用户需要周期性执行的任务
+44、tar：备份归档压缩
+45、gzip：压缩一个文件
+46、zip：压缩目录、文件
+47、dump：备份文件系统
+48、chmod：修改权限（读r4、写w2、执行x1）（u用户、g用户组、o其他用户）
+49、ll、查看权限
+</code></pre>
+<h2 id="二、基本配置地址"><a href="#二、基本配置地址" class="headerlink" title="二、基本配置地址"></a>二、基本配置地址</h2><pre><code>1、永久挂载目录         /etc/fstab
+2、安装包位置            /mnt/cdrom/packages/
+3、永久网关配置地址  /etc/sysconfig/network
+4、网络配置地址        /etc/sysconfig/network-scripts/ifcfg-eth0
+5、关于网络命令        service  network （restart重启、stop停止、start启动）
+6、本地主机名解析地址/etc/hosts
+7、本地域名解析地址 /etc/resolv
+8、脚本编辑地址       /etc/sysconfig/network-soripts
+</code></pre>
+<h2 id="三、常用命令（基于root用户下）"><a href="#三、常用命令（基于root用户下）" class="headerlink" title="三、常用命令（基于root用户下）"></a>三、常用命令（基于root用户下）</h2><pre><code>1、软件安装命令       yum install -y (软件名)
+2、用户添加命令      useradd （-g指定用户组、-u指定UID、-p指定密码、-d指定宿主目录）
+3、删除用户命令      userdel  （-f强制删除、-r删除该用户全部信息）
+4、修改用户信息      usermod （-d修改宿主目录、-e修改有效期、-l修改用户名、-L锁定用户、-U解除锁定）
+5、添加用户组         groupadd（-g指定GID、-f强制执行）
+6、查询软件安装：   rpm -aq|grep 软件名
+7、selinux运行状态查询   getenforce
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/centos命令表/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/08 HADOOP的简单总结和整合/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="完成上述配置后的服务器状态"><a href="#完成上述配置后的服务器状态" class="headerlink" title="完成上述配置后的服务器状态"></a>完成上述配置后的服务器状态</h1><h2 id="1-权限问题"><a href="#1-权限问题" class="headerlink" title="1.权限问题"></a>1.权限问题</h2><p>我将lite为hadoop启动相关的账户，使用相关功能时需要</p>
+<pre><code>su lite
+</code></pre>
+<p>root用户在编辑bin相关的脚本，以及用xsync分发相关脚本时需要切换使用</p>
+<pre><code>su root
+</code></pre>
+<h2 id="2-基础操作"><a href="#2-基础操作" class="headerlink" title="2.基础操作"></a>2.基础操作</h2><p>集群的启动的和关闭，由&#x2F;home&#x2F;lite&#x2F;bin&#x2F;myhadoop完成</p>
+<pre><code>myhadoop.sh start
+myhadoop.sh stop
+</code></pre>
+<p>在hadoop运行时，如果需要动态地删除节点功能</p>
+<pre><code>kill -9 端口号即可
+</code></pre>
+<p>在hadoop运行时，如果需要单独地恢复节点</p>
+<p>（1）分别启动&#x2F;停止HDFS组件</p>
+<pre><code>hdfs --daemon start/stop namenode/datanode/secondarynamenode
+</code></pre>
+<p>（2）启动&#x2F;停止YARN</p>
+<pre><code>yarn --daemon start/stop  resourcemanager/nodemanager
+</code></pre>
+<p>（3）myhadoop内已经集成的过时指令</p>
+<h2 id="3-常用端口号"><a href="#3-常用端口号" class="headerlink" title="3.常用端口号"></a>3.常用端口号</h2><p>HDFS NameNode:</p>
+<pre><code>HD3.X:8020 / 9000/9820
+HD2.X:8020 / 9000
+</code></pre>
+<p>NameNode HTTP UI:</p>
+<pre><code>HD3.X:9870
+HD2.X:50070
+</code></pre>
+<p>MapReduce查看任务执行窗口</p>
+<pre><code>8088
+</code></pre>
+<p>历史服务器通信端口</p>
+<pre><code>19888
+</code></pre>
+<p>常用配置文件：<br>core-site hdfs-site yarn-site mapred-site workers</p>
+<h2 id="4-整理之前的各个配置文件"><a href="#4-整理之前的各个配置文件" class="headerlink" title="4.整理之前的各个配置文件"></a>4.整理之前的各个配置文件</h2><p>1.脚本配置</p>
+<pre><code>/home/lite/bin/myhadoop路径下
+
+xsync：分发脚本
+myhadoop：群体操作脚本
+jpsall：集体jps脚本
+</code></pre>
+<p>2.hadoop配置文件</p>
+<pre><code>/opt/module/had../etc/hadoop/bin
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/08 HADOOP的简单总结和整合/" class="go-post">阅读全文</a>
+</div>
+
+             
+<div class="page-current">
+    <div class="prev">
+        
+        <a href="/page/2/">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-left fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+    <div class="page-index">
+        
+        <span>
+            
+            
+                
+                <a href="/">
+                    <span class="page-num">1</span>
+                </a>
+                
+                
+            
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+        </span>
+        
+        <span class="current">
+            3
+        </span>
+        
+        <span>
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+            
+        </span>
+        
+    </div>
+    <div class="next">
+        
+        <a href="/page/4/ ">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-right fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+</div>
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="Avator.png " alt="avatar">
+        </div>
+        <div class="name">
+            John Doe
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                Description...
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+        </div>
+        <div class="friend-links">
+            
+        </div>
+    </div>
+</div>
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

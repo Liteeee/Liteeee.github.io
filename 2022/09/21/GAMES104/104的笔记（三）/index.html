@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>GAMS104笔记（三）游戏引擎渲染 | Liteee的世界尽头</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>GAMS104笔记（三）游戏引擎渲染 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/21
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/GAMES104/" style="color: #ffa2c4">
+                    GAMES104
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/游戏引擎/" style="color: #00a596">
+                    游戏引擎
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="GAMS104第三节"><a href="#GAMS104第三节" class="headerlink" title="GAMS104第三节"></a>GAMS104第三节</h1><h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><h4 id="SIMD"><a href="#SIMD" class="headerlink" title="SIMD"></a>SIMD</h4><h4 id="SIMT"><a href="#SIMT" class="headerlink" title="SIMT"></a>SIMT</h4><h4 id="渲染基础————GPU工作原理、openGL"><a href="#渲染基础————GPU工作原理、openGL" class="headerlink" title="渲染基础————GPU工作原理、openGL"></a>渲染基础————GPU工作原理、openGL</h4><h1 id="Mesh"><a href="#Mesh" class="headerlink" title="Mesh"></a>Mesh</h1><h2 id="IndexData"><a href="#IndexData" class="headerlink" title="IndexData"></a>IndexData</h2><p>理念：将所有的顶点统一保存，三角形只使用顶点的索引值。</p>
+<p>因为共用顶点过多，可以节省多至六倍空间。<br><img src="/./imgs/2022-09-21-13-04-03.png"><br>其中根据顶点的保存规则，IndexBuffer是可以去掉的</p>
+<h2 id="三角形顶点法向量的设置"><a href="#三角形顶点法向量的设置" class="headerlink" title="三角形顶点法向量的设置"></a>三角形顶点法向量的设置</h2><p>每个顶点都需要乘一个法向量。<br>通常情况下，靠临近三角形的法向量平均值可以求出顶点法向量。<br>但是如图一的情况计算出来的法向量并不是正方体的法向量。<br>所以需要为顶点单独设置法向量。<br><img src="/./imgs/2022-09-21-13-01-46.png"></p>
+<h1 id="GPU-Culling"><a href="#GPU-Culling" class="headerlink" title="GPU Culling"></a>GPU Culling</h1><p>视锥体剔除</p>
+<h2 id="从包围核到PVS"><a href="#从包围核到PVS" class="headerlink" title="从包围核到PVS"></a>从包围核到PVS</h2><h4 id="包围核"><a href="#包围核" class="headerlink" title="包围核"></a>包围核</h4><p>包围核思想：用变数较少的多边形去包围一个复杂的GO。</p>
+<h4 id="BVH"><a href="#BVH" class="headerlink" title="BVH"></a>BVH</h4><ul>
+<li>用大包围核包围多个小包围核。</li>
+<li>需要视觉裁剪时，从大核到小核的顺序开始构建树结构判断需要渲染哪些对象。</li>
+<li>优点：在于渲染多个核对象时速度较快。<br><img src="/./imgs/2022-09-21-14-00-12.png"></li>
+</ul>
+<h4 id="PVS-早期的地图渲染算法"><a href="#PVS-早期的地图渲染算法" class="headerlink" title="PVS 早期的地图渲染算法"></a>PVS 早期的地图渲染算法</h4><ul>
+<li>将地图划分各个部分并且按门、窗来划分。</li>
+<li>通过一个门&#x2F;窗只能看到有限的场景。</li>
+<li>因此到区域8时只渲染7-8-9三个场景<br><img src="/./imgs/2022-09-21-14-01-21.png"><br>很符合直觉，执行效率高，可以尝试复现该算法。</li>
+</ul>
+<h4 id="Early-z思想"><a href="#Early-z思想" class="headerlink" title="Early-z思想"></a>Early-z思想</h4><p>绘制场景时：</p>
+<ul>
+<li>首先绘制场景中所有物体的深度关系，但不进行渲染</li>
+<li>在深度图的基础上，只渲染折叠部分靠前的物体</li>
+</ul>
+<h2 id="缓存到GPU前的几种图片分块压缩方法"><a href="#缓存到GPU前的几种图片分块压缩方法" class="headerlink" title="缓存到GPU前的几种图片分块压缩方法"></a>缓存到GPU前的几种图片分块压缩方法</h2><p><img src="/./imgs/2022-09-21-14-11-25.png"><br>是有损压缩的方式，采样时按块解压。</p>
+<h1 id="渲染管线的新方向-ClusterPipeline"><a href="#渲染管线的新方向-ClusterPipeline" class="headerlink" title="渲染管线的新方向 ClusterPipeline"></a>渲染管线的新方向 ClusterPipeline</h1><p><img src="/./imgs/2022-09-21-14-19-45.png"><br>大致意思：不完全依靠大量的顶点数组和缓存来进行渲染。而是可以根据已有的图像生成更多的三角形？可以自动细分出纹理效果。</p>
+<h2 id="细化-Mesh-Shader"><a href="#细化-Mesh-Shader" class="headerlink" title="细化 Mesh Shader"></a>细化 Mesh Shader</h2><p><img src="/./imgs/2022-09-21-14-24-36.png"><br>可以把一个输入的三角形根据固定算法细化成多个三角形，可以用于渲染多种高清细节的材质。</p>
+<h2 id="GPU-Culling–Cluster-Based的工业化成果："><a href="#GPU-Culling–Cluster-Based的工业化成果：" class="headerlink" title="GPU Culling–Cluster Based的工业化成果："></a>GPU Culling–Cluster Based的工业化成果：</h2><h4 id="Nanite："><a href="#Nanite：" class="headerlink" title="Nanite："></a>Nanite：</h4><p>基于Mesh shader细化的多边形进行精确的视觉剪裁，网格精确到像素。</p>
+<h1 id="绘制技术发展方向总结"><a href="#绘制技术发展方向总结" class="headerlink" title="绘制技术发展方向总结"></a>绘制技术发展方向总结</h1><p><img src="/./imgs/2022-09-21-14-31-02.png"></p>
+<ul>
+<li>将引擎的算法设计与最新的硬件架构相关联</li>
+<li>设计时注意模型、材质、mesh之间的关系</li>
+<li>视觉裁剪算法需要尽可能少的减少计算对象</li>
+<li>随着GPU的算力发展，更多地把计算转移到GPU中</li>
+</ul>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

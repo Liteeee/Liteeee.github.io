@@ -149,14 +149,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/GAMES104/" style="color: #ff7d73">
+                <a href="/tags/GAMES104/" style="color: #ffa2c4">
                     GAMES104
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/游戏引擎/" style="color: #00a596">
+                <a href="/tags/游戏引擎/" style="color: #ff7d73">
                     游戏引擎
                 </a>
             </span>
@@ -165,14 +165,18 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="GAMS104第四节-大地之神入门"><a href="#GAMS104第四节-大地之神入门" class="headerlink" title="GAMS104第四节 -大地之神入门"></a>GAMS104第四节 -大地之神入门</h1> <span id="more"></span>
-<h2 id="地形的块划分-x2F-管理"><a href="#地形的块划分-x2F-管理" class="headerlink" title="地形的块划分&#x2F;管理"></a>地形的块划分&#x2F;管理</h2><h4 id="基于三角形"><a href="#基于三角形" class="headerlink" title="基于三角形"></a>基于三角形</h4><p>按照密度，从三角形的最长边垂直切分出两个三角形。纯Render方法。<br>不建议使用</p>
+        <h1 id="GAMS104第六节-大地之神入门"><a href="#GAMS104第六节-大地之神入门" class="headerlink" title="GAMS104第六节 -大地之神入门"></a>GAMS104第六节 -大地之神入门</h1><p>渲染地形所需要的各个部分的基础实现以及相应的算法。<br> <span id="more"></span></p>
+<h1 id="1-地形的块划分-x2F-管理"><a href="#1-地形的块划分-x2F-管理" class="headerlink" title="1.地形的块划分&#x2F;管理"></a>1.地形的块划分&#x2F;管理</h1><h4 id="基于三角形的区域划分"><a href="#基于三角形的区域划分" class="headerlink" title="基于三角形的区域划分"></a>基于三角形的区域划分</h4><p>按照地图上资源密度划分，<br>密度大的地方进行细分：从三角形的最长边垂直切分出两个三角形。<br>更偏向于Render方法，不建议用于地图划分</p>
 <h4 id="基于四叉树的分块"><a href="#基于四叉树的分块" class="headerlink" title="基于四叉树的分块"></a>基于四叉树的分块</h4><p><img src="/./imgs/2022-09-24-16-33-13.png"><br>由四叉树来保存分块关系。<br>不仅是一种渲染方法，同时适用于GO资源管理方法。</p>
 <h4 id="方块网格（quard-grid）中的T-Junctions问题"><a href="#方块网格（quard-grid）中的T-Junctions问题" class="headerlink" title="方块网格（quard grid）中的T-Junctions问题"></a>方块网格（quard grid）中的T-Junctions问题</h4><p>解决算法：<br><img src="/./imgs/2022-09-24-16-36-51.png"><br>三角形退化：<br>让一个三角形的节点网上移，其中一个三角形的渲染面积会变成零。<br>实现吸附的效果。<br>优点：比切分的方式操作更少？</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><img src="/./imgs/2022-09-24-16-45-06.png"></p>
-<h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h4 id="clipmap？"><a href="#clipmap？" class="headerlink" title="clipmap？"></a>clipmap？</h4><h1 id="MeshShader"><a href="#MeshShader" class="headerlink" title="MeshShader"></a>MeshShader</h1><p><img src="/./imgs/2022-09-24-16-49-08.png"><br>在最新的GPU技术和DX12中，MeshShader集成了旧管道的所有部分。</p>
-<h4 id="clipmap？-1"><a href="#clipmap？-1" class="headerlink" title="clipmap？"></a>clipmap？</h4><h2 id="Non-Heightfield-Terrain"><a href="#Non-Heightfield-Terrain" class="headerlink" title="Non-Heightfield Terrain"></a>Non-Heightfield Terrain</h2><p><img src="/./imgs/2022-09-24-16-58-16.png"><br>在方块中挖洞的算法。</p>
-<h2 id="Marching-Cubes"><a href="#Marching-Cubes" class="headerlink" title="Marching Cubes"></a>Marching Cubes</h2><p>可以去看一下原文！<br><img src="/./imgs/2022-09-24-16-59-52.png"><br>14种不同的切块算法，<br>可以用来表达复杂的物理效果？</p>
+<h1 id=""><a href="#" class="headerlink" title=".."></a>..</h1><p><img src="/./imgs/2022-09-24-16-45-06.png"></p>
+<h1 id="2-渲染管线"><a href="#2-渲染管线" class="headerlink" title="2.渲染管线"></a>2.渲染管线</h1><h3 id="Hadrdware-Tessellation（适用于旧DX框架）"><a href="#Hadrdware-Tessellation（适用于旧DX框架）" class="headerlink" title="Hadrdware Tessellation（适用于旧DX框架）"></a>Hadrdware Tessellation（适用于旧DX框架）</h3><p><img src="/./imgs/2022-09-24-20-32-15.png"></p>
+<p><img src="/./imgs/2022-09-24-20-32-46.png"><br>简单来说：<br> Vertex Shader：顶点渲染<br>Hull Shader：生成一个几何区域。输出Patch<br>Tessellation Shader：曲面细分。<br>Domain Shader：获取为每个点生成的重心坐标，并在Patch的计算方程中使用这些坐标来生成所需的位置、法坐标、纹理坐标和其他顶点信息。</p>
+<p>这部分的参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/525431279">https://zhuanlan.zhihu.com/p/525431279</a></p>
+<h3 id="MeshShader"><a href="#MeshShader" class="headerlink" title="MeshShader"></a>MeshShader</h3><p><img src="/./imgs/2022-09-24-16-49-08.png"><br>在最新的GPU技术和DX12中，MeshShader集成了旧管道的所有部分。</p>
+<h2 id="相关算法："><a href="#相关算法：" class="headerlink" title="相关算法："></a>相关算法：</h2><h4 id="地面凹陷反馈？"><a href="#地面凹陷反馈？" class="headerlink" title="地面凹陷反馈？"></a>地面凹陷反馈？</h4><p><img src="/./imgs/2022-09-24-20-38-09.png"><br>雪块、泥地等等常用？</p>
+<h4 id="Non-Heightfield-Terrain"><a href="#Non-Heightfield-Terrain" class="headerlink" title="Non-Heightfield Terrain"></a>Non-Heightfield Terrain</h4><p><img src="/./imgs/2022-09-24-16-58-16.png"><br>在方块中挖洞的算法。</p>
+<h4 id="Marching-Cubes"><a href="#Marching-Cubes" class="headerlink" title="Marching Cubes"></a>Marching Cubes</h4><p>可以去看一下原文！<br><img src="/./imgs/2022-09-24-16-59-52.png"><br>14种不同的切块算法，<br>可以用来表达复杂的物理效果？</p>
 <ul>
 <li>应用案例1：医学切片，从表皮到内脏一层一层磨掉。</li>
 </ul>
@@ -180,7 +184,7 @@
 <ul>
 <li>延申的切分方法，可达上百种，可以依靠现代GPU的高速查表实现。</li>
 </ul>
-<h1 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h1><h2 id="材质过渡"><a href="#材质过渡" class="headerlink" title="材质过渡"></a>材质过渡</h2><p><img src="/./imgs/2022-09-24-17-06-10.png"></p>
+<h1 id="3-材质"><a href="#3-材质" class="headerlink" title="3.材质"></a>3.材质</h1><h2 id="材质过渡"><a href="#材质过渡" class="headerlink" title="材质过渡"></a>材质过渡</h2><p><img src="/./imgs/2022-09-24-17-06-10.png"></p>
 <h3 id="一种Hack算法-x2F-blender"><a href="#一种Hack算法-x2F-blender" class="headerlink" title="一种Hack算法 &#x2F;blender"></a>一种Hack算法 &#x2F;blender</h3><p><img src="/./imgs/2022-09-24-17-06-30.png"><br>根据高度来调整权重，高度较高的材质权重高，低位材质权重低。<br>类似于深度裁剪。<br><img src="/./imgs/2022-09-24-17-08-57.png"></p>
 <h4 id="Bias：扰动。"><a href="#Bias：扰动。" class="headerlink" title="Bias：扰动。"></a>Bias：扰动。</h4><p>可以理解为用一个浮动参数略微扰乱权重，结果是让过渡区域存在一定的混合效果，而不是高位对地位的完全覆盖。</p>
 <h2 id="材质分层采样-Texture-array方法"><a href="#材质分层采样-Texture-array方法" class="headerlink" title="材质分层采样 Texture array方法"></a>材质分层采样 Texture array方法</h2><p><img src="/./imgs/2022-09-24-17-15-32.png"></p>
@@ -189,15 +193,33 @@
 <li>TA的层与层之间没有关系，每个层有独立的Index编号，不对其他层进行采样。</li>
 <li>TA的每一层的表中中包含了材质【编号】和材质【权重】（用于blender）。</li>
 </ul>
-<h1 id="四种Mapping方法"><a href="#四种Mapping方法" class="headerlink" title="四种Mapping方法"></a>四种Mapping方法</h1><p><img src="/./imgs/2022-09-24-17-21-28.png"><br>目的：产生材质的凹凸效果。 里面Bm比较常用。可以了解一下相关算法实现。</p>
+<h1 id="4-Mapping"><a href="#4-Mapping" class="headerlink" title="4.Mapping"></a>4.Mapping</h1><p>四种常见方法：</p>
+<p><img src="/./imgs/2022-09-24-17-21-28.png"><br>目的：产生材质的凹凸效果。 里面Bm比较常用。可以了解一下相关算法实现。</p>
 <h4 id="存在的开销问题"><a href="#存在的开销问题" class="headerlink" title="存在的开销问题"></a>存在的开销问题</h4><p><img src="/./imgs/2022-09-24-17-28-33.png"><br>比较偏理论，造成较大的资源开销。</p>
 <h4 id="Virtual-Texture"><a href="#Virtual-Texture" class="headerlink" title="Virtual Texture"></a>Virtual Texture</h4><p>应对开销问题的解决方案。<br><img src="/./imgs/2022-09-24-17-25-00.png"></p>
 <ul>
 <li>有用块装在GPU中，无用块在硬盘上。</li>
 <li>现代游戏普遍使用</li>
+<li>LOD（Levels of Detai）:根据物体节点的位置和重要度权重，决定渲染的面数和细节度。</li>
+<li>tile的理解：一个固定像素的单位块？在tile上使用LOD</li>
+<li>pre-bake:需要用到某个tile时，将tile相关的材质、贴图几何信息等存储到pyhsical texture中。</li>
+</ul>
+<h1 id="5-数据调度，内存管理"><a href="#5-数据调度，内存管理" class="headerlink" title="5.数据调度，内存管理"></a>5.数据调度，内存管理</h1><p><img src="/./imgs/2022-09-24-20-16-20.png"></p>
+<h4 id="值得关注的硬件发展方向"><a href="#值得关注的硬件发展方向" class="headerlink" title="值得关注的硬件发展方向"></a>值得关注的硬件发展方向</h4><ul>
+<li>VT:数据从硬盘→内存→GPU，以压缩的形式传输，只在GPU中进行解压缩。</li>
+<li>DMA （SONA大法）：硬盘-GPU直通</li>
+<li>NVLINK：显卡之间数据直通<br>对Virtual texture读图都有直接帮助</li>
+</ul>
+<h1 id="6-浮点数问题"><a href="#6-浮点数问题" class="headerlink" title="6.浮点数问题"></a>6.浮点数问题</h1><p><img src="/./imgs/2022-09-24-20-23-20.png"><br>简单来说，浮点数值越大，位数越多，则浮点数的精度越差。<br>而应用在地图上时，如果地图的位置比较远，相应的位置信息也会巨大，精度会有所下降。<br>（点名开放世界类游戏）</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h4 id="Camera-Relative"><a href="#Camera-Relative" class="headerlink" title="Camera-Relative"></a>Camera-Relative</h4><p><img src="/./imgs/2022-09-24-20-24-11.png"><br>把地图上的绝对位置转换为相对于摄像机的相对位置。</p>
+<h4 id="sub-level"><a href="#sub-level" class="headerlink" title="sub level"></a>sub level</h4><p>基于关卡重置位置信息，每个关卡都是关卡内的位置。</p>
+<h1 id="7-地图物件渲染"><a href="#7-地图物件渲染" class="headerlink" title="7.地图物件渲染"></a>7.地图物件渲染</h1><ul>
+<li>Tree Rendering（有比较有名的中间件：Speed Tree）</li>
+<li>Decorator Rendering（花花草草各类装饰物）</li>
+<li>Road and Decals Rendering（比较出名的解决方法：Spline）<br>略…</li>
 </ul>
 <h2 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h2><h4 id="随记（一）："><a href="#随记（一）：" class="headerlink" title="随记（一）："></a>随记（一）：</h4><p>游戏引擎的难点在于基于不同的场景需求算法会发生很大的变化。<br>这对于找研究方向来说也许会很重要。</p>
-<h4 id="一个强烈推荐实现的算法："><a href="#一个强烈推荐实现的算法：" class="headerlink" title="一个强烈推荐实现的算法："></a>一个强烈推荐实现的算法：</h4>
+
     </div>
     
     

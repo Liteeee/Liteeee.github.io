@@ -144,6 +144,33 @@
             
 
 <div class="post">
+    <a href="/2022/09/20/短篇小说/小熊、蘑菇、冰雹/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/20
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/20/短篇小说/小熊、蘑菇、冰雹/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/19/GAMES104/104笔记（二）/">
         <h2 class="post-title"></h2>
     </a>
@@ -289,14 +316,14 @@ public:
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #ff7d73">
+            <a href="/tags/hexo/" style="color: #ffa2c4">
                 hexo
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #00a596">
+            <a href="/tags/markdown/" style="color: #00bcd4">
                 markdown
             </a>
         </span>
@@ -566,14 +593,14 @@ GUID：资源唯一识别号
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #03a9f4">
+            <a href="/tags/GAMES104/" style="color: #00a596">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #03a9f4">
+            <a href="/tags/游戏引擎/" style="color: #00bcd4">
                 游戏引擎
             </a>
         </span>
@@ -665,14 +692,14 @@ tags: [tag1,tag2]
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #00bcd4">
+            <a href="/tags/hexo/" style="color: #03a9f4">
                 hexo
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #ff7d73">
+            <a href="/tags/markdown/" style="color: #00a596">
                 markdown
             </a>
         </span>
@@ -714,80 +741,6 @@ tags: [tag1,tag2]
         
     </div>
     <a href="/2022/09/17/短篇小说/汉堡包、爬山车、截止日期/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/查漏补缺/git/git操作/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="GIT连接GITHUB"><a href="#GIT连接GITHUB" class="headerlink" title="GIT连接GITHUB"></a>GIT连接GITHUB</h1><pre><code>ssh-keygen -t rsa -C 生成公钥
-到github/gitee中添加公钥
-git remote add origin [仓库地址]
-</code></pre>
-<h1 id="常用基础操作"><a href="#常用基础操作" class="headerlink" title="常用基础操作"></a>常用基础操作</h1><h2 id="上传操作"><a href="#上传操作" class="headerlink" title="上传操作"></a>上传操作</h2><pre><code>git add . 添加到缓存区
-git commit -m &quot;code&quot; 提交到分支
-git push 上传
-</code></pre>
-<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><pre><code>git branch 显示分支 -a显示所有分支 -online显示线上分支
-git chekcout [branchName] 切换分支
-git branch [branchName] 创建分支
-git merge [branchName]  合并分支 
-    --allow-unrelated-histories在不同设备上创建新库并合并时
-</code></pre>
-<h1 id="版本控制操作"><a href="#版本控制操作" class="headerlink" title="版本控制操作"></a>版本控制操作</h1><p>HEAD可以理解为一个指针</p>
-<pre><code>git log 查看日志 --pretty=oneline 只看版本号和备注
-git reflog 比log多了[reset操作记录]和[删除操作记录],更全面
-
-git reset --hard [版本号] 更换版本
-git reset --hard HEAD^  回退一个版本
-git reset --hard HEAD~n 回退n个版本
-
-git reset --soft  ：1.仅在本地版本库移动指针。
-git reset --mixed : 1.移动本地版本库的指针；2.重置暂存区。（默认的参数）
-git reset --hard  : 1.移动本地版本库的指针；2.重置暂存区；3.重置工作区。
-</code></pre>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>.gitignore 用于配置不需要git控制的文件 支持正则表达式</p>
-<h2 id="文本规范"><a href="#文本规范" class="headerlink" title="文本规范"></a>文本规范</h2><pre><code>.gitignore 的格式规范如下：
-• 所有空行或者以 # 开头的行都会被 Git 忽略。
-• 可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。
-• 匹配模式可以以（/）开头防止递归。
-• 匹配模式可以以（/）结尾指定目录。
-• 要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。
-# 忽略所有的 .a 文件
-</code></pre>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>*.a
-# 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
-!lib.a
-# 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
-/TODO
-# 忽略任何目录下名为 build 的文件夹
-build/
-# 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
-doc/*.txt
-# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
-doc/**/*.pdf
-</code></pre>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/查漏补缺/git/git操作/" class="go-post">阅读全文</a>
 </div>
 
              

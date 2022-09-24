@@ -144,80 +144,6 @@
             
 
 <div class="post">
-    <a href="/2022/09/17/查漏补缺/git/git操作/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="GIT连接GITHUB"><a href="#GIT连接GITHUB" class="headerlink" title="GIT连接GITHUB"></a>GIT连接GITHUB</h1><pre><code>ssh-keygen -t rsa -C 生成公钥
-到github/gitee中添加公钥
-git remote add origin [仓库地址]
-</code></pre>
-<h1 id="常用基础操作"><a href="#常用基础操作" class="headerlink" title="常用基础操作"></a>常用基础操作</h1><h2 id="上传操作"><a href="#上传操作" class="headerlink" title="上传操作"></a>上传操作</h2><pre><code>git add . 添加到缓存区
-git commit -m &quot;code&quot; 提交到分支
-git push 上传
-</code></pre>
-<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><pre><code>git branch 显示分支 -a显示所有分支 -online显示线上分支
-git chekcout [branchName] 切换分支
-git branch [branchName] 创建分支
-git merge [branchName]  合并分支 
-    --allow-unrelated-histories在不同设备上创建新库并合并时
-</code></pre>
-<h1 id="版本控制操作"><a href="#版本控制操作" class="headerlink" title="版本控制操作"></a>版本控制操作</h1><p>HEAD可以理解为一个指针</p>
-<pre><code>git log 查看日志 --pretty=oneline 只看版本号和备注
-git reflog 比log多了[reset操作记录]和[删除操作记录],更全面
-
-git reset --hard [版本号] 更换版本
-git reset --hard HEAD^  回退一个版本
-git reset --hard HEAD~n 回退n个版本
-
-git reset --soft  ：1.仅在本地版本库移动指针。
-git reset --mixed : 1.移动本地版本库的指针；2.重置暂存区。（默认的参数）
-git reset --hard  : 1.移动本地版本库的指针；2.重置暂存区；3.重置工作区。
-</code></pre>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>.gitignore 用于配置不需要git控制的文件 支持正则表达式</p>
-<h2 id="文本规范"><a href="#文本规范" class="headerlink" title="文本规范"></a>文本规范</h2><pre><code>.gitignore 的格式规范如下：
-• 所有空行或者以 # 开头的行都会被 Git 忽略。
-• 可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。
-• 匹配模式可以以（/）开头防止递归。
-• 匹配模式可以以（/）结尾指定目录。
-• 要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。
-# 忽略所有的 .a 文件
-</code></pre>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>*.a
-# 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
-!lib.a
-# 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
-/TODO
-# 忽略任何目录下名为 build 的文件夹
-build/
-# 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
-doc/*.txt
-# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
-doc/**/*.pdf
-</code></pre>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/查漏补缺/git/git操作/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
     <a href="/2022/09/17/查漏补缺/raid/">
         <h2 class="post-title"></h2>
     </a>
@@ -700,6 +626,79 @@ WordCount？
         
     </div>
     <a href="/2022/09/17/HADOOPCLASS/CLASS01/centos命令表/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/08 HADOOP的简单总结和整合/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="完成上述配置后的服务器状态"><a href="#完成上述配置后的服务器状态" class="headerlink" title="完成上述配置后的服务器状态"></a>完成上述配置后的服务器状态</h1><h2 id="1-权限问题"><a href="#1-权限问题" class="headerlink" title="1.权限问题"></a>1.权限问题</h2><p>我将lite为hadoop启动相关的账户，使用相关功能时需要</p>
+<pre><code>su lite
+</code></pre>
+<p>root用户在编辑bin相关的脚本，以及用xsync分发相关脚本时需要切换使用</p>
+<pre><code>su root
+</code></pre>
+<h2 id="2-基础操作"><a href="#2-基础操作" class="headerlink" title="2.基础操作"></a>2.基础操作</h2><p>集群的启动的和关闭，由&#x2F;home&#x2F;lite&#x2F;bin&#x2F;myhadoop完成</p>
+<pre><code>myhadoop.sh start
+myhadoop.sh stop
+</code></pre>
+<p>在hadoop运行时，如果需要动态地删除节点功能</p>
+<pre><code>kill -9 端口号即可
+</code></pre>
+<p>在hadoop运行时，如果需要单独地恢复节点</p>
+<p>（1）分别启动&#x2F;停止HDFS组件</p>
+<pre><code>hdfs --daemon start/stop namenode/datanode/secondarynamenode
+</code></pre>
+<p>（2）启动&#x2F;停止YARN</p>
+<pre><code>yarn --daemon start/stop  resourcemanager/nodemanager
+</code></pre>
+<p>（3）myhadoop内已经集成的过时指令</p>
+<h2 id="3-常用端口号"><a href="#3-常用端口号" class="headerlink" title="3.常用端口号"></a>3.常用端口号</h2><p>HDFS NameNode:</p>
+<pre><code>HD3.X:8020 / 9000/9820
+HD2.X:8020 / 9000
+</code></pre>
+<p>NameNode HTTP UI:</p>
+<pre><code>HD3.X:9870
+HD2.X:50070
+</code></pre>
+<p>MapReduce查看任务执行窗口</p>
+<pre><code>8088
+</code></pre>
+<p>历史服务器通信端口</p>
+<pre><code>19888
+</code></pre>
+<p>常用配置文件：<br>core-site hdfs-site yarn-site mapred-site workers</p>
+<h2 id="4-整理之前的各个配置文件"><a href="#4-整理之前的各个配置文件" class="headerlink" title="4.整理之前的各个配置文件"></a>4.整理之前的各个配置文件</h2><p>1.脚本配置</p>
+<pre><code>/home/lite/bin/myhadoop路径下
+
+xsync：分发脚本
+myhadoop：群体操作脚本
+jpsall：集体jps脚本
+</code></pre>
+<p>2.hadoop配置文件</p>
+<pre><code>/opt/module/had../etc/hadoop/bin
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/HADOOPCLASS/CLASS01/08 HADOOP的简单总结和整合/" class="go-post">阅读全文</a>
 </div>
 
              

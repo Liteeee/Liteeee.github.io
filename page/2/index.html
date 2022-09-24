@@ -171,84 +171,6 @@
 </div>
 
 <div class="post">
-    <a href="/2022/09/19/GAMES104/104笔记（二）/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/19
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="GAMES104第三节"><a href="#GAMES104第三节" class="headerlink" title="GAMES104第三节"></a>GAMES104第三节</h1><h2 id="Tick"><a href="#Tick" class="headerlink" title="Tick"></a>Tick</h2><p><img src="/./imgs/2022-09-19-23-14-59.png"></p>
-<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p><img src="/./imgs/2022-09-19-23-15-47.png"></p>
-<p>解决了表现的过程，每个GO(gameobject)都能完成一个完整的GO。</p>
-<h2 id="GO交互"><a href="#GO交互" class="headerlink" title="GO交互"></a>GO交互</h2><p>每个GO都在进行自己的周期，交互会改变周期的运作<br>1.避免HardCode，即模拟类算法（例如编写每一个单位的受伤TICK）<br>2.推荐Events机制，统一为一个受伤Events</p>
-<p><img src="/./imgs/2022-09-19-23-21-13.png"></p>
-<p>如图为U3d和UE的事件示例</p>
-<h2 id="GO管理"><a href="#GO管理" class="headerlink" title="GO管理"></a>GO管理</h2><p>游戏中会有海量的GO</p>
-<h4 id="实现标识方式："><a href="#实现标识方式：" class="headerlink" title="实现标识方式："></a>实现标识方式：</h4><ul>
-<li>独特的ID</li>
-<li>位置信息position</li>
-</ul>
-<h2 id="场景管理"><a href="#场景管理" class="headerlink" title="场景管理"></a>场景管理</h2><ul>
-<li>游戏中的场景资源分配经常会出现不均匀的现象（过于集中或分散）</li>
-<li>容易造成资源浪费<br><img src="/./imgs/2022-09-19-23-27-00.png"></li>
-</ul>
-<h2 id="场景管理方式"><a href="#场景管理方式" class="headerlink" title="场景管理方式"></a>场景管理方式</h2><h4 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h4><h4 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h4><h2 id="物体绑定方式"><a href="#物体绑定方式" class="headerlink" title="物体绑定方式"></a>物体绑定方式</h2><p>这个问题能够引申到GO的TICK之间的关联</p>
-<h4 id="传统TICK绑定机制"><a href="#传统TICK绑定机制" class="headerlink" title="传统TICK绑定机制"></a>传统TICK绑定机制</h4><ul>
-<li>人上车，人被绑到车上。</li>
-<li>人物的GO向车发送绑定信息</li>
-<li>绑定后，车的TICK运行时会改变人物的TICK</li>
-<li>人与车的TICK会产生时序性的问题，也会有循环依赖<br>例如车上的人与其他GO产生TICK变化同时，车也产生了TICK需要影响角色的TICK。</li>
-</ul>
-<h4 id="严格时序的消息传递机制"><a href="#严格时序的消息传递机制" class="headerlink" title="严格时序的消息传递机制"></a>严格时序的消息传递机制</h4><p><img src="/./imgs/2022-09-19-23-38-01.png"></p>
-<ul>
-<li>邮局：统一转发GO的消息，不允许GO单独发送消息<br>当每一个GO单独发消息时：可以精确规定发送方的【发送帧】，精确接收方的哪一帧才能接收到的【接受帧】，以及【接收帧】后多久（立即&#x2F;延迟）才开始【新的TICK】</li>
-<li>PreTick</li>
-<li>PostTick</li>
-</ul>
-<h1 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h1><h3 id="TICK过长的问题"><a href="#TICK过长的问题" class="headerlink" title="TICK过长的问题"></a>TICK过长的问题</h3><ul>
-<li>案例：一帧爆炸里面有上百个物体要运动<br>全部都在一个TICK里的话，可能会出现的TICK过长的问题</li>
-</ul>
-<p>解决案例：按照一定规则进行拆分成多P，拆分几十个TICK到多个帧数里。按照策略（部分GO并不影响体验的可以适当延迟），在尽可能保持玩家体验的前提下不让TICK太长。</p>
-<h3 id="TICK中RENDER和LOGIC线程关系"><a href="#TICK中RENDER和LOGIC线程关系" class="headerlink" title="TICK中RENDER和LOGIC线程关系"></a>TICK中RENDER和LOGIC线程关系</h3><p>TICK_LOGIC的运作通常会比RENDER早，而且一般分为不同的线程。<br>而Render中可能会有多个线程做数据准备（例如产生粒子）</p>
-<p>TICK_LOGIC产生的结果通常可能在RENDER之后。</p>
-<p>例如：从按下手柄到画产生变化的【延迟过程】<br>    【一个普通的延迟过程：TICK_LOGIC()产生结果-&gt;TICK_RENDER()画面运作]</p>
-<ul>
-<li>为了减少延迟感，提升实时感，仍然需要诸多策略。</li>
-<li>为了表现上同步，实际上分步。</li>
-</ul>
-<h3 id="空间划分处理动态GO的问题"><a href="#空间划分处理动态GO的问题" class="headerlink" title="空间划分处理动态GO的问题"></a>空间划分处理动态GO的问题</h3><p>一个场景的空间划分需要储备多种空间划分方法以应对多种情况。</p>
-<h3 id="组件模式的优缺点"><a href="#组件模式的优缺点" class="headerlink" title="组件模式的优缺点"></a>组件模式的优缺点</h3><p>————允许一个单一的实体跨越多个不同域而不会导致耦合<br>————组件之间会产生较多的信息查询</p>
-<h4 id="组件的使用情景："><a href="#组件的使用情景：" class="headerlink" title="组件的使用情景："></a>组件的使用情景：</h4><ul>
-<li>你有一个涉及多个域的大类，并且你希望这些域可以保持相互解耦。</li>
-<li>一个类越来越大、难以维护和继续开发。</li>
-<li>你希望重用代码，但是通过继承的方式不能精确、完全的复用。</li>
-</ul>
-<p>一个不太准确的使用情况：</p>
-<pre><code>例如把物理、动画、音乐作各作个Component。
-在一个【PlayerUpdate】的class中实现信息传递。
-而不要在一个动作的代码中执行它的音效。
-</code></pre>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/19/GAMES104/104笔记（二）/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
     <a href="/2022/09/19/力扣/哈希表/哈希表记频率+模拟+定义排序/">
         <h2 class="post-title">【每日一题】哈希+模拟+Sort()自定义</h2>
     </a>
@@ -293,7 +215,7 @@
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #00a596">
+            <a href="/tags/markdown/" style="color: #ff7d73">
                 markdown
             </a>
         </span>
@@ -505,52 +427,7 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <h1 id="GAMES104"><a href="#GAMES104" class="headerlink" title="GAMES104"></a>GAMES104</h1><h2 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h2><h3 id="功能层（Function-Layer）"><a href="#功能层（Function-Layer）" class="headerlink" title="功能层（Function Layer）"></a>功能层（Function Layer）</h3><p>媒体文件居多。<br><img src="/./imgs/2022-09-17-23-38-03.png"></p>
-<h3 id="资源层（Resource-Layer）"><a href="#资源层（Resource-Layer）" class="headerlink" title="资源层（Resource Layer）"></a>资源层（Resource Layer）</h3><p>作为功能层的接口。<br><img src="/./imgs/2022-09-17-23-38-16.png"></p>
-<h3 id="核心层（Core-Layer）"><a href="#核心层（Core-Layer）" class="headerlink" title="核心层（Core Layer）"></a>核心层（Core Layer）</h3><p>提供游戏需要的工具&#x2F;方法：例如内存管理、数学模块等等，<br>是游戏的逻辑管理的基础。</p>
-<h3 id="平台层（Platform-Layer）"><a href="#平台层（Platform-Layer）" class="headerlink" title="平台层（Platform Layer）"></a>平台层（Platform Layer）</h3><p>对不同平台进行处理：不同硬件的输入方式、渲染接口、功能特性等。</p>
-<h2 id="建立引擎的步骤"><a href="#建立引擎的步骤" class="headerlink" title="建立引擎的步骤"></a>建立引擎的步骤</h2><ul>
-<li>有了【平台层】，解决了不同平台特性的问题</li>
-<li>然后建立所有功能处理的内核，【核心层】</li>
-<li>再建立【资源层】对【资源进行加载和管理】</li>
-<li>接着我们建立【功能层】来进行与【游戏相关的操作】</li>
-<li>最后我们建立【工具层】将功能层进行的与游戏相关的操作【可视化为编辑器】出来供使用者们使用</li>
-</ul>
-<div STYLE="page-break-after: always;"></div>
-
-<h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><p><img src="/./imgs/2022-09-17-23-38-40.png"></p>
-<h1 id="1-从资源导入到游戏运行的过程"><a href="#1-从资源导入到游戏运行的过程" class="headerlink" title="1.从资源导入到游戏运行的过程"></a>1.从资源导入到游戏运行的过程</h1><h2 id="1-1-Importing"><a href="#1-1-Importing" class="headerlink" title="1.1 Importing"></a>1.1 Importing</h2><p>将不同的媒体数据(resource)载入为高效的数据形式(asset)<br>示例：</p>
-<pre><code>unity中：importing
-创建meta文件：记录资源设置
-创建引擎本地高效资源
-创建关联文件：关联原始资源与引擎实际资源
-GUID：资源唯一识别号
-</code></pre>
-<h2 id="1-2-关联资产-composite-asset"><a href="#1-2-关联资产-composite-asset" class="headerlink" title="1.2 关联资产(composite asset)"></a>1.2 关联资产(composite asset)</h2><p>将一个角色与他的资源(GUID mesh text animation等)关联起来（在内存中）</p>
-<h2 id="1-3-资源管理-Runtime-Asset-Manager"><a href="#1-3-资源管理-Runtime-Asset-Manager" class="headerlink" title="1.3 资源管理 Runtime Asset Manager"></a>1.3 资源管理 Runtime Asset Manager</h2><p>处理运行时的资源加载和卸载，把内存中的资源卸载下来，并且保持他们的关联性。<br>资源管理的关注面：</p>
-<pre><code>硬件性能：可以申请多少内存
-资源回收：回收资源时的耗时
-资源加载：加载耗时 - 同步异步处理
-</code></pre>
-<h2 id="1-3功能-x2F-玩法编辑（功能层）"><a href="#1-3功能-x2F-玩法编辑（功能层）" class="headerlink" title="1.3功能&#x2F;玩法编辑（功能层）"></a>1.3功能&#x2F;玩法编辑（功能层）</h2><h3 id="TICK"><a href="#TICK" class="headerlink" title="TICK"></a>TICK</h3><p>引擎里的时钟概念，是将游戏中所有模块执行一次的周期。现在通常为1&#x2F;30秒？<br><img src="/./imgs/2022-09-17-23-52-09.png"></p>
-<h3 id="TICK的模块划分"><a href="#TICK的模块划分" class="headerlink" title="TICK的模块划分"></a>TICK的模块划分</h3><p><img src="/./imgs/2022-09-17-23-57-00.png"></p>
-<h3 id="TickLogic"><a href="#TickLogic" class="headerlink" title="TickLogic"></a>TickLogic</h3><ul>
-<li>读取输入输出</li>
-<li>计算世界物理信息</li>
-<li>移动camera，角色和物体</li>
-<li>碰撞检测等</li>
-<li>以及各种游戏玩法的事都属于逻辑，比如角色A打到了角色B，因为不管看没看见，A都打到了B并造成了伤害</li>
-</ul>
-<h3 id="TickRender"><a href="#TickRender" class="headerlink" title="TickRender"></a>TickRender</h3><p>负责渲染</p>
-<h2 id="1-4-核心层"><a href="#1-4-核心层" class="headerlink" title="1.4 核心层"></a>1.4 核心层</h2><h3 id="1-4-1高性能计算"><a href="#1-4-1高性能计算" class="headerlink" title="1.4.1高性能计算"></a>1.4.1高性能计算</h3><p>需要重写一些运算以保证实时效率</p>
-<h3 id="1-4-2数据结构与容器"><a href="#1-4-2数据结构与容器" class="headerlink" title="1.4.2数据结构与容器"></a>1.4.2数据结构与容器</h3><p><img src="/./imgs/2022-09-18-01-23-03.png"><br>需要自定义一些高效访问的容器</p>
-<h3 id="1-4-3内存管理"><a href="#1-4-3内存管理" class="headerlink" title="1.4.3内存管理"></a>1.4.3内存管理</h3><p>游戏引擎的内存管理十分接近操作系统。游戏引擎的内存性能瓶颈：</p>
-<ul>
-<li>内存池（分配器）</li>
-<li>Cache Miss</li>
-<li>内存对齐</li>
-</ul>
-
+            <h1 id="GAMES104-第一节-引擎五层模型概述"><a href="#GAMES104-第一节-引擎五层模型概述" class="headerlink" title="GAMES104 第一节 引擎五层模型概述"></a>GAMES104 第一节 引擎五层模型概述</h1>
             
         </div>
     </div>
@@ -563,14 +440,14 @@ GUID：资源唯一识别号
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ff7d73">
+            <a href="/tags/GAMES104/" style="color: #00a596">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #ff7d73">
+            <a href="/tags/游戏引擎/" style="color: #ffa2c4">
                 游戏引擎
             </a>
         </span>
@@ -662,7 +539,7 @@ tags: [tag1,tag2]
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #ffa2c4">
+            <a href="/tags/hexo/" style="color: #03a9f4">
                 hexo
             </a>
         </span>
@@ -703,6 +580,80 @@ tags: [tag1,tag2]
         
     </div>
     <a href="/2022/09/17/短篇小说/汉堡包、爬山车、截止日期/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/查漏补缺/git/git操作/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="GIT连接GITHUB"><a href="#GIT连接GITHUB" class="headerlink" title="GIT连接GITHUB"></a>GIT连接GITHUB</h1><pre><code>ssh-keygen -t rsa -C 生成公钥
+到github/gitee中添加公钥
+git remote add origin [仓库地址]
+</code></pre>
+<h1 id="常用基础操作"><a href="#常用基础操作" class="headerlink" title="常用基础操作"></a>常用基础操作</h1><h2 id="上传操作"><a href="#上传操作" class="headerlink" title="上传操作"></a>上传操作</h2><pre><code>git add . 添加到缓存区
+git commit -m &quot;code&quot; 提交到分支
+git push 上传
+</code></pre>
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><pre><code>git branch 显示分支 -a显示所有分支 -online显示线上分支
+git chekcout [branchName] 切换分支
+git branch [branchName] 创建分支
+git merge [branchName]  合并分支 
+    --allow-unrelated-histories在不同设备上创建新库并合并时
+</code></pre>
+<h1 id="版本控制操作"><a href="#版本控制操作" class="headerlink" title="版本控制操作"></a>版本控制操作</h1><p>HEAD可以理解为一个指针</p>
+<pre><code>git log 查看日志 --pretty=oneline 只看版本号和备注
+git reflog 比log多了[reset操作记录]和[删除操作记录],更全面
+
+git reset --hard [版本号] 更换版本
+git reset --hard HEAD^  回退一个版本
+git reset --hard HEAD~n 回退n个版本
+
+git reset --soft  ：1.仅在本地版本库移动指针。
+git reset --mixed : 1.移动本地版本库的指针；2.重置暂存区。（默认的参数）
+git reset --hard  : 1.移动本地版本库的指针；2.重置暂存区；3.重置工作区。
+</code></pre>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>.gitignore 用于配置不需要git控制的文件 支持正则表达式</p>
+<h2 id="文本规范"><a href="#文本规范" class="headerlink" title="文本规范"></a>文本规范</h2><pre><code>.gitignore 的格式规范如下：
+• 所有空行或者以 # 开头的行都会被 Git 忽略。
+• 可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。
+• 匹配模式可以以（/）开头防止递归。
+• 匹配模式可以以（/）结尾指定目录。
+• 要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。
+# 忽略所有的 .a 文件
+</code></pre>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>*.a
+# 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
+!lib.a
+# 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
+/TODO
+# 忽略任何目录下名为 build 的文件夹
+build/
+# 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
+doc/*.txt
+# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
+doc/**/*.pdf
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/查漏补缺/git/git操作/" class="go-post">阅读全文</a>
 </div>
 
              

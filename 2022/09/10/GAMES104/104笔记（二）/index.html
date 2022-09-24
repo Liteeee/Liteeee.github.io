@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Liteee的世界尽头</title>
+        <title>GAMS104笔记（二）游戏引擎渲染 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,20 +122,51 @@
                         
 <div class="article">
     <div>
-        <h1> </h1>
+        <h1>GAMS104笔记（二）游戏引擎渲染 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/19
+            2022/9/10
+        </span>
+        
+        <span class="category">
+            <a href="/categories/GAMES/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                GAMES
+            </a>
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/GAMES104/" style="color: #03a9f4">
+                    GAMES104
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/游戏引擎/" style="color: #ff7d73">
+                    游戏引擎
+                </a>
+            </span>
+            
+        </span>
+        
     </div>
     <div class="content" v-pre>
-        <h1 id="GAMES104第三节"><a href="#GAMES104第三节" class="headerlink" title="GAMES104第三节"></a>GAMES104第三节</h1><h2 id="Tick"><a href="#Tick" class="headerlink" title="Tick"></a>Tick</h2><p><img src="/./imgs/2022-09-19-23-14-59.png"></p>
+        <h1 id="GAMES104第三节"><a href="#GAMES104第三节" class="headerlink" title="GAMES104第三节"></a>GAMES104第三节</h1> <span id="more"></span>
+<h2 id="Tick"><a href="#Tick" class="headerlink" title="Tick"></a>Tick</h2><p><img src="/./imgs/2022-09-19-23-14-59.png"></p>
 <h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p><img src="/./imgs/2022-09-19-23-15-47.png"></p>
 <p>解决了表现的过程，每个GO(gameobject)都能完成一个完整的GO。</p>
 <h2 id="GO交互"><a href="#GO交互" class="headerlink" title="GO交互"></a>GO交互</h2><p>每个GO都在进行自己的周期，交互会改变周期的运作<br>1.避免HardCode，即模拟类算法（例如编写每一个单位的受伤TICK）<br>2.推荐Events机制，统一为一个受伤Events</p>

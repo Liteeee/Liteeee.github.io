@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>【每日一题】哈希+模拟+Sort()自定义 | Liteee的世界尽头</title>
+        <title>每日一题：旋转数字-好数 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,14 +122,14 @@
                         
 <div class="article">
     <div>
-        <h1>【每日一题】哈希+模拟+Sort()自定义 </h1>
+        <h1>每日一题：旋转数字-好数 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/19
+            2022/9/25
         </span>
         
         <span class="category">
@@ -149,15 +149,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/hexo/" style="color: #00a596">
-                    hexo
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/markdown/" style="color: #00a596">
-                    markdown
+                <a href="/tags/力扣，每日一题，模拟/" style="color: #00a596">
+                    力扣，每日一题，模拟
                 </a>
             </span>
             
@@ -165,35 +158,57 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="按频率排序按数字降序"><a href="#按频率排序按数字降序" class="headerlink" title="按频率排序按数字降序"></a>按频率排序按数字降序</h1><h2 id="哈希-模拟-sort-重定"><a href="#哈希-模拟-sort-重定" class="headerlink" title="哈希+模拟+sort()重定"></a>哈希+模拟+sort()重定</h2><p>给你一个整数数组 nums ，请你将数组按照每个值的频率 升序 排序。如果有多个值的频率相同，请你按照数值本身将它们 降序 排序。<br> <span id="more"></span><br>请你返回排序后的数组。<br>示例：</p>
-<pre><code>输入：[1,1,2,2,2,3,-1,99,88,88,7,12,13,12]
-输出：[99,13,7,3,-1,88,88,12,12,1,1,2,2,2]
+        <h1 id="旋转数字-好数"><a href="#旋转数字-好数" class="headerlink" title="旋转数字-好数"></a>旋转数字-好数</h1><h4 id="中等难度"><a href="#中等难度" class="headerlink" title="中等难度"></a>中等难度</h4><p>我们称一个数 X 为好数, 如果它的每位数字逐个地被旋转 180 度后，我们仍可以得到一个有效的，且和 X 不同的数。要求每位数字都要被旋转。<br> <span id="more"></span><br> 如果一个数的每位数字被旋转以后仍然还是一个数字， 则这个数是有效的。0, 1, 和 8 被旋转后仍然是它们自己；2 和 5 可以互相旋转成对方（在这种情况下，它们以不同的方向旋转，换句话说，2 和 5 互为镜像）；6 和 9 同理，除了这些以外其他的数字旋转以后都不再是有效的数字。</p>
+<p>现在我们有一个正整数 N, 计算从 1 到 N 中有多少个数 X 是好数？</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/rotated-digits">https://leetcode.cn/problems/rotated-digits</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<pre><code>输入: 10
+输出: 4
+解释: 
+在[1, 10]中有四个好数： 2, 5, 6, 9。
+注意 1 和 10 不是好数, 因为他们在旋转之后不变。
 </code></pre>
-<p>##思路：</p>
-<ul>
-<li>map统计词频</li>
-<li>模拟（用计算机来模拟真实操作，通常需要用纸）此处用sort完成两种排序</li>
-<li>sort的新用法</li>
-</ul>
-<h4 id="sort（start，end-排序方式）"><a href="#sort（start，end-排序方式）" class="headerlink" title="sort（start，end,排序方式）"></a>sort（start，end,排序方式）</h4><p>其中，排序方式的参数可以是函数定义，也可以是函数调用<br>假设sort可以认为是排序完了之后再进行排序方式<br>    如果a与b相同，则按a与b的降序排列（a&gt;b）<br>    如果a与b不相同，则按他们的值a[]升序排列(a&lt;b)</p>
-<h4 id="巧妙之处在于map只用来查找，充分发挥哈希的优势-实际排序发生在nums中，也利用了vector的优势"><a href="#巧妙之处在于map只用来查找，充分发挥哈希的优势-实际排序发生在nums中，也利用了vector的优势" class="headerlink" title="巧妙之处在于map只用来查找，充分发挥哈希的优势,实际排序发生在nums中，也利用了vector的优势"></a>巧妙之处在于map只用来查找，充分发挥哈希的优势,实际排序发生在nums中，也利用了vector的优势</h4><p>代码:</p>
+<h4 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h4><p>说实话题意没看懂，一开始用哈希做索引，对里面的数字进行翻转再比较。<br>后来发现其实规则就是：</p>
+<pre><code>对于一个好数而言：
+3\4\7无用数：不能出现
+2/5/6/9/旋转数：必须出现
+1/0镜像数（不变），不影响结果
+</code></pre>
+<p>所以面向结果的暴力模拟：</p>
 <pre><code class="c++">class Solution &#123;
+private:
+    int num=0;
 public:
-    vector&lt;int&gt; frequencySort(vector&lt;int&gt;&amp; nums) &#123;
-        unoredered_map&lt;int,int&gt;map1;
-        for(auto&amp; i : nums)&#123;
-            map1[i]++;
-        &#125;
-        sort(nums.begin(), nums.end(), [&amp;](const int a, const int b) &#123;
-            if (map1[a] != map1[b]) &#123;
-                return map1[a] &lt; map1[b];
+    int rotatedDigits(int n) &#123;
+        int res=0;
+        int num=0;
+        bool flag=true;
+        for(int j=1;j&lt;=n;j++)&#123;
+            flag=true;
+            string s=to_string(j);
+            for(auto&amp; i :s)&#123;
+            // cout&lt;&lt;i&lt;&lt;&quot; &quot;;
+                if(i==&#39;3&#39;||i==&#39;4&#39;||i==&#39;7&#39;)flag=false;
             &#125;
-            return a &gt; b;
-        &#125;);
-        return nums;
+            if(flag)&#123;
+                for(auto&amp; i :s)&#123;
+                // cout&lt;&lt;i&lt;&lt;&quot; &quot;;
+                    if(i==&#39;2&#39;||i==&#39;5&#39;||i==&#39;6&#39;||i==&#39;9&#39;)&#123;
+                    num++;
+                    // cout&lt;&lt;s&lt;&lt;&quot; &quot;;
+                    break;
+                    &#125;
+                &#125;
+
+            &#125;
+        &#125;
+        return num;
     &#125;
-&#125;;
 </code></pre>
+<p>时间复杂度O（n*(2s)）<br>不快，主打一个面向结果。<br>能改进的地方大概有；</p>
+<ul>
+<li>按位取数字</li>
+<li>哈希取对照</li>
+</ul>
 
     </div>
     

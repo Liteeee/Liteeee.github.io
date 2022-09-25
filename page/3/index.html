@@ -144,6 +144,107 @@
             
 
 <div class="post">
+    <a href="/2022/09/17/短篇小说/汉堡包、爬山车、截止日期/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="汉堡包、爬山车、截止日期"><a href="#汉堡包、爬山车、截止日期" class="headerlink" title="汉堡包、爬山车、截止日期"></a>汉堡包、爬山车、截止日期</h1><h2 id="22-x2F-9-x2F-11-17：44斜阳，阳台窗边"><a href="#22-x2F-9-x2F-11-17：44斜阳，阳台窗边" class="headerlink" title="22&#x2F;9&#x2F;11 17：44斜阳，阳台窗边"></a>22&#x2F;9&#x2F;11 17：44斜阳，阳台窗边</h2>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/短篇小说/汉堡包、爬山车、截止日期/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/17/查漏补缺/git/git操作/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="GIT连接GITHUB"><a href="#GIT连接GITHUB" class="headerlink" title="GIT连接GITHUB"></a>GIT连接GITHUB</h1><pre><code>ssh-keygen -t rsa -C 生成公钥
+到github/gitee中添加公钥
+git remote add origin [仓库地址]
+</code></pre>
+<h1 id="常用基础操作"><a href="#常用基础操作" class="headerlink" title="常用基础操作"></a>常用基础操作</h1><h2 id="上传操作"><a href="#上传操作" class="headerlink" title="上传操作"></a>上传操作</h2><pre><code>git add . 添加到缓存区
+git commit -m &quot;code&quot; 提交到分支
+git push 上传
+</code></pre>
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><pre><code>git branch 显示分支 -a显示所有分支 -online显示线上分支
+git chekcout [branchName] 切换分支
+git branch [branchName] 创建分支
+git merge [branchName]  合并分支 
+    --allow-unrelated-histories在不同设备上创建新库并合并时
+</code></pre>
+<h1 id="版本控制操作"><a href="#版本控制操作" class="headerlink" title="版本控制操作"></a>版本控制操作</h1><p>HEAD可以理解为一个指针</p>
+<pre><code>git log 查看日志 --pretty=oneline 只看版本号和备注
+git reflog 比log多了[reset操作记录]和[删除操作记录],更全面
+
+git reset --hard [版本号] 更换版本
+git reset --hard HEAD^  回退一个版本
+git reset --hard HEAD~n 回退n个版本
+
+git reset --soft  ：1.仅在本地版本库移动指针。
+git reset --mixed : 1.移动本地版本库的指针；2.重置暂存区。（默认的参数）
+git reset --hard  : 1.移动本地版本库的指针；2.重置暂存区；3.重置工作区。
+</code></pre>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>.gitignore 用于配置不需要git控制的文件 支持正则表达式</p>
+<h2 id="文本规范"><a href="#文本规范" class="headerlink" title="文本规范"></a>文本规范</h2><pre><code>.gitignore 的格式规范如下：
+• 所有空行或者以 # 开头的行都会被 Git 忽略。
+• 可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。
+• 匹配模式可以以（/）开头防止递归。
+• 匹配模式可以以（/）结尾指定目录。
+• 要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。
+# 忽略所有的 .a 文件
+</code></pre>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>*.a
+# 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
+!lib.a
+# 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
+/TODO
+# 忽略任何目录下名为 build 的文件夹
+build/
+# 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
+doc/*.txt
+# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
+doc/**/*.pdf
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/查漏补缺/git/git操作/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/17/查漏补缺/raid/">
         <h2 class="post-title"></h2>
     </a>
@@ -326,101 +427,6 @@ double(64位 8字节)
         
     </div>
     <a href="/2022/09/17/力扣/JAVA开发语法整理/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/力扣/C++竞赛语法整理/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="C-竞赛语法"><a href="#C-竞赛语法" class="headerlink" title="C++ 竞赛语法"></a>C++ 竞赛语法</h1><h2 id="一、基础语法（循环-类型定义）"><a href="#一、基础语法（循环-类型定义）" class="headerlink" title="一、基础语法（循环+类型定义）"></a>一、基础语法（循环+类型定义）</h2><p>略</p>
-<h2 id="二】数组，字符串，"><a href="#二】数组，字符串，" class="headerlink" title="二】数组，字符串，"></a>二】数组，字符串，</h2><p>略</p>
-<h2 id="三、特殊列表？（例如PYTHON中元组和字典的区别"><a href="#三、特殊列表？（例如PYTHON中元组和字典的区别" class="headerlink" title="三、特殊列表？（例如PYTHON中元组和字典的区别"></a>三、特殊列表？（例如PYTHON中元组和字典的区别</h2><p>去重</p>
-<pre><code>set
-</code></pre>
-<p>略</p>
-<h2 id="四、哈希"><a href="#四、哈希" class="headerlink" title="四、哈希"></a>四、哈希</h2><h3 id="函数库"><a href="#函数库" class="headerlink" title="函数库"></a>函数库</h3><pre><code>&lt;unordered_map&gt;
-&lt;map&gt;
-</code></pre>
-<h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><p>两个函数的操作方法一致，区别在于内部实现上：</p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化:"></a>初始化:</h4><pre><code>unordered_map&lt;int,string&gt;newMap=&#123;&#123;5,"A"&#125;,&#123;6,"B"&#125;&#125;;
-</code></pre>
-<h4 id="插入-insert-x2F-emplace"><a href="#插入-insert-x2F-emplace" class="headerlink" title="插入.insert()&#x2F;emplace():"></a>插入.insert()&#x2F;emplace():</h4><pre><code>newMap.insert(pair&lt;int,string&gt;(3,&quot;C&quot;))//pair成对插入
-
-newMap.emplace(key,value)
-</code></pre>
-<h4 id="删除-erase-："><a href="#删除-erase-：" class="headerlink" title="删除.erase()："></a>删除.erase()：</h4><pre><code>auto res=newMap.erase(&quot;A&quot;)//未找到则返回0
-</code></pre>
-<h4 id="first-x2F-second-x2F-begin-x2F-end"><a href="#first-x2F-second-x2F-begin-x2F-end" class="headerlink" title="first&#x2F;second&#x2F;begin&#x2F;end"></a>first&#x2F;second&#x2F;begin&#x2F;end</h4><pre><code>it-&gt;first //元素的key值
-it-&gt;second //元素的value值
-it++ //下一个元素
-newMap.begin()/end()//迭代器可以访问的首位元素
-</code></pre>
-<h4 id="find-查找-x2F-判空"><a href="#find-查找-x2F-判空" class="headerlink" title=".find()查找&#x2F;判空:"></a>.find()查找&#x2F;判空:</h4><pre><code>auto iterator = myMap.find(2);//find()返回一个指向2的
-if (iterator != myMap.end()&#123;
-    it-&gt;second=new_value;
-&#125;
-</code></pre>
-<h4 id="值访问-newMap-key"><a href="#值访问-newMap-key" class="headerlink" title="值访问 newMap[key]"></a>值访问 newMap[key]</h4><pre><code>value=newMap[key]
-</code></pre>
-<h4 id="遍历-x2F-迭代器："><a href="#遍历-x2F-迭代器：" class="headerlink" title="遍历&#x2F;迭代器："></a>遍历&#x2F;迭代器：</h4><pre><code>auto iter = myMap.begin();//auto自动识别为迭代器类型unordered_map&lt;int,string&gt;::iterator
-while (iter!= myMap.end())
-&#123;  
-    cout &lt;&lt; iter-&gt;first &lt;&lt; &quot;,&quot; &lt;&lt; iter-&gt;second &lt;&lt; endl;  
-    ++iter;  
-&#125;  
-</code></pre>
-<h4 id="特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读"><a href="#特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读" class="headerlink" title="特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读"></a>特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读</h4><pre><code>for(auto x:newMap)//遍历整个map，输出key及其对应的value值
-&#123;
-    x.second = 0;	
-    cout&lt;&lt;x.second&lt;&lt;endl;//全是  00；但是循环外不变
-&#125;
-for(auto x:unomap)
-    cout&lt;&lt;x.first&lt;&lt;&quot;  &quot;&lt;&lt;x.second&lt;&lt;endl;
-
-//遍历整个map，输出key及其对应的value值
-</code></pre>
-<h3 id="map"><a href="#map" class="headerlink" title="map:"></a>map:</h3><p>使用红黑树进行内部实现（非严格平衡二叉搜索树）</p>
-<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ol>
-<li>有序，每个节点都是一个元素</li>
-<li>操作时间与红黑树相同</li>
-<li>通过中序遍历可实现从小到大遍历</li>
-<li>时间复杂度低至log(n)</li>
-</ol>
-<h3 id="unordered-map："><a href="#unordered-map：" class="headerlink" title="unordered_map："></a>unordered_map：</h3><p>使用哈希表进行内部实现，把关键码映射到HASH表中的位置进行访问</p>
-<h4 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h4><ol>
-<li>无序，</li>
-<li>查找时间复杂度最低O(1)</li>
-<li>遍历顺序与输入顺序不同</li>
-<li>内存占用比红黑树高</li>
-</ol>
-<h2 id="5-树结构"><a href="#5-树结构" class="headerlink" title="5.树结构"></a>5.树结构</h2><h2 id="6-基于语言特性，归档一些语法在运行速度上的差异"><a href="#6-基于语言特性，归档一些语法在运行速度上的差异" class="headerlink" title="6.基于语言特性，归档一些语法在运行速度上的差异"></a>6.基于语言特性，归档一些语法在运行速度上的差异</h2><h4 id="ListNode"><a href="#ListNode" class="headerlink" title="ListNode"></a>ListNode</h4><p>初始化：</p>
-<pre><code>this-&gt;head = new ListNode(0);
-</code></pre>
-<p>节点赋值&#x2F;复制：</p>
-<pre><code>ListNode *cur = head;
-</code></pre>
-<p>属性结构（next&#x2F;val）：<br>节点的值<br>    num&#x3D;cur-&gt;val;<br>下一个节点<br>    cur &#x3D; cur-&gt;next;</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/力扣/C++竞赛语法整理/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
@@ -626,79 +632,6 @@ WordCount？
         
     </div>
     <a href="/2022/09/17/HADOOPCLASS/CLASS01/centos命令表/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/HADOOPCLASS/CLASS01/08 HADOOP的简单总结和整合/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="完成上述配置后的服务器状态"><a href="#完成上述配置后的服务器状态" class="headerlink" title="完成上述配置后的服务器状态"></a>完成上述配置后的服务器状态</h1><h2 id="1-权限问题"><a href="#1-权限问题" class="headerlink" title="1.权限问题"></a>1.权限问题</h2><p>我将lite为hadoop启动相关的账户，使用相关功能时需要</p>
-<pre><code>su lite
-</code></pre>
-<p>root用户在编辑bin相关的脚本，以及用xsync分发相关脚本时需要切换使用</p>
-<pre><code>su root
-</code></pre>
-<h2 id="2-基础操作"><a href="#2-基础操作" class="headerlink" title="2.基础操作"></a>2.基础操作</h2><p>集群的启动的和关闭，由&#x2F;home&#x2F;lite&#x2F;bin&#x2F;myhadoop完成</p>
-<pre><code>myhadoop.sh start
-myhadoop.sh stop
-</code></pre>
-<p>在hadoop运行时，如果需要动态地删除节点功能</p>
-<pre><code>kill -9 端口号即可
-</code></pre>
-<p>在hadoop运行时，如果需要单独地恢复节点</p>
-<p>（1）分别启动&#x2F;停止HDFS组件</p>
-<pre><code>hdfs --daemon start/stop namenode/datanode/secondarynamenode
-</code></pre>
-<p>（2）启动&#x2F;停止YARN</p>
-<pre><code>yarn --daemon start/stop  resourcemanager/nodemanager
-</code></pre>
-<p>（3）myhadoop内已经集成的过时指令</p>
-<h2 id="3-常用端口号"><a href="#3-常用端口号" class="headerlink" title="3.常用端口号"></a>3.常用端口号</h2><p>HDFS NameNode:</p>
-<pre><code>HD3.X:8020 / 9000/9820
-HD2.X:8020 / 9000
-</code></pre>
-<p>NameNode HTTP UI:</p>
-<pre><code>HD3.X:9870
-HD2.X:50070
-</code></pre>
-<p>MapReduce查看任务执行窗口</p>
-<pre><code>8088
-</code></pre>
-<p>历史服务器通信端口</p>
-<pre><code>19888
-</code></pre>
-<p>常用配置文件：<br>core-site hdfs-site yarn-site mapred-site workers</p>
-<h2 id="4-整理之前的各个配置文件"><a href="#4-整理之前的各个配置文件" class="headerlink" title="4.整理之前的各个配置文件"></a>4.整理之前的各个配置文件</h2><p>1.脚本配置</p>
-<pre><code>/home/lite/bin/myhadoop路径下
-
-xsync：分发脚本
-myhadoop：群体操作脚本
-jpsall：集体jps脚本
-</code></pre>
-<p>2.hadoop配置文件</p>
-<pre><code>/opt/module/had../etc/hadoop/bin
-</code></pre>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/HADOOPCLASS/CLASS01/08 HADOOP的简单总结和整合/" class="go-post">阅读全文</a>
 </div>
 
              

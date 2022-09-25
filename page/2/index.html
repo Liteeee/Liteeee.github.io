@@ -144,6 +144,111 @@
             
 
 <div class="post">
+    <a href="/2022/09/20/HADOOPCLASS/CLASS03 MapReduce/MR实战——WordCount/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/20
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="WordCount思路"><a href="#WordCount思路" class="headerlink" title="WordCount思路"></a>WordCount思路</h1><h3 id="什么是Maven"><a href="#什么是Maven" class="headerlink" title="什么是Maven"></a>什么是Maven</h3><p>Maven是一个项目管理工具，它包含了：</p>
+<ul>
+<li>一个项目对象模型 (Project Object Model)，</li>
+<li>一组标准集合，一个项目生命周期(Project Lifecycle)，</li>
+<li>一个依赖管理系统(Dependency Management System)，</li>
+<li>用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。</li>
+</ul>
+<h3 id="用JAR包进行MR"><a href="#用JAR包进行MR" class="headerlink" title="用JAR包进行MR"></a>用JAR包进行MR</h3><pre><code>hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar grep wiki new_output &#39;Putin&#39;
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/20/HADOOPCLASS/CLASS03 MapReduce/MR实战——WordCount/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/09/20/HADOOPCLASS/CLASS03 MapReduce/MP入门/">
+        <h2 class="post-title">MR入门/核心思想</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/20
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h1><h3 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h3><p>优点：</p>
+<ul>
+<li>MapReduce易于编程<br>它简单的实现一些接口，就可以完成一个分布式程序，可以使用集群。</li>
+<li>良好的扩展性<br>可以通过简单的增加机器来扩展它的计算能力。</li>
+<li>高容错性<br>其中一台机器挂了，它可以把上面的计算任务转移到另外一个节点上运行，不至于这个任务运行失败，这个过程不需要【人工参与】，而完全是由Hadoop内部完成的。</li>
+<li>适合PB级以上海量数据的离线处理<br>可以实现上千台服务器集群并发工作，提供数据处理能力</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不擅长实时计算<br>MapReduce无法像MySQL一样，在毫秒或者秒级内返回结果。</li>
+<li>不擅长流式计算<br>流式计算的输入数据是动态的，而MapReduce的输入数据集是静态的，不能动态变化。这是因为MapReduce自身的设计特点决定了【数据源必须是静态的】。</li>
+<li>不擅长DAG（有向无环图）计算<br>多个应用程序存在依赖关系，后一个应用程序的输入为前一个的输出。在这种情况下。多个程序计算过程中里MR会大量写入磁盘造成IO效率低下。</li>
+</ul>
+<h3 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h3><p><img src="/./imgs/2022-09-20-14-14-54.png"></p>
+<ul>
+<li>分布式的运算程序往往需要分成至少2个阶段。<br>1.第一个阶段的MapTask并发实例，完全并行运行，互不相干。<br>2.第二个阶段的ReduceTask并发实例互不相干，但是他们的数据依赖于上一个阶段的所有MapTask并发实例的输出。</li>
+<li>MapReduce编程模型只能包含一个Map阶段和一个Reduce阶段，如果用户的业务逻辑非常复杂，那就只能多个MapReduce程序，串行运行。</li>
+</ul>
+<h3 id="三个实例进程"><a href="#三个实例进程" class="headerlink" title="三个实例进程"></a>三个实例进程</h3><ul>
+<li>MrAppMaster：负责整个程序的过程调度及状态协调。</li>
+<li>MapTask：负责Map阶段的整个数据处理流程。</li>
+<li>ReduceTask：负责Reduce阶段的整个数据处理流程。</li>
+</ul>
+<h3 id="MR编程规范"><a href="#MR编程规范" class="headerlink" title="MR编程规范"></a>MR编程规范</h3><p><img src="/./imgs/2022-09-20-14-19-00.png"><br><img src="/./imgs/2022-09-20-14-19-12.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/hadoop/" style="color: #00a596">
+                hadoop
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/MapReduce/" style="color: #03a9f4">
+                MapReduce
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/09/20/HADOOPCLASS/CLASS03 MapReduce/MP入门/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/20/短篇小说/小熊、蘑菇、冰雹/">
         <h2 class="post-title"></h2>
     </a>
@@ -215,7 +320,7 @@
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #03a9f4">
+            <a href="/tags/markdown/" style="color: #00bcd4">
                 markdown
             </a>
         </span>
@@ -447,7 +552,7 @@
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #03a9f4">
+            <a href="/tags/游戏引擎/" style="color: #00bcd4">
                 游戏引擎
             </a>
         </span>
@@ -539,121 +644,20 @@ tags: [tag1,tag2]
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #ffa2c4">
+            <a href="/tags/hexo/" style="color: #03a9f4">
                 hexo
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #ffa2c4">
+            <a href="/tags/markdown/" style="color: #03a9f4">
                 markdown
             </a>
         </span>
         
     </div>
     <a href="/2022/09/17/HEXO/HEXO测试和模板/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/短篇小说/汉堡包、爬山车、截止日期/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="汉堡包、爬山车、截止日期"><a href="#汉堡包、爬山车、截止日期" class="headerlink" title="汉堡包、爬山车、截止日期"></a>汉堡包、爬山车、截止日期</h1><h2 id="22-x2F-9-x2F-11-17：44斜阳，阳台窗边"><a href="#22-x2F-9-x2F-11-17：44斜阳，阳台窗边" class="headerlink" title="22&#x2F;9&#x2F;11 17：44斜阳，阳台窗边"></a>22&#x2F;9&#x2F;11 17：44斜阳，阳台窗边</h2>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/短篇小说/汉堡包、爬山车、截止日期/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/查漏补缺/git/git操作/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="GIT连接GITHUB"><a href="#GIT连接GITHUB" class="headerlink" title="GIT连接GITHUB"></a>GIT连接GITHUB</h1><pre><code>ssh-keygen -t rsa -C 生成公钥
-到github/gitee中添加公钥
-git remote add origin [仓库地址]
-</code></pre>
-<h1 id="常用基础操作"><a href="#常用基础操作" class="headerlink" title="常用基础操作"></a>常用基础操作</h1><h2 id="上传操作"><a href="#上传操作" class="headerlink" title="上传操作"></a>上传操作</h2><pre><code>git add . 添加到缓存区
-git commit -m &quot;code&quot; 提交到分支
-git push 上传
-</code></pre>
-<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><pre><code>git branch 显示分支 -a显示所有分支 -online显示线上分支
-git chekcout [branchName] 切换分支
-git branch [branchName] 创建分支
-git merge [branchName]  合并分支 
-    --allow-unrelated-histories在不同设备上创建新库并合并时
-</code></pre>
-<h1 id="版本控制操作"><a href="#版本控制操作" class="headerlink" title="版本控制操作"></a>版本控制操作</h1><p>HEAD可以理解为一个指针</p>
-<pre><code>git log 查看日志 --pretty=oneline 只看版本号和备注
-git reflog 比log多了[reset操作记录]和[删除操作记录],更全面
-
-git reset --hard [版本号] 更换版本
-git reset --hard HEAD^  回退一个版本
-git reset --hard HEAD~n 回退n个版本
-
-git reset --soft  ：1.仅在本地版本库移动指针。
-git reset --mixed : 1.移动本地版本库的指针；2.重置暂存区。（默认的参数）
-git reset --hard  : 1.移动本地版本库的指针；2.重置暂存区；3.重置工作区。
-</code></pre>
-<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p>.gitignore 用于配置不需要git控制的文件 支持正则表达式</p>
-<h2 id="文本规范"><a href="#文本规范" class="headerlink" title="文本规范"></a>文本规范</h2><pre><code>.gitignore 的格式规范如下：
-• 所有空行或者以 # 开头的行都会被 Git 忽略。
-• 可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。
-• 匹配模式可以以（/）开头防止递归。
-• 匹配模式可以以（/）结尾指定目录。
-• 要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。
-# 忽略所有的 .a 文件
-</code></pre>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>*.a
-# 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
-!lib.a
-# 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
-/TODO
-# 忽略任何目录下名为 build 的文件夹
-build/
-# 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
-doc/*.txt
-# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
-doc/**/*.pdf
-</code></pre>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/查漏补缺/git/git操作/" class="go-post">阅读全文</a>
 </div>
 
              

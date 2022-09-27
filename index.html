@@ -168,62 +168,7 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <h1 id="GAMES104第七节-Render第四节-笔记"><a href="#GAMES104第七节-Render第四节-笔记" class="headerlink" title="GAMES104第七节-Render第四节 笔记"></a>GAMES104第七节-Render第四节 笔记</h1><h1 id="一、Ambient-Occlusion-环境光遮蔽"><a href="#一、Ambient-Occlusion-环境光遮蔽" class="headerlink" title="一、Ambient Occlusion 环境光遮蔽"></a>一、Ambient Occlusion 环境光遮蔽</h1><h3 id="AO预计算"><a href="#AO预计算" class="headerlink" title="AO预计算"></a>AO预计算</h3><p><img src="/./imgs/2022-09-27-13-21-58.png"><br>提前把凹凸面的明暗关系计算好，保存成图上的数据，在实时渲染时就能节省时间。</p>
-<h3 id="SSAO（Screen-space）"><a href="#SSAO（Screen-space）" class="headerlink" title="SSAO（Screen space）"></a>SSAO（Screen space）</h3><p><img src="/./imgs/2022-09-27-13-27-40.png"><br>思想：</p>
-<ul>
-<li>立体空间采样</li>
-<li>把视点看作一个球体，球体上所有采样点数为N，不被遮挡的采样点为O</li>
-<li>根据1-N&#x2F;0计算光强</li>
-<li>不合理的点在于经常看见的效果更接近于一个半球，于是有了SSAO+</li>
-</ul>
-<h3 id="SSAO"><a href="#SSAO" class="headerlink" title="SSAO+"></a>SSAO+</h3><p><img src="/./imgs/2022-09-27-13-30-20.png"></p>
-<ul>
-<li>基于半球视点的SSAO</li>
-<li>存在的问题：AO的渲染无视距离，视觉效果不合理</li>
-</ul>
-<h4 id="HBAO-Horizon-based"><a href="#HBAO-Horizon-based" class="headerlink" title="HBAO Horizon-based"></a>HBAO Horizon-based</h4><p><img src="/./imgs/2022-09-27-13-39-50.png"><br>水平环境光遮蔽：基于半球面的积分想法</p>
-<ul>
-<li><p>从视角方向出发，对每一个屏幕上的像素点做四个均等方向的Marching，并且每个像素不能使用相同的四个方向，每个方向上【旋转】一个随机角度。最终转弯一圈得到计算值<br><img src="/./imgs/2022-09-27-13-47-13.png"></p>
-</li>
-<li><p>在每个方向的Marching上，可以得到如下图所示的高度场</p>
-</li>
-<li><p><img src="/./imgs/2022-09-27-13-42-31.png"><br>部分解释来源于：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/508682502%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%E5%85%B6%E4%B8%AD%E4%BB%A3%E7%A0%81%E3%80%82">https://zhuanlan.zhihu.com/p/508682502，可以参考其中代码。</a></p>
-</li>
-<li><p>当物体的距离比较远，而遮蔽场设置得比较近时，W()&#x3D;0，则远处的物体不会进行AO<br><img src="/./imgs/2022-09-27-13-45-16.png"></p>
-</li>
-<li><p>存在的问题：可以认为只计算了视点中的采样部分，没有考虑光的射入角对光的强弱造成的影响？</p>
-</li>
-</ul>
-<h4 id="GTAO-（Ground-True）"><a href="#GTAO-（Ground-True）" class="headerlink" title="GTAO （Ground True）"></a>GTAO （Ground True）</h4><p><img src="/./imgs/2022-09-27-13-54-26.png"><br>论文中也给了DEMO , </p>
-<ul>
-<li>把法向量也计算进去</li>
-<li>像天顶的地方光的强度就会打折<br><img src="/./imgs/2022-09-27-13-56-15.png"></li>
-<li>基于multiple bounces（多重反射？）进行训练之后，</li>
-<li>得到了一套参数对应的曲线</li>
-<li>可以用来渲染近似于多重反射下的AO</li>
-</ul>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><p><img src="/./imgs/2022-09-27-13-59-48.png"></p>
-<ul>
-<li>与前沿的RTX相关<br>背景：一个正确的光照，应该对渲染在屏幕上的每个像素点做球面，并在球面上射出大量的ray。而现在的GPU还无法完成这种量级的计算。</li>
-<li>RTT的思想是，每一帧在每一个像素的球面进行少量RAY的计算（1~2Ray），在时序上进行不同数据的收集，模拟出接近于正确的光照。</li>
-</ul>
-<h1 id="二、Fog-雾"><a href="#二、Fog-雾" class="headerlink" title="二、Fog 雾"></a>二、Fog 雾</h1><h3 id="DepthFog"><a href="#DepthFog" class="headerlink" title="DepthFog"></a>DepthFog</h3><p><img src="/./imgs/2022-09-27-14-07-14.png"><br>最简单的Fog模式，基于深度曲线的透明的下降</p>
-<h3 id="Height-Fog"><a href="#Height-Fog" class="headerlink" title="Height Fog"></a>Height Fog</h3><p><img src="/./imgs/2022-09-27-14-11-05.png"></p>
-<ul>
-<li>古典时代的第二板斧</li>
-<li>基于浓度的积分<br>略</li>
-</ul>
-<h3 id="Voxel-based-基于体塑化的Fog"><a href="#Voxel-based-基于体塑化的Fog" class="headerlink" title="Voxel-based 基于体塑化的Fog"></a>Voxel-based 基于体塑化的Fog</h3><p><img src="/./imgs/2022-09-27-14-14-24.png"><br>现代Fog的一大热y’y’y’y门方向：<br>与第六节中的大气、云的构建算法类似</p>
-<ul>
-<li>其中每一块的大小与屏幕的比例16：9接近</li>
-</ul>
-<h1 id="三、反走样"><a href="#三、反走样" class="headerlink" title="三、反走样"></a>三、反走样</h1><p>走样的三大原因</p>
-<ul>
-<li>由于屏幕像素的特殊性，只要不是完全横竖的像素，一定会产生走样。</li>
-<li>倾斜角的材质采样？（不太理解）</li>
-<li>高光（类似画面闪烁）<br><img src="/./imgs/2022-09-27-14-20-05.png"></li>
-</ul>
-
+            <h1 id="GAMES104第七节-Render第四节-笔记"><a href="#GAMES104第七节-Render第四节-笔记" class="headerlink" title="GAMES104第七节-Render第四节 笔记"></a>GAMES104第七节-Render第四节 笔记</h1><p>AO&#x2F;FOG&#x2F;反走样<br>
             
         </div>
     </div>
@@ -236,7 +181,7 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ffa2c4">
+            <a href="/tags/GAMES104/" style="color: #ff7d73">
                 GAMES104
             </a>
         </span>
@@ -290,14 +235,14 @@
         
         <span class="tag">
             
-            <a href="/tags/二叉树/" style="color: #00a596">
+            <a href="/tags/二叉树/" style="color: #00bcd4">
                 二叉树
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/剪枝/" style="color: #00a596">
+            <a href="/tags/剪枝/" style="color: #ffa2c4">
                 剪枝
             </a>
         </span>
@@ -391,7 +336,7 @@
         
         <span class="tag">
             
-            <a href="/tags/C/" style="color: #ff7d73">
+            <a href="/tags/C/" style="color: #ffa2c4">
                 C++
             </a>
         </span>
@@ -438,14 +383,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #00a596">
+            <a href="/tags/GAMES104/" style="color: #ff7d73">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #03a9f4">
+            <a href="/tags/游戏引擎/" style="color: #ff7d73">
                 游戏引擎
             </a>
         </span>
@@ -492,7 +437,7 @@
         
         <span class="tag">
             
-            <a href="/tags/力扣，每日一题，模拟，语法坑，滑动窗口/" style="color: #ffa2c4">
+            <a href="/tags/力扣，每日一题，模拟，语法坑，滑动窗口/" style="color: #ff7d73">
                 力扣，每日一题，模拟，语法坑，滑动窗口
             </a>
         </span>
@@ -553,7 +498,7 @@
         
         <span class="tag">
             
-            <a href="/tags/链表/" style="color: #ffa2c4">
+            <a href="/tags/链表/" style="color: #00bcd4">
                 链表
             </a>
         </span>
@@ -607,14 +552,14 @@
         
         <span class="tag">
             
-            <a href="/tags/哈希表/" style="color: #ffa2c4">
+            <a href="/tags/哈希表/" style="color: #03a9f4">
                 哈希表
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/力扣/" style="color: #00bcd4">
+            <a href="/tags/力扣/" style="color: #ffa2c4">
                 力扣
             </a>
         </span>
@@ -688,14 +633,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ff7d73">
+            <a href="/tags/GAMES104/" style="color: #ffa2c4">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #ff7d73">
+            <a href="/tags/游戏引擎/" style="color: #00bcd4">
                 游戏引擎
             </a>
         </span>

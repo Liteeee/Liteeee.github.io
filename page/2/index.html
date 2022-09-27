@@ -144,6 +144,37 @@
             
 
 <div class="post">
+    <a href="/2022/09/20/查漏补缺/一致性哈希/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/20
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="一致性散列（一致性哈希算法）"><a href="#一致性散列（一致性哈希算法）" class="headerlink" title="一致性散列（一致性哈希算法）"></a>一致性散列（一致性哈希算法）</h1><h2 id="传统哈希"><a href="#传统哈希" class="headerlink" title="传统哈希"></a>传统哈希</h2><p>%n取余的本质：，将数据键值约束在0~n的范围之内。</p>
+<pre><code>node_number= hash(key) % N
+</code></pre>
+<h2 id="节点减少的情况"><a href="#节点减少的情况" class="headerlink" title="节点减少的情况"></a>节点减少的情况</h2><h2 id="节点增加的情况"><a href="#节点增加的情况" class="headerlink" title="节点增加的情况"></a>节点增加的情况</h2><p>需要增加n的范围，[n+1]的增加会导致原本[%n]索引大范围失效(缓存雪崩)</p>
+<h2 id="一致性哈希"><a href="#一致性哈希" class="headerlink" title="一致性哈希"></a>一致性哈希</h2><h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><h4 id="服务器分布"><a href="#服务器分布" class="headerlink" title="服务器分布"></a>服务器分布</h4><h4 id="数据分布-1"><a href="#数据分布-1" class="headerlink" title="数据分布"></a>数据分布</h4>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/20/查漏补缺/一致性哈希/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/20/HADOOPCLASS/CLASS03 MapReduce/MR实战——WordCount/">
         <h2 class="post-title"></h2>
     </a>
@@ -232,7 +263,7 @@
         
         <span class="tag">
             
-            <a href="/tags/hadoop/" style="color: #ff7d73">
+            <a href="/tags/hadoop/" style="color: #03a9f4">
                 hadoop
             </a>
         </span>
@@ -313,14 +344,14 @@
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #00bcd4">
+            <a href="/tags/hexo/" style="color: #ffa2c4">
                 hexo
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #00bcd4">
+            <a href="/tags/markdown/" style="color: #ff7d73">
                 markdown
             </a>
         </span>
@@ -545,119 +576,20 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ffa2c4">
+            <a href="/tags/GAMES104/" style="color: #03a9f4">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #ffa2c4">
+            <a href="/tags/游戏引擎/" style="color: #00a596">
                 游戏引擎
             </a>
         </span>
         
     </div>
     <a href="/2022/09/17/GAMES104/104笔记（一）/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/HEXO/HEXO测试和模板/">
-        <h2 class="post-title">Hexo-Blog</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="hexo模板"><a href="#hexo模板" class="headerlink" title="hexo模板"></a>hexo模板</h1><pre><code>---
-title: hexo-blog
-date: 2017-01-13 16:07:32
-tags: [tag1,tag2]
----
-</code></pre>
-<h1 id="MD的功能"><a href="#MD的功能" class="headerlink" title="MD的功能"></a>MD的功能</h1><p><em>这是斜体</em> 或 <em>这也是斜体</em><br><strong>这是粗体</strong><br><em><strong>这是加粗斜体</strong></em><br><del>这是删除线</del></p>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>行内形式：<a href="liteeee.github.io">我的博客</a></p>
-<pre><code>行内形式：[我的博客](https://)
-</code></pre>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
-<li>A</li>
-</ul>
-<ul>
-<li>B</li>
-</ul>
-<ul>
-<li>C</li>
-</ul>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table>
-<thead>
-<tr>
-<th>表头1</th>
-<th align="left">表头2</th>
-<th align="center">表头3</th>
-<th align="right">表头4</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>默认左对齐</td>
-<td align="left">左对齐</td>
-<td align="center">居中对其</td>
-<td align="right">右对齐</td>
-</tr>
-<tr>
-<td>默认左对齐</td>
-<td align="left">左对齐</td>
-<td align="center">居中对其</td>
-<td align="right">右对齐</td>
-</tr>
-<tr>
-<td>默认左对齐</td>
-<td align="left">左对齐</td>
-<td align="center">居中对其</td>
-<td align="right">右对齐</td>
-</tr>
-</tbody></table>
-<pre><code>| 表头1|表头2|表头3|表头4
-|-| :- | :-: | -: |
-|默认左对齐|左对齐|居中对其|右对齐|
-|默认左对齐|左对齐|居中对其|右对齐|
-|默认左对齐|左对齐|居中对其|右对齐|
-</code></pre>
-<p>教程来源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/56d99a3049a5">https://www.jianshu.com/p/56d99a3049a5</a></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/hexo/" style="color: #ff7d73">
-                hexo
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/markdown/" style="color: #ffa2c4">
-                markdown
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/09/17/HEXO/HEXO测试和模板/" class="go-post">阅读全文</a>
 </div>
 
              
@@ -700,6 +632,13 @@ tags: [tag1,tag2]
                 </span>
             </a>
             
+            
+            <span class="page-omit">...</span>
+            <a href="/page/5">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
             
         </span>
         

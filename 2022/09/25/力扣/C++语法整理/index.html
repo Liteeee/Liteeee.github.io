@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>GAMS104笔记（二）游戏引擎渲染 | Liteee的世界尽头</title>
+        <title>记录一些经常忘的语法 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,22 +122,22 @@
                         
 <div class="article">
     <div>
-        <h1>GAMS104笔记（二）游戏引擎渲染 </h1>
+        <h1>记录一些经常忘的语法 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/10
+            2022/9/25
         </span>
         
         <span class="category">
-            <a href="/categories/GAMES/">
+            <a href="/categories/C/">
                 <span class="icon">
                     <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
                 </span>
-                GAMES
+                C++
             </a>
         </span>
         
@@ -149,15 +149,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/GAMES104/" style="color: #ff7d73">
-                    GAMES104
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/游戏引擎/" style="color: #ff7d73">
-                    游戏引擎
+                <a href="/tags/C/" style="color: #ff7d73">
+                    C++
                 </a>
             </span>
             
@@ -165,58 +158,84 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="GAMES104第三节"><a href="#GAMES104第三节" class="headerlink" title="GAMES104第三节"></a>GAMES104第三节</h1> <span id="more"></span>
-<h2 id="Tick"><a href="#Tick" class="headerlink" title="Tick"></a>Tick</h2><p><img src="/./imgs/2022-09-19-23-14-59.png"></p>
-<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p><img src="/./imgs/2022-09-19-23-15-47.png"></p>
-<p>解决了表现的过程，每个GO(gameobject)都能完成一个完整的GO。</p>
-<h2 id="GO交互"><a href="#GO交互" class="headerlink" title="GO交互"></a>GO交互</h2><p>每个GO都在进行自己的周期，交互会改变周期的运作<br>1.避免HardCode，即模拟类算法（例如编写每一个单位的受伤TICK）<br>2.推荐Events机制，统一为一个受伤Events</p>
-<p><img src="/./imgs/2022-09-19-23-21-13.png"></p>
-<p>如图为U3d和UE的事件示例</p>
-<h2 id="GO管理"><a href="#GO管理" class="headerlink" title="GO管理"></a>GO管理</h2><p>游戏中会有海量的GO</p>
-<h4 id="实现标识方式："><a href="#实现标识方式：" class="headerlink" title="实现标识方式："></a>实现标识方式：</h4><ul>
-<li>独特的ID</li>
-<li>位置信息position</li>
-</ul>
-<h2 id="场景管理"><a href="#场景管理" class="headerlink" title="场景管理"></a>场景管理</h2><ul>
-<li>游戏中的场景资源分配经常会出现不均匀的现象（过于集中或分散）</li>
-<li>容易造成资源浪费<br><img src="/./imgs/2022-09-19-23-27-00.png"></li>
-</ul>
-<h2 id="场景管理方式"><a href="#场景管理方式" class="headerlink" title="场景管理方式"></a>场景管理方式</h2><h4 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h4><h4 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h4><h2 id="物体绑定方式"><a href="#物体绑定方式" class="headerlink" title="物体绑定方式"></a>物体绑定方式</h2><p>这个问题能够引申到GO的TICK之间的关联</p>
-<h4 id="传统TICK绑定机制"><a href="#传统TICK绑定机制" class="headerlink" title="传统TICK绑定机制"></a>传统TICK绑定机制</h4><ul>
-<li>人上车，人被绑到车上。</li>
-<li>人物的GO向车发送绑定信息</li>
-<li>绑定后，车的TICK运行时会改变人物的TICK</li>
-<li>人与车的TICK会产生时序性的问题，也会有循环依赖<br>例如车上的人与其他GO产生TICK变化同时，车也产生了TICK需要影响角色的TICK。</li>
-</ul>
-<h4 id="严格时序的消息传递机制"><a href="#严格时序的消息传递机制" class="headerlink" title="严格时序的消息传递机制"></a>严格时序的消息传递机制</h4><p><img src="/./imgs/2022-09-19-23-38-01.png"></p>
-<ul>
-<li>邮局：统一转发GO的消息，不允许GO单独发送消息<br>当每一个GO单独发消息时：可以精确规定发送方的【发送帧】，精确接收方的哪一帧才能接收到的【接受帧】，以及【接收帧】后多久（立即&#x2F;延迟）才开始【新的TICK】</li>
-<li>PreTick</li>
-<li>PostTick</li>
-</ul>
-<h1 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h1><h3 id="TICK过长的问题"><a href="#TICK过长的问题" class="headerlink" title="TICK过长的问题"></a>TICK过长的问题</h3><ul>
-<li>案例：一帧爆炸里面有上百个物体要运动<br>全部都在一个TICK里的话，可能会出现的TICK过长的问题</li>
-</ul>
-<p>解决案例：按照一定规则进行拆分成多P，拆分几十个TICK到多个帧数里。按照策略（部分GO并不影响体验的可以适当延迟），在尽可能保持玩家体验的前提下不让TICK太长。</p>
-<h3 id="TICK中RENDER和LOGIC线程关系"><a href="#TICK中RENDER和LOGIC线程关系" class="headerlink" title="TICK中RENDER和LOGIC线程关系"></a>TICK中RENDER和LOGIC线程关系</h3><p>TICK_LOGIC的运作通常会比RENDER早，而且一般分为不同的线程。<br>而Render中可能会有多个线程做数据准备（例如产生粒子）</p>
-<p>TICK_LOGIC产生的结果通常可能在RENDER之后。</p>
-<p>例如：从按下手柄到画产生变化的【延迟过程】<br>    【一个普通的延迟过程：TICK_LOGIC()产生结果-&gt;TICK_RENDER()画面运作]</p>
-<ul>
-<li>为了减少延迟感，提升实时感，仍然需要诸多策略。</li>
-<li>为了表现上同步，实际上分步。</li>
-</ul>
-<h3 id="空间划分处理动态GO的问题"><a href="#空间划分处理动态GO的问题" class="headerlink" title="空间划分处理动态GO的问题"></a>空间划分处理动态GO的问题</h3><p>一个场景的空间划分需要储备多种空间划分方法以应对多种情况。</p>
-<h3 id="组件模式的优缺点"><a href="#组件模式的优缺点" class="headerlink" title="组件模式的优缺点"></a>组件模式的优缺点</h3><p>————允许一个单一的实体跨越多个不同域而不会导致耦合<br>————组件之间会产生较多的信息查询</p>
-<h4 id="组件的使用情景："><a href="#组件的使用情景：" class="headerlink" title="组件的使用情景："></a>组件的使用情景：</h4><ul>
-<li>你有一个涉及多个域的大类，并且你希望这些域可以保持相互解耦。</li>
-<li>一个类越来越大、难以维护和继续开发。</li>
-<li>你希望重用代码，但是通过继承的方式不能精确、完全的复用。</li>
-</ul>
-<p>一个不太准确的使用情况：</p>
-<pre><code>例如把物理、动画、音乐作各作个Component。
-在一个【PlayerUpdate】的class中实现信息传递。
-而不要在一个动作的代码中执行它的音效。
+        <h1 id="C-语法"><a href="#C-语法" class="headerlink" title="C++ 语法"></a>C++ 语法</h1> <span id="more"></span>
+<h2 id="一、基础语法（循环-类型定义）"><a href="#一、基础语法（循环-类型定义）" class="headerlink" title="一、基础语法（循环+类型定义）"></a>一、基础语法（循环+类型定义）</h2><p>略</p>
+<h2 id="二】数组，字符串，"><a href="#二】数组，字符串，" class="headerlink" title="二】数组，字符串，"></a>二】数组，字符串，</h2><p>略</p>
+<h2 id="三、特殊列表？（例如PYTHON中元组和字典的区别"><a href="#三、特殊列表？（例如PYTHON中元组和字典的区别" class="headerlink" title="三、特殊列表？（例如PYTHON中元组和字典的区别"></a>三、特殊列表？（例如PYTHON中元组和字典的区别</h2><p>去重<br>    set<br>略</p>
+<h2 id="四、哈希"><a href="#四、哈希" class="headerlink" title="四、哈希"></a>四、哈希</h2><h3 id="函数库"><a href="#函数库" class="headerlink" title="函数库"></a>函数库</h3><pre><code>&lt;unordered_map&gt;
+&lt;map&gt;
 </code></pre>
+<h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><p>两个函数的操作方法一致，区别在于内部实现上：</p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化:"></a>初始化:</h4><pre><code>unordered_map&lt;int,string&gt;newMap=&#123;&#123;5,"A"&#125;,&#123;6,"B"&#125;&#125;;
+</code></pre>
+<h4 id="插入-insert-x2F-emplace"><a href="#插入-insert-x2F-emplace" class="headerlink" title="插入.insert()&#x2F;emplace():"></a>插入.insert()&#x2F;emplace():</h4><pre><code>newMap.insert(pair&lt;int,string&gt;(3,&quot;C&quot;))//pair成对插入
+
+newMap.emplace(key,value)
+</code></pre>
+<h4 id="删除-erase-："><a href="#删除-erase-：" class="headerlink" title="删除.erase()："></a>删除.erase()：</h4><pre><code>auto res=newMap.erase(&quot;A&quot;)//未找到则返回0
+</code></pre>
+<h4 id="first-x2F-second-x2F-begin-x2F-end"><a href="#first-x2F-second-x2F-begin-x2F-end" class="headerlink" title="first&#x2F;second&#x2F;begin&#x2F;end"></a>first&#x2F;second&#x2F;begin&#x2F;end</h4><pre><code>it-&gt;first //元素的key值
+it-&gt;second //元素的value值
+it++ //下一个元素
+newMap.begin()/end()//迭代器可以访问的首位元素
+</code></pre>
+<h4 id="find-查找-x2F-判空"><a href="#find-查找-x2F-判空" class="headerlink" title=".find()查找&#x2F;判空:"></a>.find()查找&#x2F;判空:</h4><pre><code>auto iterator = myMap.find(2);//find()返回一个指向2的
+if (iterator != myMap.end()&#123;
+    it-&gt;second=new_value;
+&#125;
+</code></pre>
+<h4 id="值访问-newMap-key"><a href="#值访问-newMap-key" class="headerlink" title="值访问 newMap[key]"></a>值访问 newMap[key]</h4><pre><code>value=newMap[key]
+</code></pre>
+<h4 id="遍历-x2F-迭代器："><a href="#遍历-x2F-迭代器：" class="headerlink" title="遍历&#x2F;迭代器："></a>遍历&#x2F;迭代器：</h4><pre><code>auto iter = myMap.begin();//auto自动识别为迭代器类型unordered_map&lt;int,string&gt;::iterator
+while (iter!= myMap.end())
+&#123;  
+    cout &lt;&lt; iter-&gt;first &lt;&lt; &quot;,&quot; &lt;&lt; iter-&gt;second &lt;&lt; endl;  
+    ++iter;  
+&#125;  
+</code></pre>
+<h4 id="特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读"><a href="#特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读" class="headerlink" title="特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读"></a>特殊auto遍历（值操作只会影响循环内，在循环外值不变）可以用来只读</h4><pre><code>for(auto x:newMap)//遍历整个map，输出key及其对应的value值
+&#123;
+    x.second = 0;	
+    cout&lt;&lt;x.second&lt;&lt;endl;//全是  00；但是循环外不变
+&#125;
+for(auto x:unomap)
+    cout&lt;&lt;x.first&lt;&lt;&quot;  &quot;&lt;&lt;x.second&lt;&lt;endl;
+
+//遍历整个map，输出key及其对应的value值
+</code></pre>
+<h3 id="map"><a href="#map" class="headerlink" title="map:"></a>map:</h3><p>使用红黑树进行内部实现（非严格平衡二叉搜索树）</p>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ol>
+<li>有序，每个节点都是一个元素</li>
+<li>操作时间与红黑树相同</li>
+<li>通过中序遍历可实现从小到大遍历</li>
+<li>时间复杂度低至log(n)</li>
+</ol>
+<h3 id="unordered-map："><a href="#unordered-map：" class="headerlink" title="unordered_map："></a>unordered_map：</h3><p>使用哈希表进行内部实现，把关键码映射到HASH表中的位置进行访问</p>
+<h4 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h4><ol>
+<li>无序，</li>
+<li>查找时间复杂度最低O(1)</li>
+<li>遍历顺序与输入顺序不同</li>
+<li>内存占用比红黑树高</li>
+</ol>
+<h2 id="5-树结构"><a href="#5-树结构" class="headerlink" title="5.树结构"></a>5.树结构</h2><h4 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h4><pre><code>TreeNode * [tree_name]=nullptr;//data
+或
+TreeNode * [tree_name]=new TreeNode(data);
+</code></pre>
+<p>移动指针：<br>    [tree_name]-&gt;left<br>    [tree_name]-&gt;right<br>值属性：<br>    [tree_name]-&gt;val</p>
+<h4 id="判空"><a href="#判空" class="headerlink" title="判空"></a>判空</h4><pre><code>if(![tree_name])
+</code></pre>
+<h4 id="DFS递归"><a href="#DFS递归" class="headerlink" title="DFS递归"></a>DFS递归</h4><pre><code>TreeNode* pruneTree(TreeNode* root) &#123;
+    if (!root) return nullptr;
+    root-&gt;left = pruneTree(root-&gt;left);
+    root-&gt;right = pruneTree(root-&gt;right);
+</code></pre>
+<h2 id="6-基于语言特性，归档一些语法在运行速度上的差异"><a href="#6-基于语言特性，归档一些语法在运行速度上的差异" class="headerlink" title="6.基于语言特性，归档一些语法在运行速度上的差异"></a>6.基于语言特性，归档一些语法在运行速度上的差异</h2><h4 id="ListNode"><a href="#ListNode" class="headerlink" title="ListNode"></a>ListNode</h4><p>初始化：</p>
+<pre><code>this-&gt;head = new ListNode(0);
+</code></pre>
+<p>节点赋值&#x2F;复制：</p>
+<pre><code>ListNode *cur = head;
+</code></pre>
+<p>属性结构（next&#x2F;val）：<br>节点的值<br>    num&#x3D;cur-&gt;val;<br>下一个节点<br>    cur &#x3D; cur-&gt;next;</p>
 
     </div>
     

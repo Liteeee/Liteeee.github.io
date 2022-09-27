@@ -149,14 +149,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/GAMES104/" style="color: #ffa2c4">
+                <a href="/tags/GAMES104/" style="color: #03a9f4">
                     GAMES104
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/游戏引擎/" style="color: #00a596">
+                <a href="/tags/游戏引擎/" style="color: #ffa2c4">
                     游戏引擎
                 </a>
             </span>
@@ -165,7 +165,7 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="GAMES104第七节-Render第四节-笔记"><a href="#GAMES104第七节-Render第四节-笔记" class="headerlink" title="GAMES104第七节-Render第四节 笔记"></a>GAMES104第七节-Render第四节 笔记</h1><p>AO&#x2F;FOG&#x2F;反走样<br> <span id="more"></span></p>
+        <h1 id="GAMES104第七节-Render第四节-笔记"><a href="#GAMES104第七节-Render第四节-笔记" class="headerlink" title="GAMES104第七节-Render第四节 笔记"></a>GAMES104第七节-Render第四节 笔记</h1><p>AO&#x2F;FOG&#x2F;反走样&#x2F;后处理<br> <span id="more"></span></p>
 <h1 id="一、Ambient-Occlusion-环境光遮蔽"><a href="#一、Ambient-Occlusion-环境光遮蔽" class="headerlink" title="一、Ambient Occlusion 环境光遮蔽"></a>一、Ambient Occlusion 环境光遮蔽</h1><h3 id="AO预计算"><a href="#AO预计算" class="headerlink" title="AO预计算"></a>AO预计算</h3><p><img src="/./imgs/2022-09-27-13-21-58.png"><br>提前把凹凸面的明暗关系计算好，保存成图上的数据，在实时渲染时就能节省时间。</p>
 <h3 id="SSAO（Screen-space）"><a href="#SSAO（Screen-space）" class="headerlink" title="SSAO（Screen space）"></a>SSAO（Screen space）</h3><p><img src="/./imgs/2022-09-27-13-27-40.png"><br>思想：</p>
 <ul>
@@ -220,6 +220,45 @@
 <li>由于屏幕像素的特殊性，只要不是完全横竖的像素，一定会产生走样。</li>
 <li>倾斜角的材质采样？（不太理解）</li>
 <li>高光（类似画面闪烁）<br><img src="/./imgs/2022-09-27-14-20-05.png"></li>
+</ul>
+<h4 id="超采样SSAA-x2F-SMSAA"><a href="#超采样SSAA-x2F-SMSAA" class="headerlink" title="超采样SSAA &#x2F; SMSAA"></a>超采样SSAA &#x2F; SMSAA</h4><p><img src="/./imgs/2022-09-27-22-43-25.png"></p>
+<ul>
+<li>共同点：都需要用到四倍的 z-buffer</li>
+<li>根据点在边界所占的比例，影响颜色的权重</li>
+<li>在硬件层面就可以完成计算</li>
+</ul>
+<h4 id="FXAA-快速补算的反走样"><a href="#FXAA-快速补算的反走样" class="headerlink" title="FXAA 快速补算的反走样"></a>FXAA 快速补算的反走样</h4><p><img src="/./imgs/2022-09-27-22-47-04.png"></p>
+<ul>
+<li><p>十字形滤波：当（上下左右某一边）差异值大于某个阈值时，认为他是边界</p>
+</li>
+<li><p>因此可以得到一个边界图（如图上黑白的部分）<br><img src="/./imgs/2022-09-27-22-45-39.png"><br>在得到边界后，还需要处理一个问题：</p>
+</li>
+<li><p>这个边界在像素单位中往哪一个方向偏移较多。<br><img src="/./imgs/2022-09-27-22-50-38.png"><br>卷积算法：</p>
+<pre><code>  垂直卷积取绝对值 → 3*3矩阵
+  水平卷积取绝对值 → 3*3矩阵
+</code></pre>
+</li>
+</ul>
+<ol>
+<li>判断水平和垂直的偏差值哪个更大</li>
+<li>在差值更大的矩阵内判断（上下&#x2F;左右）哪边差距大</li>
+<li>跟差距大的一边进行Blending<br><img src="/./imgs/2022-09-27-23-09-16.png"><br>找到边的两个端点<br><img src="/./imgs/2022-09-27-23-09-36.png"><br>原理是相似三角形,<br>比较左右端的长度, 来决定自己影响多一点还是受别人影响多一点<br><img src="/./imgs/2022-09-27-23-10-11.png"><br>每个点找自己的edge</li>
+</ol>
+<h4 id="TAA（Temporal-Anti-aliasing）"><a href="#TAA（Temporal-Anti-aliasing）" class="headerlink" title="TAA（Temporal Anti-aliasing）"></a>TAA（Temporal Anti-aliasing）</h4><p>基于时序的反走样算法（比较主流）<br><img src="/./imgs/2022-09-27-23-10-28.png"><br>可能存在的问题：</p>
+<ul>
+<li>因为总是在于过去作对比，会有一定的offset，画面相对原画可能会有偏移</li>
+<li>可能会出现残影</li>
+</ul>
+<h1 id="四、后处理"><a href="#四、后处理" class="headerlink" title="四、后处理"></a>四、后处理</h1><p>类似于影视后期，对最终呈现在画面上的图像进行最后的处理步骤。</p>
+<h3 id="1-Boom"><a href="#1-Boom" class="headerlink" title="1.Boom"></a>1.Boom</h3><p><img src="/./imgs/2022-09-28-00-43-29.png"><br><img src="/./imgs/2022-09-28-00-43-57.png"><br><img src="/./imgs/2022-09-28-00-44-04.png"><br><img src="/./imgs/2022-09-28-00-44-29.png"><br><img src="/./imgs/2022-09-28-00-44-42.png"></p>
+<p>通过提取图像中的高光部分，对其作高斯模糊处理，在缩小再放大？后得到的类似于光晕的蒙版。</p>
+<h3 id="2-Tone-Mapping"><a href="#2-Tone-Mapping" class="headerlink" title="2.Tone Mapping"></a>2.Tone Mapping</h3><p>影视中后期中的HDR效果，把过曝和欠曝的部分拉回一个曲线区间内，以保留细节和色彩。<br><img src="/./imgs/2022-09-28-00-46-56.png"></p>
+<h4 id="filmic-仿照电影-游戏界的旧多项式拟合曲线"><a href="#filmic-仿照电影-游戏界的旧多项式拟合曲线" class="headerlink" title="filmic 仿照电影 游戏界的旧多项式拟合曲线"></a>filmic 仿照电影 游戏界的旧多项式拟合曲线</h4><p><img src="/./imgs/2022-09-28-00-47-45.png"></p>
+<h4 id="ACES"><a href="#ACES" class="headerlink" title="ACES"></a>ACES</h4><p>美国电影艺术与科学学会的拟合曲线<br><img src="/./imgs/2022-09-28-00-48-18.png"><br><img src="/./imgs/2022-09-28-00-48-57.png"></p>
+<h3 id="3-ColorGrading-调色"><a href="#3-ColorGrading-调色" class="headerlink" title="3.ColorGrading 调色"></a>3.ColorGrading 调色</h3><h4 id="LUT-颜色映射"><a href="#LUT-颜色映射" class="headerlink" title="LUT 颜色映射"></a>LUT 颜色映射</h4><p>游戏场景发生变化时，进行色彩空间的映射。<br>即input color -&gt; output color之间的映射关系<br><img src="/./imgs/2022-09-28-00-50-15.png"><br><img src="/./imgs/2022-09-28-00-51-52.png"><br><img src="/./imgs/2022-09-28-00-51-00.png"></p>
+<h1 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h1><ul>
+<li>感觉有必要整合一下基于时序的算法方向。至少听上去还算新颖。这种思想也经常出现。</li>
+<li>FXAA卷积和判别的部分值得深挖一下</li>
 </ul>
 
     </div>

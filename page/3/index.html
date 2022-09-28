@@ -144,6 +144,44 @@
             
 
 <div class="post">
+    <a href="/2022/09/18/时间序列分析/函数整理/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="理论笔记"><a href="#理论笔记" class="headerlink" title="理论笔记"></a>理论笔记</h1><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h2 id="番外、基础表达式整理"><a href="#番外、基础表达式整理" class="headerlink" title="番外、基础表达式整理"></a>番外、基础表达式整理</h2><p>均值<br><img src="/./imgs/2022-09-15-00-22-39.png"><br>方差<br><img src="/./imgs/2022-09-15-00-22-46.png"><br>自协方差<br><img src="/./imgs/2022-09-15-00-23-21.png"><br>自相关函数ACF<br><img src="/./imgs/2022-09-15-00-23-30.png"></p>
+<h2 id="一、平稳时间序列"><a href="#一、平稳时间序列" class="headerlink" title="一、平稳时间序列"></a>一、平稳时间序列</h2><p>延迟K方差<br><img src="/./imgs/2022-09-15-00-26-53.png"><br>平稳时间序列的常数方差<br><img src="/./imgs/2022-09-15-00-26-30.png"></p>
+<h4 id="1-延迟k自相关系数"><a href="#1-延迟k自相关系数" class="headerlink" title="1.延迟k自相关系数"></a>1.延迟k自相关系数</h4><p><img src="/./imgs/2022-09-15-00-25-36.png"></p>
+<h4 id="自相关系数的特性："><a href="#自相关系数的特性：" class="headerlink" title="自相关系数的特性："></a>自相关系数的特性：</h4><ol>
+<li>規範性 𝜌0 &#x3D; 1且 𝜌𝑘 ≤ 1, ∀𝑘</li>
+<li>對稱性 𝜌𝑘 &#x3D; 𝜌−𝑘</li>
+<li>非負定性 對任意正整數m，相關陣Γ𝑚為對稱非負定陣</li>
+<li>非唯一性：一個平穩時間序列唯一決定它的自相關函數，但一個自相關函數<br>未必唯一對應著一個平穩時間序列。</li>
+</ol>
+<h4 id="与之相关的函数"><a href="#与之相关的函数" class="headerlink" title="与之相关的函数"></a>与之相关的函数</h4><p><img src="/2022-09-14-22-39-27.png"><br>理解：y是一个求方差函数，传入值是t与t+k的方差</p>
+<h2 id="二、图检验"><a href="#二、图检验" class="headerlink" title="二、图检验"></a>二、图检验</h2><p>系数：其中一個坐標軸是自相關係數，另一個坐標軸是延遲時期數。<br>检验步骤：<br><img src="/./imgs/2022-09-15-00-29-02.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/函数整理/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/17/GAMES104/104笔记（一）/">
         <h2 class="post-title">GAMES104笔记（一）</h2>
     </a>
@@ -181,14 +219,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ff7d73">
+            <a href="/tags/GAMES104/" style="color: #03a9f4">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #00a596">
+            <a href="/tags/游戏引擎/" style="color: #ffa2c4">
                 游戏引擎
             </a>
         </span>
@@ -280,7 +318,7 @@ tags: [tag1,tag2]
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #00a596">
+            <a href="/tags/hexo/" style="color: #00bcd4">
                 hexo
             </a>
         </span>
@@ -580,61 +618,6 @@ double(64位 8字节)
         
     </div>
     <a href="/2022/09/17/力扣/JAVA开发语法整理/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/02基础SHELL语法/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="HDFS基础SHELL"><a href="#HDFS基础SHELL" class="headerlink" title="HDFS基础SHELL"></a>HDFS基础SHELL</h1><p>因为HDFS与LINUX的基础命令有大量相似，因此</p>
-<p>补充：执行路径在opt&#x2F;opt&#x2F;had..&#x2F;</p>
-<h2 id="1-HDFS中的特殊命令"><a href="#1-HDFS中的特殊命令" class="headerlink" title="1.HDFS中的特殊命令"></a>1.HDFS中的特殊命令</h2><pre><code>[-copyFromLocal [-f] [-p] &lt;localsrc&gt; ... &lt;dst&gt;]
-本地复制上传
-
-[-copyToLocal [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;]
-
-[-count [-q] &lt;path&gt; ...]
-WordCount？
-
-[-moveFromLocal &lt;localsrc&gt; ... &lt;dst&gt;]
-=[-put [-f] [-p] &lt;localsrc&gt; ... &lt;dst&gt;]
-本地剪贴上传
-
-[-moveToLocal &lt;src&gt; &lt;localdst&gt;]
-</code></pre>
-<h2 id="2-HDFS与LINUX相同的命令"><a href="#2-HDFS与LINUX相同的命令" class="headerlink" title="2.HDFS与LINUX相同的命令"></a>2.HDFS与LINUX相同的命令</h2><pre><code>    [-cp [-f] [-p] &lt;src&gt; ... &lt;dst&gt;]
-    [-df [-h] [&lt;path&gt; ...]]
-    [-du [-s] [-h] &lt;path&gt; ...]
-    [-get [-p] [-ignoreCrc] [-crc] &lt;src&gt; ... &lt;localdst&gt;]
-    [-getmerge [-nl] &lt;src&gt; &lt;localdst&gt;]
-    [-help [cmd ...]]
-    [-ls [-d] [-h] [-R] [&lt;path&gt; ...]]
-    [-mkdir [-p] &lt;path&gt; ...]
-    [-mv &lt;src&gt; ... &lt;dst&gt;]
-    [-rm [-f] [-r|-R] [-skipTrash] &lt;src&gt; ...]
-    [-rmdir [--ignore-fail-on-non-empty] &lt;dir&gt; ...]
-</code></pre>
-<h2 id="后面的学闷了-很困跳过先"><a href="#后面的学闷了-很困跳过先" class="headerlink" title="后面的学闷了 很困跳过先"></a>后面的学闷了 很困跳过先</h2>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/02基础SHELL语法/" class="go-post">阅读全文</a>
 </div>
 
              

@@ -172,6 +172,24 @@
 
 newMap.emplace(key,value)
 </code></pre>
+<h4 id="insert与emplace的区别："><a href="#insert与emplace的区别：" class="headerlink" title="insert与emplace的区别："></a>insert与emplace的区别：</h4><ul>
+<li><p>emplace不生成中间变量（在C++11 std各个结构中都是）</p>
+<pre><code>  例如std::vector.insert()会构造一个foo&#123;value&#125;中间变量
+</code></pre>
+<p>  替换方式：<br>  例如：</p>
+<pre><code>  bv.push_back(1);        // 隐式转换生成临时变量
+  bv.emplace_back(1);     // 没有临时变量
+</code></pre>
+</li>
+<li><p>emplace在map的使用中采用pair的形式（map特殊性）</p>
+</li>
+<li><p>pair中会构建两个tube</p>
+<pre><code>  pair&lt;string, complex&lt;double&gt;&gt; scp(make_tuple(&quot;hello&quot;), make_tuple(1, 2));
+</code></pre>
+<p>  在map中,key和value会按照tuple1,tuple2进行识别。</p>
+</li>
+</ul>
+<p>总结：<br>    一般只有在构建中间变量的代价较大时，才考虑使用emplace()</p>
 <h4 id="删除-erase-："><a href="#删除-erase-：" class="headerlink" title="删除.erase()："></a>删除.erase()：</h4><pre><code>auto res=newMap.erase(&quot;A&quot;)//未找到则返回0
 </code></pre>
 <h4 id="first-x2F-second-x2F-begin-x2F-end"><a href="#first-x2F-second-x2F-begin-x2F-end" class="headerlink" title="first&#x2F;second&#x2F;begin&#x2F;end"></a>first&#x2F;second&#x2F;begin&#x2F;end</h4><pre><code>it-&gt;first //元素的key值

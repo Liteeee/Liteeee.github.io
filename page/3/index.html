@@ -144,6 +144,66 @@
             
 
 <div class="post">
+    <a href="/2022/09/18/时间序列分析/作业一的分解/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="作业2-1"><a href="#作业2-1" class="headerlink" title="作业2-1"></a>作业2-1</h1><h2 id="CAL-ACF函数"><a href="#CAL-ACF函数" class="headerlink" title="CAL_ACF函数"></a>CAL_ACF函数</h2><pre><code class="python">def cal_acf(x, nlags):
+    x = np.array(x)
+    mean_x = np.mean(x)#求均值ex
+    print(&#39;ex:&#39;,mean_x)
+    length_x = x.shape[0]#序列长度
+    c_0 = np.mean((x-mean_x) **2)#E[（x-E(x)）^2]
+    print(&#39;c_0:&#39;,c_0)
+    c_k = np.sum((x[:(length_x-nlags)] - mean_x) * (x[nlags:] - mean_x)) / length_x
+    #从第零个元素到x-k个元素 x[:(length_x-nlags)]=记为Xi~Xk
+    #所以[X1~Xk(保留前k项目)-E(X)]*[Xk~Xn（删除前k项）-E（x)] / T
+    #累加len-k次
+</code></pre>
+<p>此处对应<br><img src="/./imgs/2022-09-15-17-19-02.png"></p>
+<pre><code class="python">    r_k = c_k / c_0
+    return r_k
+</code></pre>
+<p>此处对应<br><img src="/./imgs/2022-09-15-17-35-57.png"></p>
+<h2 id="标准差函数"><a href="#标准差函数" class="headerlink" title="标准差函数"></a>标准差函数</h2><p><img src="/./imgs/2022-09-15-17-40-27.png"><br>代码实现</p>
+<pre><code class="python">def cal_dev(r,j,n):
+    sum=np.sum(r*r)
+    print(sum)
+    temp2=sum*2+1
+    res=np.sqrt(temp2/n)
+    return res
+</code></pre>
+<h2 id="置信区间"><a href="#置信区间" class="headerlink" title="置信区间"></a>置信区间</h2><p><img src="/./imgs/2022-09-15-20-56-34.png"></p>
+<h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><pre><code class="python">    myacf = np.ones((17))
+    twosigma = np.ones((17))
+    for i in range(17):
+        myacf[i]=cal_acf(y,i)
+        print(i,myacf[:i])
+        twosigma[i] = cal_dev(myacf[:i],i,len(y))*1.96 #1.96置信区间
+</code></pre>
+<h1 id="作业2-2"><a href="#作业2-2" class="headerlink" title="作业2-2"></a>作业2-2</h1>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/作业一的分解/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/18/时间序列分析/时间序列分析第一节课/">
         <h2 class="post-title"></h2>
     </a>
@@ -253,14 +313,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ffa2c4">
+            <a href="/tags/GAMES104/" style="color: #ff7d73">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #03a9f4">
+            <a href="/tags/游戏引擎/" style="color: #00a596">
                 游戏引擎
             </a>
         </span>
@@ -352,14 +412,14 @@ tags: [tag1,tag2]
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #ff7d73">
+            <a href="/tags/hexo/" style="color: #00bcd4">
                 hexo
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #00a596">
+            <a href="/tags/markdown/" style="color: #ffa2c4">
                 markdown
             </a>
         </span>
@@ -567,50 +627,6 @@ doc/**/*.pdf
         
     </div>
     <a href="/2022/09/17/力扣/贪心算法/找出两个相同字母最长子字符串/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/力扣/基础竞赛语法/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="竞赛常用语法归档"><a href="#竞赛常用语法归档" class="headerlink" title="竞赛常用语法归档"></a>竞赛常用语法归档</h1><h2 id="归档原因"><a href="#归档原因" class="headerlink" title="归档原因"></a>归档原因</h2><p>学艺不精，切换使用的语言的频率比较高，经常出现语法混乱的情况</p>
-<h1 id="归档方式"><a href="#归档方式" class="headerlink" title="归档方式"></a>归档方式</h1><p>整理自己掌握一门语言的基本方式</p>
-<h2 id="竞赛语言"><a href="#竞赛语言" class="headerlink" title="竞赛语言"></a>竞赛语言</h2><pre><code>1.基础语法（循环+类型定义）
-2.数组，字符串，
-3.特殊列表？（例如PYTHON中元组和字典的区别
-4.哈希
-5.树结构
-6.基于语言特性，归档一些语法在运行速度上的差异
-（例如C++中subtr()跟string_view 的效率区别）
-</code></pre>
-<h2 id="开发语言"><a href="#开发语言" class="headerlink" title="开发语言"></a>开发语言</h2><pre><code>1.基础语法（循环+类型定义）
-2.面向对象
-3.数组（用数组可以实现大部分数据结构）
-4.文件操作
-5.内存管理+异常处理
-final.开发组件
-</code></pre>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/力扣/基础竞赛语法/" class="go-post">阅读全文</a>
 </div>
 
              

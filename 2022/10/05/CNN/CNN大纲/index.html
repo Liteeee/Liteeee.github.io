@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Categories: 日记 | Liteee的世界尽头</title>
+        <title>CNN入门（一） 概览 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -119,24 +119,21 @@
 </nav>
                     </div>
                     <div id="main">
-                         
-<div class="categories-tags">
-    
-    <div class="all-s">
-        
-        
-        <span>
-            <a href="/categories/GAMES/" style="background: #ffa2c4">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                GAMES
-            </a>
+                        
+<div class="article">
+    <div>
+        <h1>CNN入门（一） 概览 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/5
         </span>
         
-        
-        <span>
-            <a href="/categories/机器学习/" style="background: #ff7d73">
+        <span class="category">
+            <a href="/categories/机器学习/">
                 <span class="icon">
                     <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
                 </span>
@@ -145,103 +142,79 @@
         </span>
         
         
-        <span>
-            <a href="/categories/C/" style="background: #ffa2c4">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                C++
-            </a>
-        </span>
-        
-        
-        <span>
-            <a href="/categories/日记/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                日记
-            </a>
-        </span>
-        
-        
-        <span>
-            <a href="/categories/算法/" style="background: #00bcd4">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                算法
-            </a>
-        </span>
-        
-        
-        <span>
-            <a href="/categories/SHELL/" style="background: #00bcd4">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                SHELL
-            </a>
-        </span>
-        
-        
-        <span>
-            <a href="/categories/力扣/" style="background: #ff7d73">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                力扣
-            </a>
-        </span>
-        
-    </div>
-    <div id="archives">
-        
-        <div class="timeline">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2022/10/4</div>
-                <a href="/2022/10/04/日记/日记01/">
-                    <h3>日记</h3>
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/CNN/" style="color: #ffa2c4">
+                    CNN
                 </a>
-                <div class="info">
-                    
-                    <span class="category">
-                        <a href="/categories/日记/">
-                            <span class="icon">
-                                <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                            </span>
-                            日记
-                        </a>
-                    </span>
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-                        </span>
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/游戏/" style="color: #00a596">
-                                游戏
-                            </a>
-                        </span>
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/日记/" style="color: #00bcd4">
-                                日记
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
+            </span>
+            
+        </span>
         
     </div>
+    <div class="content" v-pre>
+        <p>CNN大纲<br> <span id="more"></span></p>
+<p>[TOC]</p>
+<h1 id="CNN大纲"><a href="#CNN大纲" class="headerlink" title="CNN大纲"></a>CNN大纲</h1><h2 id="一、卷积"><a href="#一、卷积" class="headerlink" title="一、卷积"></a>一、卷积</h2><h4 id="卷积核"><a href="#卷积核" class="headerlink" title="卷积核"></a>卷积核</h4><ul>
+<li>将图像拆分成对应的特征，被称为卷积核。</li>
+<li>扫描：卷积核用来与目标矩阵做运算，根据结果判断与目标的相似度，<br> 这个“相似”矩阵又是特征矩阵。</li>
+<li>有多少个卷积核就要[扫描]多少次</li>
+</ul>
+<p> <img src="/./imgs/2022-10-05-00-23-57.png"><br> <img src="/./imgs/2022-10-05-00-24-30.png"><br> <img src="/./imgs/2022-10-05-00-27-09.png"><br>示例一：<br> 图上展示的是其中一种算法：</p>
+<ul>
+<li>图一 3x3卷积核扫描9x9的目标中3x3的矩阵，每个值一一对应相乘→得到3x3的矩阵</li>
+<li>上一步得到矩阵取平均值 → 得到一个特征值（1表示完全相似，小于一表示相似程度）</li>
+<li>重复上述操作，得到7x7的特征矩阵</li>
+</ul>
+<p><img src="/./imgs/2022-10-05-00-28-53.png"></p>
+<p>示例二：<br>多个卷积核的计算结果。</p>
+<p><img src="/./imgs/2022-10-05-00-30-43.png"><br>示例三：<br>RGB三通道卷积运算。</p>
+<h2 id="二、池化（下采样）"><a href="#二、池化（下采样）" class="headerlink" title="二、池化（下采样）"></a>二、池化（下采样）</h2><p>当被测物的特征较多时，需要的卷积核数量也会很多。<br>为了减少运算量，<br><img src="/./imgs/2022-10-05-00-32-27.png"></p>
+<ul>
+<li>本质上就是把多个像素点用一个值来表示，保留一定图像特征，减少数据量。</li>
+<li>会牺牲一部分精细度</li>
+<li>各种算法：例如取最大值、平均值等等<br><img src="/./imgs/2022-10-05-00-33-25.png"></li>
+</ul>
+<h4 id="Padding"><a href="#Padding" class="headerlink" title="Padding"></a>Padding</h4><p>扫描图像不够时补充边缘。补零可能比较多。</p>
+<h2 id="三、激活函数"><a href="#三、激活函数" class="headerlink" title="三、激活函数"></a>三、激活函数</h2><h4 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h4><p><img src="/./imgs/2022-10-05-00-34-28.png"><br>示例一：<br>效果相当于max(0,x)，把小于零的值都置零。</p>
+<p><img src="/./imgs/2022-10-05-00-36-30.png"><br>上述三个函数自由排列即可模拟人的神经运作过程。</p>
+<h2 id="四、全连接层"><a href="#四、全连接层" class="headerlink" title="四、全连接层"></a>四、全连接层</h2><p>把之前得到的结果摊开来计算出一个值。</p>
+<p> <img src="/./imgs/2022-10-05-00-40-07.png"><br> <img src="/./imgs/2022-10-05-00-39-42.png"></p>
+<ul>
+<li>把卷积完成后得到的矩阵所有的值逐一遍历。</li>
+<li>与权重进行计算，例如识别X要乘权重A,识别O要乘权重B。</li>
+<li>所有值与A加权取平均值后得到X识别正确率，B同理</li>
+<li>全连接可以有多个隐藏层</li>
+</ul>
+<h2 id="五、反向传播（Backpropagation）"><a href="#五、反向传播（Backpropagation）" class="headerlink" title="五、反向传播（Backpropagation）"></a>五、反向传播（Backpropagation）</h2><p> 全连接层产生了一个新问题：权重的获取。<br> 解决方法：通过修改卷积核的参数、全连接层的权重等，来找到最小的损失值。</p>
+<h4 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h4><p> 将神经网络计算结果与真实的结果作比较，得到损失值。</p>
+<h4 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h4><p> 通过导数（梯度），找到损失值最小的点。</p>
+<h4 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h4><p> 一些基础值 &#x2F; 搭成框架的基础条件 &#x2F; 传播过程中不太修改的值（存疑）</p>
+<ul>
+<li>例如卷积核的数目大小</li>
+<li>池化层的数目大小</li>
+<li>全连接层的神经元<br> <img src="/./imgs/2022-10-05-00-50-11.png"></li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> 了解了一个大致的流程</p>
+<ul>
+<li>卷积（比对目标特征）</li>
+<li>池化（提取目标特征，减少数据量）</li>
+<li>激活（去除不必要的数据，减少数据量）<br> ↓<br> 输出结果：多个矩阵<br> ↓</li>
+<li>全连接层<br> ↓<br> 输出结果：准确率&#x2F;损失值<br> ↓</li>
+<li>反向传播：修改参数，再来</li>
+</ul>
+<p> 损失值达到一定条件&#x2F;次数达到条件，跳出循环。<br> 得到找一个最低的损失值，得到一套参数，用它来预测。</p>
+<p>示例：</p>
+<p> <img src="/./imgs/2022-10-05-00-55-41.png"><br> <img src="/./imgs/2022-10-05-01-01-28.png"></p>
+
+    </div>
+    
+    
 </div>
                          
 <footer id="footer">

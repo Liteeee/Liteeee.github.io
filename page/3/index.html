@@ -144,6 +144,52 @@
             
 
 <div class="post">
+    <a href="/2022/09/18/时间序列分析/时间序列分析第二节课/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="时间序列预处理-纯随机性检验"><a href="#时间序列预处理-纯随机性检验" class="headerlink" title="时间序列预处理-纯随机性检验"></a>时间序列预处理-纯随机性检验</h1><h2 id="纯随机序列定义（白噪声序列）"><a href="#纯随机序列定义（白噪声序列）" class="headerlink" title="纯随机序列定义（白噪声序列）"></a>纯随机序列定义（白噪声序列）</h2><p><img src="/./imgs/2022-09-18-12-49-53.png"><br>白噪声序列一定是平稳序列。是最简单的平稳序列。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><h4 id="1-纯随机性"><a href="#1-纯随机性" class="headerlink" title="1.纯随机性"></a>1.纯随机性</h4><pre><code>𝜸𝒌=𝟎,∀𝒌≠𝟎
+</code></pre>
+<p>说明序列各项之间没有任何关系。</p>
+<h4 id="2-方差齐性"><a href="#2-方差齐性" class="headerlink" title="2.方差齐性"></a>2.方差齐性</h4><pre><code>𝑫𝑿𝐭=𝜸𝟎=𝝈𝟐
+</code></pre>
+<p>序列中的每个变量的方差都相同。只有方差齐性时，最小二乘法估计的参数才是准确有效的。<br>异方差性质：无法满足方差齐性。<br>用途：检验模型的【残差】是否【方差齐性】，若不是则说明相关信息不足→非平稳随机序列分析（异方差模型）</p>
+<h2 id="纯随机性检验（白噪声检验）"><a href="#纯随机性检验（白噪声检验）" class="headerlink" title="纯随机性检验（白噪声检验）"></a>纯随机性检验（白噪声检验）</h2><h4 id="1-图检验"><a href="#1-图检验" class="headerlink" title="1.图检验"></a>1.图检验</h4><p>在零附件小幅度随机波动<br><img src="/./imgs/2022-09-18-13-43-19.png"></p>
+<h4 id="2-Barlett定理"><a href="#2-Barlett定理" class="headerlink" title="2.Barlett定理"></a>2.Barlett定理</h4><pre><code>𝝆𝒌ሶ~𝑵𝟎,𝟏𝒏,∀𝒌≠𝟎 （均值=0，方差为1/n的正态分布）
+</code></pre>
+<p>一个纯随机序列{𝑥𝑡,𝑡&#x3D;1,2,…,𝑛}的延迟K样本的ρ将服从上述分布</p>
+<h4 id="3-假设检验"><a href="#3-假设检验" class="headerlink" title="3.假设检验"></a>3.假设检验</h4><p>原假設：延遲期數小於或等於m的序列值之間相互獨立<br>备选假設：延遲期數小於或等於m的序列值之間有相關性19</p>
+<h4 id="4-检验统计量"><a href="#4-检验统计量" class="headerlink" title="4.检验统计量"></a>4.检验统计量</h4><p><img src="/./imgs/2022-09-18-14-00-36.png"></p>
+<p>n为观察期数，m为指定延期数</p>
+<p>注：当【Q大于𝜒1−𝛼2(𝑚)分位点 或 P &lt; α 】时，可以以【1 - α】拒绝原假设</p>
+<p><img src="/./imgs/2022-09-18-14-03-36.png"></p>
+<p>说明：LB是Q的修正，两者统称为Q统计量。记为𝑄𝐵𝑃和𝑄𝐿𝐵。往往普遍采用的是𝑄𝐿𝐵统计量</p>
+<h4 id="5-卡方分布"><a href="#5-卡方分布" class="headerlink" title="5.卡方分布"></a>5.卡方分布</h4><p><img src="/./imgs/2022-09-18-14-38-07.png"></p>
+<h2 id="纯随机性检验案例"><a href="#纯随机性检验案例" class="headerlink" title="纯随机性检验案例"></a>纯随机性检验案例</h2><p>1.白噪聲序列的r_k<br>2.计算LB<br>3.查卡方分布表<br>4.α&#x3D;0.05<br>5.P</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/时间序列分析第二节课/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/18/时间序列分析/作业一的分解/">
         <h2 class="post-title"></h2>
     </a>
@@ -313,14 +359,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ff7d73">
+            <a href="/tags/GAMES104/" style="color: #03a9f4">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #00a596">
+            <a href="/tags/游戏引擎/" style="color: #ffa2c4">
                 游戏引擎
             </a>
         </span>
@@ -419,7 +465,7 @@ tags: [tag1,tag2]
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #ffa2c4">
+            <a href="/tags/markdown/" style="color: #03a9f4">
                 markdown
             </a>
         </span>
@@ -600,33 +646,6 @@ doc/**/*.pdf
         
     </div>
     <a href="/2022/09/17/查漏补缺/paste image配置/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/力扣/贪心算法/找出两个相同字母最长子字符串/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/力扣/贪心算法/找出两个相同字母最长子字符串/" class="go-post">阅读全文</a>
 </div>
 
              

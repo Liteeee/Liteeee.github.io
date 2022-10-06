@@ -144,6 +144,77 @@
             
 
 <div class="post">
+    <a href="/2022/10/05/CNN/CNN入门（二)/">
+        <h2 class="post-title">NN和返现传播的入门（二）</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/5
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+             <span id="more"></span>
+<h2 id="线性函数"><a href="#线性函数" class="headerlink" title="线性函数"></a>线性函数</h2><h4 id="决策边界"><a href="#决策边界" class="headerlink" title="决策边界"></a>决策边界</h4><h2 id="得分函数"><a href="#得分函数" class="headerlink" title="得分函数"></a>得分函数</h2><p><img src="/./imgs/2022-10-06-01-07-18.png"></p>
+<ul>
+<li>f的输出结果就是得分</li>
+<li>假设有十个类别，则W也会有十个不同参数</li>
+<li>y&#x3D;kx+b方法中，k为权重参数，b为偏置参数，通常来说，有几个分类，B就有几个维度，输出得分值后再加上b矩阵，让每个分类都得到一个微调？、</li>
+</ul>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p><img src="/./imgs/2022-10-06-01-10-59.png"><br>示例：sj(其他类别得分)-syi（正确类别得分）+1</p>
+<h2 id="Softmax分类器"><a href="#Softmax分类器" class="headerlink" title="Softmax分类器"></a>Softmax分类器</h2><p><img src="/./imgs/2022-10-06-00-52-46.png"><br>目的：将得分值转换为概率值。<br>例如用对数函数将数值压缩到[0,1]区间内<br><img src="/./imgs/2022-10-06-00-56-23.png"></p>
+<h4 id="差异化exp"><a href="#差异化exp" class="headerlink" title="差异化exp"></a>差异化exp</h4><p>扩大得分之间的差异。例如用e^x</p>
+<h4 id="归一化normalize"><a href="#归一化normalize" class="headerlink" title="归一化normalize"></a>归一化normalize</h4><p>获得概率值：例如图中的做法是差异后的得分取分数<br>cat_rare&#x3D;24.5&#x2F;164+24.5+0.18&#x3D;0.13<br><img src="/./imgs/2022-10-06-01-02-02.png"></p>
+<h4 id="损失值计算"><a href="#损失值计算" class="headerlink" title="损失值计算"></a>损失值计算</h4><p>例如用log做交叉熵损失函数→ 判断当前输入【正确】的概率值<br>————输入[0~1]概率值 →输出[-∞,1]的损失值，越接近1损失越小<br><img src="/./imgs/2022-10-06-01-02-51.png"><br>其中负号是因为log小于1的值都是负数，取一个绝对值。<br><img src="/./imgs/2022-10-06-01-01-21.png"></p>
+<h2 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h2><p> 前向传播的目的：得到损失值（准确率）<br> 包含了上述流程中：得分→正确率→损失值<br><img src="/./imgs/2022-10-06-00-35-24.png"><br> 用f的得分值与真实的标签值进行损失计算。</p>
+<h2 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h2><p> 目的：得到W最合适的值，使得损失值尽可能下降到最低。</p>
+<h4 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h4><p> <img src="/./imgs/2022-10-06-00-38-56.png"><br> 示例：<br> <img src="/./imgs/2022-10-06-00-40-19.png"></p>
+<ul>
+<li>分别求偏导,因为xyz对结果的影响各不相同</li>
+<li>所以Z对结果的影响可以直接表示为df&#x2F;dz</li>
+<li>x因为有复合运算，所以对x的求偏导应当加上中间变量：<br> <img src="/./imgs/2022-10-06-00-42-37.png"></li>
+</ul>
+<h4 id="复合参数与链式法则"><a href="#复合参数与链式法则" class="headerlink" title="复合参数与链式法则"></a>复合参数与链式法则</h4><p> 例如：</p>
+<pre><code>    [(XW1)W2]W3=f
+</code></pre>
+<p><img src="/./imgs/2022-10-06-00-46-01.png"><br>含义：梯度计算是从后往前逐层逐步计算的。——————反向传播的另一种意义<br>真正在应用中，需要求偏导的对象往往会是一个矩阵</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/CNN/" style="color: #ffa2c4">
+                CNN
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/05/CNN/CNN入门（二)/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/10/05/CNN/CNN大纲/">
         <h2 class="post-title">CNN入门（一） 概览</h2>
     </a>
@@ -181,7 +252,7 @@
         
         <span class="tag">
             
-            <a href="/tags/CNN/" style="color: #03a9f4">
+            <a href="/tags/CNN/" style="color: #00a596">
                 CNN
             </a>
         </span>
@@ -228,14 +299,14 @@
         
         <span class="tag">
             
-            <a href="/tags/游戏/" style="color: #03a9f4">
+            <a href="/tags/游戏/" style="color: #00bcd4">
                 游戏
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/日记/" style="color: #03a9f4">
+            <a href="/tags/日记/" style="color: #ffa2c4">
                 日记
             </a>
         </span>
@@ -282,14 +353,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ff7d73">
+            <a href="/tags/GAMES104/" style="color: #03a9f4">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #00bcd4">
+            <a href="/tags/游戏引擎/" style="color: #03a9f4">
                 游戏引擎
             </a>
         </span>
@@ -336,7 +407,7 @@
         
         <span class="tag">
             
-            <a href="/tags/SHELL/" style="color: #00bcd4">
+            <a href="/tags/SHELL/" style="color: #00a596">
                 SHELL
             </a>
         </span>
@@ -383,14 +454,14 @@
         
         <span class="tag">
             
-            <a href="/tags/二叉树/" style="color: #03a9f4">
+            <a href="/tags/二叉树/" style="color: #ff7d73">
                 二叉树
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/剪枝/" style="color: #03a9f4">
+            <a href="/tags/剪枝/" style="color: #ffa2c4">
                 剪枝
             </a>
         </span>
@@ -437,21 +508,21 @@
         
         <span class="tag">
             
-            <a href="/tags/每日一题/" style="color: #00a596">
+            <a href="/tags/每日一题/" style="color: #00bcd4">
                 每日一题
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/力扣/" style="color: #ffa2c4">
+            <a href="/tags/力扣/" style="color: #00bcd4">
                 力扣
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/模拟/" style="color: #00a596">
+            <a href="/tags/模拟/" style="color: #ff7d73">
                 模拟
             </a>
         </span>
@@ -498,7 +569,7 @@
         
         <span class="tag">
             
-            <a href="/tags/C/" style="color: #ff7d73">
+            <a href="/tags/C/" style="color: #03a9f4">
                 C++
             </a>
         </span>
@@ -545,14 +616,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #03a9f4">
+            <a href="/tags/GAMES104/" style="color: #ffa2c4">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #00bcd4">
+            <a href="/tags/游戏引擎/" style="color: #ffa2c4">
                 游戏引擎
             </a>
         </span>
@@ -599,102 +670,41 @@
         
         <span class="tag">
             
-            <a href="/tags/每日一题/" style="color: #00bcd4">
+            <a href="/tags/每日一题/" style="color: #ffa2c4">
                 每日一题
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/力扣/" style="color: #00bcd4">
+            <a href="/tags/力扣/" style="color: #03a9f4">
                 力扣
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/模拟/" style="color: #ff7d73">
+            <a href="/tags/模拟/" style="color: #00a596">
                 模拟
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/语法坑/" style="color: #ff7d73">
+            <a href="/tags/语法坑/" style="color: #00bcd4">
                 语法坑
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/滑动窗口/" style="color: #00bcd4">
+            <a href="/tags/滑动窗口/" style="color: #00a596">
                 滑动窗口
             </a>
         </span>
         
     </div>
     <a href="/2022/09/24/力扣/模拟/每日一题，拆炸弹/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/23/力扣/链表/每日一题C++单链表/">
-        <h2 class="post-title">每日一题，用ListNode实现链表</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/算法/">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                算法
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/23
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="实现题"><a href="#实现题" class="headerlink" title="实现题"></a>实现题</h1>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/C/" style="color: #00bcd4">
-                C++
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/力扣/" style="color: #ff7d73">
-                力扣
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/链表/" style="color: #ffa2c4">
-                链表
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/09/23/力扣/链表/每日一题C++单链表/" class="go-post">阅读全文</a>
 </div>
 
              

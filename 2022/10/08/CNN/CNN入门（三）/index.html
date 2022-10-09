@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>每日一题：旋转数字-好数 | Liteee的世界尽头</title>
+        <title>CNN学习（三） | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,22 +122,22 @@
                         
 <div class="article">
     <div>
-        <h1>每日一题：旋转数字-好数 </h1>
+        <h1>CNN学习（三） </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/25
+            2022/10/8
         </span>
         
         <span class="category">
-            <a href="/categories/算法/">
+            <a href="/categories/机器学习/">
                 <span class="icon">
                     <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
                 </span>
-                算法
+                机器学习
             </a>
         </span>
         
@@ -149,22 +149,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/力扣/" style="color: #03a9f4">
-                    力扣
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/每日一题/" style="color: #00bcd4">
-                    每日一题
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/模拟/" style="color: #03a9f4">
-                    模拟
+                <a href="/tags/CNN/" style="color: #00bcd4">
+                    CNN
                 </a>
             </span>
             
@@ -172,57 +158,29 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="旋转数字-好数"><a href="#旋转数字-好数" class="headerlink" title="旋转数字-好数"></a>旋转数字-好数</h1><h4 id="中等难度"><a href="#中等难度" class="headerlink" title="中等难度"></a>中等难度</h4><p>我们称一个数 X 为好数, 如果它的每位数字逐个地被旋转 180 度后，我们仍可以得到一个有效的，且和 X 不同的数。要求每位数字都要被旋转。<br> <span id="more"></span><br> 如果一个数的每位数字被旋转以后仍然还是一个数字， 则这个数是有效的。0, 1, 和 8 被旋转后仍然是它们自己；2 和 5 可以互相旋转成对方（在这种情况下，它们以不同的方向旋转，换句话说，2 和 5 互为镜像）；6 和 9 同理，除了这些以外其他的数字旋转以后都不再是有效的数字。</p>
-<p>现在我们有一个正整数 N, 计算从 1 到 N 中有多少个数 X 是好数？</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/rotated-digits">https://leetcode.cn/problems/rotated-digits</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<pre><code>输入: 10
-输出: 4
-解释: 
-在[1, 10]中有四个好数： 2, 5, 6, 9。
-注意 1 和 10 不是好数, 因为他们在旋转之后不变。
+        <p>0.0</p>
+ <span id="more"></span>
+<h1 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h1><p>主要解决数据量较小的问题。<br>可以通过旋转图片、调整亮度颜色、一个图片裁剪多个图片等方法来处理。</p>
+<pre><code class="python">
+transforms.Compose([transforms.RandomRotation(45),#随机旋转，-45到45度之间随机选
+        transforms.CenterCrop(224),#从中心开始裁剪
+        transforms.RandomHorizontalFlip(p=0.5),#随机水平翻转 选择一个概率概率
+        transforms.RandomVerticalFlip(p=0.5),#随机垂直翻转
+        transforms.ColorJitter(brightness=0.2, contrast=0.1, saturation=0.1, hue=0.1),#参数1为亮度，参数2为对比度，参数3为饱和度，参数4为色相
+        transforms.RandomGrayscale(p=0.025),#概率转换成灰度率，3通道就是R=G=B
 </code></pre>
-<h4 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h4><p>说实话题意没看懂，一开始用哈希做索引，对里面的数字进行翻转再比较。<br>后来发现其实规则就是：</p>
-<pre><code>对于一个好数而言：
-3\4\7无用数：不能出现
-2/5/6/9/旋转数：必须出现
-1/0镜像数（不变），不影响结果
-</code></pre>
-<p>所以面向结果的暴力模拟：</p>
-<pre><code class="c++">class Solution &#123;
-private:
-    int num=0;
-public:
-    int rotatedDigits(int n) &#123;
-        int res=0;
-        int num=0;
-        bool flag=true;
-        for(int j=1;j&lt;=n;j++)&#123;
-            flag=true;
-            string s=to_string(j);
-            for(auto&amp; i :s)&#123;
-            // cout&lt;&lt;i&lt;&lt;&quot; &quot;;
-                if(i==&#39;3&#39;||i==&#39;4&#39;||i==&#39;7&#39;)flag=false;
-            &#125;
-            if(flag)&#123;
-                for(auto&amp; i :s)&#123;
-                // cout&lt;&lt;i&lt;&lt;&quot; &quot;;
-                    if(i==&#39;2&#39;||i==&#39;5&#39;||i==&#39;6&#39;||i==&#39;9&#39;)&#123;
-                    num++;
-                    // cout&lt;&lt;s&lt;&lt;&quot; &quot;;
-                    break;
-                    &#125;
-                &#125;
-
-            &#125;
-        &#125;
-        return num;
-    &#125;
-</code></pre>
-<p>时间复杂度O（n*(2s)）<br>不快，主打一个面向结果。<br>能改进的地方大概有；</p>
+<h1 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h1><p> 原理：用训练效果比较好的参数或者卷积流程，来进行自己的训练初始化。可以提高效率。</p>
+<p>方法一：</p>
 <ul>
-<li>按位取数字</li>
-<li>哈希取对照</li>
+<li>在卷积层上，使用已经训练好的权重参数<br>目的：在数据量比较小的情况下，避免过拟合。直接用训练好的结果作为训练的初始参数。</li>
 </ul>
+<p>方法二：</p>
+<ul>
+<li>在卷积层上，尽可能保留别人已经做好的训练流程，只做微调</li>
+<li>全连接层自己写方法<br>目的：训练量比较大的情况下，或者数据差异比较大的情况下，不适合直接拿参数。</li>
+</ul>
+<h4 id="预训练模型路径"><a href="#预训练模型路径" class="headerlink" title="预训练模型路径"></a>预训练模型路径</h4><pre><code>user/admin/.cache.torch/checkpoints
+</code></pre>
 
     </div>
     

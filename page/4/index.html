@@ -144,6 +144,44 @@
             
 
 <div class="post">
+    <a href="/2022/09/18/时间序列分析/函数整理/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="理论笔记"><a href="#理论笔记" class="headerlink" title="理论笔记"></a>理论笔记</h1><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h2 id="番外、基础表达式整理"><a href="#番外、基础表达式整理" class="headerlink" title="番外、基础表达式整理"></a>番外、基础表达式整理</h2><p>均值<br><img src="/./imgs/2022-09-15-00-22-39.png"><br>方差<br><img src="/./imgs/2022-09-15-00-22-46.png"><br>自协方差<br><img src="/./imgs/2022-09-15-00-23-21.png"><br>自相关函数ACF<br><img src="/./imgs/2022-09-15-00-23-30.png"></p>
+<h2 id="一、平稳时间序列"><a href="#一、平稳时间序列" class="headerlink" title="一、平稳时间序列"></a>一、平稳时间序列</h2><p>延迟K方差<br><img src="/./imgs/2022-09-15-00-26-53.png"><br>平稳时间序列的常数方差<br><img src="/./imgs/2022-09-15-00-26-30.png"></p>
+<h4 id="1-延迟k自相关系数"><a href="#1-延迟k自相关系数" class="headerlink" title="1.延迟k自相关系数"></a>1.延迟k自相关系数</h4><p><img src="/./imgs/2022-09-15-00-25-36.png"></p>
+<h4 id="自相关系数的特性："><a href="#自相关系数的特性：" class="headerlink" title="自相关系数的特性："></a>自相关系数的特性：</h4><ol>
+<li>規範性 𝜌0 &#x3D; 1且 𝜌𝑘 ≤ 1, ∀𝑘</li>
+<li>對稱性 𝜌𝑘 &#x3D; 𝜌−𝑘</li>
+<li>非負定性 對任意正整數m，相關陣Γ𝑚為對稱非負定陣</li>
+<li>非唯一性：一個平穩時間序列唯一決定它的自相關函數，但一個自相關函數<br>未必唯一對應著一個平穩時間序列。</li>
+</ol>
+<h4 id="与之相关的函数"><a href="#与之相关的函数" class="headerlink" title="与之相关的函数"></a>与之相关的函数</h4><p><img src="/2022-09-14-22-39-27.png"><br>理解：y是一个求方差函数，传入值是t与t+k的方差</p>
+<h2 id="二、图检验"><a href="#二、图检验" class="headerlink" title="二、图检验"></a>二、图检验</h2><p>系数：其中一個坐標軸是自相關係數，另一個坐標軸是延遲時期數。<br>检验步骤：<br><img src="/./imgs/2022-09-15-00-29-02.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/函数整理/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/17/GAMES104/104笔记（一）/">
         <h2 class="post-title">GAMES104笔记（一）</h2>
     </a>
@@ -181,14 +219,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ff7d73">
+            <a href="/tags/GAMES104/" style="color: #00bcd4">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #03a9f4">
+            <a href="/tags/游戏引擎/" style="color: #ffa2c4">
                 游戏引擎
             </a>
         </span>
@@ -280,14 +318,14 @@ tags: [tag1,tag2]
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #ffa2c4">
+            <a href="/tags/hexo/" style="color: #ff7d73">
                 hexo
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #ffa2c4">
+            <a href="/tags/markdown/" style="color: #00a596">
                 markdown
             </a>
         </span>
@@ -580,62 +618,6 @@ double(64位 8字节)
         
     </div>
     <a href="/2022/09/17/力扣/JAVA开发语法整理/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/01HDFS基础理论和面试题/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h1><p>HDFS（Hadoop Distributed File System），是一种分布式文件管理系统</p>
-<h2 id="一、性质"><a href="#一、性质" class="headerlink" title="一、性质"></a>一、性质</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><pre><code>1.高容错，多副本
-2.处理数据规模大
-3.可以构建在廉价机器上，不怕出问题
-</code></pre>
-<p>HDFS的使用场景：适合一次写入，多次读出的场景。</p>
-<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><pre><code>1.不适合低延迟访问
-2.不适合存储小文件（占用NN资源，寻址时间超过读取时间）
-3.不支持并发写入（一文件一线程
-4.不支持随机修改（只能支持追加append
-</code></pre>
-<h2 id="二、组成架构"><a href="#二、组成架构" class="headerlink" title="二、组成架构"></a>二、组成架构</h2><h3 id="1-NN"><a href="#1-NN" class="headerlink" title="1.NN"></a>1.NN</h3><pre><code>1.管理HDFS命名空间
-2.管理副本策略
-3.数据块映射
-4.处理客户端请求
-</code></pre>
-<h3 id="2-DN"><a href="#2-DN" class="headerlink" title="2.DN"></a>2.DN</h3><pre><code>1.接受NN命令，存数据，读写数据
-</code></pre>
-<h3 id="3-Client"><a href="#3-Client" class="headerlink" title="3.Client"></a>3.Client</h3><pre><code>1.文件切分，在文件上传HDFS之前完成
-2.与NN交互→文件位置
-3.与DN交互→存取
-4.部分管理功能，如格式化NN
-5.部分HDFS增删改查功能
-</code></pre>
-<h3 id="4-2NN"><a href="#4-2NN" class="headerlink" title="4.2NN"></a>4.2NN</h3><pre><code>1.定期合并Fsimage和Edits，推送至NN
-2.紧急情况下可用于恢复NN（期间的数据可能会损失）
-3.考点：不完全是NN的备份
-</code></pre>
-<h1 id="HDFS面试题"><a href="#HDFS面试题" class="headerlink" title="HDFS面试题"></a>HDFS面试题</h1><p><img src="/2022-09-06-22-09-30.png"><br><img src="/2022-09-06-22-09-47.png"></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/01HDFS基础理论和面试题/" class="go-post">阅读全文</a>
 </div>
 
              

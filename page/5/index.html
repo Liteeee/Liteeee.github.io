@@ -144,6 +144,62 @@
             
 
 <div class="post">
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/01HDFS基础理论和面试题/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/17
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h1><p>HDFS（Hadoop Distributed File System），是一种分布式文件管理系统</p>
+<h2 id="一、性质"><a href="#一、性质" class="headerlink" title="一、性质"></a>一、性质</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><pre><code>1.高容错，多副本
+2.处理数据规模大
+3.可以构建在廉价机器上，不怕出问题
+</code></pre>
+<p>HDFS的使用场景：适合一次写入，多次读出的场景。</p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><pre><code>1.不适合低延迟访问
+2.不适合存储小文件（占用NN资源，寻址时间超过读取时间）
+3.不支持并发写入（一文件一线程
+4.不支持随机修改（只能支持追加append
+</code></pre>
+<h2 id="二、组成架构"><a href="#二、组成架构" class="headerlink" title="二、组成架构"></a>二、组成架构</h2><h3 id="1-NN"><a href="#1-NN" class="headerlink" title="1.NN"></a>1.NN</h3><pre><code>1.管理HDFS命名空间
+2.管理副本策略
+3.数据块映射
+4.处理客户端请求
+</code></pre>
+<h3 id="2-DN"><a href="#2-DN" class="headerlink" title="2.DN"></a>2.DN</h3><pre><code>1.接受NN命令，存数据，读写数据
+</code></pre>
+<h3 id="3-Client"><a href="#3-Client" class="headerlink" title="3.Client"></a>3.Client</h3><pre><code>1.文件切分，在文件上传HDFS之前完成
+2.与NN交互→文件位置
+3.与DN交互→存取
+4.部分管理功能，如格式化NN
+5.部分HDFS增删改查功能
+</code></pre>
+<h3 id="4-2NN"><a href="#4-2NN" class="headerlink" title="4.2NN"></a>4.2NN</h3><pre><code>1.定期合并Fsimage和Edits，推送至NN
+2.紧急情况下可用于恢复NN（期间的数据可能会损失）
+3.考点：不完全是NN的备份
+</code></pre>
+<h1 id="HDFS面试题"><a href="#HDFS面试题" class="headerlink" title="HDFS面试题"></a>HDFS面试题</h1><p><img src="/2022-09-06-22-09-30.png"><br><img src="/2022-09-06-22-09-47.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/17/HADOOPCLASS/CLASS02 HDFS/01HDFS基础理论和面试题/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/17/HADOOPCLASS/CLASS01/centos命令表/">
         <h2 class="post-title"></h2>
     </a>
@@ -768,46 +824,6 @@ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar wordcount 
         
     </div>
     <a href="/2022/09/17/HADOOPCLASS/CLASS01/01/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/hello-world/">
-        <h2 class="post-title">Hello World</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/hello-world/" class="go-post">阅读全文</a>
 </div>
 
              

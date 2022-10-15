@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Hidden HomeWork | Liteee的世界尽头</title>
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>Hidden HomeWork </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/9
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <p>0.0</p>
+ <span id="more"></span>
+<h1 id="p階自回歸模型AR-p"><a href="#p階自回歸模型AR-p" class="headerlink" title="p階自回歸模型AR(p)"></a>p階自回歸模型AR(p)</h1><p> <img src="/./imgs/2022-10-09-16-30-07.png"></p>
+<h4 id="平稳性判别"><a href="#平稳性判别" class="headerlink" title="平稳性判别"></a>平稳性判别</h4><p> <img src="/./imgs/2022-10-09-16-30-43.png"></p>
+<h1 id="2阶段自回归"><a href="#2阶段自回归" class="headerlink" title="2阶段自回归"></a>2阶段自回归</h1><p> <img src="/./imgs/2022-10-09-16-37-12.png"><br> <img src="/./imgs/2022-10-09-21-54-14.png"></p>
+<h1 id="AR模型自相关系数"><a href="#AR模型自相关系数" class="headerlink" title="AR模型自相关系数"></a>AR模型自相关系数</h1><p> <img src="/./imgs/2022-10-10-16-00-21.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h4 id="AR-1"><a href="#AR-1" class="headerlink" title="AR 1"></a>AR 1</h4><p> <img src="/./imgs/2022-10-10-16-32-37.png"></p>
+<h4 id="AR-2"><a href="#AR-2" class="headerlink" title="AR 2"></a>AR 2</h4><p> <img src="/./imgs/2022-10-10-16-36-46.png"></p>
+<h4 id="AR-P"><a href="#AR-P" class="headerlink" title="AR P"></a>AR P</h4><p> <img src="/./imgs/2022-10-10-16-29-05.png"><br> <img src="/./imgs/2022-10-10-16-29-22.png"></p>
+<h4 id="MA-1"><a href="#MA-1" class="headerlink" title="MA 1"></a>MA 1</h4><p><img src="/./imgs/2022-10-10-17-03-20.png"></p>
+<h4 id="MA-2"><a href="#MA-2" class="headerlink" title="MA 2"></a>MA 2</h4><p> <img src="/./imgs/2022-10-10-17-04-00.png"></p>
+<p> <img src="/./imgs/2022-10-10-18-01-22.png"><br> <img src="/./imgs/2022-10-10-18-01-45.png"></p>
+<h4 id="MA可逆性判定"><a href="#MA可逆性判定" class="headerlink" title="MA可逆性判定"></a>MA可逆性判定</h4><p>為了保證一個給定的自相關函數能夠對應唯一的MA模型，需要<br>給模型增加約束條件。<br><img src="/./imgs/2022-10-11-10-42-51.png"></p>
+<h4 id="拖尾与截尾"><a href="#拖尾与截尾" class="headerlink" title="拖尾与截尾"></a>拖尾与截尾</h4><p>  <img src="/./imgs/2022-10-11-10-39-21.png"></p>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

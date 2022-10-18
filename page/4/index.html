@@ -144,6 +144,40 @@
             
 
 <div class="post">
+    <a href="/2022/09/18/时间序列分析/时间序列分析第一节课/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="时间序列预处理–平稳性检验"><a href="#时间序列预处理–平稳性检验" class="headerlink" title="时间序列预处理–平稳性检验"></a>时间序列预处理–平稳性检验</h1><h1 id="代码随记"><a href="#代码随记" class="headerlink" title="代码随记"></a>代码随记</h1><h2 id="作业用到库函数"><a href="#作业用到库函数" class="headerlink" title="作业用到库函数"></a>作业用到库函数</h2><h3 id="1-np库"><a href="#1-np库" class="headerlink" title="1.np库"></a>1.np库</h3><p>生成元组</p>
+<pre><code>np.ones(shape, dtype=None, order=&#39;C&#39;)
+</code></pre>
+<p>1.shape：一个整数类型或者一个整数元组，用于定义数组的大小。如果仅指定一个整数类型变量，则返回一维数组。如果指定的是整数元组，则返回给定形状的数组。<br>2.dtype：可选参数，默认值为float。用于指定数组的数据类型。<br>3.order：指定内存重以行优先(‘C’)还是列优先(‘F’)顺序存储多维数组。</p>
+<h3 id="smlt函数库"><a href="#smlt函数库" class="headerlink" title="smlt函数库"></a>smlt函数库</h3><p>参考文献<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41103204/article/details/105810742">https://blog.csdn.net/qq_41103204/article/details/105810742</a></p>
+<h4 id="ACF"><a href="#ACF" class="headerlink" title="ACF"></a>ACF</h4><p>ACF 是一个完整的自相关函数。提供延迟自相关值<br>要点：表示【当前值】与【滞后值（延迟值）】之间的关系</p>
+<h4 id="PACF"><a href="#PACF" class="headerlink" title="PACF"></a>PACF</h4><p>PACF 是部分自相关函数或者偏自相关函数<br>要点：表示【残差】与【滞后值】之间的关系</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/09/18/时间序列分析/时间序列分析第一节课/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/09/18/时间序列分析/函数整理/">
         <h2 class="post-title"></h2>
     </a>
@@ -318,14 +352,14 @@ tags: [tag1,tag2]
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #ff7d73">
+            <a href="/tags/hexo/" style="color: #ffa2c4">
                 hexo
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/markdown/" style="color: #00a596">
+            <a href="/tags/markdown/" style="color: #00bcd4">
                 markdown
             </a>
         </span>
@@ -577,47 +611,6 @@ final.开发组件
         
     </div>
     <a href="/2022/09/17/力扣/基础竞赛语法/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/17/力扣/JAVA开发语法整理/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/17
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><h2 id="1-基础语法（循环-类型定义）"><a href="#1-基础语法（循环-类型定义）" class="headerlink" title="1.基础语法（循环+类型定义）"></a>1.基础语法（循环+类型定义）</h2><p>基础打印</p>
-<pre><code>System.out.println(&quot;基本类型：byte 二进制位数：&quot; + Byte.SIZE);
-</code></pre>
-<p>八个基础类型</p>
-<pre><code>boolean(8位 1字节)
-byte(8位 1字节)
-char(16位 2字节)
-short(16位 2字节) 
-int(32位 4字节) 
-long(64位 8字节) 
-double(64位 8字节)
-赋值语法与C++一致
-</code></pre>
-<p>类型定义</p>
-<h2 id="2-面向对象"><a href="#2-面向对象" class="headerlink" title="2.面向对象"></a>2.面向对象</h2><h2 id="3-数组（用数组可以实现大部分数据结构）"><a href="#3-数组（用数组可以实现大部分数据结构）" class="headerlink" title="3.数组（用数组可以实现大部分数据结构）"></a>3.数组（用数组可以实现大部分数据结构）</h2><h2 id="4-文件操作"><a href="#4-文件操作" class="headerlink" title="4.文件操作"></a>4.文件操作</h2><h2 id="5-内存管理-异常处理"><a href="#5-内存管理-异常处理" class="headerlink" title="5.内存管理+异常处理"></a>5.内存管理+异常处理</h2><h2 id="final-开发组件"><a href="#final-开发组件" class="headerlink" title="final.开发组件"></a>final.开发组件</h2>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/17/力扣/JAVA开发语法整理/" class="go-post">阅读全文</a>
 </div>
 
              

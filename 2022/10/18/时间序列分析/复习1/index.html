@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>GAMS104笔记（二）游戏引擎渲染 | Liteee的世界尽头</title>
+        <title>时序分析复习 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,101 +122,93 @@
                         
 <div class="article">
     <div>
-        <h1>GAMS104笔记（二）游戏引擎渲染 </h1>
+        <h1>时序分析复习 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/10
+            2022/10/18
         </span>
         
-        <span class="category">
-            <a href="/categories/GAMES/">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                GAMES
-            </a>
-        </span>
-        
-        
-        <span class="tags">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/GAMES104/" style="color: #00a596">
-                    GAMES104
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/游戏引擎/" style="color: #ff7d73">
-                    游戏引擎
-                </a>
-            </span>
-            
-        </span>
         
     </div>
     <div class="content" v-pre>
-        <h1 id="GAMES104第三节"><a href="#GAMES104第三节" class="headerlink" title="GAMES104第三节"></a>GAMES104第三节</h1> <span id="more"></span>
-<h2 id="Tick"><a href="#Tick" class="headerlink" title="Tick"></a>Tick</h2><p><img src="/./imgs/2022-09-19-23-14-59.png"></p>
-<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p><img src="/./imgs/2022-09-19-23-15-47.png"></p>
-<p>解决了表现的过程，每个GO(gameobject)都能完成一个完整的GO。</p>
-<h2 id="GO交互"><a href="#GO交互" class="headerlink" title="GO交互"></a>GO交互</h2><p>每个GO都在进行自己的周期，交互会改变周期的运作<br>1.避免HardCode，即模拟类算法（例如编写每一个单位的受伤TICK）<br>2.推荐Events机制，统一为一个受伤Events</p>
-<p><img src="/./imgs/2022-09-19-23-21-13.png"></p>
-<p>如图为U3d和UE的事件示例</p>
-<h2 id="GO管理"><a href="#GO管理" class="headerlink" title="GO管理"></a>GO管理</h2><p>游戏中会有海量的GO</p>
-<h4 id="实现标识方式："><a href="#实现标识方式：" class="headerlink" title="实现标识方式："></a>实现标识方式：</h4><ul>
-<li>独特的ID</li>
-<li>位置信息position</li>
+        <p>考试复习<br> <span id="more"></span></p>
+<p>[TOC]<br><img src="/./imgs/2022-10-18-10-13-50.png"></p>
+<h1 id="CH1-1"><a href="#CH1-1" class="headerlink" title="CH1-1"></a>CH1-1</h1><p><img src="/./imgs/2022-10-18-10-12-58.png"><br><img src="/./imgs/2022-10-18-10-13-12.png"></p>
+<h1 id="CH2-1-预处理-x2F-平稳性检验"><a href="#CH2-1-预处理-x2F-平稳性检验" class="headerlink" title="CH2-1 预处理&#x2F;平稳性检验"></a>CH2-1 预处理&#x2F;平稳性检验</h1><h3 id="特徵統計量"><a href="#特徵統計量" class="headerlink" title="特徵統計量"></a>特徵統計量</h3><p>概率分布、均值、方差、自協方差函數、自相關函數…用于描述序列的平稳性</p>
+<h3 id="概率分布"><a href="#概率分布" class="headerlink" title="概率分布"></a>概率分布</h3><ul>
+<li>能夠完整地描述一個隨機變量的統計特徵</li>
+<li>實際應用中，得到序列的聯合概率分布幾乎不可能</li>
+<li>所以，一般我們會研究序列的低階矩（均值、方差、自協方差、自相關函數等特徵統計量</li>
 </ul>
-<h2 id="场景管理"><a href="#场景管理" class="headerlink" title="场景管理"></a>场景管理</h2><ul>
-<li>游戏中的场景资源分配经常会出现不均匀的现象（过于集中或分散）</li>
-<li>容易造成资源浪费<br><img src="/./imgs/2022-09-19-23-27-00.png"></li>
+<h4 id="低阶矩"><a href="#低阶矩" class="headerlink" title="低阶矩"></a>低阶矩</h4><ul>
+<li>缺点：不能描述序列的全部统计性质</li>
+<li>优点：简单容算，能代表隨機序列的主要概率特徵</li>
 </ul>
-<h2 id="场景管理方式"><a href="#场景管理方式" class="headerlink" title="场景管理方式"></a>场景管理方式</h2><h4 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h4><h4 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h4><h2 id="物体绑定方式"><a href="#物体绑定方式" class="headerlink" title="物体绑定方式"></a>物体绑定方式</h2><p>这个问题能够引申到GO的TICK之间的关联</p>
-<h4 id="传统TICK绑定机制"><a href="#传统TICK绑定机制" class="headerlink" title="传统TICK绑定机制"></a>传统TICK绑定机制</h4><ul>
-<li>人上车，人被绑到车上。</li>
-<li>人物的GO向车发送绑定信息</li>
-<li>绑定后，车的TICK运行时会改变人物的TICK</li>
-<li>人与车的TICK会产生时序性的问题，也会有循环依赖<br>例如车上的人与其他GO产生TICK变化同时，车也产生了TICK需要影响角色的TICK。</li>
+<p><img src="/./imgs/2022-10-18-10-22-56.png"><br><img src="/./imgs/2022-10-18-10-23-16.png"><br><img src="/./imgs/2022-10-18-10-23-42.png"></p>
+<h2 id="平稳时间序列"><a href="#平稳时间序列" class="headerlink" title="平稳时间序列"></a>平稳时间序列</h2><ul>
+<li>严平稳：随之时间变化，所有统计性质都不变</li>
+<li>宽平稳：用特征统计量（低阶矩）来定义平稳性</li>
 </ul>
-<h4 id="严格时序的消息传递机制"><a href="#严格时序的消息传递机制" class="headerlink" title="严格时序的消息传递机制"></a>严格时序的消息传递机制</h4><p><img src="/./imgs/2022-09-19-23-38-01.png"></p>
+<h3 id="宽平稳条件"><a href="#宽平稳条件" class="headerlink" title="宽平稳条件"></a>宽平稳条件</h3><p><img src="/./imgs/2022-10-18-10-28-48.png"></p>
+<h3 id="宽严平稳关系"><a href="#宽严平稳关系" class="headerlink" title="宽严平稳关系"></a>宽严平稳关系</h3><p>严平稳条件一定满足宽平稳，反之不成立<br><img src="/./imgs/2022-10-18-10-32-22.png"></p>
+<h4 id="正态时间序列"><a href="#正态时间序列" class="headerlink" title="正态时间序列"></a>正态时间序列</h4><p><img src="/./imgs/2022-10-18-10-37-42.png"><br><img src="/./imgs/2022-10-18-10-37-53.png"></p>
+<h3 id="平稳序列统计特征"><a href="#平稳序列统计特征" class="headerlink" title="平稳序列统计特征"></a>平稳序列统计特征</h3><ul>
+<li>常数均值</li>
+<li>常数方差</li>
+<li>自協方差函數和自相關函數只依賴於時間平移長度而與時間起止點無關</li>
+<li>任取k，有γk和ρk<br><img src="/./imgs/2022-10-18-10-40-46.png"></li>
+</ul>
+<h4 id="自相关系数性质"><a href="#自相关系数性质" class="headerlink" title="自相关系数性质"></a>自相关系数性质</h4><p><img src="/./imgs/2022-10-18-10-42-00.png"></p>
+<h4 id="平稳时间序列的意义"><a href="#平稳时间序列的意义" class="headerlink" title="平稳时间序列的意义"></a>平稳时间序列的意义</h4><p>在样本量过小的情况下，平稳时间序列用统计量可以生成大量观测值，增加样本容量。</p>
+<p><img src="/./imgs/2022-10-18-10-48-20.png"><br><img src="/./imgs/2022-10-18-10-48-49.png"></p>
+<h2 id="平稳性检验"><a href="#平稳性检验" class="headerlink" title="平稳性检验"></a>平稳性检验</h2><h4 id="时序图检验"><a href="#时序图检验" class="headerlink" title="时序图检验"></a>时序图检验</h4><p>因为均值方差均为常数，</p>
 <ul>
-<li>邮局：统一转发GO的消息，不允许GO单独发送消息<br>当每一个GO单独发消息时：可以精确规定发送方的【发送帧】，精确接收方的哪一帧才能接收到的【接受帧】，以及【接收帧】后多久（立即&#x2F;延迟）才开始【新的TICK】</li>
-<li>PreTick</li>
-<li>PostTick</li>
+<li>序列值应当在一个常数附件随机波动</li>
+<li>波动范围有界、无趋势、无周期</li>
 </ul>
-<h1 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h1><h3 id="TICK过长的问题"><a href="#TICK过长的问题" class="headerlink" title="TICK过长的问题"></a>TICK过长的问题</h3><ul>
-<li>案例：一帧爆炸里面有上百个物体要运动<br>全部都在一个TICK里的话，可能会出现的TICK过长的问题</li>
+<h4 id="自相关图检验"><a href="#自相关图检验" class="headerlink" title="自相关图检验"></a>自相关图检验</h4><ul>
+<li>短期相关性</li>
+<li>ρk快速衰减至0</li>
 </ul>
-<p>解决案例：按照一定规则进行拆分成多P，拆分几十个TICK到多个帧数里。按照策略（部分GO并不影响体验的可以适当延迟），在尽可能保持玩家体验的前提下不让TICK太长。</p>
-<h3 id="TICK中RENDER和LOGIC线程关系"><a href="#TICK中RENDER和LOGIC线程关系" class="headerlink" title="TICK中RENDER和LOGIC线程关系"></a>TICK中RENDER和LOGIC线程关系</h3><p>TICK_LOGIC的运作通常会比RENDER早，而且一般分为不同的线程。<br>而Render中可能会有多个线程做数据准备（例如产生粒子）</p>
-<p>TICK_LOGIC产生的结果通常可能在RENDER之后。</p>
-<p>例如：从按下手柄到画产生变化的【延迟过程】<br>    【一个普通的延迟过程：TICK_LOGIC()产生结果-&gt;TICK_RENDER()画面运作]</p>
+<h1 id="CH2-2"><a href="#CH2-2" class="headerlink" title="CH2-2"></a>CH2-2</h1><h2 id="预处理流程"><a href="#预处理流程" class="headerlink" title="预处理流程"></a>预处理流程</h2><p><img src="/./imgs/2022-10-18-11-10-41.png"></p>
+<h3 id="纯随机性检验"><a href="#纯随机性检验" class="headerlink" title="纯随机性检验"></a>纯随机性检验</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>检验是否纯随机序列（白噪声序列）<br><img src="/./imgs/2022-10-18-11-14-07.png"><br>序列值直接缺少相关性</p>
+<h2 id="白噪声序列"><a href="#白噪声序列" class="headerlink" title="白噪声序列"></a>白噪声序列</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li><p>纯随机性</p>
 <ul>
-<li>为了减少延迟感，提升实时感，仍然需要诸多策略。</li>
-<li>为了表现上同步，实际上分步。</li>
+<li>γ(k)&#x3D;0,且k≠0,即相关性为0，纯随机序列</li>
+<li>γ(k)≠0，不是纯随机序列</li>
 </ul>
-<h3 id="空间划分处理动态GO的问题"><a href="#空间划分处理动态GO的问题" class="headerlink" title="空间划分处理动态GO的问题"></a>空间划分处理动态GO的问题</h3><p>一个场景的空间划分需要储备多种空间划分方法以应对多种情况。</p>
-<h3 id="组件模式的优缺点"><a href="#组件模式的优缺点" class="headerlink" title="组件模式的优缺点"></a>组件模式的优缺点</h3><p>————允许一个单一的实体跨越多个不同域而不会导致耦合<br>————组件之间会产生较多的信息查询</p>
-<h4 id="组件的使用情景："><a href="#组件的使用情景：" class="headerlink" title="组件的使用情景："></a>组件的使用情景：</h4><ul>
-<li>你有一个涉及多个域的大类，并且你希望这些域可以保持相互解耦。</li>
-<li>一个类越来越大、难以维护和继续开发。</li>
-<li>你希望重用代码，但是通过继承的方式不能精确、完全的复用。</li>
+</li>
+<li><p>方差齐性</p>
+<ul>
+<li>每个变量的方差都相等</li>
 </ul>
-<p>一个不太准确的使用情况：</p>
-<pre><code>例如把物理、动画、音乐作各作个Component。
-在一个【PlayerUpdate】的class中实现信息传递。
-而不要在一个动作的代码中执行它的音效。
-</code></pre>
+</li>
+<li><p>方差异性</p>
+<ul>
+<li>方差不相等，则模型还未充分提取相关信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="随机性检验"><a href="#随机性检验" class="headerlink" title="随机性检验"></a>随机性检验</h3><h4 id="图检验"><a href="#图检验" class="headerlink" title="图检验"></a>图检验</h4><ul>
+<li>ρ均不为0</li>
+<li>在零附近随机波动</li>
+<li>快速下降<br><img src="/./imgs/2022-10-18-11-28-23.png"></li>
+</ul>
+<h4 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h4><p><img src="/./imgs/2022-10-18-11-28-59.png"></p>
+<h4 id="统计量"><a href="#统计量" class="headerlink" title="统计量"></a>统计量</h4><p><img src="/./imgs/2022-10-18-11-29-38.png"><br><img src="/./imgs/2022-10-18-11-29-47.png"><br><img src="/./imgs/2022-10-18-11-30-10.png"></p>
+<ul>
+<li>如果P值明显大于α，不能拒绝纯随机的原假设</li>
+</ul>
+<h1 id="CH3-1"><a href="#CH3-1" class="headerlink" title="CH3-1"></a>CH3-1</h1><p><img src="/./imgs/2022-10-18-11-34-17.png"></p>
+<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p><img src="/./imgs/2022-10-18-11-35-54.png"></p>
+<h3 id="延迟算子"><a href="#延迟算子" class="headerlink" title="延迟算子"></a>延迟算子</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p><img src="/./imgs/2022-10-18-11-37-15.png"></p>
+<h4 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h4><p><img src="/./imgs/2022-10-18-11-37-23.png"></p>
+<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><p><img src="/./imgs/2022-10-18-11-37-35.png"></p>
 
     </div>
     

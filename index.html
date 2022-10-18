@@ -208,7 +208,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Diffusion-Model/" style="color: #03a9f4">
+            <a href="/tags/Diffusion-Model/" style="color: #ffa2c4">
                 Diffusion Model
             </a>
         </span>
@@ -219,7 +219,7 @@
 
 <div class="post">
     <a href="/2022/10/14/机器学习/扩散模型/概率论基础/">
-        <h2 class="post-title">扩散模型 概览</h2>
+        <h2 class="post-title">概率论基础</h2>
     </a>
     <div class="category-and-date">
         
@@ -242,7 +242,10 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>[TOC]<br>
+             <span id="more"></span>
+
+<p> [TOC]</p>
+
             
         </div>
     </div>
@@ -255,7 +258,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Diffusion-Model/" style="color: #ff7d73">
+            <a href="/tags/Diffusion-Model/" style="color: #03a9f4">
                 Diffusion Model
             </a>
         </span>
@@ -289,7 +292,22 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <p>[TOC]<br>
+             <span id="more"></span>
+<p>[TOC]</p>
+<h1 id="前向过程"><a href="#前向过程" class="headerlink" title="前向过程"></a>前向过程</h1><p>由Xo→Xn的过程，可以以递归的方式进行推算，也可以由X0直接推导出Xn的值。</p>
+<p><img src="/./imgs/2022-10-14-15-51-49.png"></p>
+<h2 id="简化的扩散公式推导过程"><a href="#简化的扩散公式推导过程" class="headerlink" title="简化的扩散公式推导过程"></a>简化的扩散公式推导过程</h2><p>对于加噪音的过程：</p>
+<ul>
+<li>期望是随着前向的过程，每次添加的噪音会越来越多。<br><img src="/./imgs/2022-10-14-15-54-46.png"></li>
+</ul>
+<p><img src="/./imgs/2022-10-14-16-23-56.png"><br>公式的推导过程；</p>
+<ul>
+<li>递归将Xt-n代入Xt-n+1的表达式，通过高斯分布加法化简</li>
+</ul>
+<p>即可得到x0关于xt的表达式：<br><img src="/./imgs/2022-10-14-16-25-44.png"><br>这是核心的扩散公式。</p>
+<p>整理与VAE的异同</p>
+<h1 id="反向过程"><a href="#反向过程" class="headerlink" title="反向过程"></a>反向过程</h1><p><img src="/./imgs/2022-10-14-16-32-08.png"><br>由噪音生成清晰图像的过程（去噪）</p>
+
             
         </div>
     </div>
@@ -302,7 +320,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Diffusion-Model/" style="color: #ffa2c4">
+            <a href="/tags/Diffusion-Model/" style="color: #ff7d73">
                 Diffusion Model
             </a>
         </span>
@@ -349,7 +367,7 @@
         
         <span class="tag">
             
-            <a href="/tags/二叉树/" style="color: #00a596">
+            <a href="/tags/二叉树/" style="color: #ff7d73">
                 二叉树
             </a>
         </span>
@@ -396,7 +414,7 @@
         
         <span class="tag">
             
-            <a href="/tags/pytorch/" style="color: #00bcd4">
+            <a href="/tags/pytorch/" style="color: #03a9f4">
                 pytorch
             </a>
         </span>
@@ -470,7 +488,7 @@
         
         <span class="tag">
             
-            <a href="/tags/CNN/" style="color: #00a596">
+            <a href="/tags/CNN/" style="color: #ffa2c4">
                 CNN
             </a>
         </span>
@@ -481,7 +499,7 @@
 
 <div class="post">
     <a href="/2022/10/05/机器学习/CNN/CNN入门（二)/">
-        <h2 class="post-title">NN和返现传播的入门（二）</h2>
+        <h2 class="post-title">NN和反向传播的入门（二）</h2>
     </a>
     <div class="category-and-date">
         
@@ -517,7 +535,7 @@
         
         <span class="tag">
             
-            <a href="/tags/CNN/" style="color: #03a9f4">
+            <a href="/tags/CNN/" style="color: #00bcd4">
                 CNN
             </a>
         </span>

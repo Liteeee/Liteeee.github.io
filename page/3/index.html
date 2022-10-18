@@ -215,7 +215,7 @@
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #03a9f4">
+            <a href="/tags/游戏引擎/" style="color: #ff7d73">
                 游戏引擎
             </a>
         </span>
@@ -262,14 +262,14 @@
         
         <span class="tag">
             
-            <a href="/tags/GAMES104/" style="color: #ffa2c4">
+            <a href="/tags/GAMES104/" style="color: #00a596">
                 GAMES104
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/游戏引擎/" style="color: #00a596">
+            <a href="/tags/游戏引擎/" style="color: #ffa2c4">
                 游戏引擎
             </a>
         </span>
@@ -398,14 +398,14 @@
         
         <span class="tag">
             
-            <a href="/tags/hadoop/" style="color: #00a596">
+            <a href="/tags/hadoop/" style="color: #ff7d73">
                 hadoop
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/MapReduce/" style="color: #00bcd4">
+            <a href="/tags/MapReduce/" style="color: #ff7d73">
                 MapReduce
             </a>
         </span>
@@ -479,7 +479,7 @@
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #00bcd4">
+            <a href="/tags/hexo/" style="color: #ffa2c4">
                 hexo
             </a>
         </span>
@@ -497,7 +497,7 @@
 
 <div class="post">
     <a href="/2022/09/18/时间序列分析/时间序列分析第二节课/">
-        <h2 class="post-title"></h2>
+        <h2 class="post-title">Hidden Work</h2>
     </a>
     <div class="category-and-date">
         
@@ -542,8 +542,8 @@
 </div>
 
 <div class="post">
-    <a href="/2022/09/18/时间序列分析/作业一的分解/">
-        <h2 class="post-title"></h2>
+    <a href="/2022/09/18/时间序列分析/时间序列分析第一节课/">
+        <h2 class="post-title">Hidden HomeWork</h2>
     </a>
     <div class="category-and-date">
         
@@ -557,40 +557,14 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <h1 id="作业2-1"><a href="#作业2-1" class="headerlink" title="作业2-1"></a>作业2-1</h1><h2 id="CAL-ACF函数"><a href="#CAL-ACF函数" class="headerlink" title="CAL_ACF函数"></a>CAL_ACF函数</h2><pre><code class="python">def cal_acf(x, nlags):
-    x = np.array(x)
-    mean_x = np.mean(x)#求均值ex
-    print(&#39;ex:&#39;,mean_x)
-    length_x = x.shape[0]#序列长度
-    c_0 = np.mean((x-mean_x) **2)#E[（x-E(x)）^2]
-    print(&#39;c_0:&#39;,c_0)
-    c_k = np.sum((x[:(length_x-nlags)] - mean_x) * (x[nlags:] - mean_x)) / length_x
-    #从第零个元素到x-k个元素 x[:(length_x-nlags)]=记为Xi~Xk
-    #所以[X1~Xk(保留前k项目)-E(X)]*[Xk~Xn（删除前k项）-E（x)] / T
-    #累加len-k次
+            <h1 id="时间序列预处理–平稳性检验"><a href="#时间序列预处理–平稳性检验" class="headerlink" title="时间序列预处理–平稳性检验"></a>时间序列预处理–平稳性检验</h1><h1 id="代码随记"><a href="#代码随记" class="headerlink" title="代码随记"></a>代码随记</h1><h2 id="作业用到库函数"><a href="#作业用到库函数" class="headerlink" title="作业用到库函数"></a>作业用到库函数</h2><h3 id="1-np库"><a href="#1-np库" class="headerlink" title="1.np库"></a>1.np库</h3><p>生成元组</p>
+<pre><code>np.ones(shape, dtype=None, order=&#39;C&#39;)
 </code></pre>
-<p>此处对应<br><img src="/./imgs/2022-09-15-17-19-02.png"></p>
-<pre><code class="python">    r_k = c_k / c_0
-    return r_k
-</code></pre>
-<p>此处对应<br><img src="/./imgs/2022-09-15-17-35-57.png"></p>
-<h2 id="标准差函数"><a href="#标准差函数" class="headerlink" title="标准差函数"></a>标准差函数</h2><p><img src="/./imgs/2022-09-15-17-40-27.png"><br>代码实现</p>
-<pre><code class="python">def cal_dev(r,j,n):
-    sum=np.sum(r*r)
-    print(sum)
-    temp2=sum*2+1
-    res=np.sqrt(temp2/n)
-    return res
-</code></pre>
-<h2 id="置信区间"><a href="#置信区间" class="headerlink" title="置信区间"></a>置信区间</h2><p><img src="/./imgs/2022-09-15-20-56-34.png"></p>
-<h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><pre><code class="python">    myacf = np.ones((17))
-    twosigma = np.ones((17))
-    for i in range(17):
-        myacf[i]=cal_acf(y,i)
-        print(i,myacf[:i])
-        twosigma[i] = cal_dev(myacf[:i],i,len(y))*1.96 #1.96置信区间
-</code></pre>
-<h1 id="作业2-2"><a href="#作业2-2" class="headerlink" title="作业2-2"></a>作业2-2</h1>
+<p>1.shape：一个整数类型或者一个整数元组，用于定义数组的大小。如果仅指定一个整数类型变量，则返回一维数组。如果指定的是整数元组，则返回给定形状的数组。<br>2.dtype：可选参数，默认值为float。用于指定数组的数据类型。<br>3.order：指定内存重以行优先(‘C’)还是列优先(‘F’)顺序存储多维数组。</p>
+<h3 id="smlt函数库"><a href="#smlt函数库" class="headerlink" title="smlt函数库"></a>smlt函数库</h3><p>参考文献<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41103204/article/details/105810742">https://blog.csdn.net/qq_41103204/article/details/105810742</a></p>
+<h4 id="ACF"><a href="#ACF" class="headerlink" title="ACF"></a>ACF</h4><p>ACF 是一个完整的自相关函数。提供延迟自相关值<br>要点：表示【当前值】与【滞后值（延迟值）】之间的关系</p>
+<h4 id="PACF"><a href="#PACF" class="headerlink" title="PACF"></a>PACF</h4><p>PACF 是部分自相关函数或者偏自相关函数<br>要点：表示【残差】与【滞后值】之间的关系</p>
+
             
         </div>
     </div>
@@ -598,7 +572,7 @@
         
         
     </div>
-    <a href="/2022/09/18/时间序列分析/作业一的分解/" class="go-post">阅读全文</a>
+    <a href="/2022/09/18/时间序列分析/时间序列分析第一节课/" class="go-post">阅读全文</a>
 </div>
 
              

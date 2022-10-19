@@ -168,16 +168,7 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-             <span id="more"></span>
-<p>[toc]</p>
-<h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><p><img src="/./imgs/2022-10-18-16-10-13.png"><br>先验:例如P(Y)&#x3D;XX 看到图片之前就判断Y的分类<br>后验：P(Y|X)看到图片后基于特征X判断Y的分类<br>evidence：P(X)特征的分布、或者说各个特征的概率<br>likehood：P(X|Y) 已知分类，求特征概率<br>所以贝叶斯里 likehood&#x3D;后验*evidence&#x2F;先验<br>机器学习的输出目的：得到后验概率</p>
-<h2 id=""><a href="#" class="headerlink" title="-"></a>-</h2><p>目的:理解df的运作原理<br>使用噪音来重新生成样本的原因：将噪音视为背后潜在不可观察的某种表示，类比作高维的内容。</p>
-<p>Evidence Lower Bound<br>讲述由两种由似然p(x,z)恢复p(x)的方法<br><img src="/./imgs/2022-10-18-14-27-09.png"><br>用积分将z边缘化<br><img src="/./imgs/2022-10-18-14-27-31.png"><br>用概率链式法则<br>由于积分dz和p(z|x)的求解非常困难。<br>所以选择的做法是用这两个式子推导出ELBO 是evidence的下界<br>并且在ELBO通过参数优化之后可以认为与evidence等价。</p>
-<p><img src="/./imgs/2022-10-18-14-36-44.png"></p>
-<p>4式进一步表示与evidence的关系</p>
-<p>5~8引入q(x|z)和参数fai来使qfai逼近p(x|z),并用Jensen不等式得到下界。但不一定是evidence的下界</p>
-<p>9~·16 中：<br>在15式：引入并证明kl是一个非负值，因此elbo与evidence永远相隔一个kl。<br>其中kl&#x3D;下式<br><img src="/./imgs/2022-10-18-16-26-35.png"></p>
-<h2 id="VA"><a href="#VA" class="headerlink" title="VA"></a>VA</h2>
+            <p>随记<br>
             
         </div>
     </div>
@@ -190,7 +181,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Diffusion-Model/" style="color: #00bcd4">
+            <a href="/tags/Diffusion-Model/" style="color: #00a596">
                 Diffusion Model
             </a>
         </span>
@@ -264,7 +255,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Diffusion-Model/" style="color: #00a596">
+            <a href="/tags/Diffusion-Model/" style="color: #ff7d73">
                 Diffusion Model
             </a>
         </span>
@@ -298,10 +289,7 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-             <span id="more"></span>
-
-<p> [TOC]</p>
-
+            <p>awd<br>
             
         </div>
     </div>
@@ -314,7 +302,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Diffusion-Model/" style="color: #00a596">
+            <a href="/tags/Diffusion-Model/" style="color: #00bcd4">
                 Diffusion Model
             </a>
         </span>
@@ -361,7 +349,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Diffusion-Model/" style="color: #03a9f4">
+            <a href="/tags/Diffusion-Model/" style="color: #00a596">
                 Diffusion Model
             </a>
         </span>
@@ -408,7 +396,7 @@
         
         <span class="tag">
             
-            <a href="/tags/二叉树/" style="color: #03a9f4">
+            <a href="/tags/二叉树/" style="color: #ff7d73">
                 二叉树
             </a>
         </span>
@@ -455,7 +443,7 @@
         
         <span class="tag">
             
-            <a href="/tags/pytorch/" style="color: #00a596">
+            <a href="/tags/pytorch/" style="color: #ff7d73">
                 pytorch
             </a>
         </span>
@@ -529,7 +517,7 @@
         
         <span class="tag">
             
-            <a href="/tags/CNN/" style="color: #ffa2c4">
+            <a href="/tags/CNN/" style="color: #ff7d73">
                 CNN
             </a>
         </span>
@@ -576,7 +564,7 @@
         
         <span class="tag">
             
-            <a href="/tags/CNN/" style="color: #03a9f4">
+            <a href="/tags/CNN/" style="color: #00bcd4">
                 CNN
             </a>
         </span>

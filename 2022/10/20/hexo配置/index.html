@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Hello World | Liteee的世界尽头</title>
+        <title>Hexo配置 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,32 +122,62 @@
                         
 <div class="article">
     <div>
-        <h1>Hello World </h1>
+        <h1>Hexo配置 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/17
+            2022/10/20
+        </span>
+        
+        <span class="category">
+            <a href="/categories/hexo/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                hexo
+            </a>
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/hexo/" style="color: #ff7d73">
+                    hexo
+                </a>
+            </span>
+            
+        </span>
+        
     </div>
     <div class="content" v-pre>
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+        <p>配置记录</p>
+<span id="more"></span>
+<h1 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h1><h2 id="隐藏文章插件hexo-hide-posts"><a href="#隐藏文章插件hexo-hide-posts" class="headerlink" title="隐藏文章插件hexo-hide-posts"></a>隐藏文章插件hexo-hide-posts</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.garryde.com/archives/37712.html">https://blog.garryde.com/archives/37712.html</a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>npm install hexo-hide-posts –save</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>文件：_config.yml</p>
+<pre><code># hexo-hide-posts 
+hide_posts:
+# 可以改成其他你喜欢的名字
+filter: hide
+# 指定你想要传递隐藏文章的位置，比如让所有隐藏文章在存档页面可见
+# 常见的位置有：index, tag, category, archive, sitemap, feed, etc.
+# 留空则默认全部隐藏
+public_generators: [category,tag,archive]
+# 为隐藏的文章添加 noindex meta 标签，阻止搜索引擎收录
+noindex: true
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><pre><code>---
+hidden: true
+---
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
     </div>
     

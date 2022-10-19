@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Hidden HomeWork | Liteee的世界尽头</title>
+        <title>随记 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,35 +122,52 @@
                         
 <div class="article">
     <div>
-        <h1>Hidden HomeWork </h1>
+        <h1>随记 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/10/9
+            2022/10/18
+        </span>
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Diffusion-Model/" style="color: #ff7d73">
+                    Diffusion Model
+                </a>
+            </span>
+            
+        </span>
+        
     </div>
     <div class="content" v-pre>
-        <p>0.0</p>
- <span id="more"></span>
-<h1 id="p階自回歸模型AR-p"><a href="#p階自回歸模型AR-p" class="headerlink" title="p階自回歸模型AR(p)"></a>p階自回歸模型AR(p)</h1><p> <img src="/./imgs/2022-10-09-16-30-07.png"></p>
-<h4 id="平稳性判别"><a href="#平稳性判别" class="headerlink" title="平稳性判别"></a>平稳性判别</h4><p> <img src="/./imgs/2022-10-09-16-30-43.png"></p>
-<h1 id="2阶段自回归"><a href="#2阶段自回归" class="headerlink" title="2阶段自回归"></a>2阶段自回归</h1><p> <img src="/./imgs/2022-10-09-16-37-12.png"><br> <img src="/./imgs/2022-10-09-21-54-14.png"></p>
-<h1 id="AR模型自相关系数"><a href="#AR模型自相关系数" class="headerlink" title="AR模型自相关系数"></a>AR模型自相关系数</h1><p> <img src="/./imgs/2022-10-10-16-00-21.png"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h4 id="AR-1"><a href="#AR-1" class="headerlink" title="AR 1"></a>AR 1</h4><p> <img src="/./imgs/2022-10-10-16-32-37.png"></p>
-<h4 id="AR-2"><a href="#AR-2" class="headerlink" title="AR 2"></a>AR 2</h4><p> <img src="/./imgs/2022-10-10-16-36-46.png"></p>
-<h4 id="AR-P"><a href="#AR-P" class="headerlink" title="AR P"></a>AR P</h4><p> <img src="/./imgs/2022-10-10-16-29-05.png"><br> <img src="/./imgs/2022-10-10-16-29-22.png"></p>
-<h4 id="MA-1"><a href="#MA-1" class="headerlink" title="MA 1"></a>MA 1</h4><p><img src="/./imgs/2022-10-16-20-46-21.png"><br><img src="/./imgs/2022-10-10-17-03-20.png"></p>
-<h4 id="MA-2"><a href="#MA-2" class="headerlink" title="MA 2"></a>MA 2</h4><p> <img src="/./imgs/2022-10-10-17-04-00.png"></p>
-<p> <img src="/./imgs/2022-10-10-18-01-22.png"><br> <img src="/./imgs/2022-10-10-18-01-45.png"></p>
-<h4 id="MA可逆性判定"><a href="#MA可逆性判定" class="headerlink" title="MA可逆性判定"></a>MA可逆性判定</h4><p>為了保證一個給定的自相關函數能夠對應唯一的MA模型，需要<br>給模型增加約束條件。<br><img src="/./imgs/2022-10-11-10-42-51.png"></p>
-<h4 id="ARMA"><a href="#ARMA" class="headerlink" title="ARMA"></a>ARMA</h4><p><img src="/./imgs/2022-10-17-16-29-32.png"></p>
-<h4 id="拖尾与截尾"><a href="#拖尾与截尾" class="headerlink" title="拖尾与截尾"></a>拖尾与截尾</h4><p><img src="/./imgs/2022-10-17-16-30-04.png"></p>
-
+         <span id="more"></span>
+<p>[toc]</p>
+<h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><p><img src="/./imgs/2022-10-18-16-10-13.png"><br>先验:例如P(Y)&#x3D;XX 看到图片之前就判断Y的分类<br>后验：P(Y|X)看到图片后基于特征X判断Y的分类<br>evidence：P(X)特征的分布、或者说各个特征的概率<br>likehood：P(X|Y) 已知分类，求特征概率<br>所以贝叶斯里 likehood&#x3D;后验*evidence&#x2F;先验<br>机器学习的输出目的：得到后验概率</p>
+<h2 id=""><a href="#" class="headerlink" title="-"></a>-</h2><p>目的:理解df的运作原理<br>使用噪音来重新生成样本的原因：将噪音视为背后潜在不可观察的某种表示，类比作高维的内容。</p>
+<p>Evidence Lower Bound<br>讲述由两种由似然p(x,z)恢复p(x)的方法<br><img src="/./imgs/2022-10-18-14-27-09.png"><br>用积分将z边缘化<br><img src="/./imgs/2022-10-18-14-27-31.png"><br>用概率链式法则<br>由于积分dz和p(z|x)的求解非常困难。<br>所以选择的做法是用这两个式子推导出ELBO 是evidence的下界<br>并且在ELBO通过参数优化之后可以认为与evidence等价。</p>
+<p><img src="/./imgs/2022-10-18-14-36-44.png"></p>
+<p>4式进一步表示与evidence的关系</p>
+<p>5~8引入q(x|z)和参数fai来使qfai逼近p(x|z),并用Jensen不等式得到下界。但不一定是evidence的下界</p>
+<p>9~·16 中：<br>在15式：引入并证明kl是一个非负值，因此elbo与evidence永远相隔一个kl。<br>其中kl&#x3D;下式<br><img src="/./imgs/2022-10-18-16-26-35.png"></p>
+<h2 id="VA"><a href="#VA" class="headerlink" title="VA"></a>VA</h2>
     </div>
     
     

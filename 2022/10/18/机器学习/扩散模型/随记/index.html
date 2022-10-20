@@ -149,7 +149,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Diffusion-Model/" style="color: #ffa2c4">
+                <a href="/tags/Diffusion-Model/" style="color: #ff7d73">
                     Diffusion Model
                 </a>
             </span>
@@ -165,8 +165,18 @@
 <p><img src="/./imgs/2022-10-18-14-36-44.png"></p>
 <p>4式进一步表示与evidence的关系</p>
 <p>5~8引入q(x|z)和参数fai来使qfai逼近p(x|z),并用Jensen不等式得到下界。但不一定是evidence的下界</p>
-<p>9~·16 中：<br>在15式：引入并证明kl是一个非负值，因此elbo与evidence永远相隔一个kl。<br>其中kl&#x3D;下式<br><img src="/./imgs/2022-10-18-16-26-35.png"></p>
-<h2 id="VA"><a href="#VA" class="headerlink" title="VA"></a>VA</h2><!-- flag of hidden posts -->
+<p>9~·16 中：<br>在15式：引入并证明kl是一个非负值，因此elbo与evidence永远相隔一个kl。可以通过最小化kl来逼近evidence<br>其中kl&#x3D;下式<br><img src="/./imgs/2022-10-18-16-26-35.png"></p>
+<h2 id="VA"><a href="#VA" class="headerlink" title="VA"></a>VA</h2><p>为什么求ELBO的最大值：由于Kl难以直接最小化，且ELBO与KL的加和始终是一个常数，所以ELBO的最大化必然会调用KL的最小值<br><img src="/./imgs/2022-10-20-09-38-43.png"></p>
+<h2 id="VAE"><a href="#VAE" class="headerlink" title="VAE"></a>VAE</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/348498294">https://zhuanlan.zhihu.com/p/348498294</a><br>VAE MODEL:<a target="_blank" rel="noopener" href="https://github.com/siqim/Machine-Learning-with-Graphs/blob/main/examples/MLMath/VAE.py">https://github.com/siqim/Machine-Learning-with-Graphs/blob/main/examples/MLMath/VAE.py</a></p>
+<p>一元标准高斯分布<br><img src="/./imgs/2022-10-20-10-03-38.png"><br>多元标准高斯分布<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/58987388">https://zhuanlan.zhihu.com/p/58987388</a></p>
+<p>重参数化：通过梯度下降优化非随机项？将σ2改写为下式<br><img src="/./imgs/2022-10-20-10-08-27.png"><br>由这个方式可以得到：任何高斯分布都可以解释为标准的高斯分布</p>
+<p>原文：它们的平均值通过加法从0移动到目标平均值µ，它们的方差被目标方差σ2拉伸。因此，通过重新参数化技巧，从任意高斯分布中采样可以通过从标准高斯中采样来实现，将结果按目标标准差缩放，并按目标平均值移动。</p>
+<p>完成训练的VAE模型输出结果：可以直接从噪音样本空间p(z)中采样，通过解码器，生成新的数据，更进一步：</p>
+<p>原文：Variational Autoencoders are particularly interesting when the<br>dimensionality of z is less than that of input x, as we might then be learning compact, useful representations.<br>Furthermore, when a semantically meaningful latent space is learned, latent vectors can be edited before<br>being passed to the decoder to more precisely control the data generated.</p>
+<h1 id="HAE-Hierarchical-Variational-Autoencoders"><a href="#HAE-Hierarchical-Variational-Autoencoders" class="headerlink" title="HAE Hierarchical Variational Autoencoders"></a>HAE Hierarchical Variational Autoencoders</h1><p>分层变分自编码器(HV AE)[2,3]是V AE的一般化，可扩展到潜在变量的多个层次。在这种表述下，潜在变量本身被解释为由其他更高层次、更抽象的潜在变量生成。直观地说，就像我们把我们的三维观察对象看作是由更高层次的抽象潜在产生的一样，柏拉图洞穴里的人把三维物体看作是产生二维观察的潜在。因此，从柏拉图的洞穴居民的角度来看，他们的观察可以被视为由深度为2(或更多)的潜在层次所建模。</p>
+<p>尽管在具有T层次的一般HV AE中，每个潜伏者都被允许对所有之前的潜伏者形成条件，但在本研究中，我们关注一种特殊情况，我们称之为马可夫HV AE (MHV AE)。在MHV AE中，生成过程是马尔可夫链;也就是说，每一个向下的转换都是马尔可夫的</p>
+<p>？+马可夫链</p>
+<!-- flag of hidden posts -->
     </div>
     
     

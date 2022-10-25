@@ -144,6 +144,304 @@
             
 
 <div class="post">
+    <a href="/2022/10/25/C#/数据结构/链表/">
+        <h2 class="post-title">C#链表</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/C/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                C#
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/25
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="C-链表"><a href="#C-链表" class="headerlink" title="C#链表"></a>C#链表</h1><h2 id="节点定义"><a href="#节点定义" class="headerlink" title="节点定义"></a>节点定义</h2><pre><code class="c#">    public class Node&lt;T&gt;
+ //C#中的internal访问修饰符表示 访问仅限于当前程序集
+    &#123;
+        private T data;//数据
+        private Node&lt;T&gt; next;
+        //省略各种重载构造
+    &#125;
+</code></pre>
+<p>节点定义:</p>
+<ul>
+<li>值变量</li>
+<li>下一个对象变量</li>
+<li>构造器</li>
+</ul>
+<h2 id="赋值特性"><a href="#赋值特性" class="headerlink" title="赋值特性"></a>赋值特性</h2><pre><code class="c#">    Node&lt;int&gt; n1 = new Node&lt;int&gt;();
+    Node&lt;int&gt; n2 = new Node&lt;int&gt;(2);
+    Node&lt;int&gt; n3 = new Node&lt;int&gt;(3);
+    n1 = n2;
+    n2 = n3;//n1.data=2
+    n2.Data = 3;//n1.data=3
+</code></pre>
+<p>区别在于：</p>
+<ul>
+<li>对象赋值对象修改的是[变量→地址]，因此n1&#x3D;n2不会影响到n1</li>
+<li>但是直接修改n2.Data等于只修改了[地址→值]，所以n1会受影响<br>在后面的写法中要用到</li>
+</ul>
+<h2 id="思路-x2F-特性"><a href="#思路-x2F-特性" class="headerlink" title="思路&#x2F;特性"></a>思路&#x2F;特性</h2><p>C#的对象结构中也存在指针类型，但是更多的用类的思想来解决指针问题，</p>
+<p>例如<br>[对象.变量&#x3D;对象]的操作：</p>
+<pre><code>p=p.next;//对象=对象，其中next成员的定义是node对象
+</code></pre>
+<p>可以替代指针。</p>
+<pre><code>p=p-&gt;next;//对象-&gt;地址
+</code></pre>
+<h4 id="应用思路"><a href="#应用思路" class="headerlink" title="应用思路"></a>应用思路</h4><p>由上面两种特性，可以完成一些基本操作。<br>递归：</p>
+<pre><code>p=p.next;
+</code></pre>
+<p>替换: </p>
+<pre><code>p1=p2;
+p2=p2.next;//p1替换p2
+</code></pre>
+<p>插入：<br>    p1.next&#x3D;p2.next<br>    p2.next&#x3D;p1</p>
+<p>断开链表：<br>    ListNode new &#x3D;p1.next;<br>    p1.next&#x3D;null;<br>    return new;</p>
+<h2 id="链表实现完整代码"><a href="#链表实现完整代码" class="headerlink" title="链表实现完整代码"></a>链表实现完整代码</h2><pre><code class="c#">    public class LinkList&lt;T&gt; : IListDS&lt;T&gt;
+    &#123;
+        private Node&lt;T&gt; head;
+        public Node&lt;T&gt; Head
+        &#123;
+            get &#123; return head; &#125;
+            set &#123; head = value; &#125;
+        &#125;
+        public T this[int index] =&gt; throw new NotImplementedException();
+
+        public LinkList()
+        &#123;
+            head = null;
+        &#125;//构造器初始化
+        public int GetLength()
+        &#123;
+            Node&lt;T&gt; p = head;
+            int len = 0;
+            while (p != null)
+            &#123;
+                ++len;
+                p = p.Next;
+            &#125;
+            return len;
+        &#125;
+        public void Clear()
+        &#123;
+            head = null;
+        &#125;
+        public bool IsEmpty()
+        &#123;
+            if (head == null) return true;
+            else return false;
+        &#125;
+        //添加数据
+        public void Add(T item)
+        &#123;
+            Node&lt;T&gt; init = new Node&lt;T&gt;();
+            Node&lt;T&gt; val = new Node&lt;T&gt;(item);
+            if (head == null)
+            &#123;
+                head = val;
+                return;
+            &#125;
+            while (head.Next != null)
+            &#123;
+                head = head.Next;
+            &#125;
+            head.Next = val;
+
+        &#125;
+        //在单链表的第i个结点的位置前插入一个值为item的结点
+        public void Insert(T item, int i)
+        &#123;
+            if (IsEmpty() || i &lt; 1)
+            &#123;
+                Console.WriteLine(&quot;List is empty or Position is error!&quot;);
+                return;
+            &#125;
+            if (i == 1)
+            &#123;
+                Node&lt;T&gt; q = new Node&lt;T&gt;(item);
+                q.Next = head;
+                head = q;
+                return;
+            &#125;
+            Node&lt;T&gt; p = head;
+            Node&lt;T&gt; r = new Node&lt;T&gt;();
+            int j = 1;
+            while (p.Next != null &amp;&amp; j &lt; i)
+            &#123;
+                r = p;
+                p = p.Next;
+                ++j;
+            &#125;
+            if (j == i)
+            &#123;
+                Node&lt;T&gt; q = new Node&lt;T&gt;(item);
+                q.Next = p;
+                r.Next = q;
+            &#125;
+        &#125;
+
+        public T Delete(int i)
+        &#123;
+            if (IsEmpty() || i &lt; 0)
+            &#123;
+                Console.WriteLine(&quot;Link is empty or Position is error!&quot;);
+                return default(T);
+            &#125;
+            Node&lt;T&gt; q = new Node&lt;T&gt;();
+
+            if (i == 1)
+            &#123;
+                q = head;
+                head = head.Next;
+                return q.Data;
+            &#125;
+            Node&lt;T&gt; p = head;
+            int j = 1;
+            while (p.Next != null &amp;&amp; j &lt; i)
+            &#123;
+                ++j;
+                q = p;
+                p = p.Next;
+            &#125;
+            if (j == i)
+            &#123;
+                q.Next = p.Next;
+                return p.Data;
+            &#125;
+            else
+            &#123;
+                Console.WriteLine(&quot;The ith node is not exist!&quot;);
+                return default(T);
+            &#125;
+        &#125;
+
+        //获得单链表的第i个数据元素
+        public T GetElem(int i)
+        &#123;
+            if (IsEmpty())
+            &#123;
+                Console.WriteLine(&quot;List is empty!&quot;);
+                return default(T);
+            &#125;
+            Node&lt;T&gt; p = new Node&lt;T&gt;();
+            p = head;
+            int j = 1;
+            while (p.Next != null &amp;&amp; j &lt; i)
+            &#123;
+                ++j;
+                p = p.Next;
+            &#125;
+            if (j == i)
+            &#123;
+                return p.Data;
+            &#125;
+            else
+            &#123;
+                Console.WriteLine(&quot;The ith node is not exist!&quot;);
+                return default(T);
+            &#125;
+        &#125;
+
+        //在单链表中查找值为value的结点
+        public int Locate(T value)
+        &#123;
+            if (IsEmpty())
+            &#123;
+                Console.WriteLine(&quot;List is Empty!&quot;);
+                return -1;
+            &#125;
+            Node&lt;T&gt; p = new Node&lt;T&gt;();
+            p = head;
+            int i = 1;
+            while (!p.Data.Equals(value) &amp;&amp; p.Next != null)
+            &#123;
+                p = p.Next;
+                ++i;
+            &#125;
+            return i;
+        &#125;
+
+    &#125;
+</code></pre>
+<h2 id="Leetcode试题"><a href="#Leetcode试题" class="headerlink" title="Leetcode试题"></a>Leetcode试题</h2><p>刷了四道，记一道没解出来的。</p>
+<h4 id="旋转链表"><a href="#旋转链表" class="headerlink" title="旋转链表"></a>旋转链表</h4><p>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/rotate-list/">https://leetcode.cn/problems/rotate-list/</a><br>给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221025224616.png" alt="20221025224616"></p>
+<h4 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h4><p>一开始想用滑动窗口的思想，把链表保存到数组，然后[数组]+[数组]拼接，滑动窗口求解。<br>但是那样做没有利用好链表的特性。</p>
+<p>答案的思想：</p>
+<ul>
+<li>求出链表长度</li>
+<li>让链表头尾相连闭环</li>
+<li>在原链表的第 (n - 1) - (k \bmod n)(n−1)−(kmodn) 个节点断开链表即可</li>
+</ul>
+<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C#实现"></a>C#实现</h4><pre><code class="C#">    public ListNode RotateRight(ListNode head, int k) &#123;
+        ListNode L1=new ListNode();
+        int count=1;
+        L1=head;
+        if(head==null||head.next==null)return head;
+        if(k==0)return head;
+
+        while(L1.next!=null)&#123;
+            L1=L1.next;
+            count++;
+        &#125;
+
+        int pos=count-k%count;
+        if(pos==count)return head;
+        L1.next=head;
+
+        while(pos&gt;0)&#123;
+            pos--;
+            L1=L1.next;
+        &#125;
+        ListNode L3=L1.next;
+        L1.next=null;
+
+        return L3;
+    &#125;
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/C/" style="color: #ff7d73">
+                C#
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/链表/" style="color: #00bcd4">
+                链表
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/25/C#/数据结构/链表/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/10/23/游戏相关/P5R攻略/">
         <h2 class="post-title">P5R女神异闻录皇家版攻略整合</h2>
     </a>
@@ -228,7 +526,7 @@
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #00a596">
+            <a href="/tags/hexo/" style="color: #00bcd4">
                 hexo
             </a>
         </span>
@@ -322,7 +620,7 @@
         
         <span class="tag">
             
-            <a href="/tags/三题故事/" style="color: #03a9f4">
+            <a href="/tags/三题故事/" style="color: #ff7d73">
                 三题故事
             </a>
         </span>

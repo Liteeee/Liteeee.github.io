@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>C#链表 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>C#链表 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/25
+        </span>
+        
+        <span class="category">
+            <a href="/categories/C/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                C#
+            </a>
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="C-链表-x2F-类思想"><a href="#C-链表-x2F-类思想" class="headerlink" title="C#链表&#x2F;类思想"></a>C#链表&#x2F;类思想</h1><h2 id="节点定义"><a href="#节点定义" class="headerlink" title="节点定义"></a>节点定义</h2><pre><code class="c#">    public class Node&lt;T&gt;
+ //C#中的internal访问修饰符表示 访问仅限于当前程序集
+    &#123;
+        private T data;//数据
+        private Node&lt;T&gt; next;
+        //省略各种重载构造
+    &#125;
+</code></pre>
+<p>节点定义:</p>
+<ul>
+<li>值变量</li>
+<li>下一个对象变量</li>
+<li>构造器</li>
+</ul>
+<h2 id="赋值特性"><a href="#赋值特性" class="headerlink" title="赋值特性"></a>赋值特性</h2><pre><code class="c#">    Node&lt;int&gt; n1 = new Node&lt;int&gt;();
+    Node&lt;int&gt; n2 = new Node&lt;int&gt;(2);
+    Node&lt;int&gt; n3 = new Node&lt;int&gt;(3);
+    n1 = n2;
+    n2 = n3;//n1.data=2
+    n2.Data = 3;//n1.data=3
+</code></pre>
+<p>区别在于：</p>
+<ul>
+<li>对象赋值对象修改的是[变量→地址]，因此n1&#x3D;n2不会影响到n1</li>
+<li>但是直接修改n2.Data等于只修改了[地址→值]，所以n1会受影响<br>在后面的写法中要用到</li>
+</ul>
+<h2 id="思路-x2F-特性"><a href="#思路-x2F-特性" class="headerlink" title="思路&#x2F;特性"></a>思路&#x2F;特性</h2><p>C#的对象结构中也存在指针类型，但是更多的用类的思想来解决指针问题，</p>
+<p>例如<br>[对象.变量&#x3D;对象]的操作：</p>
+<pre><code>p=p.next;//对象=对象，其中next成员的定义是node对象
+</code></pre>
+<p>可以替代指针。</p>
+<pre><code>p=p-&gt;next;//对象-&gt;地址
+</code></pre>
+<h4 id="应用思路"><a href="#应用思路" class="headerlink" title="应用思路"></a>应用思路</h4><p>由上面两种特性，可以完成一些基本操作。<br>递归：</p>
+<pre><code>p=p.next;
+</code></pre>
+<p>替换: </p>
+<pre><code>p1=p2;
+p2=p2.next;//p1替换p2
+</code></pre>
+<p>插入：<br>    p1.next&#x3D;p2.next<br>    p2.next&#x3D;p1</p>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre><code class="c#">    public class LinkList&lt;T&gt; : IListDS&lt;T&gt;
+    &#123;
+        private Node&lt;T&gt; head;
+        public Node&lt;T&gt; Head
+        &#123;
+            get &#123; return head; &#125;
+            set &#123; head = value; &#125;
+        &#125;
+
+        public T this[int index] =&gt; throw new NotImplementedException();
+
+        public LinkList()
+        &#123;
+            head = null;
+        &#125;//构造器初始化
+        public int GetLength()
+        &#123;
+            Node&lt;T&gt; p = head;
+            int len = 0;
+            while (p != null)
+            &#123;
+                ++len;
+                p = p.Next;
+            &#125;
+            return len;
+        &#125;
+        public void Clear()
+        &#123;
+            head = null;
+        &#125;
+        public bool IsEmpty()
+        &#123;
+            if (head == null) return true;
+            else return false;
+        &#125;
+        //添加数据
+        public void Add(T item)
+        &#123;
+            Node&lt;T&gt; init = new Node&lt;T&gt;();
+            Node&lt;T&gt; val = new Node&lt;T&gt;(item);
+            if (head == null)
+            &#123;
+                head = val;
+                return;
+            &#125;
+            while (head.Next != null)
+            &#123;
+                head = head.Next;
+            &#125;
+            head.Next = val;
+
+        &#125;
+        //在单链表的第i个结点的位置前插入一个值为item的结点
+        public void Insert(T item, int i)
+        &#123;
+            if (IsEmpty() || i &lt; 1)
+            &#123;
+                Console.WriteLine(&quot;List is empty or Position is error!&quot;);
+                return;
+            &#125;
+            if (i == 1)
+            &#123;
+                Node&lt;T&gt; q = new Node&lt;T&gt;(item);
+                q.Next = head;
+                head = q;
+                return;
+            &#125;
+            Node&lt;T&gt; p = head;
+            Node&lt;T&gt; r = new Node&lt;T&gt;();
+            int j = 1;
+            while (p.Next != null &amp;&amp; j &lt; i)
+            &#123;
+                r = p;
+                p = p.Next;
+                ++j;
+            &#125;
+            if (j == i)
+            &#123;
+                Node&lt;T&gt; q = new Node&lt;T&gt;(item);
+                q.Next = p;
+                r.Next = q;
+            &#125;
+        &#125;
+
+        //在单链表的第i个结点的位置后插入一个值为item的结点
+        public void InsertPost(T item, int i)
+        &#123;
+            if (IsEmpty() || i &lt; 1)
+            &#123;
+                Console.WriteLine(&quot;List is empty or Position is error!&quot;);
+                return;
+            &#125;
+            if (i == 1)
+            &#123;
+                Node&lt;T&gt; q = new Node&lt;T&gt;(item);
+                q.Next = head.Next;
+                head.Next = q;
+                return;
+            &#125;
+            Node&lt;T&gt; p = head;
+            int j = 1;
+            while (p != null &amp;&amp; j &lt; i)
+            &#123;
+                p = p.Next;
+                ++j;
+            &#125;
+            if (j == i)
+            &#123;
+                Node&lt;T&gt; q = new Node&lt;T&gt;(item);
+                q.Next = p.Next;
+                p.Next = q;
+            &#125;
+        &#125;
+
+        public T Delete(int i)
+        &#123;
+            if (IsEmpty() || i &lt; 0)
+            &#123;
+                Console.WriteLine(&quot;Link is empty or Position is error!&quot;);
+                return default(T);
+            &#125;
+            Node&lt;T&gt; q = new Node&lt;T&gt;();
+
+            if (i == 1)
+            &#123;
+                q = head;
+                head = head.Next;
+                return q.Data;
+            &#125;
+            Node&lt;T&gt; p = head;
+            int j = 1;
+            while (p.Next != null &amp;&amp; j &lt; i)
+            &#123;
+                ++j;
+                q = p;
+                p = p.Next;
+            &#125;
+            if (j == i)
+            &#123;
+                q.Next = p.Next;
+                return p.Data;
+            &#125;
+            else
+            &#123;
+                Console.WriteLine(&quot;The ith node is not exist!&quot;);
+                return default(T);
+            &#125;
+        &#125;
+
+        //获得单链表的第i个数据元素
+        public T GetElem(int i)
+        &#123;
+            if (IsEmpty())
+            &#123;
+                Console.WriteLine(&quot;List is empty!&quot;);
+                return default(T);
+            &#125;
+            Node&lt;T&gt; p = new Node&lt;T&gt;();
+            p = head;
+            int j = 1;
+            while (p.Next != null &amp;&amp; j &lt; i)
+            &#123;
+                ++j;
+                p = p.Next;
+            &#125;
+            if (j == i)
+            &#123;
+                return p.Data;
+            &#125;
+            else
+            &#123;
+                Console.WriteLine(&quot;The ith node is not exist!&quot;);
+                return default(T);
+            &#125;
+        &#125;
+
+        //在单链表中查找值为value的结点
+        public int Locate(T value)
+        &#123;
+            if (IsEmpty())
+            &#123;
+                Console.WriteLine(&quot;List is Empty!&quot;);
+                return -1;
+            &#125;
+            Node&lt;T&gt; p = new Node&lt;T&gt;();
+            p = head;
+            int i = 1;
+            while (!p.Data.Equals(value) &amp;&amp; p.Next != null)
+            &#123;
+                p = p.Next;
+                ++i;
+            &#125;
+            return i;
+        &#125;
+
+    &#125;
+</code></pre>
+<!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

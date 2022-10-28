@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <title>HADOOP02 | Liteee的世界尽头</title><meta name="robots" content="noindex">
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,64 +122,37 @@
                         
 <div class="article">
     <div>
-        <h1> </h1>
+        <h1>HADOOP02 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/17
+            2022/9/5
+        </span>
+        
+        <span class="category">
+            <a href="/categories/HADOOP/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                HADOOP
+            </a>
         </span>
         
         
     </div>
     <div class="content" v-pre>
-        <h1 id="完成上述配置后的服务器状态"><a href="#完成上述配置后的服务器状态" class="headerlink" title="完成上述配置后的服务器状态"></a>完成上述配置后的服务器状态</h1><h2 id="1-权限问题"><a href="#1-权限问题" class="headerlink" title="1.权限问题"></a>1.权限问题</h2><p>我将lite为hadoop启动相关的账户，使用相关功能时需要</p>
-<pre><code>su lite
+        <h1 id="Hadoop安装和使用"><a href="#Hadoop安装和使用" class="headerlink" title="Hadoop安装和使用"></a>Hadoop安装和使用</h1><h2 id="Hadoop-常用目录结构"><a href="#Hadoop-常用目录结构" class="headerlink" title="Hadoop 常用目录结构"></a>Hadoop 常用目录结构</h2><pre><code>（1）bin目录：存放对Hadoop相关服务（hdfs，yarn，mapred）进行操作的脚本
+（2）etc目录：Hadoop的配置文件目录，存放Hadoop的配置文件
+（3）lib目录：存放Hadoop的本地库（对数据进行压缩解压缩功能）
+（4）sbin目录：存放启动或停止Hadoop相关服务的脚本
+（5）share目录：存放Hadoop的依赖jar包、文档、和官方案例
 </code></pre>
-<p>root用户在编辑bin相关的脚本，以及用xsync分发相关脚本时需要切换使用</p>
-<pre><code>su root
-</code></pre>
-<h2 id="2-基础操作"><a href="#2-基础操作" class="headerlink" title="2.基础操作"></a>2.基础操作</h2><p>集群的启动的和关闭，由&#x2F;home&#x2F;lite&#x2F;bin&#x2F;myhadoop完成</p>
-<pre><code>myhadoop.sh start
-myhadoop.sh stop
-</code></pre>
-<p>在hadoop运行时，如果需要动态地删除节点功能</p>
-<pre><code>kill -9 端口号即可
-</code></pre>
-<p>在hadoop运行时，如果需要单独地恢复节点</p>
-<p>（1）分别启动&#x2F;停止HDFS组件</p>
-<pre><code>hdfs --daemon start/stop namenode/datanode/secondarynamenode
-</code></pre>
-<p>（2）启动&#x2F;停止YARN</p>
-<pre><code>yarn --daemon start/stop  resourcemanager/nodemanager
-</code></pre>
-<p>（3）myhadoop内已经集成的过时指令</p>
-<h2 id="3-常用端口号"><a href="#3-常用端口号" class="headerlink" title="3.常用端口号"></a>3.常用端口号</h2><p>HDFS NameNode:</p>
-<pre><code>HD3.X:8020 / 9000/9820
-HD2.X:8020 / 9000
-</code></pre>
-<p>NameNode HTTP UI:</p>
-<pre><code>HD3.X:9870
-HD2.X:50070
-</code></pre>
-<p>MapReduce查看任务执行窗口</p>
-<pre><code>8088
-</code></pre>
-<p>历史服务器通信端口</p>
-<pre><code>19888
-</code></pre>
-<p>常用配置文件：<br>core-site hdfs-site yarn-site mapred-site workers</p>
-<h2 id="4-整理之前的各个配置文件"><a href="#4-整理之前的各个配置文件" class="headerlink" title="4.整理之前的各个配置文件"></a>4.整理之前的各个配置文件</h2><p>1.脚本配置</p>
-<pre><code>/home/lite/bin/myhadoop路径下
-
-xsync：分发脚本
-myhadoop：群体操作脚本
-jpsall：集体jps脚本
-</code></pre>
-<p>2.hadoop配置文件</p>
-<pre><code>/opt/module/had../etc/hadoop/bin
+<h2 id="WORDCOUNT功能"><a href="#WORDCOUNT功能" class="headerlink" title="WORDCOUNT功能"></a>WORDCOUNT功能</h2><pre><code>hadoop jar 【input path】 hadoop-mapreduce-examples-3.1.3.jar wordcount 【outputPath】
+例：
+hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar wordcount wcinput wcoutput
 </code></pre>
 <!-- flag of hidden posts -->
     </div>

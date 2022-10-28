@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <title>HADOOP01 | Liteee的世界尽头</title><meta name="robots" content="noindex">
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,31 +122,54 @@
                         
 <div class="article">
     <div>
-        <h1> </h1>
+        <h1>HADOOP01 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/17
+            2022/9/5
+        </span>
+        
+        <span class="category">
+            <a href="/categories/HADOOP/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                HADOOP
+            </a>
         </span>
         
         
     </div>
     <div class="content" v-pre>
-        <h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><p>SSH是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们认为这种登录是安全的，即使被中途截获，密码也不会泄露。</p>
-<h2 id="SSH目录"><a href="#SSH目录" class="headerlink" title="SSH目录"></a>SSH目录</h2><pre><code>home/lite/.ssh
+        <h1 id="centos使用"><a href="#centos使用" class="headerlink" title="centos使用"></a>centos使用</h1><h2 id="centos基础文本编辑"><a href="#centos基础文本编辑" class="headerlink" title="centos基础文本编辑"></a>centos基础文本编辑</h2><pre><code>打开文件后按下i键进入编辑状态在此状态可随意编辑文件内容
+编辑完成后按下Esc键退出编辑模式，之后输入:进入末行模式
 </code></pre>
-<h2 id="ssh生成公钥和私钥"><a href="#ssh生成公钥和私钥" class="headerlink" title="ssh生成公钥和私钥"></a>ssh生成公钥和私钥</h2><pre><code>ssh-keygen -t rsa
-参数可以输入，也可以直接回车三次
+<h2 id="正常模式底下的命令："><a href="#正常模式底下的命令：" class="headerlink" title="正常模式底下的命令："></a>正常模式底下的命令：</h2><pre><code>拷贝： yy 
+拷贝2行：2yy
+粘贴：p            
 </code></pre>
-<p>会生成两个文件</p>
-<pre><code>id_rsa（私钥）、id_rsa.pub（公钥）
-</code></pre>
-<h2 id="复制公钥到其他机器上"><a href="#复制公钥到其他机器上" class="headerlink" title="复制公钥到其他机器上"></a>复制公钥到其他机器上</h2><pre><code>ssh-copy-id hadoop102（目标机器）
+<h1 id="光标所在行复制，并在光标下一行粘贴"><a href="#光标所在行复制，并在光标下一行粘贴" class="headerlink" title="光标所在行复制，并在光标下一行粘贴"></a>光标所在行复制，并在光标下一行粘贴</h1><pre><code>删除：dd
+删除当前的下两行：
+删除：2dd　　删除下方所有行：dG
 
-即可完成免密访问
+光标移动到最后一行：G
+光标移到首行：gg       ggdG即全删
+光标移到第二行：2gg
+
+撤回：u
+</code></pre>
+<h2 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h2><pre><code>进入编辑模式，就可以直接输入内容。
+</code></pre>
+<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><pre><code>1 查找内容：/关键字  查找下一个按n,上一个按N
+2 取消高亮：nohl
+3 显示行号：set nu
+4 取消行号：set nonu
+5 没有修改情况下退出：q
+6 如果修改了，但我们不想保存：q!
+7 如果修改，并且想保存：wq
 </code></pre>
 <!-- flag of hidden posts -->
     </div>

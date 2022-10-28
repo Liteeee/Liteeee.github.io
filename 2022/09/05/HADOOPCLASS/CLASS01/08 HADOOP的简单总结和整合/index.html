@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <title>HADOOP08 | Liteee的世界尽头</title><meta name="robots" content="noindex">
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,27 +122,74 @@
                         
 <div class="article">
     <div>
-        <h1> </h1>
+        <h1>HADOOP08 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/9/17
+            2022/9/5
+        </span>
+        
+        <span class="category">
+            <a href="/categories/HADOOP/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                HADOOP
+            </a>
         </span>
         
         
     </div>
     <div class="content" v-pre>
-        <h1 id="虚拟机挂起再开之后网卡失效问题"><a href="#虚拟机挂起再开之后网卡失效问题" class="headerlink" title="虚拟机挂起再开之后网卡失效问题"></a>虚拟机挂起再开之后网卡失效问题</h1><p>确认静态网络配置无误，ifconfig找不到网卡en33，网卡无法正常启动。网络服务无法重启。</p>
-<p>报错</p>
-<pre><code>Job for network.service failed because the control process exited with error code. See &quot;systemctl status network.service&quot; and &quot;journalctl -xe&quot; for details.
+        <h1 id="完成上述配置后的服务器状态"><a href="#完成上述配置后的服务器状态" class="headerlink" title="完成上述配置后的服务器状态"></a>完成上述配置后的服务器状态</h1><h2 id="1-权限问题"><a href="#1-权限问题" class="headerlink" title="1.权限问题"></a>1.权限问题</h2><p>我将lite为hadoop启动相关的账户，使用相关功能时需要</p>
+<pre><code>su lite
 </code></pre>
-<p>朴素的解决办法-重启</p>
-<h2 id="重新确认网络配置"><a href="#重新确认网络配置" class="headerlink" title="重新确认网络配置"></a>重新确认网络配置</h2><p>确认配置信息以供下次使用</p>
-<p>1.host映射</p>
-<p>2.网卡</p>
+<p>root用户在编辑bin相关的脚本，以及用xsync分发相关脚本时需要切换使用</p>
+<pre><code>su root
+</code></pre>
+<h2 id="2-基础操作"><a href="#2-基础操作" class="headerlink" title="2.基础操作"></a>2.基础操作</h2><p>集群的启动的和关闭，由&#x2F;home&#x2F;lite&#x2F;bin&#x2F;myhadoop完成</p>
+<pre><code>myhadoop.sh start
+myhadoop.sh stop
+</code></pre>
+<p>在hadoop运行时，如果需要动态地删除节点功能</p>
+<pre><code>kill -9 端口号即可
+</code></pre>
+<p>在hadoop运行时，如果需要单独地恢复节点</p>
+<p>（1）分别启动&#x2F;停止HDFS组件</p>
+<pre><code>hdfs --daemon start/stop namenode/datanode/secondarynamenode
+</code></pre>
+<p>（2）启动&#x2F;停止YARN</p>
+<pre><code>yarn --daemon start/stop  resourcemanager/nodemanager
+</code></pre>
+<p>（3）myhadoop内已经集成的过时指令</p>
+<h2 id="3-常用端口号"><a href="#3-常用端口号" class="headerlink" title="3.常用端口号"></a>3.常用端口号</h2><p>HDFS NameNode:</p>
+<pre><code>HD3.X:8020 / 9000/9820
+HD2.X:8020 / 9000
+</code></pre>
+<p>NameNode HTTP UI:</p>
+<pre><code>HD3.X:9870
+HD2.X:50070
+</code></pre>
+<p>MapReduce查看任务执行窗口</p>
+<pre><code>8088
+</code></pre>
+<p>历史服务器通信端口</p>
+<pre><code>19888
+</code></pre>
+<p>常用配置文件：<br>core-site hdfs-site yarn-site mapred-site workers</p>
+<h2 id="4-整理之前的各个配置文件"><a href="#4-整理之前的各个配置文件" class="headerlink" title="4.整理之前的各个配置文件"></a>4.整理之前的各个配置文件</h2><p>1.脚本配置</p>
+<pre><code>/home/lite/bin/myhadoop路径下
+
+xsync：分发脚本
+myhadoop：群体操作脚本
+jpsall：集体jps脚本
+</code></pre>
+<p>2.hadoop配置文件</p>
+<pre><code>/opt/module/had../etc/hadoop/bin
+</code></pre>
 <!-- flag of hidden posts -->
     </div>
     

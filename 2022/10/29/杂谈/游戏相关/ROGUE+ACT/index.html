@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>随便瞎写的Idea | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>随便瞎写的Idea </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/29
+        </span>
+        
+        <span class="category">
+            <a href="/categories/杂谈/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                杂谈
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/游戏/" style="color: #ff7d73">
+                    游戏
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+         <span id="more"></span>
+<h1 id="1idea"><a href="#1idea" class="headerlink" title="1idea"></a>1idea</h1><p>草稿罢了</p>
+<h2 id="ACT-Rogue"><a href="#ACT-Rogue" class="headerlink" title="ACT+Rogue"></a>ACT+Rogue</h2><h3 id="Rogue-每回合抽取三个动作卡片"><a href="#Rogue-每回合抽取三个动作卡片" class="headerlink" title="Rogue:每回合抽取三个动作卡片"></a>Rogue:每回合抽取三个动作卡片</h3><p>基础动作：<br>JJJ<br>KKK<br>…</p>
+<p>基础武器（待定）<br>…</p>
+<h3 id="动作卡片分类"><a href="#动作卡片分类" class="headerlink" title="动作卡片分类"></a>动作卡片分类</h3><ul>
+<li>1.在基础连招后追加动作，例如：JJJ+[T]<ul>
+<li>已经追加过按键的基础连招无法再追加</li>
+</ul>
+</li>
+<li>2.额外的空技能键 例如U、O、P、</li>
+<li>3.额外的BUFF&#x2F;道具键位 1、2、3、4</li>
+<li>4.额外的固定连招，例如JJKJJ</li>
+</ul>
+<h3 id="卡片派系"><a href="#卡片派系" class="headerlink" title="卡片派系"></a>卡片派系</h3><p>每个动作带一个流派点数，每个流派[2,4,6]级会有特殊效果</p>
+<pre><code>* 根据已抽的流派点数，后续出现相同流派的卡片概率会变高
+* 流派点数到达3级后，必有一个卡片属于该流派
+* 满级12点
+</code></pre>
+<h2 id="设定"><a href="#设定" class="headerlink" title="设定"></a>设定</h2><h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><h4 id="初始关卡：黑色背景-金色星座月轮"><a href="#初始关卡：黑色背景-金色星座月轮" class="headerlink" title="初始关卡：黑色背景+金色星座月轮"></a>初始关卡：黑色背景+金色星座月轮</h4><p>黑色背景是为了尽可能简单，可以按照星座出关卡<br>地图用草图画路径，用NovelAi出插画<br>生成灵感：<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/![](.imgs2022-10-29-23-21-17.png).png" alt="![](.imgs2022-10-29-23-21-17.png)"></p>
+<h3 id="拓展关卡：水之都"><a href="#拓展关卡：水之都" class="headerlink" title="拓展关卡：水之都"></a>拓展关卡：水之都</h3><h4 id="白色都市-宫殿-海-河流-群岛"><a href="#白色都市-宫殿-海-河流-群岛" class="headerlink" title="白色都市+宫殿 海+河流+群岛"></a>白色都市+宫殿 海+河流+群岛</h4><h4 id="水系友好生物-中立生物龙-敌对怪物从黑色和金色星座中派生"><a href="#水系友好生物-中立生物龙-敌对怪物从黑色和金色星座中派生" class="headerlink" title="水系友好生物 中立生物龙 敌对怪物从黑色和金色星座中派生"></a>水系友好生物 中立生物龙 敌对怪物从黑色和金色星座中派生</h4><h4 id="元素基调-星座-x2F-魔法-水-x2F-原素"><a href="#元素基调-星座-x2F-魔法-水-x2F-原素" class="headerlink" title="元素基调 星座&#x2F;魔法 + 水&#x2F;原素"></a>元素基调 星座&#x2F;魔法 + 水&#x2F;原素</h4><p>作为出新手村的拓展，应当拥有广泛的可能性<br>海可以作为很方便的远景，关卡只需要重点刻画白色房子，只需要画房子和基础的道路，远景和插画全用AI生成<br>可能的话就做魔法与都市的组合。没时间就做传统魔法冒险<br>生成灵感：<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221029232646.png" alt="20221029232646"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221029232553.png" alt="20221029232553"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221029232602.png" alt="20221029232602"></p>
+<h4 id="趣味要素"><a href="#趣味要素" class="headerlink" title="趣味要素"></a>趣味要素</h4><h4 id="趣味道具"><a href="#趣味道具" class="headerlink" title="趣味道具"></a>趣味道具</h4><p>想一些神奇道具，能够短时间让人体会到离谱，但是又能回到框架中</p>
+<p>例如EL中的超神速，可以短暂的让跳跃距离超出屏幕。</p>
+<h1 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h1><p>暂定：男金毛+温柔女白毛+可爱女粉毛<br>有白毛就行了其实<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221030000205.png" alt="20221030000205"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221030000231.png" alt="20221030000231"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221030000341.png" alt="20221030000341"></p>
+<h1 id="故事大纲"><a href="#故事大纲" class="headerlink" title="故事大纲"></a>故事大纲</h1><p>水之都的少年（某个原因）醒来发现在一个黑色的空间<br>在空间中邂逅能够使用魔法但是性格各异的白毛和粉毛<br>随着空间中的金色要素越来越多，得到的信息和能力也越来越多<br>经过试炼，重回水之都，展开世界观，Demo完结，作为独立作品的序章</p>
+<h2 id="如何制造悬念？"><a href="#如何制造悬念？" class="headerlink" title="如何制造悬念？"></a>如何制造悬念？</h2><!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

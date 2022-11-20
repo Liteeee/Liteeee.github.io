@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>生信流程 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>生信流程 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/10
+        </span>
+        
+        <span class="category">
+            <a href="/categories/生物信息/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                生物信息
+            </a>
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+         <span id="more"></span>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p> 基因组，什么是转录组，什么是蛋白组，什么是染色体，什么是基因，什么是染色体重组，什么是进化&#x2F;演化，什么是表观遗传，什么是变异，变异类型有哪些，NGS技术是什么，测序仪的工作原理是什么，DNA是如何被测出来的等这些东西</p>
+<h1 id="1-转录组："><a href="#1-转录组：" class="headerlink" title="1.转录组："></a>1.转录组：</h1><ul>
+<li>广义上指某一生理条件下，细胞内所有<strong>转录产物</strong>的集合（包括信使RNA、核糖体RNA、转运RNA及非编码RNA）</li>
+<li>狭义上指所有mRNA的集合。 <h3 id="转录产物"><a href="#转录产物" class="headerlink" title="转录产物"></a>转录产物</h3><ul>
+<li>信使RNA，中文译名“信使核糖核酸”   ，是由DNA的一条链作为模板转录而来的、携带遗传信息能指导蛋白质合成的一类单链核糖核酸。</li>
+<li>核糖体RNA：rRNA，其功能是在mRNA的指导下<strong>将氨基酸合成为肽链</strong>   （肽链在内质网、高尔基体作用下盘曲折叠加工修饰成蛋白质，原核生物在细胞质内完成）。是细胞内含量最多的一类RNA，3类RNA（tRNA，mRNA，rRNA）中相对分子质量最大的一类RNA，它与蛋白质结合而形成核糖体，。rRNA占RNA总量的82%左右。</li>
+<li>转运RNA（Transfer RNA），又称传送核糖核酸、转移核糖核酸，通常简称为tRNA，是一种由76-90个核苷酸所组成的RNA</li>
+<li>非编码RNA（Non-coding RNA）：不编码蛋白质的RNA。其中包括rRNA，tRNA，snRNA，snoRNA 和microRNA 等多种已知功能的 RNA，还包括未知功能的RNA。这些RNA的共同特点是<strong>都能从基因组上转录而来，但是不翻译成蛋白，在RNA 水平上就能行使各自的生物学功能了</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="转录组学"><a href="#转录组学" class="headerlink" title="转录组学"></a>转录组学</h3><p>  RNA水平研究基因表达情况，特定的细胞、个体、组织在特定状态下转录出所有RNA。</p>
+<p>  转录组学可以提供什么条件下什么基因表达的信息，并据此推断相应未知基因的功能，揭示特定调节基因的作用机制。比如：</p>
+<ul>
+<li>临床诊断：病理机制研究，疾病复发诊断</li>
+<li>养殖：病理研究，物种优化</li>
+<li>生物医药：药效评价、药物毒理学评价</li>
+<li>农林：抗逆性胁迫机制，生长发育机制，育种保护研究</li>
+</ul>
+<h4 id="与基因组学的区别"><a href="#与基因组学的区别" class="headerlink" title="与基因组学的区别"></a>与基因组学的区别</h4><p>  转录组是在特定的时间特定组织状态下转录出来的，不同的时间状态转录出来的RNA是不同的。</p>
+<h3 id="测序"><a href="#测序" class="headerlink" title="测序"></a>测序</h3><h4 id="测序分类方式"><a href="#测序分类方式" class="headerlink" title="测序分类方式"></a>测序分类方式</h4><ul>
+<li><p>真核有参（有基因组序列或注释信息可以查询）：LncRNA     CircRNA    (lnc和circ需要参考基因组比对)  SmallRNA   全转录组</p>
+</li>
+<li><p>真核无参：SmallRNA原核转录组（需要参考基因组）</p>
+</li>
+<li><p>判断是否有参考基因组，可以在各大数据库里查找，比如NCBI</p>
+<p> 作者：黑白薄荷糖<br> 链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/541496169/answer/2587511476">https://www.zhihu.com/question/541496169/answer/2587511476</a></p>
+</li>
+</ul>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><ul>
+<li>mRNA测序</li>
+<li>smallRNA测序</li>
+<li>lncRNA测序</li>
+<li>CircRNA测序</li>
+<li>全转录测序</li>
+<li>单细胞转录组测序</li>
+</ul>
+<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><ul>
+<li>基因组数据分析流程</li>
+<li>GATK的标准分析流程：GATK Best Practise<ul>
+<li><p>数据预处理：对从测序仪下机后的数据进行质控，去除低质量的reads，将过滤后的reads比对到参考基因组上，产生BAM格式的比对文件。</p>
+</li>
+<li><p>寻找变异：进行variant calling，寻找SNP和Indel，将比对数据存储在VCF格式的文件中。</p>
+</li>
+<li><p>使用寻找出的变异位点进行后续的分析。</p>
+</li>
+</ul>
+</li>
+</ul>
+<!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

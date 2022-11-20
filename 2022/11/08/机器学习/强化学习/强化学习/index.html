@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>强化学习（一） | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>强化学习（一） </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/8
+        </span>
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/强化学习/" style="color: #ff7d73">
+                    强化学习
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>开学<br> <span id="more"></span><br>文字教程：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35882937">https://zhuanlan.zhihu.com/p/35882937</a></p>
+<p>强化学习有别于其他机器学习方法，主要体现在以下四点：</p>
+<ul>
+<li>没有监督数据，只有奖励信号；</li>
+<li>反馈的信号具有滞后性，不及时；</li>
+<li>时间（序列）是一个重要因素；</li>
+<li>当前的动作影响后续接收的数据。</li>
+</ul>
+<h1 id="一、Q-Learning"><a href="#一、Q-Learning" class="headerlink" title="一、Q-Learning"></a>一、Q-Learning</h1><p> 用Qlearning解决迷宫问题：</p>
+<ul>
+<li>reaward:每打开一个房间返回一个reward</li>
+<li>agent:可以在房间中移动的对象</li>
+</ul>
+<p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108100141.png" alt="20221108100141"></p>
+<p> 得到的reward矩阵：</p>
+<p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108100412.png" alt="20221108100412"> </p>
+<ul>
+<li>-1 ：代表到达不了无法进行的action</li>
+<li>0:示可以到达</li>
+<li>100：表示达到的目标</li>
+</ul>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108101358.png" alt="20221108101358"></p>
+<h4 id="Q表的初始化"><a href="#Q表的初始化" class="headerlink" title="Q表的初始化"></a>Q表的初始化</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108101436.png" alt="20221108101436"></p>
+<p>为什么要这样设置这个公式：</p>
+<p>其中：</p>
+<ul>
+<li>Q是&lt;状态-动作&gt;对应的得分</li>
+<li>α是学习率</li>
+<li>γ是衰减系数</li>
+<li>R是Reward，已经取得的得分</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108102305.png" alt="20221108102305"><br>这是在一个episode中从1→5的更新过程，以及5到下一步的过程中得到的Q表</p>
+<p>最终可以得到收敛的Q表<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108102623.png" alt="20221108102623"></p>
+<p>其中不难观察：</p>
+<ul>
+<li>100表示下一步到达目标</li>
+<li>80表示ACTION结束后还差一步</li>
+<li>64表示ACTION结束后还差两步</li>
+<li>51表示ACTION结束后还差三步</li>
+</ul>
+<p>因此求解最优路径时，从当前状态找Q值最大的Action即可。<br>这种做法，对于状态空间和动作空间比较小的情况可以轻松应对。</p>
+<h1 id="二、值近似函数（Function-Approximation）"><a href="#二、值近似函数（Function-Approximation）" class="headerlink" title="二、值近似函数（Function Approximation）"></a>二、值近似函数（Function Approximation）</h1><p>值函数近似的方法就是为了解决状态空间过大，也称为“维度灾难”的问题。通过用函数而不是Q表来表示 ，这个函数可以是线性的也可以使非线性的。</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108104702.png" alt="20221108104702"></p>
+<p>其中w称为“权重”。那怎么把这个权重求出来，即拟合出这样一个合适的函数呢？这里就要结合机器学习算法里的一些有监督学习算法，对输入的状态提取特征作为输入，通过MC&#x2F;TD计算出值函数作为输出，然后对函数参数w进行训练，直到收敛。这里主要说的是回归算法，比如线性回归、决策树、神经网络等。</p>
+<p>这里，就可以引入DQN（Deep Q-Network）了，实际上它就是Q-Learning和神经网络的结合，将Q-Learning的Q表变成了Q-Network。</p>
+<h2 id="1-网络训练"><a href="#1-网络训练" class="headerlink" title="1.网络训练"></a>1.网络训练</h2><p>目标：训练w<br>材料：LOSS FUNCTION+足量样本<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108105004.png" alt="20221108105004"><br>用Q值与Q真实值的均方差来做样本。</p>
+<h2 id="2-经验回放"><a href="#2-经验回放" class="headerlink" title="2. 经验回放"></a>2. 经验回放</h2><p>在David Silver的课里，他根据每次更新所参与样本量的不同把更新方法分为：</p>
+<ul>
+<li>增量法（Incremental Methods）：来一个数据就更新一次</li>
+<li>批处理法（Batch Methods）：攒一堆样本，再从中采样一部分拿来更新Q网络</li>
+</ul>
+<p> 批处理法又称为“经验回放”，实际上DeepMind提出的DQN就是采用了经验回放的方法。</p>
+<h2 id="3-经验回放的目标"><a href="#3-经验回放的目标" class="headerlink" title="3.经验回放的目标"></a>3.经验回放的目标</h2><p> 为什么要采用经验回放的方法？因为对神经网络进行训练时，假设样本是独立同分布的。而通过强化学习采集到的数据之间存在着关联性，利用这些数据进行顺序训练，神经网络当然不稳定。经验回放可以打破数据间的关联。</p>
+<h1 id="三、DNQ伪代码"><a href="#三、DNQ伪代码" class="headerlink" title="三、DNQ伪代码"></a>三、DNQ伪代码</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108105416.png" alt="20221108105416"></p>
+<h1 id="四、强化学习基本框架"><a href="#四、强化学习基本框架" class="headerlink" title="四、强化学习基本框架"></a>四、强化学习基本框架</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108110012.png" alt="20221108110012"></p>
+<h1 id="五、Bellman方程"><a href="#五、Bellman方程" class="headerlink" title="五、Bellman方程"></a>五、Bellman方程</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221108162520.png" alt="20221108162520"></p>
+<p>方程一：奖励期望&#x3D;当前奖励值+γ*下一步奖励值</p>
+<!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

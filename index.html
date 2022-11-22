@@ -145,7 +145,7 @@
 
 <div class="post">
     <a href="/2022/11/21/机器学习/NLP/5.细节梳理/">
-        <h2 class="post-title">论文细节梳理</h2>
+        <h2 class="post-title">论文实践和细节梳理</h2>
     </a>
     <div class="category-and-date">
         
@@ -168,59 +168,7 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-            <h1 id="1-公式一"><a href="#1-公式一" class="headerlink" title="1.公式一"></a>1.公式一</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121164939.png" alt="20221121164939"></p>
-<h1 id="论文解释："><a href="#论文解释：" class="headerlink" title="论文解释："></a>论文解释：</h1><p>基于词袋模型，秩约束的简单线性模型。表示输入层的多个Xn输入至隐藏层取平均的过程。<br>其中：</p>
-<ul>
-<li>A表示：单词查找表look-up table over the words</li>
-<li>B是：？？</li>
-<li>f()表示:softmax,输出的概率值？</li>
-<li>yn表示标签</li>
-<li>累加&#x2F;N：表示N个文本取平均值</li>
-<li>结果：能够最小化分类任务的negative log-likelihood</li>
-</ul>
-<p>取平均的意义：获得文本表示。（将文本表示看作一种潜在的隐藏变量（hidden variable）</p>
-<pre><code>输出结果=N个文本的log(概率)累加取平均值？
-</code></pre>
-<h2 id="负对数似然"><a href="#负对数似然" class="headerlink" title="负对数似然"></a>负对数似然</h2><p>公式一是一个负对数似然函数，常与softmax联合使用。</p>
-<ul>
-<li>由于f(x)即softmax输出的概率分布为[0,1]</li>
-<li>对f(x)∈[0,1]取对数，可以得到logf(x)∈[0,-∞]​</li>
-<li>最后取负数，最后得到的表达值∈[0, +∞]<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121170956.png" alt="20221121170956"></li>
-</ul>
-<h1 id="2-公式二"><a href="#2-公式二" class="headerlink" title="2.公式二"></a>2.公式二</h1><h1 id="3-Embedding表示"><a href="#3-Embedding表示" class="headerlink" title="3.Embedding表示"></a>3.Embedding表示</h1><p>链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52154254">https://zhuanlan.zhihu.com/p/52154254</a></p>
-<!-- Fasttext表示=[词袋1,...,词袋N+(N-gram后的序列)] -->
-<p>word2vec的输入表示：</p>
-<pre><code>[词1，词2，词3]
-</code></pre>
-<p>FastText的输入表示：</p>
-<pre><code>[词1,...,词3，subword?]
-</code></pre>
-<p>FastText从隐藏层输入分类器时的表示：</p>
-<pre><code>[词...,subword...,n-gram word...]
-</code></pre>
-<h1 id="4-HashEmbedding"><a href="#4-HashEmbedding" class="headerlink" title="4.HashEmbedding"></a>4.HashEmbedding</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121174807.png" alt="20221121174807"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121224607.png" alt="20221121224607"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121224842.png" alt="20221121224842"></p>
-<h2 id="论文解释：-1"><a href="#论文解释：-1" class="headerlink" title="论文解释："></a>论文解释：</h2><h2 id="代码解释："><a href="#代码解释：" class="headerlink" title="代码解释："></a>代码解释：</h2><p>1.弄懂nn.Embedding这个参数<br>2.找到代码中的word_to_idx字典，搞清楚在哪一步完成了哪些embedding<br>3.哈希代码</p>
-<h1 id="5-负采样"><a href="#5-负采样" class="headerlink" title="5.负采样"></a>5.负采样</h1><p>不重要</p>
-<h1 id="99-跑程序"><a href="#99-跑程序" class="headerlink" title="99.跑程序"></a>99.跑程序</h1><h3 id="vocab的构建"><a href="#vocab的构建" class="headerlink" title="vocab的构建"></a>vocab的构建</h3><h4 id="这个内容不重要"><a href="#这个内容不重要" class="headerlink" title="这个内容不重要"></a>这个内容不重要</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121223744.png" alt="20221121223744"></p>
-<p>函数返回值：vocab,train,dev,test<br>为什么有五个值？<br>0：{list:32}[0~31个值+<em>len</em>]<br>1: int<br>2: int<br>3: {list:32}<br>4: {list:32}<br>list长度为32的原因是：做了padding，超过32会被分割，不满32会补齐。</p>
-<h4 id="这个内容挺重要"><a href="#这个内容挺重要" class="headerlink" title="这个内容挺重要"></a>这个内容挺重要</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121231326.png" alt="20221121231326"><br>示例：</p>
-<h4 id="1-word-to-id-字典"><a href="#1-word-to-id-字典" class="headerlink" title="1.word-to-id 字典"></a>1.word-to-id 字典</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121231909.png" alt="20221121231909"></p>
-<h4 id="2-token化"><a href="#2-token化" class="headerlink" title="2.token化"></a>2.token化</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121232156.png" alt="20221121232156"></p>
-<h4 id="3-word-to-id"><a href="#3-word-to-id" class="headerlink" title="3.word - to - id"></a>3.word - to - id</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121232909.png" alt="20221121232909"><br>[‘中’, ‘华’, ‘女’, ‘子’, ‘学’, ‘院’, ‘：’, ‘本’, ‘科’, ‘层’, ‘次’, ‘仅’, ‘1’, ‘专’, ‘业’, ‘招’, ‘男’, ‘生’, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘]<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121232819.png" alt="20221121232819"></p>
-<h4 id="4-words-line。"><a href="#4-words-line。" class="headerlink" title="4.words_line。"></a>4.words_line。</h4><p>[14, 125, 55, 45, 35, 307, 4, 81, 161, 941, 258, 494, 2, 175, 48, 145, 97, 17, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761]</p>
-<h4 id="5-哈希映射"><a href="#5-哈希映射" class="headerlink" title="5.哈希映射"></a>5.哈希映射</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233507.png" alt="20221121233507"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233623.png" alt="20221121233623"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233814.png" alt="20221121233814"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121234438.png" alt="20221121234438"><br>假设我们遍历到第3位了<br>t-1&#x3D;2<br>(t1 * 14918087) % 5499&#x3D;5,492<br>14918087是什么玩意？</p>
-<p>最后bigram得到的是[x,x,5492,x,x]其中每个值∈（0，5499）<br>[0, 1198, 484, 5492, 1494, 2995, 5060, 2699, 3789, 2779, 1180, 867, 637, 4099, 3977, 4893, 2981]</p>
-<h5 id="5-1核心：错位"><a href="#5-1核心：错位" class="headerlink" title="5.1核心：错位?"></a>5.1核心：错位?</h5><p>[14, 125, 55, 45, 35, 307, 4, 81, 161, 941, 258, 494, 2, 175, 48, 145, 97, 17, 4761….<br>[0, 1198, 484, 5492, 1494, 2995, 5060, 2699, 3789, 2779, 1180, 867, 637, 4099, 3977…</p>
-<h4 id="triGramHash也同理"><a href="#triGramHash也同理" class="headerlink" title="triGramHash也同理"></a>triGramHash也同理</h4><p>不解释<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121234823.png" alt="20221121234823"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121234859.png" alt="20221121234859"></p>
-<h4 id="6-拼接特征"><a href="#6-拼接特征" class="headerlink" title="6.拼接特征"></a>6.拼接特征</h4><p>contents.append((words_line, int(label), seq_len, bigram, trigram))</p>
-<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121235032.png" alt="20221121235032"></p>
-<h4 id="7-使用"><a href="#7-使用" class="headerlink" title="7.使用"></a>7.使用</h4><pre><code>train = load_dataset(config.train_path, config.pad_size)
-dev = load_dataset(config.dev_path, config.pad_size)
-test = load_dataset(config.test_path, config.pad_size)
-</code></pre>
-<p>contents用来构建了数据集？数据集里的每条数据都是((words_line, int(label), seq_len, bigram, trigram))</p>
-<h4 id="8-训练"><a href="#8-训练" class="headerlink" title="8.训练"></a>8.训练</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122000416.png" alt="20221122000416"></p>
-
+            <p>。<br>
             
         </div>
     </div>
@@ -404,7 +352,7 @@ test = load_dataset(config.test_path, config.pad_size)
         
         <span class="tag">
             
-            <a href="/tags/P5R/" style="color: #00bcd4">
+            <a href="/tags/P5R/" style="color: #ff7d73">
                 P5R
             </a>
         </span>
@@ -451,7 +399,7 @@ test = load_dataset(config.test_path, config.pad_size)
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #03a9f4">
+            <a href="/tags/hexo/" style="color: #ffa2c4">
                 hexo
             </a>
         </span>
@@ -498,7 +446,7 @@ test = load_dataset(config.test_path, config.pad_size)
         
         <span class="tag">
             
-            <a href="/tags/Diffusion-Model/" style="color: #ff7d73">
+            <a href="/tags/Diffusion-Model/" style="color: #00a596">
                 Diffusion Model
             </a>
         </span>
@@ -545,7 +493,7 @@ test = load_dataset(config.test_path, config.pad_size)
         
         <span class="tag">
             
-            <a href="/tags/三题故事/" style="color: #00bcd4">
+            <a href="/tags/三题故事/" style="color: #ff7d73">
                 三题故事
             </a>
         </span>

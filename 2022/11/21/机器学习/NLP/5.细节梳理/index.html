@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>论文细节梳理 | Liteee的世界尽头</title>
+        <title>论文实践和细节梳理 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -122,7 +122,7 @@
                         
 <div class="article">
     <div>
-        <h1>论文细节梳理 </h1>
+        <h1>论文实践和细节梳理 </h1>
     </div>
     <div class="info">
         <span class="date">
@@ -144,7 +144,8 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="1-公式一"><a href="#1-公式一" class="headerlink" title="1.公式一"></a>1.公式一</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121164939.png" alt="20221121164939"></p>
+        <p>。<br> <span id="more"></span></p>
+<h1 id="1-公式一"><a href="#1-公式一" class="headerlink" title="1.公式一"></a>1.公式一</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121164939.png" alt="20221121164939"></p>
 <h1 id="论文解释："><a href="#论文解释：" class="headerlink" title="论文解释："></a>论文解释：</h1><p>基于词袋模型，秩约束的简单线性模型。表示输入层的多个Xn输入至隐藏层取平均的过程。<br>其中：</p>
 <ul>
 <li>A表示：单词查找表look-up table over the words</li>
@@ -184,18 +185,138 @@
 <h4 id="2-token化"><a href="#2-token化" class="headerlink" title="2.token化"></a>2.token化</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121232156.png" alt="20221121232156"></p>
 <h4 id="3-word-to-id"><a href="#3-word-to-id" class="headerlink" title="3.word - to - id"></a>3.word - to - id</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121232909.png" alt="20221121232909"><br>[‘中’, ‘华’, ‘女’, ‘子’, ‘学’, ‘院’, ‘：’, ‘本’, ‘科’, ‘层’, ‘次’, ‘仅’, ‘1’, ‘专’, ‘业’, ‘招’, ‘男’, ‘生’, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘, ‘<PAD>‘]<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121232819.png" alt="20221121232819"></p>
 <h4 id="4-words-line。"><a href="#4-words-line。" class="headerlink" title="4.words_line。"></a>4.words_line。</h4><p>[14, 125, 55, 45, 35, 307, 4, 81, 161, 941, 258, 494, 2, 175, 48, 145, 97, 17, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761, 4761]</p>
-<h4 id="5-哈希映射"><a href="#5-哈希映射" class="headerlink" title="5.哈希映射"></a>5.哈希映射</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233507.png" alt="20221121233507"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233623.png" alt="20221121233623"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233814.png" alt="20221121233814"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121234438.png" alt="20221121234438"><br>假设我们遍历到第3位了<br>t-1&#x3D;2<br>(t1 * 14918087) % 5499&#x3D;5,492<br>14918087是什么玩意？</p>
+<h4 id="5-哈希映射"><a href="#5-哈希映射" class="headerlink" title="5.哈希映射"></a>5.哈希映射</h4><pre><code class="python">def build_dataset(config, ues_word):
+    if ues_word:
+        tokenizer = lambda x: x.split(&#39; &#39;)  # 以空格隔开，word-level
+    else:
+        tokenizer = lambda x: [y for y in x]  # char-level
+    if os.path.exists(config.vocab_path):
+        vocab = pkl.load(open(config.vocab_path, &#39;rb&#39;))
+    else:
+        vocab = build_vocab(config.train_path, tokenizer=tokenizer, max_size=MAX_VOCAB_SIZE, min_freq=1)
+        pkl.dump(vocab, open(config.vocab_path, &#39;wb&#39;))
+    print(f&quot;Vocab size: &#123;len(vocab)&#125;&quot;)
+
+    #biGramHash
+    def biGramHash(sequence, t, buckets):
+        t1 = sequence[t - 1] if t - 1 &gt;= 0 else 0
+        return (t1 * 14918087) % buckets
+
+    def triGramHash(sequence, t, buckets):
+        t1 = sequence[t - 1] if t - 1 &gt;= 0 else 0
+        t2 = sequence[t - 2] if t - 2 &gt;= 0 else 0
+        return (t2 * 14918087 * 18408749 + t1 * 14918087) % buckets
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233507.png" alt="20221121233507"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233623.png" alt="20221121233623"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121233814.png" alt="20221121233814"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121234438.png" alt="20221121234438"><br>假设我们遍历到第3位了<br>t-1&#x3D;2<br>(t1 * 14918087) % 5499&#x3D;5,492<br>14918087大概是随机设置的</p>
 <p>最后bigram得到的是[x,x,5492,x,x]其中每个值∈（0，5499）<br>[0, 1198, 484, 5492, 1494, 2995, 5060, 2699, 3789, 2779, 1180, 867, 637, 4099, 3977, 4893, 2981]</p>
 <h5 id="5-1核心：错位"><a href="#5-1核心：错位" class="headerlink" title="5.1核心：错位?"></a>5.1核心：错位?</h5><p>[14, 125, 55, 45, 35, 307, 4, 81, 161, 941, 258, 494, 2, 175, 48, 145, 97, 17, 4761….<br>[0, 1198, 484, 5492, 1494, 2995, 5060, 2699, 3789, 2779, 1180, 867, 637, 4099, 3977…</p>
 <h4 id="triGramHash也同理"><a href="#triGramHash也同理" class="headerlink" title="triGramHash也同理"></a>triGramHash也同理</h4><p>不解释<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121234823.png" alt="20221121234823"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121234859.png" alt="20221121234859"></p>
-<h4 id="6-拼接特征"><a href="#6-拼接特征" class="headerlink" title="6.拼接特征"></a>6.拼接特征</h4><p>contents.append((words_line, int(label), seq_len, bigram, trigram))</p>
-<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121235032.png" alt="20221121235032"></p>
-<h4 id="7-使用"><a href="#7-使用" class="headerlink" title="7.使用"></a>7.使用</h4><pre><code>train = load_dataset(config.train_path, config.pad_size)
-dev = load_dataset(config.dev_path, config.pad_size)
-test = load_dataset(config.test_path, config.pad_size)
+<h4 id="6-拼接特征"><a href="#6-拼接特征" class="headerlink" title="6.拼接特征"></a>6.拼接特征</h4><pre><code class="python">        contents = []
+        with open(path, &#39;r&#39;, encoding=&#39;UTF-8&#39;) as f:
+            for line in tqdm(f):
+                lin = line.strip()
+                if not lin:
+                    continue
+                content, label = lin.split(&#39;\t&#39;)
+                words_line = []
+                token = tokenizer(content)
+                seq_len = len(token)
+                if pad_size:
+                    if len(token) &lt; pad_size:
+                        token.extend([PAD] * (pad_size - len(token)))
+                    else:
+                        token = token[:pad_size]
+                        seq_len = pad_size
+                # word to id
+                for word in token:
+                    words_line.append(vocab.get(word, vocab.get(UNK)))
+
+                # fasttext ngram
+                buckets = config.n_gram_vocab
+                bigram = []
+                trigram = []
+                # ------ngram------
+                for i in range(pad_size):
+                    bigram.append(biGramHash(words_line, i, buckets))
+                    trigram.append(triGramHash(words_line, i, buckets))
+                # -----------------
+                contents.append((words_line, int(label), seq_len, bigram, trigram))
+        return contents  # [([...], 0), ([...], 1), ...]
+    train = load_dataset(config.train_path, config.pad_size)
+    dev = load_dataset(config.dev_path, config.pad_size)
+    test = load_dataset(config.test_path, config.pad_size)
 </code></pre>
-<p>contents用来构建了数据集？数据集里的每条数据都是((words_line, int(label), seq_len, bigram, trigram))</p>
-<h4 id="8-训练"><a href="#8-训练" class="headerlink" title="8.训练"></a>8.训练</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122000416.png" alt="20221122000416"></p>
+<pre><code>contents.append((words_line, int(label), seq_len, bigram, trigram))
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221121235032.png" alt="20221121235032"></p>
+<h4 id="7-使用"><a href="#7-使用" class="headerlink" title="7.使用"></a>7.使用</h4><p>contents用来构建了数据集？数据集里的每条数据都是((words_line, int(label), seq_len, bigram, trigram))</p>
+<h4 id="7-1-数据加载"><a href="#7-1-数据加载" class="headerlink" title="7.1 数据加载"></a>7.1 数据加载</h4><pre><code class="python">class Model(nn.Module):
+    def __init__(self, config):
+        super(Model, self).__init__()
+        if config.embedding_pretrained is not None:
+            self.embedding = nn.Embedding.from_pretrained(config.embedding_pretrained, freeze=False)
+        else:
+            self.embedding = nn.Embedding(config.n_vocab, config.embed, padding_idx=config.n_vocab - 1)
+        self.embedding_ngram2 = nn.Embedding(config.n_gram_vocab, config.embed)
+        self.embedding_ngram3 = nn.Embedding(config.n_gram_vocab, config.embed)
+        self.dropout = nn.Dropout(config.dropout)
+        self.fc1 = nn.Linear(config.embed * 3, config.hidden_size)
+        # self.dropout2 = nn.Dropout(config.dropout)
+        self.fc2 = nn.Linear(config.hidden_size, config.num_classes)
+    def forward(self, x):
+
+        out_word = self.embedding(x[0])
+        out_bigram = self.embedding_ngram2(x[2])
+        out_trigram = self.embedding_ngram3(x[3])
+        out = torch.cat((out_word, out_bigram, out_trigram), -1)
+
+        out = out.mean(dim=1)
+        out = self.dropout(out)
+        out = self.fc1(out)
+        out = F.relu(out)
+        out = self.fc2(out)
+        return out
+</code></pre>
+<p>这一步应该发生在所有的data加载完成后,导入tensor中的过程，设置forward任务的过程。<br>此时n-gram序列已经做完了</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122091123.png" alt="20221122091123"></p>
+<p>out_bigram:类型，维度{tensor{128,32,300}}<br>embedding_ngram2：{100499(n-gram表大小),300（字向量维度）}</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122091741.png" alt="20221122091741"></p>
+<p>随机初始化的矩阵是:</p>
+<pre><code>embedding_ngram2.weight矩阵（[n-gram_表长度]*[embedding_pretrained.size（字向量维度？）]）
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122091918.png" alt="20221122091918"></p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122092538.png" alt="20221122092538"></p>
+<p>self:模型信息，训练参数<br>x：训练数据<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122093232.png" alt="20221122093232"></p>
+<pre><code>长度都统一为&#123;128，32&#125;，也是就是&#123;（batch_size）句子数，(pad_size)句子长度&#125;
+</code></pre>
+<p>0：句子序列<br>1：某个参数序列，标签？<br>2：大概率是2-gram?<br>3：大概率是3-gram?<br>取值的范围应该是属于（0,gram表长度）中，<br>【再此程序中设置为10499】</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122093348.png" alt="20221122093348"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122093405.png" alt="20221122093405"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122093504.png" alt="20221122093504"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122093530.png" alt="20221122093530"></p>
+<h5 id="7-2真正的random-embedding"><a href="#7-2真正的random-embedding" class="headerlink" title="7.2真正的random embedding"></a>7.2真正的random embedding</h5><p>找了很多解读都没讲明白random embedding是怎么做的，所以写这一段内容</p>
+<pre><code class="python">    &#39;&#39;&#39;提取预训练词向量&#39;&#39;&#39;
+    vocab_dir = &quot;./THUCNews/data/vocab.pkl&quot;
+    pretrain_dir = &quot;./THUCNews/data/sgns.sogou.char&quot;
+    emb_dim = 300
+    filename_trimmed_dir = &quot;./THUCNews/data/vocab.embedding.sougou&quot;
+    word_to_id = pkl.load(open(vocab_dir, &#39;rb&#39;))
+    embeddings = np.random.rand(len(word_to_id), emb_dim)
+    f = open(pretrain_dir, &quot;r&quot;, encoding=&#39;UTF-8&#39;)
+</code></pre>
+<p>很明显结果是基于词表的编号和embedding_size随机生成的一个查找表</p>
+<pre><code>embeddings=&#123;4761(词表长度),emb_dim(embedding长度？)&#125;
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122095419.png" alt="20221122095419"></p>
+<pre><code class="python">    for i, line in enumerate(f.readlines()):
+        # if i == 0:  # 若第一行是标题，则跳过
+        #     continue
+        lin = line.strip().split(&quot; &quot;)
+        if lin[0] in word_to_id:
+            idx = word_to_id[lin[0]]
+            emb = [float(x) for x in lin[1:301]]
+            embeddings[idx] = np.asarray(emb, dtype=&#39;float32&#39;)
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122100150.png" alt="20221122100150"><br>每个字lin都对应一段[{字}，{idx}，{embedding_seq}]<br>这段embedding_seq就是random_embedding中的[word_id]对应的一行embedding序列</p>
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5><h4 id="8-训练结构"><a href="#8-训练结构" class="headerlink" title="8.训练结构"></a>8.训练结构</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122000416.png" alt="20221122000416"></p>
+<h4 id="9-结论"><a href="#9-结论" class="headerlink" title="9.结论"></a>9.结论</h4><p>使用了作者一半的n-gram数：100499<br>训练15轮<br>测试集准确率91.72%<br>效果接近于文档的结论：91&#x2F;92<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122101327.png" alt="20221122101327"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221122092950.png" alt="20221122092950"></p>
 
     </div>
     

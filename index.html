@@ -144,6 +144,422 @@
             
 
 <div class="post">
+    <a href="/2022/11/27/机器学习/强化学习/李宏毅课程3/">
+        <h2 class="post-title">强化学习李宏毅课程（三）</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/27
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p> [TOC]<br>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/强化学习/" style="color: #ff7d73">
+                强化学习
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/27/机器学习/强化学习/李宏毅课程3/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/27/机器学习/强化学习/李宏毅课程/">
+        <h2 class="post-title">强化学习李宏毅课程（一）</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/27
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+             <span id="more"></span>
+<h1 id="0基础概念"><a href="#0基础概念" class="headerlink" title="0基础概念"></a>0基础概念</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127121811.png" alt="20221127121811"><br> State是环境的状态<br> Agent是AI的Agent</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127122044.png" alt="20221127122044"><br> Environment：对手<br> State：19*19的棋盘<br> Action：下一个落子的点+棋盘</p>
+<h1 id="1监督学习和强化学习的区别"><a href="#1监督学习和强化学习的区别" class="headerlink" title="1监督学习和强化学习的区别"></a>1监督学习和强化学习的区别</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127122259.png" alt="20221127122259"><br>监督学习按照棋谱或者某个函数进行输出下一步行动</p>
+<ul>
+<li>棋谱没有那么多状态</li>
+<li>棋谱的应对未必是最好的</li>
+</ul>
+<p> 阿尔法GO：训练两个AI互相下棋（先做监督学习再做强化学习）</p>
+<p> 在自然语言处理等方面也有应用，但是好坏的反馈比较难做，最适合的还是游戏，有明确的环境和反馈。</p>
+<h1 id="2游戏环境"><a href="#2游戏环境" class="headerlink" title="2游戏环境"></a>2游戏环境</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127123013.png" alt="20221127123013"></p>
+<h1 id="3-游戏示例"><a href="#3-游戏示例" class="headerlink" title="3 游戏示例"></a>3 游戏示例</h1><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127124030.png" alt="20221127124030"></p>
+<ul>
+<li>1episode:游戏开始到结束的过程（如果一开始比较差就会被设置一个ireter迭代器上限）</li>
+<li>要在一整个episode里面去最大化最终的reward（更高的分数+不被杀死）</li>
+<li></li>
+</ul>
+<h1 id="4难点"><a href="#4难点" class="headerlink" title="4难点"></a>4难点</h1><p> reward-action非常单调</p>
+<h4 id="经验回放"><a href="#经验回放" class="headerlink" title="经验回放"></a>经验回放</h4><ul>
+<li>例如在这个游戏里，只有开火能够得到reward，他就不想做其他工作，例如左右移动。</li>
+<li>所以经验回放机制就是把移动（低回报，价值难以衡量的action）+ 开火（直接产生reward）的动作结合起来。</li>
+<li>具体表现为机器最近几次action产生的组合</li>
+</ul>
+<h4 id="探索"><a href="#探索" class="headerlink" title="探索"></a>探索</h4><ul>
+<li>还是应对 reward-action的问题。因为死亡的惩罚太高了，而得到reward的动作又很少</li>
+<li>所以机器很容易白兰。你会看到各种各样奇怪的摆烂姿势。</li>
+<li>例如躲在在角落里不停开火</li>
+<li>所以需要设立一个小概率事件：来让他随机产生一些action</li>
+</ul>
+<h4 id="policy-based-x2F-value-based"><a href="#policy-based-x2F-value-based" class="headerlink" title="policy-based&#x2F;value-based"></a>policy-based&#x2F;value-based</h4><p> actor行动去通过判别器</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127125052.png" alt="20221127125052"></p>
+<h1 id="5学习资料"><a href="#5学习资料" class="headerlink" title="5学习资料"></a>5学习资料</h1><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127125243.png" alt="20221127125243"></p>
+<h1 id="6机器学习就是找function"><a href="#6机器学习就是找function" class="headerlink" title="6机器学习就是找function"></a>6机器学习就是找function</h1><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127125429.png" alt="20221127125429"></p>
+<h4 id="把大象塞进function-深度强化学习"><a href="#把大象塞进function-深度强化学习" class="headerlink" title="把大象塞进function-深度强化学习"></a>把大象塞进function-深度强化学习</h4><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127125550.png" alt="20221127125550"><br> 建立一个神经网络</p>
+<h1 id="7重要：网络的输入输出"><a href="#7重要：网络的输入输出" class="headerlink" title="7重要：网络的输入输出"></a>7重要：网络的输入输出</h1><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127125821.png" alt="20221127125821"><br> 输入： 图片（不是绝对的）（图片的本质是获取state[血条，分数敌人的特征]）<br> 输出：下一步行动的概率（通常采用概率最高的，在训练时偶尔会进行随机探索，然后通过经验回放来收集reward）</p>
+<h4 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h4><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127130112.png" alt="20221127130112"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127130403.png" alt="20221127130403"></p>
+<ul>
+<li>目标：要最大化最终的total reward（一般通关都会设置得很大） 而不是每一步的reward</li>
+<li></li>
+</ul>
+<h4 id="Actor伪函数"><a href="#Actor伪函数" class="headerlink" title="Actor伪函数"></a>Actor伪函数</h4><ul>
+<li>tao代表游戏开始到结束的过程：有些过程容易出现，游戏过程不容易出现</li>
+<li>P（tao|Θ）：我们用一个几率来描述它，Θ表示act，当你选用一个act的时候，tao这个过程出现的机率。（对人的话：也就是你下一步棋，预测输赢的结果）</li>
+<li>RΘ&#x3D;就是tao的reward*tao的概率，把各种各样的复杂的tao累加起来。（不可能真正的穷举，只能是例如N场游戏的结果）</li>
+</ul>
+<h4 id="近似过程"><a href="#近似过程" class="headerlink" title="近似过程"></a>近似过程</h4><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127132050.png" alt="20221127132050"></p>
+<p> 对于这个约等号</p>
+<ul>
+<li>左边是一个抽象的概念，是用每一步去预测输赢，然后把所有的过程累加起来模拟出N种tao的结果，他是一个期望。</li>
+<li>右边是你实际去玩N场，对N场的reward做平均</li>
+<li>两个都是对N种Tao（一个完整的游戏过程）的reward描述</li>
+<li>这样就得到function的目标RΘ</li>
+</ul>
+<h1 id="8最大化function目标Rθ"><a href="#8最大化function目标Rθ" class="headerlink" title="8最大化function目标Rθ"></a>8最大化function目标Rθ</h1><h4 id="Gradient-Ascent-梯度上升"><a href="#Gradient-Ascent-梯度上升" class="headerlink" title="Gradient Ascent 梯度上升"></a>Gradient Ascent 梯度上升</h4><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127161942.png" alt="20221127161942"><br> 为了最大化RΘ，对他做梯度上升</p>
+<p> 得到一个RΘ对w的偏微分向量 就是它的梯度？。</p>
+<h4 id="公式推导"><a href="#公式推导" class="headerlink" title="公式推导"></a>公式推导</h4><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127162354.png" alt="20221127162354"></p>
+<ul>
+<li>其中R（T）对于公式来说是一个黑盒子，也是不可微的（因为不同环境给出的R（T）结果不一样？为什么？他不是一个Reward值吗？）</li>
+<li>在第二个式子里引入了一个P（T|θ） 目的是构造出下式的log</li>
+<li>不理解 需要手推一下啊？</li>
+</ul>
+<h4 id="P（tao-Θ）的计算"><a href="#P（tao-Θ）的计算" class="headerlink" title="P（tao|Θ）的计算"></a>P（tao|Θ）的计算</h4><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127162956.png" alt="20221127162956"><br> 其中</p>
+<ul>
+<li>p(s1)是一个固定值，一般为游戏开始的一个状态（概率一般为1）</li>
+<li>p(a|s1，θ)：是Agent在环境条件下采取ACTION的概率</li>
+<li>P(r,s|s,a)是当前环境s+a的条件下，游戏环境给出的reward和新环境s2的概率</li>
+</ul>
+<p> 全部累乘得到整个游戏过程T的概率</p>
+<h4 id="logP（T-Θ）"><a href="#logP（T-Θ）" class="headerlink" title="logP（T|Θ）"></a>logP（T|Θ）</h4><p> log的意义：让累乘变成累加<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127163510.png" alt="20221127163510"><br> 转换为logP（T|θ）后式子变成累加，<br> 其中游戏环境给出的反馈概率可以删掉？</p>
+<ul>
+<li>为什么？因为它跟我们要最大化的ACTION无关？它不能修改？、</li>
+<li>因为它与θ无关！</li>
+</ul>
+<h4 id="最终表达式"><a href="#最终表达式" class="headerlink" title="最终表达式"></a>最终表达式</h4><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127164103.png" alt="20221127164103"></p>
+<p> 目标就是为了改变Θ来让▽Rθ最小化</p>
+<h4 id="为什么要用▽P-a-s-θ-x2F-P-a-s-θ"><a href="#为什么要用▽P-a-s-θ-x2F-P-a-s-θ" class="headerlink" title="为什么要用▽P(a|s,θ)&#x2F;P(a|s,θ)"></a>为什么要用▽P(a|s,θ)&#x2F;P(a|s,θ)</h4><ul>
+<li>目的 normolize</li>
+</ul>
+<p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127164640.png" alt="20221127164640"><br> 因为▽R是累加求平均的结果，假设又一个best action A和一个 B<br> 虽然A的R是最好的，但是B实际出现的次数多也会让R显著增加，结果就会导致程序认为TakeB可以让R最大化。</p>
+<p> 所以▽P需要&#x2F;P的概率：如果它出现的机率比较高，那它被除掉的基数也会比较大</p>
+<ul>
+<li>等于是一个normalize的过程？</li>
+</ul>
+<h1 id="9-BaseLine"><a href="#9-BaseLine" class="headerlink" title="9.BaseLine"></a>9.BaseLine</h1><h4 id="为什么要添加Baseline"><a href="#为什么要添加Baseline" class="headerlink" title="为什么要添加Baseline"></a>为什么要添加Baseline</h4><p> 如果R（t）永远都是正数</p>
+<ul>
+<li>在理想情况下：假设A和C的reward大，b的r小。在足量的sample+上述的normolize过程后，采取a和c的概率会增加，采取b的概率会减少</li>
+<li>实际情况下：a可能完全不被采样，做完gradient后采取a的几率不增加</li>
+</ul>
+<h4 id="粗糙的理解"><a href="#粗糙的理解" class="headerlink" title="粗糙的理解"></a>粗糙的理解</h4><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127170158.png" alt="20221127170158"><br> 因此要把R(t)设计成(R(T)-B)</p>
+<ul>
+<li>b是一个偏移量bias</li>
+</ul>
+<p> 目的是为了让这一部分有正有负，也就是不要让b这种低reward的概率盲目增加从而导致采取a的概率减少</p>
+<p> 因此设计一个baseline，让action b的结果刚好低于这个baseline，导致它变成一个负数。我们只采取取得正数的结果，也就是只增加baseline之上的acton。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/强化学习/" style="color: #ff7d73">
+                强化学习
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/27/机器学习/强化学习/李宏毅课程/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/27/机器学习/强化学习/李宏毅课程二/">
+        <h2 class="post-title">强化学习李宏毅课程（二）</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/27
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p> [TOC]<br>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/强化学习/" style="color: #00a596">
+                强化学习
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/27/机器学习/强化学习/李宏毅课程二/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/27/机器学习/强化学习/李宏毅课程四/">
+        <h2 class="post-title">强化学习李宏毅课程（四）</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/27
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="DoubleDQN"><a href="#DoubleDQN" class="headerlink" title="DoubleDQN"></a>DoubleDQN</h1><p>如果你想对DQN进行优化的话，第一个想到的应该是这个<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221128000755.png" alt="20221128000755"><br>DoubleDQN估计出来的Qvalue远高于实际得到的true value(底下那条线)</p>
+<h2 id="Target的高估"><a href="#Target的高估" class="headerlink" title="Target的高估"></a>Target的高估</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221128001023.png" alt="20221128001023"><br>为什么他的Target总是很容易被高估<br>一个关键点：estimate的时候是有误差的【需要回顾一下estimate怎么做】</p>
+<p>设想一下，在数据中误差普遍存在的情况下，Q每次都会挑一个最高的选，就很容易每次都选到被高估的action。 导致target经常太大</p>
+<h2 id="DoubleDQN-1"><a href="#DoubleDQN-1" class="headerlink" title="DoubleDQN"></a>DoubleDQN</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221128001511.png" alt="20221128001511"></p>
+<p>原本的DQN：</p>
+<ul>
+<li>其中arg maxQ()是实际训练中不断更新的那个QL，它负责选出一个action</li>
+<li>Q’是一个相对固定不太更新的QL，它负责评估，他跟Q本质上是同一个</li>
+</ul>
+<p>DoubleDQN:</p>
+<ul>
+<li>Target的网络用另外一个会update的Q网络来算<br>一行代码就能解决？怎么解决？【找代码看看】</li>
+</ul>
+<p>为什么他能够解决问题：<br>因为误差（高估）的本质，来源于estimate的误差<br>相当于做一种双重保险来减小误差</p>
+<ul>
+<li>选择的action不一定是高估的</li>
+<li>被原本的Q高估的action不一定会被target Q高估</li>
+</ul>
+<h1 id="DuelingDQN"><a href="#DuelingDQN" class="headerlink" title="DuelingDQN"></a>DuelingDQN</h1><p>只是一个tip<br><strong>新的网络唯一做的事情就是更改了神经网络的输出架构</strong><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221128002550.png" alt="20221128002550"><br>什么是A，什么是V?</p>
+<ul>
+<li>A of s,a :给每个sa一个value</li>
+</ul>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221128002802.png" alt="20221128002802"><br>Q&#x3D;V+A</p>
+<ul>
+<li>V在不同的state都有一个值</li>
+<li>A在不同的state不同的action都有一个值<br>相加得到Q(s,a)</li>
+</ul>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221128004103.png" alt="20221128004103"></p>
+<p>【核心：V用一种效率的方式去update data】</p>
+<ul>
+<li><p>改V的好处是，这样假如觉得3和-1的值不准确，想要加一点，就可以改V，顺带把底下那个action也改了（因为你发现了前两个action在这个state情况下都有问题，那有可能是只sample到前两个action而没有sample到第三个action）这样可以高效地把三个一起改，也许结果会更好，在大量的训练中认为这种tip更有效率。【这是DuelingDQN带来的好处】</p>
+</li>
+<li><p>实际上网络在这个时候既可以改A也可以改V</p>
+</li>
+</ul>
+<p>如果把V当作是一种权重，一般更希望程序多改权重值，否则就跟普通DQN没有区别</p>
+<p>那要怎么做呢：<br>DDQN中有许多约束条件：举例两种</p>
+<ul>
+<li>例如让A里面所有的列值之和必须为零，那么A就不能单独地给某一个值+1</li>
+<li>V的值可以约束为上面列值的平均值【为啥】</li>
+</ul>
+<h4 id="实际做法示例"><a href="#实际做法示例" class="headerlink" title="实际做法示例"></a>实际做法示例</h4><p>例如在AV相加之前</p>
+<ul>
+<li>做一个normalization：<br>例如把<br>[action累加7+3+2&#x3D;12（normolize➗3）→12&#x2F;3&#x3D;4 →集体减4得到3 -1 -2]<br>[]→列值之和&#x3D;0</li>
+</ul>
+<p>把[函数]的作为一个无参的normalization operation放到神经网络里面去让他修改函数时增加约束限制</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/强化学习/" style="color: #ff7d73">
+                强化学习
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/27/机器学习/强化学习/李宏毅课程四/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/27/机器学习/强化学习/论文解读/">
+        <h2 class="post-title">强化学习论文解读</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/27
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="0公式篇"><a href="#0公式篇" class="headerlink" title="0公式篇"></a>0公式篇</h1><p>Q-learn的update？<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127121405.png" alt="20221127121405"></p>
+<p>贝尔曼方程？<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127121000.png" alt="20221127121000"></p>
+<p>非线性函数逼近器？损失函数？<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127121102.png" alt="20221127121102"></p>
+<p>根据权重对损失函数进行微分得到以下权重<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127121152.png" alt="20221127121152"></p>
+<p>具有经验回放的深度Q学习函数<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127121248.png" alt="20221127121248"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/强化学习/" style="color: #ffa2c4">
+                强化学习
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2022/11/27/机器学习/强化学习/论文解读/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/11/26/时间序列分析/SARIMA/">
+        <h2 class="post-title">SARIMA</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/时间序列/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                时间序列
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/26
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>。<br>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/11/26/时间序列分析/SARIMA/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2022/11/21/机器学习/NLP/5.细节梳理/">
         <h2 class="post-title">论文代码实践和细节梳理</h2>
     </a>
@@ -287,221 +703,6 @@
     <a href="/2022/11/19/机器学习/NLP/1.VEC背景/" class="go-post">阅读全文</a>
 </div>
 
-<div class="post">
-    <a href="/2022/11/11/生物信息/生物信息2/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/11/11
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/11/11/生物信息/生物信息2/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/10/23/杂谈/游戏相关/P5R攻略/">
-        <h2 class="post-title">P5R女神异闻录皇家版攻略整合</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/杂谈/">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                杂谈
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/10/23
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/P5R.webp"><br>自用，常用网络攻略归档。<br>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/P5R/" style="color: #ff7d73">
-                P5R
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/10/23/杂谈/游戏相关/P5R攻略/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/10/20/hexo配置/">
-        <h2 class="post-title">Hexo配置记录</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/hexo/">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                hexo
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/10/20
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>配置记录</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/hexo/" style="color: #00bcd4">
-                hexo
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/10/20/hexo配置/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/10/15/机器学习/NovelAI/NovelAI/">
-        <h2 class="post-title">Novel Ai体验记录</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/机器学习/">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                机器学习
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/10/15
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>[TOC]</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Diffusion-Model/" style="color: #ff7d73">
-                Diffusion Model
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/10/15/机器学习/NovelAI/NovelAI/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/10/短篇小说/汉堡包、爬山车、截止日期/">
-        <h2 class="post-title">汉堡包、爬山车、截止日期</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/随记/">
-                <span class="icon">
-                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
-                </span>
-                随记
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/10
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>斜阳，阳台窗边<br>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/三题故事/" style="color: #03a9f4">
-                三题故事
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2022/09/10/短篇小说/汉堡包、爬山车、截止日期/" class="go-post">阅读全文</a>
-</div>
-
              
 <div class="page-current">
     <div class="prev">
@@ -513,8 +714,24 @@
             1
         </span>
         
+        <span>
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+            
+            
+        </span>
+        
     </div>
     <div class="next">
+        
+        <a href="/page/2/ ">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-right fa-fw"></i>
+            </span>
+        </a>
         
     </div>
 </div>

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>强化学习李宏毅课程（三） | Liteee的世界尽头</title>
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>强化学习李宏毅课程（三） </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/11/27
+        </span>
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/强化学习/" style="color: #ffa2c4">
+                    强化学习
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p> [TOC]<br> <span id="more"></span></p>
+<h1 id="0-Critics"><a href="#0-Critics" class="headerlink" title="0.Critics"></a>0.Critics</h1><p>  <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127170552.png" alt="20221127170552"></p>
+<ul>
+<li>一个用来评估现状的函数state value fuction<br> 例如屏障没了，能杀的敌人变少了，那评估值自然就下降了</li>
+</ul>
+<h1 id="VΠ评估函数"><a href="#VΠ评估函数" class="headerlink" title="VΠ评估函数"></a>VΠ评估函数</h1><h2 id="基于MC"><a href="#基于MC" class="headerlink" title="基于MC"></a>基于MC</h2><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127192829.png" alt="20221127192829"><br> 基于MC的评估方法：算差距</p>
+<ul>
+<li>缺点：要玩到游戏结束才能得到评估，再进行UPdate</li>
+</ul>
+<h2 id="基于TD"><a href="#基于TD" class="headerlink" title="基于TD"></a>基于TD</h2><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127193349.png" alt="20221127193349"></p>
+<ul>
+<li>比较两个St之间的差值是不是在中间获得的rt</li>
+<li>也就是估值与rt相比较<br> ? 但是不理解为什么是V(t+1) + rt</li>
+</ul>
+<h2 id="MC-VS-TD"><a href="#MC-VS-TD" class="headerlink" title="MC VS TD"></a>MC VS TD</h2><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127194338.png" alt="20221127194338"></p>
+<ul>
+<li>MC的var会更大</li>
+<li>TD的体积更小，也许也更加精准<br> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127194659.png" alt="20221127194659"></li>
+<li>SB得到r的几率是3&#x2F;4</li>
+<li>SA得到r的几率是0<br> 所以MC算的是0，TD是下一步状态得到的R+自己的R？</li>
+</ul>
+<h1 id="基于Qvalue"><a href="#基于Qvalue" class="headerlink" title="基于Qvalue"></a>基于Qvalue</h1><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127195138.png" alt="20221127195138"><br> 有两种情况，左图是SA无法穷举的情况，右边表示可以穷举的情况<br> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127195427.png" alt="20221127195427"></p>
+<h1 id="Q-Learning"><a href="#Q-Learning" class="headerlink" title="Q-Learning"></a>Q-Learning</h1><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127202838.png" alt="20221127202838"><br> 详情见强化学习吧<br> 基于Q-Learning的迭代</p>
+<ul>
+<li>Π’在同样的s,a一定会比Π强</li>
+</ul>
+<h2 id="Π-96-更强的证明"><a href="#Π-96-更强的证明" class="headerlink" title="Π&#96;更强的证明"></a>Π&#96;更强的证明</h2><p> 不一定要会，知道结论就行<br> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127203535.png" alt="20221127203535"><br> 懒得看证明</p>
+<h1 id="Q-LEARING的主要tips"><a href="#Q-LEARING的主要tips" class="headerlink" title="Q-LEARING的主要tips"></a>Q-LEARING的主要tips</h1><h2 id="Target-Network"><a href="#Target-Network" class="headerlink" title="Target Network"></a>Target Network</h2><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127203836.png" alt="20221127203836"></p>
+<ul>
+<li>初始时，两个net work是相同的</li>
+<li>左边的Q每次训练都会更新参数， TargetNetwork会被固定参数，在N次训练后才更新。<br> 原因：大概是因为两个NETWORK一直在变的话不好做，</li>
+<li>那为什么需要target network：为了表示Q(t)&#x3D;r+Q(t+1)的距离，在实际训练中应该是不相等的，因此需要regression方法算距离，然后不断地修改参数?</li>
+</ul>
+<h2 id="Exploration"><a href="#Exploration" class="headerlink" title="Exploration"></a>Exploration</h2><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127204752.png" alt="20221127204752"><br> 右上角的式子说明为什么需要探索，不探索的话程序可能只会往已知能获得reward的方向走而错过更好的方向。</p>
+<ul>
+<li>EG<br> 简单的概率探索，e是一个极小的概率，表示程序大概率按Q最大化的方向走<br> 小概率进行探索</li>
+<li>BE<br> 不懂</li>
+</ul>
+<h2 id="ReplayBuffer"><a href="#ReplayBuffer" class="headerlink" title="ReplayBuffer"></a>ReplayBuffer</h2><p> 精准空降&#x3D;<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13d4y1u7SP?t=2752.5&amp;p=6">https://www.bilibili.com/video/BV13d4y1u7SP?t=2752.5&amp;p=6</a><br> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127205653.png" alt="20221127205653"></p>
+<h2 id="算法伪代码"><a href="#算法伪代码" class="headerlink" title="算法伪代码"></a>算法伪代码</h2><p> <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221127205729.png" alt="20221127205729"><br> 要点：</p>
+<ul>
+<li>sample的与store的不一定是同一批data</li>
+<li>target式子中的a:会用Q’选择一个能让式子最大化的action</li>
+</ul>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

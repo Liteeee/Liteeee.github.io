@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Bag of Tricks for Efficient Text Classification | Liteee的世界尽头</title>
+        <title>Bag of Tricks for Efficient Text Classification | Liteee的世界尽头</title><meta name="robots" content="noindex">
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -187,7 +187,7 @@
 <h4 id="6-全连接-softmax归一化："><a href="#6-全连接-softmax归一化：" class="headerlink" title="6.全连接+softmax归一化："></a>6.全连接+softmax归一化：</h4><p>[batch_size, num_class]&#x3D;&#x3D;&gt;[batch_size, 1]</p>
 <h4 id="7-N-gram"><a href="#7-N-gram" class="headerlink" title="7.N-gram"></a>7.N-gram</h4><p>不加N-Gram信息，就是词袋模型，准确率89.59%，加上2-gram和3-gram后准确率92.23%。N-Gram的哈希映射算法见utils_fasttext.py中注释——gram——-处。<br>N-Gram的词表我设的25W，相对于前面几个模型，这个模型稍慢一点，FastText被我搞成SlowText了。。？但是效果不错呀。。哈哈</p>
 <p>有人私信问我这个N-Gram，我大体讲一下。对于N-Gram，我们设定一个词表，词表大小自己定，当然越大效果越好，但是你得结合实际情况，对于2-Gram，5000个字(字表大小)的两两组合有多少种你算算，3-Gram的组合有多少种，组合太多了，词表设大效果是好了，但是机器它受不了啊。<br>所以N-Gram词表大小的设定是要适中的，那么适中的词表就放不下所有N-Gram了，不同的N-Gram用哈希算法可能会映射到词表同一位置，这确实是个弊端，但是问题不大：5000个字不可能每两个字都两两组合出现，很多两个字是永远不会组成2-Gram的，所以真正出现的N-Gram不会特别多，映射到同一词表位置的N-Gram也就不多了。<br>N-Gram词表大小我定的25w，比较大了，比小词表训练慢了很多，效果也提升了。这么形容N-Gram词表大小对效果的影响吧：一分价钱1分货，十分价钱1.1分货。</p>
-
+<!-- flag of hidden posts -->
     </div>
     
     

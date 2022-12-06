@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Hadoop大作业文档 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>Hadoop大作业文档 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/12/6
+        </span>
+        
+        <span class="category">
+            <a href="/categories/HADOOP/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                HADOOP
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/hadoop/" style="color: #ff7d73">
+                    hadoop
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>小组作业文档<br> <span id="more"></span></p>
+<h1 id="1-Mapreduce"><a href="#1-Mapreduce" class="headerlink" title="1.Mapreduce"></a>1.Mapreduce</h1><p> &lt;LongWritable, Text, LongWritable, FriendCountWritable&gt;</p>
+<h3 id="1-Mapper"><a href="#1-Mapper" class="headerlink" title="1.Mapper"></a>1.Mapper</h3><p>输入文本：</p>
+<pre><code>账户1 好友abcde。。
+账户2 好友cdbe。。
+</code></pre>
+<p>Map阶段数据处理：<br>按行切分：</p>
+<pre><code>String line[] = value.toString().split(&quot;\t&quot;);
+</code></pre>
+<p>示例：</p>
+<pre><code>line[i]=[&quot;0&quot;,&quot;1,2,3,4,5,6,7&quot;]
+</code></pre>
+<h4 id="Tokenizer"><a href="#Tokenizer" class="headerlink" title="Tokenizer"></a>Tokenizer</h4><pre><code class="java">while (tokenizer.hasMoreTokens()) &#123;
+    Long toUser = Long.parseLong(tokenizer.nextToken());
+    toUsers.add(toUser);
+    context.write(new LongWritable(fromUser), new FriendCountWritable(toUser, -1L));
+&#125;
+</code></pre>
+<p>把line中的一行数据切分为fromUser和toUser<br>示例：</p>
+<pre><code>line[i]=[&quot;0&quot;,&quot;1,2,3,4,5,6,7&quot;]
+fromUser=0;
+toUser=[1,2,3,4.....]
+</code></pre>
+<h4 id="Mapper阶段的输出"><a href="#Mapper阶段的输出" class="headerlink" title="Mapper阶段的输出"></a>Mapper阶段的输出</h4><pre><code class="java">for (int i = 0; i &lt; toUsers.size(); i++) &#123;
+    for (int j = i + 1; j &lt; toUsers.size(); j++) &#123;
+        context.write(new LongWritable(toUsers.get(i)), new FriendCountWritable((toUsers.get(j)), fromUser));
+        context.write(new LongWritable(toUsers.get(j)), new FriendCountWritable((toUsers.get(i)), fromUser));
+    &#125;
+</code></pre>
+<p>Hadoop中MP流程的固定写法：</p>
+<pre><code>context.write(key,value)
+</code></pre>
+<p>所以Mapper阶段的输出为:</p>
+<pre><code>key:toUser（long类型）
+value:mutualFriend+fromUser（FriendCountWritable类型）
+</code></pre>
+<p>对应代码：</p>
+<pre><code class="java">for (int i = 0; i &lt; toUsers.size(); i++) &#123;
+    for (int j = i + 1; j &lt; toUsers.size(); j++) &#123;
+        context.write(new LongWritable(toUsers.get(i)), new FriendCountWritable((toUsers.get(j)), fromUser));
+        context.write(new LongWritable(toUsers.get(j)), new FriendCountWritable((toUsers.get(i)), fromUser));
+    &#125;
+&#125;
+</code></pre>
+<p>其中，FriendCountWritable每个实例对象有两个属性：</p>
+<pre><code>public Long user;
+public Long mutualFriend;
+</code></pre>
+<p>作用在于用对象将user和mutualFriend组合<br>方便将user和mutualFriend单独读写或者组合为字符串<br>提供如下方法：</p>
+<pre><code>write(DataOutput out)
+readFields(DataInput in)
+toString() //将user和mutualfriend组合成一个字符串
+</code></pre>
+<h4 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h4><p>原文中提到的</p>
+<pre><code>    &lt;fromUser, r=toUser; m=-1&gt;
+    &lt;toUser1, r=toUser2; m=fromUser&gt;
+</code></pre>
+<p>共n(n-1)种组合如何理解？<br>大概意思是总共n个user,每个user都会有一个对n-1的treeMap映射。<br>通过map阶段的输出键值对是否存在，来决定每一条映射的m值是不是朋友？<br>例如：</p>
+<pre><code>m=-1 已经是好友
+m=fromUser 
+</code></pre>
+<h3 id="2-Reduceer"><a href="#2-Reduceer" class="headerlink" title="2.Reduceer"></a>2.Reduceer</h3><p> &lt;LongWritable, FriendCountWritable, LongWritable, Text&gt; </p>
+<h5 id="reduce的输入阶段"><a href="#reduce的输入阶段" class="headerlink" title="reduce的输入阶段"></a>reduce的输入阶段</h5><pre><code>reduce(LongWritable key, Iterable&lt;FriendCountWritable&gt; values, Context context)
+</code></pre>
+<p>这里的context和遍历器不太明确来源</p>
+<p>构建一个哈希表map&lt;Long, List<Long>&gt; mutualFriends<br>通过map阶段的&lt;key,value&gt;键值对，来判断每一条fromUser-[好友]和toUser-[好友]<br>并构建fromUser和toUser的共同好友列表<br>构建完所有的mutual列表后，按照共同好友的个数排序</p>
+<h5 id="输出阶段"><a href="#输出阶段" class="headerlink" title="输出阶段"></a>输出阶段</h5><pre><code>key:1~n
+value:context
+</code></pre>
+<p>key是从1开始的所有用户ID</p>
+<pre><code>context=9841 (4: [18320, 18311, 18286, 18332]),18581 (4: [15294, 9847, 18320, 38800]),6477 (3: [14943, 18560, 575]),9463 (3: [20553, 18625, 35822]),9784 (3: [9847, 15294, 18286]),12577 (3: [8795, 575, 543]),12637 (3: [15294, 9847, 575]),12667 (3: [35776, 38800, 15283]),18287 (3: [18311, 18332, 34412]),18299 (3: [18311, 18286, 18332]).....
+</code></pre>
+<p>示例：</p>
+<pre><code>9841 (4: [18320, 18311, 18286, 18332])
+</code></pre>
+<p>对user:9841 推荐user:4 ,两者有共同好友：[18320, 18311, 18286, 18332]</p>
+<h5 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h5><pre><code class="java">Integer i = 0;
+String output = &quot;&quot;;
+//consist
+for (java.util.Map.Entry&lt;Long, List&lt;Long&gt;&gt; entry : sortedMutualFriends.entrySet()) &#123;
+    if (i == 0) &#123;
+        output = entry.getKey().toString() + &quot; (&quot; + entry.getValue().size() + &quot;: &quot; + entry.getValue() + &quot;)&quot;;
+    &#125; else &#123;
+        output += &quot;,&quot; + entry.getKey().toString() + &quot; (&quot; + entry.getValue().size() + &quot;: &quot; + entry.getValue() + &quot;)&quot;;
+    &#125;
+    ++i;
+&#125;
+context.write(key, new Text(output));
+</code></pre>
+<p>entry是从哈希表中取值，i&#x3D;&#x3D;0时，第一个值前面没有逗号，其他不变。</p>
+<pre><code>output=&quot;9841 (4: [18320, 18311, 18286, 18332]),18581 (4: [15294, 9847, 18320, 38800]),6477 (3: [14943, 18560, 575])...&quot;
+</code></pre>
+<h1 id="2-好友推荐部分"><a href="#2-好友推荐部分" class="headerlink" title="2.好友推荐部分"></a>2.好友推荐部分</h1><p>原生的context格式不好切分，写数据库脚本又懒<br>因此来构想一个方便读取的新格式<br>原格式：</p>
+<pre><code>1 38737 (5: [3, 1, 41, 82, 12]),18591 (4: [92, 31, 32, 88])
+</code></pre>
+<p>设想格式</p>
+<pre><code>1 -38737 (5: [3, 1, 41, 82, 12]);18591 (4: [92, 31, 32, 88])+换行符
+</code></pre>
+<p>按分号或者换行切分用户块</p>
+<h1 id="3-Python部分"><a href="#3-Python部分" class="headerlink" title="3.Python部分"></a>3.Python部分</h1><p>Python部分代码主要提供几个方法：</p>
+<ul>
+<li><p>data_loader(self)<br>负责将mapreduce的输出文本存储到类的两个数组中</p>
+<p>  user_id_list &#x3D; []# 保存目标用户列表<br>  user_command_list &#x3D; []# 保存为目标用户制作的推荐列表</p>
+</li>
+<li><p>command(self,user_id)<br>负责将输入的ID到目标列表中查找，并调用command_print的函数打印推荐结果</p>
+</li>
+<li><p>command_print(self,string)<br>负责将user_command_list中的推荐列表数据（string）进行切分并输出推荐语句</p>
+</li>
+</ul>
+<h1 id="4-测试部分代码"><a href="#4-测试部分代码" class="headerlink" title="4.测试部分代码"></a>4.测试部分代码</h1><h2 id="Mapreduce部分展示"><a href="#Mapreduce部分展示" class="headerlink" title="Mapreduce部分展示"></a>Mapreduce部分展示</h2><p>输出数据：<br>示例：例如对ID:10的用户<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221206175901.png" alt="20221206175901"></p>
+<h2 id="Python部分展示"><a href="#Python部分展示" class="headerlink" title="Python部分展示"></a>Python部分展示</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221206175934.png" alt="20221206175934"><br>调用command函数，手动输入或者控制太输入用户id<br>可以生成为其推荐的结果：<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221206180658.png" alt="20221206180658"></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="全部打包"><a href="#全部打包" class="headerlink" title="全部打包"></a>全部打包</h2><p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1s3JAPcO6Ay293Bb6fVyNBA">https://pan.baidu.com/s/1s3JAPcO6Ay293Bb6fVyNBA</a><br>提取码：nws0 </p>
+<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><pre><code class="java">package org.example;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.util.*;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: dbtsai
+ * Date: 1/16/13
+ * Time: 5:32 PM
+ */
+
+public class FriendRecommendation &#123;
+
+    static public class FriendCountWritable implements Writable &#123;
+        public Long user;
+        public Long mutualFriend;
+
+        public FriendCountWritable(Long user, Long mutualFriend) &#123;
+            this.user = user;
+            this.mutualFriend = mutualFriend;
+        &#125;
+
+        public FriendCountWritable() &#123;
+            this(-1L, -1L);
+        &#125;
+
+        @Override
+        public void write(DataOutput out) throws IOException &#123;
+            out.writeLong(user);
+            out.writeLong(mutualFriend);
+        &#125;
+
+        @Override
+        public void readFields(DataInput in) throws IOException &#123;
+            user = in.readLong();
+            mutualFriend = in.readLong();
+        &#125;
+
+        @Override
+        public String toString() &#123;
+            return &quot; toUser: &quot;
+                    + Long.toString(user) + &quot; mutualFriend: &quot; + Long.toString(mutualFriend);
+        &#125;
+    &#125;
+
+    public static class Map extends Mapper&lt;LongWritable, Text, LongWritable, FriendCountWritable&gt; &#123;
+        private Text word = new Text();
+
+        @Override
+        public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException &#123;
+            String line[] = value.toString().split(&quot;\t&quot;);
+            Long fromUser = Long.parseLong(line[0]);
+            List&lt;Long&gt; toUsers = new ArrayList&lt;Long&gt;();
+
+            if (line.length == 2) &#123;
+                StringTokenizer tokenizer = new StringTokenizer(line[1], &quot;,&quot;);
+                while (tokenizer.hasMoreTokens()) &#123;
+                    Long toUser = Long.parseLong(tokenizer.nextToken());
+                    toUsers.add(toUser);
+                    context.write(new LongWritable(fromUser), new FriendCountWritable(toUser, -1L));
+                &#125;
+
+                for (int i = 0; i &lt; toUsers.size(); i++) &#123;
+                    for (int j = i + 1; j &lt; toUsers.size(); j++) &#123;
+                        context.write(new LongWritable(toUsers.get(i)), new FriendCountWritable((toUsers.get(j)), fromUser));
+                        context.write(new LongWritable(toUsers.get(j)), new FriendCountWritable((toUsers.get(i)), fromUser));
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+    public static class Reduce extends Reducer&lt;LongWritable, FriendCountWritable, LongWritable, Text&gt; &#123;
+        @Override
+        public void reduce(LongWritable key, Iterable&lt;FriendCountWritable&gt; values, Context context)
+                throws IOException, InterruptedException &#123;
+
+            // key is the recommended friend, and value is the list of mutual friends
+            final java.util.Map&lt;Long, List&lt;Long&gt;&gt; mutualFriends = new HashMap&lt;Long, List&lt;Long&gt;&gt;();
+
+            for (FriendCountWritable val : values) &#123;
+                final Boolean isAlreadyFriend = (val.mutualFriend == -1);
+                final Long toUser = val.user;
+                final Long mutualFriend = val.mutualFriend;
+
+                if (mutualFriends.containsKey(toUser)) &#123;
+                    if (isAlreadyFriend) &#123;
+                        mutualFriends.put(toUser, null);
+                    &#125; else if (mutualFriends.get(toUser) != null) &#123;
+                        mutualFriends.get(toUser).add(mutualFriend);
+                    &#125;
+                &#125; else &#123;
+                    if (!isAlreadyFriend) &#123;
+                        mutualFriends.put(toUser, new ArrayList&lt;Long&gt;() &#123;
+                            &#123;
+                                add(mutualFriend);
+                            &#125;
+                        &#125;);
+                    &#125; else &#123;
+                        mutualFriends.put(toUser, null);
+                    &#125;
+                &#125;
+            &#125;
+
+            java.util.SortedMap&lt;Long, List&lt;Long&gt;&gt; sortedMutualFriends = new TreeMap&lt;Long, List&lt;Long&gt;&gt;(new Comparator&lt;Long&gt;() &#123;
+                @Override
+                public int compare(Long key1, Long key2) &#123;
+                    Integer v1 = mutualFriends.get(key1).size();
+                    Integer v2 = mutualFriends.get(key2).size();
+                    if (v1 &gt; v2) &#123;
+                        return -1;
+                    &#125; else if (v1.equals(v2) &amp;&amp; key1 &lt; key2) &#123;
+                        return -1;
+                    &#125; else &#123;
+                        return 1;
+                    &#125;
+                &#125;
+            &#125;);
+
+            for (java.util.Map.Entry&lt;Long, List&lt;Long&gt;&gt; entry : mutualFriends.entrySet()) &#123;
+                if (entry.getValue() != null) &#123;
+                    sortedMutualFriends.put(entry.getKey(), entry.getValue());
+                &#125;
+            &#125;
+
+            Integer i = 0;
+            Integer count=0;
+            String output = &quot;&quot;;
+            //consist
+            for (java.util.Map.Entry&lt;Long, List&lt;Long&gt;&gt; entry : sortedMutualFriends.entrySet()) &#123;
+                if (i == 0) &#123;
+                    output = &quot;-&quot;+entry.getKey().toString() + &quot; (&quot; + entry.getValue().size() + &quot;: &quot; + entry.getValue() + &quot;)&quot;;
+                &#125;
+                else if(i&lt;=5) &#123;
+                    output += &quot;;&quot; + entry.getKey().toString() + &quot; (&quot; + entry.getValue().size() + &quot;: &quot; + entry.getValue() + &quot;)&quot;;
+                &#125;
+                ++i;
+            &#125;
+
+            output +=&quot;\n&quot;;
+            context.write(key, new Text(output));
+        &#125;
+    &#125;
+
+    public static void main(String[] args) throws Exception &#123;
+        Configuration conf = new Configuration();
+
+        Job job = new Job(conf, &quot;FriendRecommendation&quot;);
+        job.setJarByClass(FriendRecommendation.class);
+        job.setOutputKeyClass(LongWritable.class);
+        job.setOutputValueClass(FriendCountWritable.class);
+
+        job.setMapperClass(Map.class);
+        job.setReducerClass(Reduce.class);
+
+        job.setInputFormatClass(TextInputFormat.class);
+        job.setOutputFormatClass(TextOutputFormat.class);
+        String path1=&quot;/home/lite/FriendData.txt&quot;;
+        String path2=&quot;/home/lite/FriendOutput&quot;;
+//        FileSystem outFs = new Path(args[1]).getFileSystem(conf);
+//        outFs.delete(new Path(args[1]), true);
+//
+//        FileInputFormat.addInputPath(job, new Path(args[0]));
+//        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        FileSystem outFs = new Path(path2).getFileSystem(conf);
+        outFs.delete(new Path(path2), true);
+
+        FileInputFormat.addInputPath(job, new Path(path1));
+        FileOutputFormat.setOutputPath(job, new Path(path2));
+        job.waitForCompletion(true);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="Python代码"><a href="#Python代码" class="headerlink" title="Python代码"></a>Python代码</h2><pre><code class="python">class commander:
+    user_id_list = []
+    user_command_list = []
+
+    def __init__(self):
+        self.data_loader()
+    #把数据加载到类里的两个字典中
+    def data_loader(self):
+        with open(&#39;FriendData6.txt&#39;,encoding=&#39;utf-8&#39;) as file:
+            content=file.readlines()
+            # print(content.rstrip())     ##rstrip()删除字符串末尾的空行
+            # print(content)
+        ###按行读取数据 每个data都是一个用户的推荐数据
+            data=[]
+            for line in content:
+                data.append(line)
+        ## 按照tab 切分出被推荐人列表和目标推荐信息infoData
+            for d in data:
+                try:
+                        # print(d)
+                        if (d == &#39;\n&#39;): continue
+                        user = d.split(&#39;-&#39;)
+                        # print(&quot;被推荐人&quot;)
+                        # print(user[0])
+                        # print(&quot;推荐列表&quot;)
+                        # print(user[1])
+                        self.user_id_list.append(user[0].strip())
+                        self.user_command_list.append(user[1].strip())
+                except Exception as e:
+                        continue
+
+    #推荐函数
+    def command(self,user_id):
+        i=0
+        for id in self.user_id_list:
+            if user_id==id:
+                # return self.user_command_list[i]
+                self.command_print(self.user_command_list[i])
+                return
+            i+=1
+
+    #根据command_list返回输出字符串
+    def command_print(self,string):
+        id_commend=[]
+        mutual_commend=[]
+        string_res=&#39;&#39;
+        #每个按推荐人分块，每个人都是一个block
+        block=string.split(&#39;;&#39;)
+        print(block)
+        for b in block:
+            temp=b.split(&#39;(&#39;)
+            id_commend.append(temp[0])
+            mutual_commend.append(temp[1])
+            string_res += &#39;推荐人：&#39; + temp[0] + &#39;推荐原因，共同好友：&#39; + temp[1]+&#39;\n&#39;
+        print(string_res)
+</code></pre>
+<!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

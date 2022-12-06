@@ -147,12 +147,42 @@
         <p>..<br> <span id="more"></span></p>
 <h3 id="综合分析"><a href="#综合分析" class="headerlink" title="综合分析"></a>综合分析</h3><ul>
 <li>1.時序圖</li>
-<li>2.確定季節指數</li>
+<li>2.確定季節指數<br><img src="/./imgs/2022-12-05-12-54-13.png"><br> <img src="/./imgs/2022-12-05-12-53-59.png"></li>
 <li>3.消除季節影響<br> <img src="/./imgs/2022-11-14-16-28-08.png"><br> <img src="/./imgs/2022-11-14-16-28-25.png"><br> <img src="/./imgs/2022-11-14-16-28-42.png"></li>
 <li>4.長期趨勢的模型參數估計</li>
 <li>5.殘差檢驗</li>
 <li>6.模型擬合</li>
 </ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="目标数据"><a href="#目标数据" class="headerlink" title="目标数据"></a>目标数据</h3><p> ARMA: 针对弱平稳&#x2F;宽平稳时间序列分析,(P,Q)<br> ARIMA: 针对非平稳非周期性时间序列分析,(P,D,Q)<br> SARIMA: 针对非平稳周期性时间序列分析,ARIMA(p, d, q) × (P, D, Q)S</p>
+<pre><code>p --代表预测模型中采用的时序数据本身的滞后数(lags) ,也叫做AR/Auto-Regressive项
+d --代表时序数据需要进行几阶差分化，才是稳定的，也叫Integrated项。
+q --代表预测模型中采用的预测误差的滞后数(lags)，也叫做MA/Moving Average项
+</code></pre>
+<h3 id="SARIMA"><a href="#SARIMA" class="headerlink" title="SARIMA"></a>SARIMA</h3><p> 周期性时间序列，可以作为ARIMA的扩展，因此，首先需要去除周期性，去除的方式是在周期间隔上做一次ARIMA，此时可以得到一个非平稳非周期性的时间序列，然后在此基础之上再一次使用ARIMA进行分析。可以表示为：</p>
+<pre><code>ARIMA(p, d, q) × (P, D, Q)S ，其中各参数含义为：
+
+p: 周期性自回归阶数.
+d: 周期性差分阶数.
+q: 周期性移动平均阶数.
+S: 周期时间间隔.
+p,d,q的含义与上面的ARIMA里面含义相同。
+
+P: 周期性自回归阶数.
+D: 周期性差分阶数.
+Q: 周期性移动平均阶数.
+S: 周期时间间隔.
+
+举个例子：对于周期为12的非平稳时间序列，那么ARIMA(3,1,0) x (2,1,0)12的含义为：
+
+D=1意味着当前时刻t的值与过去一个周期时间点t-12的1阶差分，
+
+P=2意味着当前时刻t的值是过去两个周期时间点t-12以及t-24的回归。
+
+处理以后得到的时间序列再通过ARIMA(3,1,0)进行分析
+</code></pre>
+<h3 id="gt"><a href="#gt" class="headerlink" title="&gt;?"></a>&gt;?</h3><p>AR(自回归模型)，AR ( p) ，p阶的自回归模型。</p>
+<p>MA(移动平均模型)，MA(q)，q阶的移动平均模型。</p>
+<p>ARIMA(差分自回归移动平均模型)</p>
 <!-- flag of hidden posts -->
     </div>
     

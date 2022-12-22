@@ -149,7 +149,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Docker/" style="color: #ffa2c4">
+                <a href="/tags/Docker/" style="color: #03a9f4">
                     Docker
                 </a>
             </span>
@@ -158,9 +158,13 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>[TOC]</p>
-<h1 id="一、项目介绍"><a href="#一、项目介绍" class="headerlink" title="一、项目介绍"></a>一、项目介绍</h1><p>注：本文档中的图片均使用腾讯云图床，请在联网状态下查看文档。<br>本次实验目的在于学习和掌握使用docker打包一个图像分类python程序。</p>
-<h2 id="1、项目介绍"><a href="#1、项目介绍" class="headerlink" title="1、项目介绍"></a>1、项目介绍</h2><p>本次项目以一个水果图像分类任务为例，测试基于python的图像分类模型在docker中的部署和使用。<br>由于tensorflow对于相关库的版本要求比较严苛，例如本文中就出现了两次因为环境和tf版本不匹配而导致的bug。<br>因此，统一使用docker环境对于生产环境相比会有较大的提升。</p>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>docker作业文档<br> <span id="more"></span><br>[TOC]</p>
+<h1 id="一、项目介绍"><a href="#一、项目介绍" class="headerlink" title="一、项目介绍"></a>一、项目介绍</h1><p>注：本文档中的图片均使用腾讯云图床，请在联网状态下查看文档。</p>
+<p><a target="_blank" rel="noopener" href="https://www.liteee.top/2022/12/21/Docker%E4%BD%9C%E4%B8%9A/">网页存档在线查看</a></p>
+<p>本次实验目的在于学习和掌握如何使用docker部署一个简单的图像分类python程序。</p>
+<h2 id="1、项目介绍"><a href="#1、项目介绍" class="headerlink" title="1、项目介绍"></a>1、项目介绍</h2><p>本次项目以一个简单水果图像分类任务为例，测试基于python的图像分类模型在docker中的部署和使用。测试图片和程序均打包在镜像中，程序和图片请根据需求自行替换。</p>
+<h4 id="为什么使用docker？"><a href="#为什么使用docker？" class="headerlink" title="为什么使用docker？"></a>为什么使用docker？</h4><p>由于tensorflow对于相关工具链的版本要求比较严苛，例如本文中就出现了两次因为环境和tf版本不匹配而导致的bug。编译环境的版本问题经常会给相关的复现工作带来极大的困扰。</p>
+<p>因此，统一使用docker环境来进行机器学习实验，不管是对生产环境还是科研环境都会有显著的效率提升。</p>
 <h2 id="2-docker简介"><a href="#2-docker简介" class="headerlink" title="2. docker简介"></a>2. docker简介</h2><p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上。</p>
 <h2 id="3-tensorflow简介"><a href="#3-tensorflow简介" class="headerlink" title="3. tensorflow简介"></a>3. tensorflow简介</h2><p>TensorFlow是当前人工智能主流开发工具之一，是谷歌于2015年11月9日正式开源的计算框架，是基于由 Jeff Dean 领头的谷歌大脑团队基于谷歌内部第一代深度学习系统 DistBelief 改进来的通用计算框架，在GitHub和工业界有较高的应用程度和实用度。</p>
 <h2 id="4-keras简介"><a href="#4-keras简介" class="headerlink" title="4. keras简介"></a>4. keras简介</h2><p>Keras是一个由Python编写的开源人工神经网络库，可以作为Tensorflow、Microsoft-CNTK和Theano的高阶应用程序接口，进行深度学习模型的设计。</p>

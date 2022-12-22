@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Hadoop大作业文档 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <title>Hadoop大作业文档 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -129,7 +129,7 @@
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2022/12/6
+            2022/12/15
         </span>
         
         <span class="category">
@@ -253,7 +253,7 @@ context.write(key, new Text(output));
 <h1 id="2-好友推荐部分"><a href="#2-好友推荐部分" class="headerlink" title="2.好友推荐部分"></a>2.好友推荐部分</h1><p>原生的context格式不好切分，写数据库脚本又懒<br>因此来构想一个方便读取的新格式<br>原格式：</p>
 <pre><code>1 38737 (5: [3, 1, 41, 82, 12]),18591 (4: [92, 31, 32, 88])
 </code></pre>
-<p>设想格式</p>
+<p>改了一下格式</p>
 <pre><code>1 -38737 (5: [3, 1, 41, 82, 12]);18591 (4: [92, 31, 32, 88])+换行符
 </code></pre>
 <p>按分号或者换行切分用户块</p>
@@ -262,13 +262,15 @@ context.write(key, new Text(output));
 <li><p>data_loader(self)<br>负责将mapreduce的输出文本存储到类的两个数组中</p>
 <p>  user_id_list &#x3D; []# 保存目标用户列表<br>  user_command_list &#x3D; []# 保存为目标用户制作的推荐列表</p>
 </li>
-<li><p>command(self,user_id)<br>负责将输入的ID到目标列表中查找，并调用command_print的函数打印推荐结果</p>
+<li><p>recommand(self,user_id)<br>负责将输入的ID到目标列表中查找，并调用command_print的函数打印推荐结果</p>
 </li>
-<li><p>command_print(self,string)<br>负责将user_command_list中的推荐列表数据（string）进行切分并输出推荐语句</p>
+<li><p>recommand_print(self,string)<br>负责将user_command_list中的推荐列表数据（string）进行切分并输出推荐语句</p>
+</li>
+<li><p>J_Cal()计算杰卡德系数</p>
+</li>
+<li><p>J_Print（）输出基于杰卡德系数的推荐结果</p>
 </li>
 </ul>
-<h1 id="4-测试部分代码"><a href="#4-测试部分代码" class="headerlink" title="4.测试部分代码"></a>4.测试部分代码</h1><h2 id="Mapreduce部分展示"><a href="#Mapreduce部分展示" class="headerlink" title="Mapreduce部分展示"></a>Mapreduce部分展示</h2><p>输出数据：<br>示例：例如对ID:10的用户<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221206175901.png" alt="20221206175901"></p>
-<h2 id="Python部分展示"><a href="#Python部分展示" class="headerlink" title="Python部分展示"></a>Python部分展示</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221206175934.png" alt="20221206175934"><br>调用command函数，手动输入或者控制太输入用户id<br>可以生成为其推荐的结果：<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221206180658.png" alt="20221206180658"></p>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="全部打包"><a href="#全部打包" class="headerlink" title="全部打包"></a>全部打包</h2><p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1s3JAPcO6Ay293Bb6fVyNBA">https://pan.baidu.com/s/1s3JAPcO6Ay293Bb6fVyNBA</a><br>提取码：nws0 </p>
 <h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><pre><code class="java">package org.example;
 import org.apache.hadoop.conf.Configuration;
@@ -460,63 +462,171 @@ public class FriendRecommendation &#123;
     &#125;
 &#125;
 </code></pre>
-<h2 id="Python代码"><a href="#Python代码" class="headerlink" title="Python代码"></a>Python代码</h2><pre><code class="python">class commander:
-    user_id_list = []
-    user_command_list = []
+<h2 id="Python代码"><a href="#Python代码" class="headerlink" title="Python代码"></a>Python代码</h2><pre><code class="python">import time
+class recommander:
 
-    def __init__(self):
-        self.data_loader()
-    #把数据加载到类里的两个字典中
-    def data_loader(self):
-        with open(&#39;FriendData6.txt&#39;,encoding=&#39;utf-8&#39;) as file:
-            content=file.readlines()
-            # print(content.rstrip())     ##rstrip()删除字符串末尾的空行
-            # print(content)
-        ###按行读取数据 每个data都是一个用户的推荐数据
-            data=[]
-            for line in content:
-                data.append(line)
-        ## 按照tab 切分出被推荐人列表和目标推荐信息infoData
-            for d in data:
-                try:
-                        # print(d)
-                        if (d == &#39;\n&#39;): continue
-                        user = d.split(&#39;-&#39;)
-                        # print(&quot;被推荐人&quot;)
-                        # print(user[0])
-                        # print(&quot;推荐列表&quot;)
-                        # print(user[1])
-                        self.user_id_list.append(user[0].strip())
-                        self.user_command_list.append(user[1].strip())
-                except Exception as e:
-                        continue
+     #被推荐人ID
+     user_id_list = []
+     #推荐信息列表
+     user_recommand_list = []
+     #共同好友数量
+     user_mutual_num_list=[]
 
-    #推荐函数
-    def command(self,user_id):
-        i=0
-        for id in self.user_id_list:
-            if user_id==id:
-                # return self.user_command_list[i]
-                self.command_print(self.user_command_list[i])
-                return
-            i+=1
+     def __init__(self):
+          self.data_loader()
+     #把数据加载到类里的两个字典中
+     def data_loader(self):
+          with open(&#39;FriendDataAll&#39;,encoding=&#39;utf-8&#39;) as file:
+               content=file.readlines()
+               # print(content.rstrip())     ##rstrip()删除字符串末尾的空行
+               # print(content)
+          ###按行读取数据 每个data都是一个用户的推荐数据
+               data=[]
+               for line in content:
+                    data.append(line)
+          ## 按照tab 切分出被推荐人列表和目标推荐信息infoData
+               for d in data:
+                    try:
+                         if (d == &#39;\n&#39;): continue
+                         user = d.split(&#39;-&#39;)
+                         self.user_id_list.append(user[0].strip())
+                         self.user_recommand_list.append(user[1].strip())
+                         self.user_mutual_num_list.append(self.recommand_num(user[1].strip()))
+                    except Exception as e:
+                         continue
 
-    #根据command_list返回输出字符串
-    def command_print(self,string):
-        id_commend=[]
-        mutual_commend=[]
-        string_res=&#39;&#39;
-        #每个按推荐人分块，每个人都是一个block
-        block=string.split(&#39;;&#39;)
-        print(block)
-        for b in block:
-            temp=b.split(&#39;(&#39;)
-            id_commend.append(temp[0])
-            mutual_commend.append(temp[1])
-            string_res += &#39;推荐人：&#39; + temp[0] + &#39;推荐原因，共同好友：&#39; + temp[1]+&#39;\n&#39;
-        print(string_res)
+     #推荐函数
+     def recommand(self,user_id):
+          i=0
+          for id in self.user_id_list:
+               if user_id==id:
+                    # return self.user_command_list[i]
+                    self.recommand_print(self.user_recommand_list[i])
+                    return
+               i+=1
+
+     #根据command_list返回输出字符串
+     def recommand_print(self,string):
+          string_res = &#39;&#39;
+          # 每个按推荐人分块，每个人都是一个block
+          block = string.split(&#39;;&#39;)
+          i=1
+          print(&quot;共同好友数TOP5：&quot;)
+          #用来返回结果
+          str_list=[]
+          for b in block:
+               temp = b.split(&#39;(&#39;)
+               temp[1] = temp[1].replace(&#39;)&#39;, &#39;&#39;)
+               tempf = temp[1].split(&#39;:&#39;)
+               if(i&lt;=6):
+                    string_res = &#39;推荐人ID：&#39; + temp[0] + &#39; ，推荐原因：&#39; + tempf[0] + &#39; 个共同好友&#39;+&#39;  ，好友列表:&#39; + tempf[1] + &#39;\n&#39;
+                    i+=1
+                    str_list.append(string_res)
+
+          #小BUG，手动+1去重，开摆了
+          i=1
+          for i in range(1,len(str_list)):
+               print(str_list[i])
+
+          # return str_list
+     def recommand_num(self,string):
+          id_recommend = []
+          mutual_recommend = []
+          string_res = &#39;&#39;
+          # 每个按推荐人分块，每个人都是一个block
+          block = string.split(&#39;;&#39;)
+          for b in block:
+               temp = b.split(&#39;(&#39;)
+               temp[1] = temp[1].replace(&#39;)&#39;, &#39;&#39;)
+               tempf = temp[1].split(&#39;:&#39;)
+               id_recommend.append(temp[0])
+               mutual_recommend.append(temp[1])
+          return tempf[0]
+     #杰卡德部分
+     def get_friend_num(self,string):
+          with open(&#39;row_data.txt&#39;, encoding=&#39;utf-8&#39;) as file:
+               content = file.readlines()
+               ###按行读取数据 每个data都是一个用户的推荐数据
+               #比对并找到id
+               for line in content:
+                    id=line.split(&#39;\t&#39;)
+                    if(id[0].strip()==str(string)):break
+               # print(id)
+               num=id[1].count(&#39;,&#39;)
+               return num+1
+
+               #不需要考虑数据为0的情况，因为hadoop输出的都是有好友的关系，所以,为0的都是只有一个好友
+
+     def J_cal(self,user_id):
+          i=0
+          for id in self.user_id_list:
+               if user_id==id:
+                    # return self.user_command_list[i]
+                    self.J_print(self.user_recommand_list[i],user_id)
+                    return
+               i+=1
+
+     def J_print(self,string,user_id):
+          id_list=[]
+          #共同好友数表
+          mutul_num_list=[]
+          #杰卡德系数得分表
+          J_list=[]
+
+          m_friend_num=0
+          t_friend_num=int(self.get_friend_num(user_id.strip()))
+
+          # 每个按推荐人分块，每个人都是一个block
+          block = string.split(&#39;;&#39;)
+          i=1
+          for b in block:
+               temp = b.split(&#39;(&#39;)
+               temp[1] = temp[1].replace(&#39;)&#39;, &#39;&#39;)
+               tempf = temp[1].split(&#39;:&#39;)
+               # string_res += str(i)+&#39;:推荐人ID：&#39; + temp[0] + &#39; ，推荐原因：&#39; + tempf[0] + &#39; 个共同好友&#39;+ &#39;\n&#39;#+&#39;  ，好友列表:&#39; + tempf[1] + &#39;\n&#39;
+               id_list.append(temp[0])
+               mutul_num_list.append(tempf[0])
+               i+=1
+          # print(mutul_num_list)
+          # print(len(id_list))
+          max_score=0
+          # print(&quot;id表：&quot;)
+          # print(id_list)
+          print(&quot;杰卡德系数表：&quot;)
+
+          for i in range(len(id_list)):
+               score=int(mutul_num_list[i])/max(t_friend_num,(int(self.get_friend_num(id_list[i].strip()))))
+               J_list.append(score)
+               if score&gt;max_score:
+                    max_score=score
+                    best_id=i
+               # print(score)
+          print(J_list)
+          print(&#39;最佳推荐人为：&#39;+id_list[best_id])
+
+if __name__ == &#39;__main__&#39;:
+
+     user_id=&#39;28&#39;
+     print(&quot;选择示例用户，ID：&quot;+user_id)
+
+     start_time = time.time()
+     recommander_A = recommander()
+
+     #基于共同好友数的推荐
+     recommander_A.recommand(user_id)
+     end_time = time.time()
+     print(&quot;耗时: &#123;:.2f&#125;秒&quot;.format(end_time - start_time))
+
+     #杰卡德推荐
+     start_time = time.time()
+     recommander_J = recommander()
+     recommander_J.J_cal(user_id)
+
+     end_time = time.time()
+     print(&quot;耗时: &#123;:.2f&#125;秒&quot;.format(end_time - start_time))
+
 </code></pre>
-<!-- flag of hidden posts -->
+
     </div>
     
     

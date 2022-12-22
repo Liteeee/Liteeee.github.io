@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Docker作业过程 | Liteee的世界尽头</title>
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>Docker作业过程 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/12/21
+        </span>
+        
+        <span class="category">
+            <a href="/categories/Docker/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                Docker
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Docker/" style="color: #ffa2c4">
+                    Docker
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>[TOC]</p>
+<h1 id="一、项目介绍"><a href="#一、项目介绍" class="headerlink" title="一、项目介绍"></a>一、项目介绍</h1><p>注：本文档中的图片均使用腾讯云图床，请在联网状态下查看文档。<br>本次实验目的在于学习和掌握使用docker打包一个图像分类python程序。</p>
+<h2 id="1、项目介绍"><a href="#1、项目介绍" class="headerlink" title="1、项目介绍"></a>1、项目介绍</h2><p>本次项目以一个水果图像分类任务为例，测试基于python的图像分类模型在docker中的部署和使用。<br>由于tensorflow对于相关库的版本要求比较严苛，例如本文中就出现了两次因为环境和tf版本不匹配而导致的bug。<br>因此，统一使用docker环境对于生产环境相比会有较大的提升。</p>
+<h2 id="2-docker简介"><a href="#2-docker简介" class="headerlink" title="2. docker简介"></a>2. docker简介</h2><p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上。</p>
+<h2 id="3-tensorflow简介"><a href="#3-tensorflow简介" class="headerlink" title="3. tensorflow简介"></a>3. tensorflow简介</h2><p>TensorFlow是当前人工智能主流开发工具之一，是谷歌于2015年11月9日正式开源的计算框架，是基于由 Jeff Dean 领头的谷歌大脑团队基于谷歌内部第一代深度学习系统 DistBelief 改进来的通用计算框架，在GitHub和工业界有较高的应用程度和实用度。</p>
+<h2 id="4-keras简介"><a href="#4-keras简介" class="headerlink" title="4. keras简介"></a>4. keras简介</h2><p>Keras是一个由Python编写的开源人工神经网络库，可以作为Tensorflow、Microsoft-CNTK和Theano的高阶应用程序接口，进行深度学习模型的设计。</p>
+<h1 id="二、安装步骤"><a href="#二、安装步骤" class="headerlink" title="二、安装步骤"></a>二、安装步骤</h1><h2 id="1-实验环境"><a href="#1-实验环境" class="headerlink" title="1. 实验环境"></a>1. 实验环境</h2><p>本次实验使用的环境为：</p>
+<ul>
+<li>虚拟化软件：VMware Workstation Pro</li>
+<li>虚拟机系统：CentOS Linux release 7.5.1804</li>
+<li>Docker版本：20.10.17</li>
+<li>Python版本: 3.7</li>
+</ul>
+<h2 id="2-Docker安装与测试"><a href="#2-Docker安装与测试" class="headerlink" title="2. Docker安装与测试"></a>2. Docker安装与测试</h2><p>CentOS官方安装文档：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
+<h4 id="2-1-删除旧版本"><a href="#2-1-删除旧版本" class="headerlink" title="2.1 删除旧版本"></a>2.1 删除旧版本</h4><pre><code>sudo yum remove docker \
+                docker-client \
+                docker-client-latest \
+                docker-common \
+                docker-latest \
+                docker-latest-logrotate \
+                docker-logrotate \
+                docker-engine
+</code></pre>
+<h4 id="2-2-设置依赖项"><a href="#2-2-设置依赖项" class="headerlink" title="2.2 设置依赖项"></a>2.2 设置依赖项</h4><pre><code>sudo yum install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+</code></pre>
+<h4 id="2-3-安装Docker"><a href="#2-3-安装Docker" class="headerlink" title="2.3 安装Docker"></a>2.3 安装Docker</h4><pre><code>sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+</code></pre>
+<h4 id="2-4-启动Docker"><a href="#2-4-启动Docker" class="headerlink" title="2.4 启动Docker"></a>2.4 启动Docker</h4><pre><code>sudo systemctl start docker
+</code></pre>
+<h4 id="2-5-测试Docker"><a href="#2-5-测试Docker" class="headerlink" title="2.5 测试Docker"></a>2.5 测试Docker</h4><pre><code>sudo docker run hello-world
+</code></pre>
+<p>测试结果如图所示即安装成功：<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221221152957.png" alt="20221221152957"></p>
+<h4 id="2-6-Docker基本命令"><a href="#2-6-Docker基本命令" class="headerlink" title="2.6 Docker基本命令"></a>2.6 Docker基本命令</h4><pre><code>docker ps -a 查看运行中的容器
+docker build -t xxx 路径  将该路径建立为docker镜像
+docker images     查看所有的docker镜像
+docker run xxx   运行docker镜像
+docker ps -a     查看运行之中的容器
+</code></pre>
+<h4 id="2-7-Docker换源。"><a href="#2-7-Docker换源。" class="headerlink" title="2.7 Docker换源。"></a>2.7 Docker换源。</h4><p>打开&#x2F;etc&#x2F;docker&#x2F;daemon.json文件，</p>
+<pre><code>sudo gedit /etc/docker/daemon,json
+</code></pre>
+<p>添加以下内容：</p>
+<pre><code>&#123;&quot;registry-mirrors&quot;:[&quot;https://registry.docker-cn.com&quot;]&#125;
+</code></pre>
+<p>保存，然后重启docker服务：</p>
+<pre><code>systemctl restart docker
+</code></pre>
+<h2 id="3-运行和打包Python程序"><a href="#3-运行和打包Python程序" class="headerlink" title="3.运行和打包Python程序"></a>3.运行和打包Python程序</h2><h3 id="3-1-示例文件"><a href="#3-1-示例文件" class="headerlink" title="3.1.示例文件"></a>3.1.示例文件</h3><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221222130610.png" alt="20221222130610"><br>先将文件保存到虚拟机中任意位置<br>在终端中进入到fruit目录下，如图所示：<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221221162533.png" alt="20221221162533"></p>
+<h3 id="3-2-Dockerfile的配置"><a href="#3-2-Dockerfile的配置" class="headerlink" title="3.2.Dockerfile的配置"></a>3.2.Dockerfile的配置</h3><pre><code>FROM python:3.7
+COPY . /fruit 
+WORKDIR /fruit
+RUN pip3 install -i https://mirrors.aliyun.com/pypi/simple/ install -r requirements.txt
+CMD [&quot;python3&quot;,&quot;fruit.py&quot;]
+</code></pre>
+<p>FROM:使用python3.7环境<br>COPY: 将当前目录.下所有文件，COPY到容器目录&#x2F;fruit中<br>WORKDIR:RUN命令的容器工作路径<br>RUN: 这里的目的是使用阿里源下载requirements.txt中的依赖项：</p>
+<pre><code>tensorflow-cpu==2.1.0
+matplotlib
+</code></pre>
+<p>CMD:运行镜像时自动使用指令： python3 fruit.py</p>
+<h3 id="3-3-打包Docker镜像"><a href="#3-3-打包Docker镜像" class="headerlink" title="3.3.打包Docker镜像"></a>3.3.打包Docker镜像</h3><pre><code>sudo docker build -t fruit .
+</code></pre>
+<p>运行结果如图：<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221221181322.png" alt="20221221181322"></p>
+<p>中间下载内容太长了，省略</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221221181411.png" alt="20221221181411"></p>
+<p>至此所有文件打包完成。</p>
+<h3 id="3-4-查看Docker镜像"><a href="#3-4-查看Docker镜像" class="headerlink" title="3.4.查看Docker镜像"></a>3.4.查看Docker镜像</h3><pre><code>sudo docker images
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221221181641.png" alt="20221221181641"></p>
+<h3 id="3-5-运行测试"><a href="#3-5-运行测试" class="headerlink" title="3.5.运行测试"></a>3.5.运行测试</h3><pre><code>sudo run docker fruit
+</code></pre>
+<h4 id="PROTOCOL报错"><a href="#PROTOCOL报错" class="headerlink" title="PROTOCOL报错"></a>PROTOCOL报错</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221221183341.png" alt="20221221183341"></p>
+<p>报错内容:</p>
+<pre><code>TypeError: Descriptors cannot not be created directly.
+If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc &gt;= 3.19.0.
+If you cannot immediately regenerate your protos, some other possible workarounds are:
+1. Downgrade the protobuf package to 3.20.x or lower.
+2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+</code></pre>
+<p>考虑是官方的Python3.7环境中protoc版本过高的问题，在requirements中的增加一行命令</p>
+<pre><code>RUN pip uninstall -y protobuf
+RUN pip3 install -i https://mirrors.aliyun.com/pypi/simple/ install protobuf==3.20.1
+</code></pre>
+<p>解决问题</p>
+<h4 id="decode报错"><a href="#decode报错" class="headerlink" title="decode报错"></a>decode报错</h4><p>解决了上个问题后，再次打包运行，报错</p>
+<pre><code>model_config = json.loads(model_config.decode(‘utf-8‘)) AttributeError: ‘str‘ object has no attribut
+</code></pre>
+<p>这个错误发生在tensorflow的包中，没法直接改代码。<br>原因似乎是tensorflow在安装过程中，自动安装的h5py版本过高。</p>
+<p>所以在requirements中加上一行</p>
+<pre><code>h5py==2.10.0
+</code></pre>
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221222125250.png" alt="20221222125250"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221222125434.png" alt="20221222125434"></p>
+<p>示例程序指定了一张图片，让模型去输出结果，所以输出结果为坏苹果。</p>
+<p>到此就结束了，程序内容可以随意替换，要检测新的图片也可以上传到容器中，或者更换keras中的其他图像检测模型。</p>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

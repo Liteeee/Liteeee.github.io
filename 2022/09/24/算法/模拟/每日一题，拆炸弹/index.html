@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>每日一题：循环数组拆炸弹，C++取模运算踩坑 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <title>每日一题：循环数组拆炸弹，C++取模运算踩坑 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -149,28 +149,28 @@
             
             <span class="tag">
                 
-                <a href="/tags/每日一题/" style="color: #03a9f4">
+                <a href="/tags/每日一题/" style="color: #ffa2c4">
                     每日一题
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/力扣/" style="color: #03a9f4">
+                <a href="/tags/力扣/" style="color: #00a596">
                     力扣
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/模拟/" style="color: #ffa2c4">
+                <a href="/tags/模拟/" style="color: #00bcd4">
                     模拟
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/滑动窗口/" style="color: #00bcd4">
+                <a href="/tags/滑动窗口/" style="color: #03a9f4">
                     滑动窗口
                 </a>
             </span>
@@ -179,7 +179,7 @@
         
     </div>
     <div class="content" v-pre>
-        <h1 id="先总结通用的坑点"><a href="#先总结通用的坑点" class="headerlink" title="先总结通用的坑点"></a>先总结通用的坑点</h1><p>在奇怪的地方浪费了一小时才搞明白问题。<br> <span id="more"></span></p>
+        <h1 id="碰到的坑"><a href="#碰到的坑" class="headerlink" title="碰到的坑"></a>碰到的坑</h1><p>在奇怪的地方浪费了一小时才搞明白问题。<br> <span id="more"></span></p>
 <h2 id="坑一：C-的零向取余"><a href="#坑一：C-的零向取余" class="headerlink" title="坑一：C++的零向取余"></a>坑一：C++的零向取余</h2><h4 id="C-的负数取余方式不同于数学上的取余，"><a href="#C-的负数取余方式不同于数学上的取余，" class="headerlink" title="C++的负数取余方式不同于数学上的取余，"></a>C++的负数取余方式不同于数学上的取余，</h4><p>例如 i%n，在数学上和PYTHON中：</p>
 <pre><code>-5%7 = -5 - （7*-1）= 2 
 即7乘数之后小于-5，这是负向取余。
@@ -191,10 +191,7 @@
 <h2 id="坑二："><a href="#坑二：" class="headerlink" title="坑二："></a>坑二：</h2><p>避免直接用code.size()的返回值参与取余运算</p>
 <pre><code class="c++">    num=code.size();//数组长度=6
 </code></pre>
-<pre><code>-1 % code.size()=3;//原因不明？
--1 % 6 = -1;
--1 % num
-</code></pre>
+<p>直接用就会这样，不明白：<br>    -1 % code.size()&#x3D;3;<br>    -1 % 6 &#x3D; -1;<br>    -1 % num &#x3D; -1;</p>
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>你有一个炸弹需要拆除，时间紧迫！你的情报员会给你一个长度为 n 的 循环 数组 code 以及一个密钥 k 。</p>
 <pre><code>为了获得正确的密码，你需要替换掉每一个数字。所有数字会 【同时被替换】
 
@@ -286,7 +283,7 @@ public:
 
 复杂度分析O（n）
 </code></pre>
-<!-- flag of hidden posts -->
+
     </div>
     
     

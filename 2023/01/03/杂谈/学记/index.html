@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>学记 | Liteee的世界尽头</title>
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>学记 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/1/3
+        </span>
+        
+        <span class="category">
+            <a href="/categories/杂谈/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                杂谈
+            </a>
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <p>读有所思，遂记。<br> <span id="more"></span></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>————从今往后不要再因为人际交往的事情陷于泥潭， 从今往后不要再因为自己的软弱陷于痛苦。</p>
+<p>————历史不幸的记载着有人的成功是践踏他人的尊严，有人的卓越建立在别人的痛苦之上。</p>
+<p>————我当老师，我一届在学校能带1000人，我打算教30年，那么就是10届也就是10000人，这1万人里面成绩好的能有很多，我们学校放眼整个昆明，我们学校能教出很多成绩优秀的学生，成绩优秀只要你肯学只要你有天分你都可以好，太简单了，但是成绩好就真的可以了吗，成绩好的人有多少是精致的利己主义者，有多少人用自己的才华在将来去压榨别人，去从别人手上抢走别人本应得到的那些别人救命的东西，有多少人会用自己的才华去给别人添堵，去给这个世界增添的不是那些美好不是那些可以给别人分享的快乐，我需要的这样子的好学生吗，我需要的是那些有潜能，有自己的本心，本心比潜能更重要，你自己的家教你自己树立的人生观道德观价值观如果有正义有公平有阳光有积极，这些东西是比天赋更重要的东西，我希望能把这些学生培养到他们应该到的位置上，希望他们有能力有责任有权利有这些能帮其他人一起谋求更大福利的东西，我希望能把他们扶到那个位置上，这就是之前伟大领袖提过的星星之火可以燎原，我一年教的一千个人里面星星之火的概率可能连百分之十都不到，而这百分之十这一百人里面，他们在一路上可能会因为自己放弃了自己的理想放弃自己心中坚守的正义，可能堕入平庸可能堕落到比原本黑暗的人更加黑暗，因为他们本来就有天赋也有实力，他们作恶的能力比原本的恶人更加恐怖，所以这些星星之火就真的就像星星一样，可能被消逝可能被埋没，可能到最后一个都没有，但是哪怕有一个，我作为老师哪怕这三十年我教出来的最后只有一个，我也相信这一个人可以改变很多，可以帮更多的人谋求更大的福利，可以真正为国家为民族为立德树人做出贡献，而且我们学校本身就是当年的西南联大，本来就是当年抗战时期就是全国最后的优秀的老师汇集到一起的学校，我只有这样子培育出了这些学生才是对这样一份精神的传承，我必须要担得起这一份责任，否则我愧为人师，也就是我们的校训，先学会做人再学做学问。</p>
+<p>读至此，我想，我应当向往的学问和人格，该是什么样的？</p>
+<h1 id="乐"><a href="#乐" class="headerlink" title="乐"></a>乐</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230103123259.png" alt="20230103123259"><br>以丝附木，乐起源于中华民族的桑树崇拜，代指神树的祭祀活动。</p>
+<ul>
+<li>社：大型祭祀娱乐场所。</li>
+<li>社稷：齐国的祭祀场面。</li>
+<li>桑林：宋国的祭祀场面。</li>
+<li>云梦：楚国的合欢圣地。</li>
+</ul>
+<p>在社稷日，忘乎所以，了不思归。<br>因此，乐最早作为快乐的乐。</p>
+<p>声乐：在这种快乐的场面中，声乐的业务最为广泛。因此丝竹管弦音声助乐，占用了乐在助乐方面的含义。</p>
+<p>乐不同于快感的释放，快感对抗于压力和枯燥，是对压抑的抗争，是欲望的释放。</p>
+<p>乐应当是完全沉静于当下的事物，达成一种浑然一体的和谐。并不一定有强烈的情绪，但是却有刹那忘我的精神世界。<br>拥有不可名状的律动感，就像一段恰到好处的旋律拨动心弦。</p>
+<p>孔子用乐，作为自己求道的精神答案。</p>
+<h1 id="时、中、庸"><a href="#时、中、庸" class="headerlink" title="时、中、庸"></a>时、中、庸</h1><p>中时：音乐中的旋律需要在合适的时间出现在合适的位置。商人需要在合适的时间入市。军队需要在合适的时间入场。君子需要在合适的时间行动。</p>
+<p>中庸：一手好牌而不咄咄逼人，一手烂牌而不失尊严。贤贤易色，言而有信，亦是中庸。</p>
+<p>孔子主张学以中时，老子认同自然顺时。</p>
+<h1 id="学"><a href="#学" class="headerlink" title="学"></a>学</h1><p>学不等同于学文，即为获取知识而学。<br>————行有余力，则以学文。</p>
+<p>若是只以知识为求学的目的，没有从根本上达到教育的目的，没有过滤掉人性。</p>
+<p>行→学→中：学应当在行中反复实践，不断体悟，寻求中时的状态。在生命的韵律感中，达到大乐（大道）。<br>————学而时习之，不亦说乎。</p>
+<p>真正的学而时习，不是在知识的复习中得到快乐，不可拘泥于学文。</p>
+<h1 id="仁"><a href="#仁" class="headerlink" title="仁"></a>仁</h1><p>不是一种具体的美德，不是一种死板的规范。而是代指中时在各种时宜场景之下的具体表现。</p>
+<p>对于求学的人，克己复礼可谓仁。</p>
+<p>对于莽撞的人，谨言慎行亦为仁。</p>
+<p>就像计算机问题一样，中时是难以求解的答案，仁是复杂没有规律的变量。</p>
+<p>因此需要一种算法模板，来逼近所寻求的答案，那便是礼。</p>
+<h1 id="礼"><a href="#礼" class="headerlink" title="礼"></a>礼</h1><p>礼可以是简单可复现的行为模板，也可以是复杂的高风亮节。</p>
+<p>是一种简单廉价的教育算法，而不该作为封建大家长人吃人的统治工具。</p>
+<p>言而有信是礼，礼节问候是礼，仪式典礼是礼。</p>
+<p>礼是在复杂的人际交往的情感网络中，构建提炼出来的简单高效的联络模型。</p>
+<p>这个模板能够高效地表达尊重，消除戒备。</p>
+<p>而在这个简单高效的模型中，切记不要拘泥于模板本身。而是在用模型做实践的过程中，领悟中时，寻求中庸。<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230103131314.png" alt="20230103131314"></p>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>兴于诗，立于礼，成于乐。 ————《论语》</p>
+<p>古之学者为己，今之学者为人。 ————《论语》</p>
+<p>质胜文则野，文胜质则史。文质彬彬，然后君子。 ————《论语·雍也篇》</p>
+<p>饱食终日，无所用心，难矣。————《阳货篇》</p>
+<p>不知命，无以为君子也。不知礼，无以立也。不知言，无以知人也。</p>
+<p>弟子入则孝，出则悌，谨而信，泛爱众而亲仁。行有余力，则以学文。 ————《学而篇》</p>
+<p>凡一国之能立于世界，必有其国民独具之特质。上自道德法律，下至风俗习惯、文学美术，皆有一种独立之精神，祖父传之，子孙继之，然后群乃结，国乃成。斯实民族主义之根柢、源泉也。我同胞能数千年立国于亚洲大陆，必其所具特质有宏大、高尚、完美，厘然异于群族者，吾人当保存之而勿失坠也……世或以“守旧”二字为一极可厌之名词，其然岂其然哉？吾所患不在守旧，而患无真能守旧者。真能守旧者何？即吾所谓淬厉其固有而已。————梁启超《新民说》，第8页</p>
+<p>吾中国道德之发达，不可谓不早。虽然，偏于私德，而公德殆阙如。试观《论语》《孟子》诸书，吾国民之木铎，而道德所从出者也。其中所教，私德居十之九，而公德不及其一焉。如《皋陶谟》之九德，洪范之三德，《论语》所谓“温、良、恭、俭、让”，所谓“克己复礼”，所谓“忠信笃敬”，所谓“寡尤寡悔”，所谓“刚毅木讷”，所谓“知命知言”，《大学》所谓“知止，慎独，戒欺，求慊”，《中庸》所谓“好学，力行，知耻”，所谓“戒慎恐惧”，所谓“致曲”。《孟子》所谓“存心养性”，所谓“反身、强恕”……凡此之类，关于私德者，发挥几无余蕴，于养成私人(私人者对于公人而言，谓一个人不与他人交涉之时也。)之资格，庶乎备矣。————梁启超《新民说》，(第16—17页)</p>
+<p>道德之本体一而已，但其发表于外，则公私之名立焉。人人独善其身者谓之私德，人人相善其群者谓之公德。二者皆人生所不可缺之具也。无私德则不能立。合无量数卑污虚伪残忍愚儒之人，无以为国也。无公德则不能团。虽有无量数束身自好、廉谨良愿之人，仍无以为国也。————梁启超《新民说》，第16页</p>
+<h1 id="后言"><a href="#后言" class="headerlink" title="后言"></a>后言</h1><p>梁启超列举了《论语》、《孟子》、《大学》、《中庸》、《尚书》所标举的德行，如忠信笃敬、温良恭俭让，大体皆为私德；所教人的修养方法，如知止慎独、存心养性，皆为增进私德之方法，这些中国古人的著作对于养成人的私德，相当完备。而在公德培养方面，他认为中国的传统文化却付诸阙如，这对近代国家的形成非常不利。</p>
+<p>虽说要重德，但艺术史的转折点常常也是人类史的转折点，因此有许多人类艺术史上许多动人的作品都是由在当“当时社会中有道德缺陷”的人，“违背当时社会公德的人”完成的。人总是有时代的局限性，在这一点上，也许私德扮演的角色还会重要些。阅历尚浅，不再往下理解，绝知此事要躬行。</p>
+<h1 id="笔记来源"><a href="#笔记来源" class="headerlink" title="笔记来源"></a>笔记来源</h1><ul>
+<li>清华大学哲学系.陈来丨梁启超的“私德”论及其儒学特质：<a target="_blank" rel="noopener" href="https://www.phil.tsinghua.edu.cn/info/1037/1393.htm">https://www.phil.tsinghua.edu.cn/info/1037/1393.htm</a></li>
+<li>Bilibili关于礼、乐、中、时之关系的梳理视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1o24y117AF/?spm_id_from=333.999.top_right_bar_window_custom_collection.content.click&amp;vd_source=4a96784791ed29076f3826fc3c18b4a4">https://www.bilibili.com/video/BV1o24y117AF/?spm_id_from=333.999.top_right_bar_window_custom_collection.content.click&amp;vd_source=4a96784791ed29076f3826fc3c18b4a4</a></li>
+<li>《论语》</li>
+</ul>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

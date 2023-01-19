@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>花鸟风月、洗衣机、清眠 | Liteee的世界尽头</title>
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>花鸟风月、洗衣机、清眠 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/1/19
+        </span>
+        
+        <span class="category">
+            <a href="/categories/随记/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                随记
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/三题故事/" style="color: #00bcd4">
+                    三题故事
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>三题故事</p>
+<p>1&#x2F;19，饭后，电脑桌边，游戏里在水天丛林挂机一晚上，笔记本放腿上码字，与一边友人闲聊，南北战争、陈炯明、人际关系。随后戛然而止，继续起笔。</p>
+ <span id="more"></span>
+<h2 id="花鸟风月-x2F-洗衣机-x2F-小月亮-x2F-清眠"><a href="#花鸟风月-x2F-洗衣机-x2F-小月亮-x2F-清眠" class="headerlink" title="花鸟风月&#x2F;洗衣机&#x2F;小月亮&#x2F;清眠"></a>花鸟风月&#x2F;洗衣机&#x2F;小月亮&#x2F;清眠</h2><h3 id="1-小月亮"><a href="#1-小月亮" class="headerlink" title="1.小月亮"></a>1.小月亮</h3><p> 苍茫云海，明月穹天，清冷的新竹，隐约三两声的鸟啼，旅人止步。</p>
+<p> 旅人仰头，成群的大雁正在北迁。林中有一条潺潺的溪流，溪流上，摇曳的夜色流向尽头的池塘。旅人迈出步伐，灰色的工装裤角沾上了湿润的泥土，到池塘边的石头上寻求短暂的歇息。</p>
+<p> 背包里是陈旧的相机，一本艾伦·亨德里克森的《如何克服社交焦虑》，几包干粮和一瓶随身的蓝色水壶。说来很奇怪，一个会独自深入竹林并陶醉在夜色之中的人，为何最近会随身携带这本书？这幅画面实在是很滑稽。</p>
+<p> 旅人喜欢动荡的时代产生的思想碰撞，以及这种时期诞生的艺术作品，所以通常不会正眼相看摆在书店正门的那畅销书。</p>
+<p> 但最近携带的书却与往常截然相反。</p>
+<p> 他或许曾经有过进士及第的渴望，亦有成为魔法师的愿望。但现在求师无门，只有在清冷的月色中的一片茫然。</p>
+<p> 直到有一天，旅人看到了月亮，听到了月亮，月亮找到了他，月亮说话了。原来，他跟月亮很久以前就认识了。大概在很久以前，不安的他曾经见过小小的月亮。</p>
+<p> 月亮不太理解旅人的语言，旅人也一样。但旅人仅仅只是听着空灵的声音，便觉得，这一刻忘记了一切的苦恼。清澈的池水和月色，模糊了他的眼睛，若是下了雨，他便放任自己沉醉在芙蓉般的雨景中。每一天晚上，旅人总是期待着这一过程。</p>
+<p> 通过这种简单而直接的交流，月亮给了旅人一支笔。大概的意思是，这支笔，既可书写文墨，亦可挥洒魔法。旅人欣然地接受了。</p>
+<p> 于是，笔沾上的颜料，便会让山水的生活重现浓厚的色彩。笔沾上了香料，记忆里潦倒的房屋，街边的小巷，也点缀上了烟火的气息。笔上的文墨，能让旅人的文章更为顺畅。笔上挥洒的粉末，任何关于魔法的问题，旅人似乎也有办法将其解决。</p>
+<p> 旅人感到非常的惊喜。</p>
+<p> 他想告诉月亮这件事，但月亮是高耸的月亮，既温暖又冰冷的清辉让旅人自惭形秽。</p>
+<p> 月亮并不总是有求必应，每一天的月亮都是新一天的月亮，与时间被停滞刚刚开始流转的旅人不同，旅人是静止的，所以旅人感受到了巨大的反差。</p>
+<p> 渐渐的，旅人感受到了离别的气息，他也忘记了，自己是想要道谢，还是想要沉醉在月色中的时光。甚至，也许对月亮产生了不切实际的幻想。</p>
+<p> 但是，他还是说出来了，在月亮刚好停留在池塘里的时候。</p>
+<h3 id="2-滚筒洗衣机"><a href="#2-滚筒洗衣机" class="headerlink" title="2.滚筒洗衣机"></a>2.滚筒洗衣机</h3><p> 原来，月亮有时在池塘里，有时在天上，拒旅人于千里之外。旅人摸不清楚其中的规律，说不清道不别。但还是迷迷糊糊的接受了这个设定。</p>
+<p> 月亮在天上的时候，他觉得很疑惑。月亮在荷塘里时，他觉得很安心。这种安心感，不分昼夜，试图吞噬旅人所有的时间。</p>
+<p> 于是安心变成了贪婪，在乌云笼罩的夜晚，不管是在虚假的竹林里，还是在尘世小巷里，旅人会去找其他的星星，这期间，蓝色的星星往来络绎不绝，粉色的星星十有二三。</p>
+<p> 但市井气里，找不到清静。</p>
+<p> 显然旅人似乎误解了什么，他忘记了自己想要的是什么。旅人能得到笔，也许不仅仅是因为月亮，也是因为他自己曾经拥有过笔，也曾拥有过星星。但或许旅人此时想要的已经不止是笔，他想要一直能看见月亮。</p>
+<p> 甚至，短暂的想过拥有月亮。但是很快被身而为人的道德感所拒绝。</p>
+<p> 月亮是变化的月亮，月亮能够出现在学院天空中、也可能出现在任何一处地方，月亮的未来总是明亮，无限可能的。</p>
+<p> 而旅人已经踏上一条确定的旅途，通向之处只有书和魔法的田野，平平无奇。</p>
+<p> 旅人不断地告诫自己，必须区分自己的感谢之情、以及对于快乐的喜爱、对于月亮的喜爱、对于贪婪的喜爱。切不可做出冒昧之事。</p>
+<p> 这种感觉，就像衬衫和毛衣被卷成保龄球扔进滚筒洗衣机里，然后按下开始按钮。</p>
+<h3 id="3-包里的书"><a href="#3-包里的书" class="headerlink" title="3.包里的书"></a>3.包里的书</h3><p> 所以，现在旅人包里的近代文学换成了那本《如何克服社交焦虑》。</p>
+<p> 他总结得到了一个论点：</p>
+<p> ————“任何一种关系，都是好感和恶感的延续，而人的表现本身是稳定的。因为表现的得分并不完全取决于表现本身，而取决于看的人对你的好感和恶感。”</p>
+<p> ————“而好感，不随是从你的表现分中得来，而是在对你有好感的人一次次的互动中增加的。”</p>
+<p> 也就是说，焦虑的人们总是担心自己刚刚说错的话、刚刚做出的表现是否达到满分，总是在后悔自己刚才怎么没有换一个更好的说法&#x2F;做法。而在对你有好感的人眼里，其实他觉得你刚刚的表现还行。</p>
+<p> 于是旅人相信了，他忘却了自己过往习得的典籍，忘却了要约束自己的言行举止。在与群星交融的闲暇里，连喝可乐都有醉意。</p>
+<p> 他觉得人就应该一股脑地展现真实。这样是符合理论的实践活动。</p>
+<p> 所以他弄错了，在他感到焦虑的时候，他表现出焦虑。在他感到不安的时候，他表现出不安。</p>
+<p> 这种做法，就像定时炸弹，甚至在某一刻会扭曲自己的言行，连最罕见的嫉妒都表现出来，让自己变得不像自己。</p>
+<p> 于是洗衣机滚动得更加厉害了。</p>
+<p> 洗衣房里所有人都察觉除了不对劲，现场一片哗然。</p>
+<h3 id="4-清眠"><a href="#4-清眠" class="headerlink" title="4.清眠"></a>4.清眠</h3><p> 于是越是实践，他觉得月亮越是束之高阁。终于有一天他不明白了。</p>
+<p> 旅人觉得理论出错了，自己也出错了。</p>
+<p> 他觉得很难过，不是月亮越来越远这件事，而是对于自己居然产生了违背自己底线的情欲，并且做出了过分的行为。</p>
+<p> 他觉得有很多想不通的事情，很伤心。</p>
+<p> 甚至步行在群星环绕的城市中时，连月亮都不太敢仰望了。</p>
+<p> 他可能得病了，在他讨厌的畅销书里，作者喜欢给这种病起一个浪漫的名字。所以他会讨厌，他觉得是病。</p>
+<p> 他意识到自己必须回到清静。他总是陶醉在月亮的光辉里，以为所有的星体活动都是这般灿漫，所以在半个月群星围绕的时光里，迷失了自己，觉得自己对粉色群星使用的伎俩是能够复用的。</p>
+<p> 旅人是静止的，但现在他想要再次动起来，就得回到清静中去。</p>
+<p> 他所想到的，就是停下所有的星文活动，关掉手机，扔掉讨厌的书，把游戏挂在雨天丛林里。去读曾经的自己会喜欢的书，钻研自己的魔法，做学问，练身体，打扮，留影，等等等等，去写自己常用的故事，然后重回平静。</p>
+<p> 于是他想，等到一切完成后，会有一场漫长的清眠。</p>
+<p> 美梦中的他，那个旅人，学会处理自己的情绪，能够保持美好而纯洁的初心。</p>
+<p> 他会带着得到的那支笔，继续传播对于生活的热情，保持身而为人的距离。</p>
+<p> 没有什么余晖只在今日漫留，也没有什么夜色不会离开。</p>
+<p> 我还想带着平静，像以往一样。</p>
+<p> 读月色醉远客，看山花开欲然。</p>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>临时文档 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>临时文档 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/2/10
+        </span>
+        
+        <span class="category">
+            <a href="/categories/杂谈/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                杂谈
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/游戏/" style="color: #00a596">
+                    游戏
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>做了几个初学游戏项目，想了一下新项目怎么开始<br> <span id="more"></span></p>
+<h1 id="0-杂项"><a href="#0-杂项" class="headerlink" title="0.杂项"></a>0.杂项</h1><h1 id="1-正文"><a href="#1-正文" class="headerlink" title="1.正文"></a>1.正文</h1><h1 id="其他设计"><a href="#其他设计" class="headerlink" title="其他设计"></a>其他设计</h1><p>历史三问：</p>
+<p>有多个文明存在吗？发展到了哪个阶段？<br>文明的原动力和终极目标是什么？<br>玩家在文明中的位置？有哪些元素可以辅助感知？</p>
+<p>地图三问：</p>
+<p>地图是无缝的吗？各地图尺寸是多大？<br>地图有几层？通行方式和障碍是什么？<br>地图体验目标是什么？有哪些基本元素支撑这一目标？</p>
+<p>故事主体：<br>让玩家的选择对特定几环任务的结局产生影响（避免做无关紧要的分支）。<br>让玩家的选择对特定副本或位面的场景元素产生影响（避免做多层分流玩家）。<br>让玩家的选择对周边叙事载体的收集进度产出影响（避免将叙事要素分割太碎）。</p>
+<h1 id="测试设定"><a href="#测试设定" class="headerlink" title="测试设定"></a>测试设定</h1><p>角色身份：从地面而来，失去记忆的男主，穿着正式的宫廷服饰，探寻地下世界的真相，并回到原本的世界。</p>
+<p>世界现状：</p>
+<ul>
+<li><p>地下世界：不存在太阳的世界，依靠炼金科技和星系魔法来产生能量。</p>
+<ul>
+<li>只有一个文明：存在的史书仅有两百年，再往前只有古老的图文传说</li>
+<li>文明发展到近代蒸汽机械阶段，由于缺少阳关，发展炼金术和星系魔法维持生物需求</li>
+<li>拥有石油（机械）和水晶（魔法）的动力资源</li>
+<li>拥有关于阳光的传说</li>
+<li>城市中到处都是星系魔法产生的光芒，对人的效用未知</li>
+<li>文明的发展目标是探寻传说中的星空和太阳，因此产生许多相关的魔法</li>
+</ul>
+</li>
+<li><p>地面世界：拥有久远的历史，广阔的国土和海洋</p>
+<ul>
+<li>风格：西洋建筑、日式建筑、中式建筑、海洋、港口、群岛、宫殿 </li>
+<li>依赖于水晶魔法，几乎没有军用科技，完成了基本的城市化建设</li>
+<li>港口贸易发达</li>
+</ul>
+</li>
+</ul>
+<p>地图设计：</p>
+<ul>
+<li>初始关卡：地下洞穴<ul>
+<li>地图暂定为三层，大致是一个环形的建筑，每层七八个房间的大小，有一些密道</li>
+<li>通行方式：步行</li>
+<li>障碍：铁门，隐藏墙壁，密道，跳跃</li>
+<li>体验目标：主角主观的认为掉到了地下 → 一无所有的洞穴 → 环境逐渐变亮 → 认识了星系魔法和美少女的同时意识到不是主角认识的世界 → 展开地下世界观（放个插画）</li>
+<li>基本元素：移动、攻击，学习魔法，美少女，怪物</li>
+</ul>
+</li>
+</ul>
+<h2 id="灵感图"><a href="#灵感图" class="headerlink" title="灵感图"></a>灵感图</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221105224033.png" alt="20221105224033"><br>月蚀事件：地下与地面世界产生连接的时间点，也许是某种崩坏的征兆，给神论者提供了捏造事实的材料</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221105224221.png" alt="20221105224221"><br>星院：地下世界中星系魔法的研究机关<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221105224324.png" alt="20221105224324"><br>事件：也许是过节，也许是灾难<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221105224513.png" alt="20221105224513"><br>事件：也许跟月蚀有关</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221105224433.png" alt="20221105224433"><br>星系与美少女</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221105224410.png" alt="20221105224410"><br>地面联合国<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221105224726.png" alt="20221105224726"></p>
+<!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

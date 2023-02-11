@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>临时项目数据记录 | Liteee的世界尽头</title>
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>临时项目数据记录 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/2/11
+        </span>
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/resnet/" style="color: #00bcd4">
+                    resnet
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>项目记录</p>
+ <span id="more"></span>
+
+<h1 id="一、数据集"><a href="#一、数据集" class="headerlink" title="一、数据集"></a>一、数据集</h1><p> Coswara：尝试建立一个诊断工具，利用个人的呼吸、咳嗽和语音等音频记录来检测新冠肺炎。</p>
+<h2 id="声音样本："><a href="#声音样本：" class="headerlink" title="声音样本："></a>声音样本：</h2><p> 采集的声音样本包括呼吸声（快和慢）、咳嗽声（深和浅）、持续元音的发音（&#x2F;a&#x2F;如made、&#x2F;i&#x2F;、&#x2F;o&#x2F;），以及以慢和快的节奏计数数字。</p>
+<p> 收集的元数据信息包括参与者的年龄、性别、地点（国家、州&#x2F;省）、当前健康状况（健康&#x2F;暴露&#x2F;阳性&#x2F;恢复）和合并症的存在（先前存在的医疗状况）。</p>
+<h1 id="Lighting"><a href="#Lighting" class="headerlink" title="Lighting"></a>Lighting</h1><p> 让我们来看看使用UrbanSound8k声谱图图像数据集预测音频文件是否包含空调器、汽车喇叭、儿童玩耍、狗叫、钻井、发动机空转、枪声、电锤、警报器或街头音乐的声音的任务。</p>
+<p> 数据集包含train、val和test文件夹，然后每个文件夹都包含一个空调器文件夹，其中包含从空调声音生成的频谱图，警报器文件夹包含从警报器声音生成的谱图，其他类别也一样。</p>
+<pre><code>urban8k_images
+├── train
+│   ├── air_conditioner
+│   ├── car_horn
+│   ├── children_playing
+│   ├── dog_bark
+│   ├── drilling
+│   ├── engine_idling
+│   ├── gun_shot
+│   ├── jackhammer
+│   ├── siren
+│   └── street_music
+├── test
+│   ├── air_conditioner
+│   ├── car_horn
+│   ├── children_playing
+│   ├── dog_bark
+│   ├── drilling
+│   ├── engine_idling
+│   ├── gun_shot
+│   ├── jackhammer
+│   ├── siren
+│   └── street_music
+└── val
+    ├── air_conditioner
+    ├── car_horn
+    ├── children_playing
+    ├── dog_bark
+    ├── drilling
+    ├── engine_idling
+    ├── gun_shot
+    ├── jackhammer
+    ├── siren
+    └── street_music
+
+        ...
+</code></pre>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><pre><code class="python">import torch
+
+import flash
+from flash.audio import AudioClassificationData
+from flash.core.data.utils import download_data
+from flash.image import ImageClassifier
+
+# 1. Create the DataModule
+download_data(&quot;https://pl-flash-data.s3.amazonaws.com/urban8k_images.zip&quot;, &quot;./data&quot;)
+
+datamodule = AudioClassificationData.from_folders(
+    train_folder=&quot;data/urban8k_images/train&quot;,
+    val_folder=&quot;data/urban8k_images/val&quot;,
+    transform_kwargs=dict(spectrogram_size=(64, 64)),
+    batch_size=4,
+)
+
+# 2. Build the model.
+model = ImageClassifier(backbone=&quot;resnet18&quot;, labels=datamodule.labels)
+
+# 3. Create the trainer and finetune the model
+trainer = flash.Trainer(max_epochs=3, gpus=torch.cuda.device_count())
+trainer.finetune(model, datamodule=datamodule, strategy=(&quot;freeze_unfreeze&quot;, 1))
+
+# 4. Predict what&#39;s on few images! air_conditioner, children_playing, siren etc.
+datamodule = AudioClassificationData.from_files(
+    predict_files=[
+        &quot;data/urban8k_images/test/air_conditioner/13230-0-0-5.wav.jpg&quot;,
+        &quot;data/urban8k_images/test/children_playing/9223-2-0-15.wav.jpg&quot;,
+        &quot;data/urban8k_images/test/jackhammer/22883-7-10-0.wav.jpg&quot;,
+    ],
+    batch_size=3,
+)
+predictions = trainer.predict(model, datamodule=datamodule, output=&quot;labels&quot;)
+print(predictions)
+
+# 5. Save the model!
+trainer.save_checkpoint(&quot;audio_classification_model.pt&quot;)
+</code></pre>
+<p>使用download_data（）下载数据后，我们将创建AudioClassificationData。<br>我们选择了一个经过预训练的主干用于我们的ImageClassifier，并对UrbanSound8k谱图图像数据进行微调。<br>然后，我们使用经过训练的ImageClassifier进行推理。最后，我们保存模型。下面是完整的示例：</p>
+<h1 id="二、示例程序环境配置报错"><a href="#二、示例程序环境配置报错" class="headerlink" title="二、示例程序环境配置报错"></a>二、示例程序环境配置报错</h1><p>报错内容：</p>
+<h2 id="记录项目环境"><a href="#记录项目环境" class="headerlink" title="记录项目环境"></a>记录项目环境</h2><p>本机cuda环境<br>CMD:</p>
+<pre><code>nvcc --version
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230111162742.png" alt="20230111162742"></p>
+<p>cuda11.8是12.0的意思吗？</p>
+<h3 id="官网安装-11-6对应的Pytorch"><a href="#官网安装-11-6对应的Pytorch" class="headerlink" title="官网安装 11.6对应的Pytorch"></a>官网安装 11.6对应的Pytorch</h3><p>安装报错：</p>
+<pre><code>ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+lightning-flash 0.8.1.post0 requires pytorch-lightning&gt;=1.3.6, which is not installed.
+</code></pre>
+<p>运行报错：</p>
+<pre><code>C:\Users\10679\anaconda3\envs\Lightning\lib\site-packages\torchaudio\backend\utils.py:62: UserWarning: No audio backend is available.
+warnings.warn(&quot;No audio backend is available.&quot;)
+Traceback (most recent call last):
+File &quot;F:\pythonProject1\run.py&quot;, line 3, in &lt;module&gt;
+    import flash
+File &quot;C:\Users\10679\anaconda3\envs\Lightning\lib\site-packages\flash\__init__.py&quot;, line 22, in &lt;module&gt;
+    from flash.core.data.callback import FlashCallback
+File &quot;C:\Users\10679\anaconda3\envs\Lightning\lib\site-packages\flash\core\data\callback.py&quot;, line 4, in &lt;module&gt;
+    from pytorch_lightning.callbacks import Callback
+ModuleNotFoundError: No module named &#39;pytorch_lightning&#39;
+</code></pre>
+<p>没有pytorch_lightning那就装</p>
+<pre><code>pip install pytorch-lightning
+</code></pre>
+<p>安装提示大量重复：<br>Looking in indexes: <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230111164526.png" alt="20230111164526"></p>
+<p>运行报错：</p>
+<pre><code>Required dependencies not available. Please run: pip install &#39;lightning-flash[audio]&#39;
+</code></pre>
+<p>顺势安装</p>
+<p>又报错：要安装</p>
+<pre><code>pip install lightning-flash[image]
+</code></pre>
+<p>意思是lightning-flash被删了？</p>
+<h3 id="考虑可能存在的问题"><a href="#考虑可能存在的问题" class="headerlink" title="考虑可能存在的问题"></a>考虑可能存在的问题</h3><p>· 清华源的lightning可能有问题 - 换源</p>
+<p>· pytorch跟cuda的兼容性问题？但是官方给的应该对得上 -换成手动安装</p>
+<p>· lightnig-flash必须依赖于修改过的lightning-pytorch，不能使用原生pytorch，但是使用官网的lightning-pytorch又有CUDA不兼容的问题 -找特定的lightning-pytorch版本</p>
+<p>好了 没问题了。</p>
+<h3 id="程序运行成功，但是没在GPU上运行"><a href="#程序运行成功，但是没在GPU上运行" class="headerlink" title="程序运行成功，但是没在GPU上运行"></a>程序运行成功，但是没在GPU上运行</h3><p>打印一下设备号：</p>
+<pre><code class="python">print(torch.cuda.device_count())
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230111171347.png" alt="20230111171347"></p>
+<p>显示GPU可用，但是设备号调用了1？</p>
+<pre><code class="python">print(torch.cuda.get_device_name())
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230111171700.png" alt="20230111171700"><br>设备也正确识别了</p>
+<h3 id="CPU运行结果"><a href="#CPU运行结果" class="headerlink" title="CPU运行结果"></a>CPU运行结果</h3><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230111173839.png" alt="20230111173839"></p>
+<p>分类全错。不过轮数不够也正常。<br>到达Epoch3就结束。DEVICES[0].LOCAL_RANK是？</p>
+<p>关于local_rank:<a target="_blank" rel="noopener" href="https://blog.csdn.net/shenjianhua005/article/details/127318594">https://blog.csdn.net/shenjianhua005/article/details/127318594</a></p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230111175447.png" alt="20230111175447"></p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230111175613.png" alt="20230111175613"></p>
+<h1 id="三、任务思路"><a href="#三、任务思路" class="headerlink" title="三、任务思路"></a>三、任务思路</h1><h1 id="DEBUG记录"><a href="#DEBUG记录" class="headerlink" title="DEBUG记录"></a>DEBUG记录</h1><h2 id="相对路径问题"><a href="#相对路径问题" class="headerlink" title="相对路径问题"></a>相对路径问题</h2><p>重构文件导致相对路径不是当前项目路径</p>
+<pre><code>os.getcwd()
+</code></pre>
+<p>可以查看。</p>
+<h1 id="四、数据处理"><a href="#四、数据处理" class="headerlink" title="四、数据处理"></a>四、数据处理</h1><p>写了一个临时用的工具类</p>
+<h2 id="3-1使用方式："><a href="#3-1使用方式：" class="headerlink" title="3.1使用方式："></a>3.1使用方式：</h2><p>只需要把input_path修改为数据集的总目录，即可自动处理所有数据</p>
+<h2 id="3-2注意事项"><a href="#3-2注意事项" class="headerlink" title="3.2注意事项"></a>3.2注意事项</h2><p>因为文件会扫描目录下所有文件，请确保数据集是符合格式的，没有多余的文件，否则会报错。</p>
+<p>格式要求如下</p>
+<pre><code>data_path
+├── label1
+│   ├── 音频1.wav
+│   ├── 音频2.wav
+│   ├── ...
+├── label2
+│   ├── 音频1.wav
+│   ├── 音频2.wav
+│   ├── ...
+</code></pre>
+<h2 id="3-3代码"><a href="#3-3代码" class="headerlink" title="3.3代码"></a>3.3代码</h2><pre><code class="python">import librosa.display
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+from pydub import AudioSegment
+from pathlib import Path
+from datetime import datetime
+
+class ProTools:
+    &quot;&quot;&quot;项目工具&quot;&quot;&quot;
+    def __init__(self):
+        print(&quot;实例化&quot;)
+    #拼接音频
+    def toImage(self,path,output_path,date):
+        &quot;&quot;&quot;wav音频转jpg频谱图&quot;&quot;&quot;
+        ##path = &quot;./data/cos/test/healthy/cough-heavy4.wav&quot;
+
+        # sr=None声音保持原采样频率， mono=False声音保持原通道数
+        data, fs = librosa.load(path, sr=None, mono=False)
+
+        L = len(data)
+        print(&#39;Time:&#39;, L / fs)
+
+        # 0.025s
+        framelength = 0.025
+        # NFFT点数=0.025*fs
+        framesize = int(framelength * fs)
+        print(&quot;NFFT:&quot;, framesize)
+
+        # 提取mel特征
+        mel_spect = librosa.feature.melspectrogram(data, sr=fs, n_fft=framesize)
+        # 转化为log形式
+        mel_spect = librosa.power_to_db(mel_spect, ref=np.max)
+
+        # 画mel谱图
+        librosa.display.specshow(mel_spect, sr=fs, x_axis=&#39;time&#39;, y_axis=&#39;mel&#39;)
+
+        #保存路径
+        plt.savefig(output_path+date+&quot;.jpg&quot;)
+        #路径应该是目录+动态文件名
+        #先保存再show，不然就会是空白
+        plt.show()
+
+    #合并音頻
+    def SpliceAudio(self,path,outputpath,id):
+        ##path = &quot;test&quot;
+        date = datetime.today().strftime(&quot;%Y%m%d%H%M%S%f&quot;)  # 生成日期
+        files = [file for file in Path(path).iterdir() if file.name.endswith(&quot;.wav&quot;)]  # 遍历sounds目录下的文件
+
+        def merge_wav(files):
+            song = AudioSegment.silent(duration=100)
+            for file in sorted(files, reverse=True):
+                songclip = AudioSegment.from_file(file)
+                song = songclip + song
+            song = AudioSegment.silent(duration=2000) + song
+            return song
+
+        sound = merge_wav(files)  # 合并mp3
+        sound.export(outputpath+&#39;/&#39;+f&#39;&#123;date&#125;.wav&#39;, format(&quot;wav&quot;))  # 把合并合的mp3进行合成然后重命名。
+        #合并完成后，调用生成图片的函数
+        self.toImage(outputpath+&#39;/&#39;+f&#39;&#123;date&#125;.wav&#39;,outputpath,date)
+        # 调用生成函数之后把刚刚生成的文件删掉，不然反复运行时会出错
+        os.remove(outputpath+&#39;/&#39;+f&#39;&#123;date&#125;.wav&#39;)
+
+    def GetWavList(self,path):
+        # path定义要获取的文件名称的目录
+        # os.listdir()方法获取文件夹名字，返回数组
+        file_name_list = os.listdir(path)
+        res_list=[]
+        for file in file_name_list:
+            #去掉json文件
+            if(file.find(&quot;.json&quot;)==-1):
+                res_list.append(path+&quot;/&quot;+file)
+        print(res_list)
+        return res_list
+
+    def GetAllFilesPath(self,path):
+        list=[]
+        label_floader = [file for file in Path(path).iterdir()]  # 遍历sounds目录下的文件
+        #分类路径
+        for label_path in label_floader:
+            #print(type(label_path))
+            #每个测试者ID路径
+            id_floaders = [file for file in Path(label_path).iterdir()]
+            #遍历测试者
+            for id_path in id_floaders:
+                print(id_path)
+                id=1
+                #输入PATH是用户ID,输出PATH是分类PATH
+                self.SpliceAudio(id_path,str(id_path),id)
+        return list
+
+
+test1=ProTools()
+# test1.SpliceAudio(&quot;test&quot;)
+# test1.toImage(&quot;20230114.wav&quot;,&quot;test&quot;)
+input_path=&quot;testData&quot;
+try:
+    test1.GetAllFilesPath(input_path)
+except Exception as e :
+    print(e)
+</code></pre>
+<h2 id="3-4-待解决的问题"><a href="#3-4-待解决的问题" class="headerlink" title="3.4 待解决的问题"></a>3.4 待解决的问题</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230210193342.png" alt="20230210193342"></p>
+<p>目前使用该函数目前占用CPU和内存后没有释放，暂时没时间查问题，应该是出BUG中断时才会发生？<br>所以跑出所有图片后建议关了重启一下再进行训练….</p>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

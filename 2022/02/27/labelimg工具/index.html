@@ -149,7 +149,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/数据标注/" style="color: #00bcd4">
+                <a href="/tags/数据标注/" style="color: #03a9f4">
                     数据标注
                 </a>
             </span>
@@ -174,14 +174,12 @@
 <p>参数：（xml—label目录，文件编号，标签名，标签的四个信息）<br>文件编号代表一批文件的唯一特征，根据具体情况选定。</p>
 <h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p>在本次任务中，每一批镜头的唯一编号通常为</p>
 <p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230227141631.png" alt="20230227141631"></p>
-<p>目标框参数：</p>
+<h5 id="步骤1-在labelimg中打标签"><a href="#步骤1-在labelimg中打标签" class="headerlink" title="步骤1 在labelimg中打标签"></a>步骤1 在labelimg中打标签</h5><p>记下文件名，搜索同名的xml文件，找到框的参数<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230227142724.png" alt="20230227142724"><br>目标框参数：</p>
 <p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230227142434.png" alt="20230227142434"></p>
-<p>先打一次，得到参数，然后填入函数中</p>
-<pre><code class="python">
+<h5 id="步骤2-得到参数，然后填入函数中"><a href="#步骤2-得到参数，然后填入函数中" class="headerlink" title="步骤2 得到参数，然后填入函数中"></a>步骤2 得到参数，然后填入函数中</h5><pre><code class="python">
   change_xml(floader_path,&quot;1022_100_&quot;,&quot;paper&quot;,&quot;1639&quot;,&quot;335&quot;,&quot;1706&quot;,&quot;375&quot;)
 </code></pre>
 <h4 id="处理结果："><a href="#处理结果：" class="headerlink" title="处理结果："></a>处理结果：</h4><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230227142739.png" alt="20230227142739"></p>
-<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230227142724.png" alt="20230227142724"></p>
 <h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><p>不仅限于批量标注，也可以进行其他批处理操作。</p>
 <pre><code class="python">from xml.etree.ElementTree import ElementTree,Element
 from pathlib import Path

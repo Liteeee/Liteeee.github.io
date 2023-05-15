@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>R语言实验 | Liteee的世界尽头</title>
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>R语言实验 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/5/16
+        </span>
+        
+        <span class="category">
+            <a href="/categories/作业/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                作业
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/作业/" style="color: #00a596">
+                    作业
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>给组员写文档用的<br> <span id="more"></span></p>
+<h1 id="1-数据集介绍"><a href="#1-数据集介绍" class="headerlink" title="1.数据集介绍"></a>1.数据集介绍</h1><h2 id="Concrete-Compressive-Strength"><a href="#Concrete-Compressive-Strength" class="headerlink" title="Concrete Compressive Strength"></a>Concrete Compressive Strength</h2><p>数据集地址：<a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/datasets/Concrete+Compressive+Strength">https://archive.ics.uci.edu/ml/datasets/Concrete+Compressive+Strength</a></p>
+<p>这是一个回归问题数据集，目标是预测混凝土抗压强度。</p>
+<p>数据集中包含：</p>
+<ul>
+<li>1030个实例</li>
+<li>9个分类</li>
+<li>8个输入变量和1一个输出结果</li>
+</ul>
+<h2 id="数据集格式"><a href="#数据集格式" class="headerlink" title="数据集格式"></a>数据集格式</h2><p>1.水泥（第一种材料）在每立方米混合物中的重量（公斤）<br>2.炉渣（第二种材料）在每立方米混合物中的重量（公斤）<br>3.粉煤灰（第三种材料）在每立方米混合物中的重量（公斤）<br>4.水在每立方米混合物中的重量（公斤）<br>5.减水剂（第五种材料）在每立方米混合物中的重量（公斤）<br>6.粗骨料（第六种材料）在每立方米混合物中的重量（公斤）<br>7.细骨料（第七种材料）在每立方米混合物中的重量（公斤）<br>8.混凝土样品的养护时间（天）<br>9.混凝土的抗压强度（兆帕，MPa）</p>
+<pre><code>Cement (component 1)(kg in a m^3 mixture)	
+Blast Furnace Slag (component 2)(kg in a m^3 mixture)
+Fly Ash (component 3)(kg in a m^3 mixture)	
+Water  (component 4)(kg in a m^3 mixture)	
+Superplasticizer (component 5)(kg in a m^3 mixture)	
+Coarse Aggregate  (component 6)(kg in a m^3 mixture)	
+Fine Aggregate (component 7)(kg in a m^3 mixture)	
+Age (day)	
+Concrete compressive strength(MPa, megapascals) 
+</code></pre>
+<h1 id="2-数据处理"><a href="#2-数据处理" class="headerlink" title="2.数据处理"></a>2.数据处理</h1><h2 id="2-0-代码"><a href="#2-0-代码" class="headerlink" title="2.0 代码"></a>2.0 代码</h2><pre><code class="R"># 导入数据
+data &lt;- read_excel(&quot;Concrete_Data.xls&quot;)
+
+# 标准化x1~x8列
+data[,1:8] &lt;- scale(data[,1:8])
+
+# 拆分训练集和测试集
+set.seed(123)
+train_index &lt;- sample(1:nrow(data), size = round(0.7*nrow(data)), replace = FALSE)
+train &lt;- data[train_index,]
+test &lt;- data[-train_index,]
+</code></pre>
+<p>这段代码的作用是读取名为”Concrete_Data.xls”的Excel文件，然后对文件中的前八列数据（x1~x8列）进行标准化处理，最后将数据集拆分成训练集和测试集。</p>
+<p>具体的步骤如下：</p>
+<p>使用read_excel()函数从Excel文件中读取数据，并将其存储在一个名为data的数据框中。</p>
+<p>使用scale()函数对数据框中的前八列进行标准化处理，这意味着对每一列数据进行平均值为0，标准差为1的转换。</p>
+<p>使用set.seed()函数设置一个种子值，以确保每次运行代码时生成的随机样本相同。然后，使用sample()函数从数据框中选择一个随机样本，样本的大小为总行数的70%（使用round()函数四舍五入）。</p>
+<p>使用train_index向量中的索引值选择训练集数据，并将其存储在一个名为train的数据框中。使用-运算符选择测试集数据并将其存储在名为test的数据框中。由于sample()函数中使用的replace参数设置为FALSE，因此生成的样本是没有重复的。</p>
+<h1 id="3-拟合预测"><a href="#3-拟合预测" class="headerlink" title="3.拟合预测"></a>3.拟合预测</h1><p>使用四种方法：</p>
+<h2 id="正态分布："><a href="#正态分布：" class="headerlink" title="正态分布："></a>正态分布：</h2><pre><code class="R"># 使用正态分布进行预测
+fit1 &lt;- lm(x9 ~ ., data = train)
+pred1 &lt;- predict(fit1, newdata = test)
+</code></pre>
+<h2 id="Beta分布"><a href="#Beta分布" class="headerlink" title="Beta分布"></a>Beta分布</h2><pre><code class="R"># 使用贝塔分布进行预测
+fit3 &lt;- lm(x9 ~ pbeta(x1, 1, 1) + pbeta(x2, 2, 2) + pbeta(x3, 3, 3) + pbeta(x4, 4, 4) + pbeta(x5, 5, 5) + pbeta(x6, 6, 6) + pbeta(x7, 7, 7) + pbeta(x8, 8, 8), data = train)
+pred3 &lt;- predict(fit3, newdata = test)
+</code></pre>
+<h2 id="伽马分布"><a href="#伽马分布" class="headerlink" title="伽马分布"></a>伽马分布</h2><pre><code class="R"># 使用伽马分布进行预测
+fit4 &lt;- glm(x9 ~ x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8, data = train, family = Gamma(link = &quot;log&quot;))
+pred4 &lt;- predict(fit4, newdata = test)
+</code></pre>
+<h2 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h2><pre><code class="R"># 使用指数分布进行预测
+fit2 &lt;- glm(x9 ~ ., data = train, family = poisson(link = &quot;log&quot;))
+pred2 &lt;- predict(fit2, newdata = test)
+</code></pre>
+<h1 id="3-测试结果"><a href="#3-测试结果" class="headerlink" title="3.测试结果"></a>3.测试结果</h1><h2 id="3-1数据分布图"><a href="#3-1数据分布图" class="headerlink" title="3.1数据分布图"></a>3.1数据分布图</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230516032532.png" alt="20230516032532"></p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230516032550.png" alt="20230516032550"></p>
+<h2 id="3-2-平均误差"><a href="#3-2-平均误差" class="headerlink" title="3.2 平均误差"></a>3.2 平均误差</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230516032643.png" alt="20230516032643"></p>
+<p>预测的目标值的范围在(0,70)之间<br>其中正态分布最为接近目标值，平均误差为8。<br>Beta分布平均误差为10.<br>其它两个误差非常高。<br>其原因比较测试集的分布情况后不难看出，测试集比较近似于正态分布的数学期望。<br>从实验数据科研推断，也许使用偏正态分布能够获得更好的预测效果。</p>
+<h2 id="测试集的数学分布"><a href="#测试集的数学分布" class="headerlink" title="测试集的数学分布"></a>测试集的数学分布</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230516032746.png" alt="20230516032746"></p>
+<h1 id="4-附录"><a href="#4-附录" class="headerlink" title="4.附录"></a>4.附录</h1><pre><code class="R">library(readxl)
+library(ggplot2)
+
+# 导入数据
+data &lt;- read_excel(&quot;Concrete_Data.xls&quot;)
+
+# 标准化x1~x8列
+data[,1:8] &lt;- scale(data[,1:8])
+
+# 拆分训练集和测试集
+set.seed(123)
+train_index &lt;- sample(1:nrow(data), size = round(0.7*nrow(data)), replace = FALSE)
+train &lt;- data[train_index,]
+test &lt;- data[-train_index,]
+
+# 安装和加载需要的包
+library(MASS)
+library(VGAM)
+
+# 使用正态分布进行预测
+fit1 &lt;- lm(x9 ~ ., data = train)
+pred1 &lt;- predict(fit1, newdata = test)
+
+# 使用指数分布进行预测
+fit2 &lt;- glm(x9 ~ ., data = train, family = poisson(link = &quot;log&quot;))
+pred2 &lt;- predict(fit2, newdata = test)
+
+# 使用贝塔分布进行预测
+fit3 &lt;- lm(x9 ~ pbeta(x1, 1, 1) + pbeta(x2, 2, 2) + pbeta(x3, 3, 3) + pbeta(x4, 4, 4) + pbeta(x5, 5, 5) + pbeta(x6, 6, 6) + pbeta(x7, 7, 7) + pbeta(x8, 8, 8), data = train)
+pred3 &lt;- predict(fit3, newdata = test)
+
+# 使用伽马分布进行预测
+fit4 &lt;- glm(x9 ~ x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8, data = train, family = Gamma(link = &quot;log&quot;))
+pred4 &lt;- predict(fit4, newdata = test)
+
+# 绘制四个图
+plot_data &lt;- data.frame(Test = test$x9, 
+                        Normal = pred1, 
+                        Exponential = pred2, 
+                        Beta = pred3, 
+                        Gamma = pred4)
+plot_data_long &lt;- tidyr::gather(plot_data, Distribution, Prediction, -Test)
+
+# 绘制四个图
+pdf(&quot;plot1.pdf&quot;)
+ggplot(plot_data_long, aes(x = Test, y = Prediction)) +
+  geom_point() +
+  facet_wrap(~ Distribution, nrow = 2, scales = &quot;free&quot;) +
+  labs(title = &quot;Concrete Data Regression&quot;, x = &quot;Actual&quot;, y = &quot;Prediction&quot;)
+dev.off()
+
+pdf(&quot;plot2.pdf&quot;)
+ggplot(test, aes(x9)) + 
+  geom_histogram(bins = 10, fill = &quot;steelblue&quot;, color = &quot;white&quot;) +
+  ggtitle(&quot;Distribution of x9 in Test Set&quot;)
+dev.off()
+
+# 计算平均误差
+mean_error1 &lt;- mean(abs(test$x9 - pred1))
+mean_error2 &lt;- mean(abs(test$x9 - pred2))
+mean_error3 &lt;- mean(abs(test$x9 - pred3))
+mean_error4 &lt;- mean(abs(test$x9 - pred4))
+
+# 输出结果
+cat(&quot;Using Normal Distribution, Mean Error:&quot;, mean_error1, &quot;\n&quot;)
+cat(&quot;Using Exponential Distribution, Mean Error:&quot;, mean_error2, &quot;\n&quot;)
+cat(&quot;Using Beta Distribution, Mean Error:&quot;, mean_error3, &quot;\n&quot;)
+cat(&quot;Using Gamma Distribution, Mean Error:&quot;, mean_error4, &quot;\n&quot;)
+
+</code></pre>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

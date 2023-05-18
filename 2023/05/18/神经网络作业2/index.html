@@ -129,7 +129,7 @@
             <span class="icon">
                 <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
-            2023/5/19
+            2023/5/18
         </span>
         
         <span class="category">
@@ -149,7 +149,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/作业/" style="color: #ff7d73">
+                <a href="/tags/作业/" style="color: #00a596">
                     作业
                 </a>
             </span>
@@ -159,11 +159,46 @@
     </div>
     <div class="content" v-pre>
         <p>仅组内交流使用<br> <span id="more"></span></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="1-数据集介绍"><a href="#1-数据集介绍" class="headerlink" title="1.数据集介绍"></a>1.数据集介绍</h1><p>CIFAR-10数据集包含10个类别的60000张32x32彩色图像，每个类别有6000张图像。其中，有50000张用于训练，10000张用于测试。</p>
+<h1 id="1-数据集介绍"><a href="#1-数据集介绍" class="headerlink" title="1.数据集介绍"></a>1.数据集介绍</h1><p>CIFAR-10数据集包含10个类别的60000张32x32彩色图像，每个类别有6000张图像。其中，有50000张用于训练，10000张用于测试。</p>
 <p>该数据集被分成了五个训练批次和一个测试批次，每个批次包含10000张图像。测试批次中包含了每个类别中随机选择的1000张图像。训练批次以随机顺序包含了剩余的图像，但是某些训练批次中可能包含某个类别的图像较多。在这些批次中，每个类别都包含了恰好5000张图像。</p>
 <p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230516164357.png" alt="20230516164357"></p>
 <p>这些类别是完全互斥的。例如汽车和卡车之间没有重叠。”汽车”类别包括轿车、SUV等车型。”卡车”类别只包括大型卡车，不包括皮卡车。</p>
 <h2 id="数据集文件"><a href="#数据集文件" class="headerlink" title="数据集文件"></a>数据集文件</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230516165552.png" alt="20230516165552"></p>
+<h2 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h2><ul>
+<li><p>transforms.RandomCrop(32, padding&#x3D;4)：随机裁剪图像到32x32的大小，同时在图像边缘填充4个像*素，这样可以增加训练数据的多样性。</p>
+</li>
+<li><p>transforms.RandomHorizontalFlip()：以一定的概率随机水平翻转图像，增加数据的多样性。</p>
+</li>
+<li><p>transforms.RandomRotation(15)：随机旋转图像，角度在-15度到15度之间，增加数据的多样性。</p>
+</li>
+<li><p>transforms.ColorJitter(brightness&#x3D;0.2, contrast&#x3D;0.2)：随机调整图像的亮度和对比度，增加数据的多样性。</p>
+</li>
+<li><p>transforms.ToTensor()：将图像转换为张量（Tensor）格式，以便于后续的处理。</p>
+</li>
+<li><p>transforms.Normalize(mean&#x3D;[0.4914, 0.4822, 0.4465], std&#x3D;[0.2023, 0.1994, 0.2010])：对图像进行标准化处理，减去均值，除以标准差，使得图像数据的分布接近于标准正态分布。<br>对于测试数据集（transform_test），进行了以下操作：</p>
+</li>
+<li><p>transforms.ToTensor()：将图像转换为张量（Tensor）格式。</p>
+</li>
+<li><p>transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))：对图像进行与训练数据集相同的标准化处理，以保持一致性。<br>这些数据变换操作可以在训练过程中增加数据的多样性和鲁棒性，提高模型的泛化能力，并且使得输入数据符合模型期望的数据分布。</p>
+</li>
+</ul>
+<pre><code class="Python"># 定义训练和测试数据集的数据变换操作
+
+transform_train = transforms.Compose([
+    transforms.RandomCrop(32, padding=4),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(15),
+    transforms.ColorJitter(brightness=0.2, contrast=0.2),
+    # transforms.RandomApply([transforms.Lambda(lambda x: x + torch.randn(x.size()) * 0.1)], p=0.5),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.4914, 0.4822, 0.4465], std=[0.2023, 0.1994, 0.2010]),
+])
+
+transform_test = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+])
+</code></pre>
 <h1 id="2-模型选择"><a href="#2-模型选择" class="headerlink" title="2.模型选择"></a>2.模型选择</h1><h2 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h2><p>VGG网络是由Karen Simonyan和Andrew Zisserman提出的，旨在通过增加网络的深度来提升图像分类性能。它以小卷积核和深层堆叠的卷积层为基础，并使用池化层进行空间下采样。VGG网络的核心思想是通过增加网络的深度来增强其对图像特征的表征能力。</p>
 <p>优点：</p>
 <p>简单而有效：VGG网络的结构非常简单且易于理解，由连续的卷积层和池化层堆叠而成。它没有复杂的跳跃连接或残差连接，使得模型结构清晰，并且在训练和推理过程中都很稳定。</p>
@@ -173,6 +208,7 @@
 <p>较大的模型尺寸：VGG网络由于采用了深度堆叠的卷积层，导致网络具有较多的参数和较大的模型尺寸。这会增加模型的计算和内存开销，使得在资源受限的环境下不太适用。</p>
 <p>训练和推理速度较慢：由于VGG网络的深度，训练和推理过程中需要更多的计算资源和时间。较大的模型尺寸也导致内存占用较高。因此，在实际应用中，需要考虑到训练和推理速度的限制。</p>
 <p>总体而言，VGG网络是一种经典而有效的深度学习模型，特别适用于图像分类任务。它通过增加网络的深度来提升特征的表征能力，然而，也由于模型尺寸较大和计算开销较大的特点，需要</p>
+<h2 id="VGG16"><a href="#VGG16" class="headerlink" title="VGG16"></a>VGG16</h2><p>VGG16是指具有16个卷积层和全连接层的VGG网络。下面是VGG16网络的结构.</p>
 <h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><pre><code>------------------------------------------------------------------------------------
 Layer (type)                Output Shape         Param #    Trainable    Attention
 ====================================================================================
@@ -180,25 +216,25 @@ VGG
 ------------------------------------------------------------------------------------
 Sequential                  [batch_size, 64, 32, 32]  1792       True         No
 ------------------------------------------------------------------------------------
-Sequential                  [batch_size, 64, 16, 16]  73856      True         No
+Sequential                  [batch_size, 64, 16, 16]  73856      True         Yes
 ------------------------------------------------------------------------------------
 MaxPool2d                   [batch_size, 64, 8, 8]   0          False        No
 ------------------------------------------------------------------------------------
-Sequential                  [batch_size, 128, 8, 8]   147584     True         No
+Sequential                  [batch_size, 128, 8, 8]   147584     True         Yes
 ------------------------------------------------------------------------------------
-Sequential                  [batch_size, 128, 4, 4]   295168     True         No
+Sequential                  [batch_size, 128, 4, 4]   295168     True         Yes
 ------------------------------------------------------------------------------------
 MaxPool2d                   [batch_size, 128, 2, 2]   0          False        No
 ------------------------------------------------------------------------------------
-Sequential                  [batch_size, 256, 2, 2]   590080     True         No
+Sequential                  [batch_size, 256, 2, 2]   590080     True         Yes
 ------------------------------------------------------------------------------------
-Sequential                  [batch_size, 256, 2, 2]   590080     True         No
+Sequential                  [batch_size, 256, 2, 2]   590080     True         Yes
 ------------------------------------------------------------------------------------
-Sequential                  [batch_size, 256, 2, 2]   590080     True         No
+Sequential                  [batch_size, 256, 2, 2]   590080     True         Yes
 ------------------------------------------------------------------------------------
 MaxPool2d                   [batch_size, 256, 1, 1]   0          False        No
 ------------------------------------------------------------------------------------
-Sequential                  [batch_size, 512, 1, 1]   1182208    True         No
+Sequential                  [batch_size, 512, 1, 1]   1182208    True         Yes
 ------------------------------------------------------------------------------------
 Sequential                  [batch_size, 512, 1, 1]   1182208    True         Yes
 ------------------------------------------------------------------------------------
@@ -253,11 +289,9 @@ class VGG(nn.Module):
         layers += [nn.AvgPool2d(kernel_size=1,stride = 1)]  # 添加一个平均池化层
         return nn.Sequential(*layers)  # 返回一个 nn.Sequential 对象，用于按顺序执行网络层
 </code></pre>
-<h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><pre><code class="Python"># 定义卷积神经网络的配置字典
-cfg = &#123;
-    &#39;vgg16&#39;:[64,64,&#39;m&#39;,128,128,&#39;m&#39;,256,256,256,&#39;m&#39;,512,512,512,&#39;m&#39;,512,512,512,&#39;m&#39;],
-&#125;
-
+<p>VGG类：定义VGG卷积神经网络。它接收一个VGG名称和一个布尔值se，用于指示是否启用SENet模块。构造函数根据给定的VGG名称从配置字典中创建卷积层，并创建一个全连接层作为分类器。如果启用了SENet模块，还会初始化一系列SELayer实例作为注意力层。前向传播过程先经过卷积层，然后对每个卷积层应用注意力加权（如果启用了SENet模块），最后通过展平操作和全连接层输出分类结果。</p>
+<p>make_layers方法：根据给定的配置字典构建卷积层。该方法根据配置逐层创建卷积层、批归一化层和ReLU激活函数层，并在需要时添加最大池化层。最后添加一个平均池化层，并返回一个nn.Sequential对象，用于按顺序执行网络层。</p>
+<h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><pre><code class="Python">
 # 定义注意力模块
 class SELayer(nn.Module):
     def __init__(self, channel, reduction=16):
@@ -277,7 +311,8 @@ class SELayer(nn.Module):
         return x * y  # 输入特征x和通道注意力权重y相乘得到加权的特征
 </code></pre>
 <p>这段代码实现了SENet（Squeeze-and-Excitation Network）的注意力模块。</p>
-<p>SENet是一种基于通道注意力机制的深度学习模型，旨在提升模型对重要特征的关注程度，从而改善模型的性能。相比其他注意力机制，SENet的优点包括：</p>
+<p>在每一个卷积层后面都添加一个Senet进行特征处理，它包含一个自适应平均池化层（用于得到全局特征向量）、两个线性层（用于压缩和恢复特征向量大小）、ReLU激活函数和Sigmoid激活函数。它的前向传播过程通过压缩、激活、恢复和reshape操作，生成一个一维张量作为通道注意力权重，然后将输入特征和通道注意力权重相乘，得到加权的特征输出。</p>
+<h3 id="SENT介绍"><a href="#SENT介绍" class="headerlink" title="SENT介绍"></a>SENT介绍</h3><p>SENet是一种基于通道注意力机制的深度学习模型，旨在提升模型对重要特征的关注程度，从而改善模型的性能。相比其他注意力机制，SENet的优点包括：</p>
 <p>精细的特征选择：SENet通过自适应平均池化操作，得到一个全局的特征向量，并使用一个小的全连接网络对特征向量进行处理，以学习特征通道之间的关系。这使得模型能够对每个特征通道进行精细的加权，选择性地放大或减弱特定的特征。</p>
 <p>轻量级的计算开销：SENet的注意力模块只包含一些线性和非线性变换，参数数量较小，计算开销相对较小。因此，它可以方便地集成到现有的深度学习模型中，而不会显著增加计算复杂度。</p>
 <p>可解释性：SENet的注意力模块是通过一个简单的全连接网络实现的，可以直观地理解模型关注的特征通道和加权的过程。这有助于解释模型的决策过程和特征选择的原因。</p>

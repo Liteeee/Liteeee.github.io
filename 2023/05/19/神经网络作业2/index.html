@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>神经网络作业VGG+SENET | Liteee的世界尽头</title>
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>神经网络作业VGG+SENET </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/5/19
+        </span>
+        
+        <span class="category">
+            <a href="/categories/作业/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                作业
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/作业/" style="color: #ff7d73">
+                    作业
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>仅组内交流使用<br> <span id="more"></span></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="1-数据集介绍"><a href="#1-数据集介绍" class="headerlink" title="1.数据集介绍"></a>1.数据集介绍</h1><p>CIFAR-10数据集包含10个类别的60000张32x32彩色图像，每个类别有6000张图像。其中，有50000张用于训练，10000张用于测试。</p>
+<p>该数据集被分成了五个训练批次和一个测试批次，每个批次包含10000张图像。测试批次中包含了每个类别中随机选择的1000张图像。训练批次以随机顺序包含了剩余的图像，但是某些训练批次中可能包含某个类别的图像较多。在这些批次中，每个类别都包含了恰好5000张图像。</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230516164357.png" alt="20230516164357"></p>
+<p>这些类别是完全互斥的。例如汽车和卡车之间没有重叠。”汽车”类别包括轿车、SUV等车型。”卡车”类别只包括大型卡车，不包括皮卡车。</p>
+<h2 id="数据集文件"><a href="#数据集文件" class="headerlink" title="数据集文件"></a>数据集文件</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230516165552.png" alt="20230516165552"></p>
+<h1 id="2-模型选择"><a href="#2-模型选择" class="headerlink" title="2.模型选择"></a>2.模型选择</h1><h2 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h2><p>VGG网络是由Karen Simonyan和Andrew Zisserman提出的，旨在通过增加网络的深度来提升图像分类性能。它以小卷积核和深层堆叠的卷积层为基础，并使用池化层进行空间下采样。VGG网络的核心思想是通过增加网络的深度来增强其对图像特征的表征能力。</p>
+<p>优点：</p>
+<p>简单而有效：VGG网络的结构非常简单且易于理解，由连续的卷积层和池化层堆叠而成。它没有复杂的跳跃连接或残差连接，使得模型结构清晰，并且在训练和推理过程中都很稳定。</p>
+<p>良好的表征能力：由于VGG网络具有较深的结构，它能够学习到更复杂、更高级的图像特征。这使得VGG网络在许多计算机视觉任务中表现出色，特别是在图像分类任务中取得了较好的性能。</p>
+<p>预训练模型可用性：由于VGG网络的普及和广泛应用，许多预训练的VGG模型已经公开可用。这使得研究人员和开发者可以直接从这些预训练模型中受益，快速实现并部署图像分类任务。</p>
+<p>缺点：</p>
+<p>较大的模型尺寸：VGG网络由于采用了深度堆叠的卷积层，导致网络具有较多的参数和较大的模型尺寸。这会增加模型的计算和内存开销，使得在资源受限的环境下不太适用。</p>
+<p>训练和推理速度较慢：由于VGG网络的深度，训练和推理过程中需要更多的计算资源和时间。较大的模型尺寸也导致内存占用较高。因此，在实际应用中，需要考虑到训练和推理速度的限制。</p>
+<p>总体而言，VGG网络是一种经典而有效的深度学习模型，特别适用于图像分类任务。它通过增加网络的深度来提升特征的表征能力，然而，也由于模型尺寸较大和计算开销较大的特点，需要</p>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><pre><code>------------------------------------------------------------------------------------
+Layer (type)                Output Shape         Param #    Trainable    Attention
+====================================================================================
+VGG
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 64, 32, 32]  1792       True         No
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 64, 16, 16]  73856      True         No
+------------------------------------------------------------------------------------
+MaxPool2d                   [batch_size, 64, 8, 8]   0          False        No
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 128, 8, 8]   147584     True         No
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 128, 4, 4]   295168     True         No
+------------------------------------------------------------------------------------
+MaxPool2d                   [batch_size, 128, 2, 2]   0          False        No
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 256, 2, 2]   590080     True         No
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 256, 2, 2]   590080     True         No
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 256, 2, 2]   590080     True         No
+------------------------------------------------------------------------------------
+MaxPool2d                   [batch_size, 256, 1, 1]   0          False        No
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 512, 1, 1]   1182208    True         No
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 512, 1, 1]   1182208    True         Yes
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 512, 1, 1]   1182208    True         Yes
+------------------------------------------------------------------------------------
+Sequential                  [batch_size, 512, 1, 1]   1182208    True         Yes
+------------------------------------------------------------------------------------
+MaxPool2d                   [batch_size, 512, 1, 1]   0          False        No
+------------------------------------------------------------------------------------
+Linear                      [batch_size, 10]         5130       True         No
+====================================================================================
+Total params: 15,184,394
+Trainable params: 15,184,394
+Non-trainable params: 0
+-----------------------------------------------------------------------------------
+</code></pre>
+<h2 id="VGG网络代码"><a href="#VGG网络代码" class="headerlink" title="VGG网络代码"></a>VGG网络代码</h2><pre><code class="Python"># 定义卷积神经网络的配置字典
+cfg = &#123;
+    &#39;vgg16&#39;:[64,64,&#39;m&#39;,128,128,&#39;m&#39;,256,256,256,&#39;m&#39;,512,512,512,&#39;m&#39;,512,512,512,&#39;m&#39;],
+&#125;
+
+ 定义VGG卷积神经网络
+class VGG(nn.Module):
+    def __init__(self, vgg_name, se=False):
+        super(VGG, self).__init__()
+        self.se = se  # 是否启用注意力机制
+        self.features = self.make_layers(cfg[vgg_name])  # 根据配置字典构建卷积层
+        self.classifier = nn.Linear(512, 10)  # 全连接层，输出10个类别
+        if se:  # 如果启用了注意力机制，就初始化注意力层
+            self.se_layers = nn.ModuleList([SELayer(64), SELayer(128), SELayer(256), SELayer(512), SELayer(512)])
+
+    def forward(self,x):
+        out = self.features(x)  # 前向传播，卷积层
+        if self.se:  # 如果启用了注意力机制，就对每一个卷积层进行加权
+            for i, layer in enumerate(self.se_layers):
+                out = layer(out)
+        out = out.view(out.size(0), -1)  # 将特征展平
+        out = self.classifier(out)  # 全连接层
+        return out
+
+    def make_layers(self,cfg):
+        layers = []              # 创建一个空列表，用于存储网络的各个层
+        in_channels = 3          # 输入数据的通道数为 3，因为图像是 RGB 彩色图像
+        for x in cfg:            # 遍历网络配置 cfg，根据配置创建网络的不同层
+            if x == &#39;m&#39;:        # 如果当前元素是 &#39;m&#39;，则表示添加一个最大池化层
+                layers += [nn.MaxPool2d(kernel_size=2, stride = 2)]
+            else:               # 否则，表示添加一个卷积层和 BN 层和 ReLU 层
+                layers += [nn.Conv2d(in_channels, x, kernel_size=3, padding = 1),
+                           nn.BatchNorm2d(x),
+                           nn.ReLU(inplace = True)]
+                in_channels = x  # 更新下一层的输入通道数为当前层的输出通道数
+        layers += [nn.AvgPool2d(kernel_size=1,stride = 1)]  # 添加一个平均池化层
+        return nn.Sequential(*layers)  # 返回一个 nn.Sequential 对象，用于按顺序执行网络层
+</code></pre>
+<h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><pre><code class="Python"># 定义卷积神经网络的配置字典
+cfg = &#123;
+    &#39;vgg16&#39;:[64,64,&#39;m&#39;,128,128,&#39;m&#39;,256,256,256,&#39;m&#39;,512,512,512,&#39;m&#39;,512,512,512,&#39;m&#39;],
+&#125;
+
+# 定义注意力模块
+class SELayer(nn.Module):
+    def __init__(self, channel, reduction=16):
+        super(SELayer, self).__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)  # 通过自适应平均池化得到一个全局的特征向量，用于特征选择
+        self.fc = nn.Sequential(
+            nn.Linear(channel, channel // reduction, bias=False),  # 压缩特征向量
+            nn.ReLU(inplace=True),  # 激活函数
+            nn.Linear(channel // reduction, channel, bias=False),  # 恢复特征向量大小
+            nn.Sigmoid()  # 将压缩后的特征向量压缩到[0,1]区间范围内，用于加权
+        )
+
+    def forward(self, x):
+        b, c, _, _ = x.size()  # 获取输入数据的大小信息
+        y = self.avg_pool(x).view(b, c)  # 自适应平均池化得到全局特征向量，然后将其变成二维张量
+        y = self.fc(y).view(b, c, 1, 1)  # 压缩、激活、恢复、reshape操作，得到一个一维张量
+        return x * y  # 输入特征x和通道注意力权重y相乘得到加权的特征
+</code></pre>
+<p>这段代码实现了SENet（Squeeze-and-Excitation Network）的注意力模块。</p>
+<p>SENet是一种基于通道注意力机制的深度学习模型，旨在提升模型对重要特征的关注程度，从而改善模型的性能。相比其他注意力机制，SENet的优点包括：</p>
+<p>精细的特征选择：SENet通过自适应平均池化操作，得到一个全局的特征向量，并使用一个小的全连接网络对特征向量进行处理，以学习特征通道之间的关系。这使得模型能够对每个特征通道进行精细的加权，选择性地放大或减弱特定的特征。</p>
+<p>轻量级的计算开销：SENet的注意力模块只包含一些线性和非线性变换，参数数量较小，计算开销相对较小。因此，它可以方便地集成到现有的深度学习模型中，而不会显著增加计算复杂度。</p>
+<p>可解释性：SENet的注意力模块是通过一个简单的全连接网络实现的，可以直观地理解模型关注的特征通道和加权的过程。这有助于解释模型的决策过程和特征选择的原因。</p>
+<p>然而，SENet也有一些缺点：</p>
+<p>训练复杂度：SENet在训练过程中引入了额外的注意力模块，需要额外的计算和内存开销。这可能会增加训练时间和资源消耗。</p>
+<p>参数数量：SENet的注意力模块引入了一些额外的参数，需要进行训练和优化。这会增加模型的参数数量，可能增加过拟合的风险。</p>
+<p>总体而言，SENet作为一种通道注意力机制，在许多计算机视觉任务中取得了良好的性能，并且被广泛应用于各种深度学习模型中，以提升模型的表达能力和性能。</p>
+<h1 id="3-实验结果"><a href="#3-实验结果" class="headerlink" title="3.实验结果"></a>3.实验结果</h1><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230517024901.png" alt="20230517024901"></p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230517024913.png" alt="20230517024913"></p>
+<h1 id="4-附录"><a href="#4-附录" class="headerlink" title="4.附录"></a>4.附录</h1><pre><code class="Python">import torch
+import torch.nn as nn
+import numpy as np
+import torch.functional as F
+import torchvision.datasets
+import torchvision.transforms as transforms
+from collections import Counter
+#%%
+#定义一些超参数
+BATCHSIZE=128
+DOWNLOAD_MNIST=False
+EPOCHES=100
+LR=0.001
+
+# 定义卷积神经网络的配置字典
+cfg = &#123;
+    &#39;vgg16&#39;:[64,64,&#39;m&#39;,128,128,&#39;m&#39;,256,256,256,&#39;m&#39;,512,512,512,&#39;m&#39;,512,512,512,&#39;m&#39;],
+&#125;
+
+#%%
+# 定义注意力模块
+class SELayer(nn.Module):
+    def __init__(self, channel, reduction=16):
+        super(SELayer, self).__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)  # 通过自适应平均池化得到一个全局的特征向量，用于特征选择
+        self.fc = nn.Sequential(
+            nn.Linear(channel, channel // reduction, bias=False),  # 压缩特征向量
+            nn.ReLU(inplace=True),  # 激活函数
+            nn.Linear(channel // reduction, channel, bias=False),  # 恢复特征向量大小
+            nn.Sigmoid()  # 将压缩后的特征向量压缩到[0,1]区间范围内，用于加权
+        )
+
+    def forward(self, x):
+        b, c, _, _ = x.size()  # 获取输入数据的大小信息
+        y = self.avg_pool(x).view(b, c)  # 自适应平均池化得到全局特征向量，然后将其变成二维张量
+        y = self.fc(y).view(b, c, 1, 1)  # 压缩、激活、恢复、reshape操作，得到一个一维张量
+        return x * y  # 输入特征x和通道注意力权重y相乘得到加权的特征
+
+# 定义VGG卷积神经网络
+class VGG(nn.Module):
+    def __init__(self, vgg_name, se=False):
+        super(VGG, self).__init__()
+        self.se = se  # 是否启用注意力机制
+        self.features = self.make_layers(cfg[vgg_name])  # 根据配置字典构建卷积层
+        self.classifier = nn.Linear(512, 10)  # 全连接层，输出10个类别
+        if se:  # 如果启用了注意力机制，就初始化注意力层
+            self.se_layers = nn.ModuleList([SELayer(64), SELayer(128), SELayer(256), SELayer(512), SELayer(512)])
+
+    def forward(self,x):
+        out = self.features(x)  # 前向传播，卷积层
+        if self.se:  # 如果启用了注意力机制，就对每一个卷积层进行加权
+            for i, layer in enumerate(self.se_layers):
+                out = layer(out)
+        out = out.view(out.size(0), -1)  # 将特征展平
+        out = self.classifier(out)  # 全连接层
+        return out
+
+    def make_layers(self,cfg):
+        layers = []              # 创建一个空列表，用于存储网络的各个层
+        in_channels = 3          # 输入数据的通道数为 3，因为图像是 RGB 彩色图像
+        for x in cfg:            # 遍历网络配置 cfg，根据配置创建网络的不同层
+            if x == &#39;m&#39;:        # 如果当前元素是 &#39;m&#39;，则表示添加一个最大池化层
+                layers += [nn.MaxPool2d(kernel_size=2, stride = 2)]
+            else:               # 否则，表示添加一个卷积层和 BN 层和 ReLU 层
+                layers += [nn.Conv2d(in_channels, x, kernel_size=3, padding = 1),
+                           nn.BatchNorm2d(x),
+                           nn.ReLU(inplace = True)]
+                in_channels = x  # 更新下一层的输入通道数为当前层的输出通道数
+        layers += [nn.AvgPool2d(kernel_size=1,stride = 1)]  # 添加一个平均池化层
+        return nn.Sequential(*layers)  # 返回一个 nn.Sequential 对象，用于按顺序执行网络层
+
+
+#%%
+# 定义训练和测试数据集的数据变换操作
+# 定义训练和测试数据集的数据变换操作
+transform_train = transforms.Compose([
+    transforms.RandomCrop(32, padding=4),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(15),
+    transforms.ColorJitter(brightness=0.2, contrast=0.2),
+    # transforms.RandomApply([transforms.Lambda(lambda x: x + torch.randn(x.size()) * 0.1)], p=0.5),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.4914, 0.4822, 0.4465], std=[0.2023, 0.1994, 0.2010]),
+])
+
+transform_test = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+])
+
+# 下载和准备CIFAR10数据集
+trainset = torchvision.datasets.CIFAR10(root=&#39;./data&#39;, train=True, download=False, transform=transform_train)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=0)
+testset = torchvision.datasets.CIFAR10(root=&#39;./data&#39;, train=False, download=False, transform=transform_test)
+testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False, num_workers=0)
+
+#%%
+device = torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)
+classes = (&#39;plane&#39;, &#39;car&#39;, &#39;bird&#39;, &#39;cat&#39;, &#39;deer&#39;, &#39;dog&#39;, &#39;frog&#39;, &#39;horse&#39;, &#39;ship&#39;, &#39;truck&#39;)
+net = VGG(&#39;vgg16&#39;).to(device)
+
+optimizer = torch.optim.Adam(net.parameters(), lr=0.001)
+loss_function = nn.CrossEntropyLoss()
+
+#%%
+import matplotlib.pyplot as plt
+import time
+
+start_time = time.time()
+
+correct_list = []
+epoch_list = []
+
+
+
+for ep in range(EPOCHES):
+    for img, label in trainloader:
+        img, label = img.to(device), label.to(device)
+        optimizer.zero_grad()
+        out = net(img)
+        loss = loss_function(out, label)
+        loss.backward()
+        optimizer.step()
+
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        for img, label in testloader:
+            img, label = img.to(device), label.to(device)
+            out = net(img)
+            _, prediction = torch.max(out.data, 1)
+            total += label.size(0)
+            correct += (prediction == label).sum().item()
+        accuracy = 100 * correct / total
+        correct_list.append(accuracy)
+        epoch_list.append(ep)
+        print(&quot;epoch:&quot;, ep, &quot;Test accuracy:&quot;, accuracy, &quot;%&quot;)
+end_time = time.time()
+time_diff = end_time - start_time
+
+print(f&quot;Time elapsed: &#123;time_diff:.2f&#125; seconds&quot;)
+
+
+
+
+#%%
+plt.plot(epoch_list, correct_list)
+plt.xlabel(&#39;EPOCH&#39;)
+plt.ylabel(&#39;CORRECT&#39;)
+plt.title(&#39;Accuracy : Epoch&#39;)
+plt.show()
+#%%
+def test():
+    net.eval() # 进入测试模式
+    test_loss = 0
+    correct = 0
+    with torch.no_grad():
+        for data, target in testloader:
+            data, target = data.to(device), target.to(device)
+            output = net(data)
+            test_loss += loss_function(output, target).item()  # 将一批的损失相加
+            pred = output.argmax(dim=1, keepdim=True)  # 找到概率最大的下标
+            correct += pred.eq(target.view_as(pred)).sum().item()
+
+    test_loss /= len(testloader.dataset)
+    print(&#39;\nTest set: Average loss: &#123;:.4f&#125;, Accuracy: &#123;&#125;/&#123;&#125; (&#123;:.2f&#125;%)\n&#39;.format(
+        test_loss, correct, len(testloader.dataset),
+        100. * correct / len(testloader.dataset)))
+
+test()
+</code></pre>
+
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

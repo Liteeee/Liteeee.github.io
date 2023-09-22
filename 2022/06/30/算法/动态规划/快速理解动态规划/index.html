@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>快速理解动态规划 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>快速理解动态规划 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/6/30
+        </span>
+        
+        
+    </div>
+    <div class="content" v-pre>
+        <p>动态规划部分总结，复习用<br> <span id="more"></span></p>
+<p>书籍链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/leetbook/read/grokking-algorithms/o471ae/">https://leetcode.cn/leetbook/read/grokking-algorithms/o471ae/</a></p>
+<h1 id="动态规划概述"><a href="#动态规划概述" class="headerlink" title="动态规划概述"></a>动态规划概述</h1><p>总的来说，动态规划就是把一个大问题，划分成多个小问题（每个小问题也可以是其他小问题的组合），每次都使用小问题的组合形成最优解。<br>这意味着动态规划不一定总是能得到全局最优解。</p>
+<h1 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h1><p>在有限的背包容量下，装取最高价值的物品组合。<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230630161641.png" alt="20230630161641"></p>
+<h2 id="背包问题图解"><a href="#背包问题图解" class="headerlink" title="背包问题图解"></a>背包问题图解</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230630161329.png" alt="20230630161329"></p>
+<p>其中，每一行代表加入一个新的组件用于产生新的组合，并用新的组合与之前的最优解组合进行对比。</p>
+<p>可以看到，每次进行比对的对象是与之前的最优解（上一行）同条件（同一列）下的最优解进行比对。</p>
+<p><strong>因此，动态规划，本质上的步骤是划分小问题-使用小问题的组合与之前的局部最优解进行对比-得到新的局部最优解。</strong></p>
+<p><strong>与遍历的主要区别在于每次加入新要素时，只与之前的局部最优解进行比对，而不需要与所有情况进行比对</strong></p>
+<h1 id="解题关键"><a href="#解题关键" class="headerlink" title="解题关键"></a>解题关键</h1><p>了解问题本质只能帮助理解，对于实际问题的解决还需要技巧和联系。</p>
+<h2 id="动态方程"><a href="#动态方程" class="headerlink" title="动态方程"></a>动态方程</h2><p>动态方程是构建解法的关键，也是判断一个问题能否使用动态规划的环节。</p>
+<p>以下是一些可能有用的技巧：</p>
+<ul>
+<li><p>确定数字变量<br>因为动规一般最后都是根据一个多维数组求解的，使用可以基于问题中提到的几类数据确定我们要用到几维数组，一般不会超过三维</p>
+</li>
+<li><p>分析问题中的行为找出关键行为<br>一般来说关键行为就是在这个问题它进行的时候回涉及到的一个判断性的行为，比如背包就涉及一个拿还是不拿，还有跳楼梯问题就是是跳一个还是两个，一般关键行为都是递推的，而且如果有不同的选择的话一般会在不同选择中知道最优解或合值作为当前解</p>
+</li>
+<li><p>在边界处寻找出路<br>实际在解题的时候可能还是会搞不出动态方程但有时候可以通过极端边界下的值和小值推演找思路和灵感</p>
+</li>
+</ul>
+<p>技巧分享来源于作者：var<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/leetbook/read/grokking-algorithms/raw9o5/?discussion=wJ2kjs">https://leetcode.cn/leetbook/read/grokking-algorithms/raw9o5/?discussion=wJ2kjs</a></p>
+<h2 id="背包问题的动态方程"><a href="#背包问题的动态方程" class="headerlink" title="背包问题的动态方程"></a>背包问题的动态方程</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230630161253.png" alt="20230630161253"></p>
+<h1 id="例题练习"><a href="#例题练习" class="headerlink" title="例题练习"></a>例题练习</h1><!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

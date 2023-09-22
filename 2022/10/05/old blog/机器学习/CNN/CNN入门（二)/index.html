@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>NN和反向传播的入门（二） | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>NN和反向传播的入门（二） </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/5
+        </span>
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/CNN/" style="color: #03a9f4">
+                    CNN
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>0.0<br> <span id="more"></span><br> [TOC]</p>
+<h2 id="线性函数"><a href="#线性函数" class="headerlink" title="线性函数"></a>线性函数</h2><h4 id="决策边界"><a href="#决策边界" class="headerlink" title="决策边界"></a>决策边界</h4><h2 id="得分函数"><a href="#得分函数" class="headerlink" title="得分函数"></a>得分函数</h2><p><img src="/./imgs/2022-10-06-01-07-18.png"></p>
+<ul>
+<li>f的输出结果就是得分</li>
+<li>假设有十个类别，则W也会有十个不同参数</li>
+<li>y&#x3D;kx+b方法中，k为权重参数，b为偏置参数，通常来说，有几个分类，B就有几个维度，输出得分值后再加上b矩阵，让每个分类都得到一个微调？、</li>
+</ul>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p><img src="/./imgs/2022-10-06-01-10-59.png"><br>示例：sj(其他类别得分)-syi（正确类别得分）+1</p>
+<h2 id="Softmax分类器"><a href="#Softmax分类器" class="headerlink" title="Softmax分类器"></a>Softmax分类器</h2><p><img src="/./imgs/2022-10-06-00-52-46.png"><br>目的：将得分值转换为概率值。<br>例如用对数函数将数值压缩到[0,1]区间内<br><img src="/./imgs/2022-10-06-00-56-23.png"></p>
+<h4 id="差异化exp"><a href="#差异化exp" class="headerlink" title="差异化exp"></a>差异化exp</h4><p>扩大得分之间的差异。例如用e^x</p>
+<h4 id="归一化normalize"><a href="#归一化normalize" class="headerlink" title="归一化normalize"></a>归一化normalize</h4><p>获得概率值：例如图中的做法是差异后的得分取分数<br>cat_rare&#x3D;24.5&#x2F;164+24.5+0.18&#x3D;0.13<br><img src="/./imgs/2022-10-06-01-02-02.png"></p>
+<h4 id="损失值计算"><a href="#损失值计算" class="headerlink" title="损失值计算"></a>损失值计算</h4><p>例如用log做交叉熵损失函数→ 判断当前输入【正确】的概率值<br>————输入[0~1]概率值 →输出[-∞,1]的损失值，越接近1损失越小<br><img src="/./imgs/2022-10-06-01-02-51.png"><br>其中负号是因为log小于1的值都是负数，取一个绝对值。<br><img src="/./imgs/2022-10-06-01-01-21.png"></p>
+<h2 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h2><p> 前向传播的目的：得到损失值（准确率）<br> 包含了上述流程中：得分→正确率→损失值<br><img src="/./imgs/2022-10-06-00-35-24.png"><br> 用f的得分值与真实的标签值进行损失计算。</p>
+<h2 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h2><p> 目的：得到W最合适的值，使得损失值尽可能下降到最低。</p>
+<h4 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h4><p> <img src="/./imgs/2022-10-06-00-38-56.png"><br> 示例：<br> <img src="/./imgs/2022-10-06-00-40-19.png"></p>
+<ul>
+<li>分别求偏导,因为xyz对结果的影响各不相同</li>
+<li>所以Z对结果的影响可以直接表示为df&#x2F;dz</li>
+<li>x因为有复合运算，所以对x的求偏导应当加上中间变量：<br> <img src="/./imgs/2022-10-06-00-42-37.png"></li>
+</ul>
+<h4 id="复合参数与链式法则"><a href="#复合参数与链式法则" class="headerlink" title="复合参数与链式法则"></a>复合参数与链式法则</h4><p> 例如：</p>
+<pre><code>    [(XW1)W2]W3=f
+</code></pre>
+<p><img src="/./imgs/2022-10-06-00-46-01.png"><br>含义：梯度计算是从后往前逐层逐步计算的。——————反向传播的另一种意义<br>真正在应用中，需要求偏导的对象往往会是一个矩阵</p>
+<!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

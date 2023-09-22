@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Novel Ai使用记录 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>Novel Ai使用记录 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/15
+        </span>
+        
+        <span class="category">
+            <a href="/categories/机器学习/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                机器学习
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Diffusion-Model/" style="color: #00a596">
+                    Diffusion Model
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>[TOC]</p>
+ <span id="more"></span>
+
+<h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1.基本语法"></a>1.基本语法</h2><ul>
+<li>tag默认权重为1，{tag}为1.05，权重可以叠加</li>
+</ul>
+<h2 id="2-具体参数"><a href="#2-具体参数" class="headerlink" title="2.具体参数"></a>2.具体参数</h2><p> 1.减少三头六臂等错误 </p>
+<pre><code>lowres, bad anatomy, bad hands, text, error, \
+missing fingers, extra digit, fewer digits, cropped, \
+worst quality, low quality, normal quality, jpeg artifacts, \
+signature, watermark, username, blurry 
+</code></pre>
+<p> 2.画面质量</p>
+<ul>
+<li><p>模板1</p>
+<p> masterpiece, best quality,extremely detailed 8k CG,an extremely delicate and beautiful girl</p>
+</li>
+<li><p>模板2</p>
+<p> detailed hd wallpaper,extremely detailed eyes,narmaya,detailed face,<br> {hidden_hands},1 girl,long hair,side face,<br> side profile,choker,hoodie,monochrome</p>
+</li>
+</ul>
+<p> 3.风格化</p>
+<pre><code>Line Art,（线条/线稿/素描）
+portrait,（肖像）  
+sketch可以让图片看起来像随手画的草稿
+lineart可以让线条变得很粗
+&#123;posing sketch&#125;, &#123;monochrome&#125; 黑白草图
+&#123;rough sketch&#125; 上了颜色的草图
+monochrome+lineart情况下一般只会让眼睛上色，强调发色后头发也可以上色
+&#123;monochrome&#125;, &#123;gray scale&#125;, &#123;pencil sketch lines&#125;
+做出的铅笔速写的感觉
+</code></pre>
+<p>利用sketch，pastel color，lineart的tag模拟一张图的绘画过程</p>
+<pre><code>chibi可以画出低头身比的效果
+(二头身, 三头身)
+&#123;watercolor pencil&#125;可以生成彩铅画
+&#123;faux traditional media&#125;可以做出签绘的风格
+anime screeshot，可以让画面变成动画风格
+&#123;retro artstyle&#125;赛璐璐风
+&#123;photorealistic&#125;, &#123;painting&#125;, &#123;realistic&#125;, 
+&#123;sketch&#125;, &#123;oil painting&#125; 
+</code></pre>
+<p>厚涂pastel color和sketch搭配会有速涂的质感</p>
+<pre><code>official art 变得更加官方一点
+three views from front, back and side和costume setup materials
+可以用来生成设定图
+multiple views 会出现类似设定图
+&#123;character sheet&#125;会出现设定图
+magazine cover会把背景换成杂志封面, 配合office art更像真实杂志(虽然字没法看)
+magazine scan类似杂志内页的风格
+posing会强调有一个动作, 不至于出现混乱的动作(露出有六个手指头的手)
+caustics 画面向主题聚焦, 类似海报
+</code></pre>
+<h2 id="3-同人"><a href="#3-同人" class="headerlink" title="3.同人"></a>3.同人</h2><p>角色绘制：</p>
+<ul>
+<li>作品名+角色名+别名+加权</li>
+<li>详细描述</li>
+</ul>
+<h2 id="4-通用参数"><a href="#4-通用参数" class="headerlink" title="4.通用参数"></a>4.通用参数</h2><p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221028124335.png" alt="20221028124335"><br>max：过拟合<br>CFG Scale:输出图片与tag的相关性<br>0：完全无关!<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221028124413.png" alt="20221028124413"></p>
+<h2 id="5-其他方法"><a href="#5-其他方法" class="headerlink" title="5.其他方法"></a>5.其他方法</h2><p>1.i2i去除物体</p>
+<pre><code>对图片进行简单涂抹.
+使用相同的咒语,
+调整denoise为0.25左右
+</code></pre>
+<p>2.i2i生成相同姿势的另一个人</p>
+<pre><code>使用相同的咒语,
+调整denoise为1.
+</code></pre>
+<h2 id="体验效果"><a href="#体验效果" class="headerlink" title="体验效果"></a>体验效果</h2><pre><code>number = 50
+height = 768
+width  = 1024
+steps  = 35
+cfg    = 8
+prompt = &quot;blue,best quality,highly detailed,masterpiece,ultra-detailed,&#123;photorealistic&#125;, &#123;&#123;white hair&#125;&#125;,&#123;blue eye&#125;,NSFW, Erotic_stewardess_uniform, photogenic lace_stockings,\
+overexposure,&#123;wet clothes&#125;,cinematic_angle,in_plane,(((masterpiece))),(((best quality))),((ultra-detailed)),((underwater)),(illustration),\
+(beautiful detailed water),((coral)),open tuck,((extremely delicate and beautiful girls)),dynamic angle,floating,\
+(beautiful detailed eyes),(detailed light),(loli),floating hair,glowing eyes,pointy ears,(splash),underwater),\
+((fishes)),white hair,green right eye,iceblue left eye,leaves dress,feather,nature,(sunlight),(underwater forest),(painting),(bloom),\
+(detailed glow),drenched,seaweed,fish,(((Tyndall effect))),face to face&quot;
+
+negative_prompt = &quot;extra limbs,malformed limbs,mutated \
+hands,poorly drawn hands,fused fingers,too many fingers,extra fingers,mutilated,trannsexual,\
+hermaphrodite,duplicate,lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit,\
+ fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, \
+signature, watermark, username, blurry,missing fingers,bad hands,missing arms,large breasts&quot;
+</code></pre>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221028124645.png" alt="20221028124645"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221028125030.png" alt="20221028125030"><br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221028125229.png" alt="20221028125229"></p>
+<h2 id="6-引用-x2F-相关工具"><a href="#6-引用-x2F-相关工具" class="headerlink" title="6.引用&#x2F;相关工具"></a>6.引用&#x2F;相关工具</h2><p>知乎：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/558019952/answer/2710009035">https://www.zhihu.com/question/558019952/answer/2710009035</a> 作者：然诺<br>Bilibili：<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv19019708?from=search&amp;spm_id_from=333.337.0.0">https://www.bilibili.com/read/cv19019708?from=search&amp;spm_id_from=333.337.0.0</a> 作者：秋之格KirinTea_Aki<br>魔咒百科词典: <a target="_blank" rel="noopener" href="https://aitag.top/">https://aitag.top/</a><br>魔导书：<a target="_blank" rel="noopener" href="https://thereisnospon.github.io/NovelAiTag/">https://thereisnospon.github.io/NovelAiTag/</a><br>元素法典：<a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DWHl3am5Zb05QbGVs">https://docs.qq.com/doc/DWHl3am5Zb05QbGVs</a><br>一个长期更新的UP主：<a target="_blank" rel="noopener" href="https://www.yuque.com/longyuye/lmgcwy">https://www.yuque.com/longyuye/lmgcwy</a></p>
+<!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

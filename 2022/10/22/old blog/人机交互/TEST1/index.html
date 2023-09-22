@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>人机交互基础（一） | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <meta name="author" content="Liteee">
+        <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
+        <meta name="keywords" content="游戏">
+        <link rel="icon" href="Avator.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.2.0/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Liteee的世界尽头</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Liteee的世界尽头</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>人机交互基础（一） </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/10/22
+        </span>
+        
+        <span class="category">
+            <a href="/categories/人机交互/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                人机交互
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/人机交互/" style="color: #ffa2c4">
+                    人机交互
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>计算机人机交互设计基础<br>课程链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1p741167sz/">【斯坦福】人机交互课程</a></p>
+ <span id="more"></span>
+
+<h1 id="基础的设计概念"><a href="#基础的设计概念" class="headerlink" title="基础的设计概念"></a>基础的设计概念</h1><p>当你去设计一个新的交互时，可能需要的设计理念。</p>
+<h2 id="1-原型（Prototyping）"><a href="#1-原型（Prototyping）" class="headerlink" title="1. 原型（Prototyping）"></a>1. 原型（Prototyping）</h2><p>   可以理解为是一种解决问题的基础策略，因为在具体的设计中会出现的问题是不可预测的。也是一种找产品问题、预测问题的过程。</p>
+<p>   例如：<br>   <img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221022195529.png" alt="20221022195529"><br>   制作一个木头做的交互机器原型，随身携带，随时测试模拟“记笔记”的功能。</p>
+<p><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221022200739.png" alt="20221022200739"><br>微软的鼠标原型</p>
+<p>原型的特性</p>
+<ul>
+<li>不完整</li>
+<li>易于更改（可拓展性）</li>
+</ul>
+<p>如何设计原型</p>
+<ul>
+<li>feel：他看起来该怎么样？</li>
+<li>implement：工作情况怎么样？</li>
+<li>role：用起来体验应该怎么样</li>
+</ul>
+<p>原型通常无法快速投入使用，但是存在从一堆原型中快速选出成品的策略<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221022201007.png" alt="20221022201007"><br>对成品的迭代可以做到稳定地提高质量，在每个低谷解决局部设计问题。<br>而原型策略的意义在于快速绕过具体的设计空间找到最接近最高质量的策略。</p>
+<p>机器交互界面迭代随着时间增加的成本有：</p>
+<ul>
+<li>物理成本的消耗</li>
+<li>运行在界面上的软件移植成本</li>
+<li>相关API的更改</li>
+<li>用户对于界面的习惯性</li>
+</ul>
+<h2 id="2-设计评估"><a href="#2-设计评估" class="headerlink" title="2. 设计评估"></a>2. 设计评估</h2><p>传统的以用户中心设计：把人带到实验环境中进行测验，观察用户反馈，反复进行直到完成成品。</p>
+<p>缺点：无法评估用户实际的使用环境</p>
+<p>获取用户对问题反馈的普遍方式：</p>
+<ul>
+<li>Survey：常见的问卷调查</li>
+<li>FocusGroup：集中焦点目标用户的访谈，会有各种现场因素，心理因素的影响。</li>
+</ul>
+<p>专家反馈方式：</p>
+<ul>
+<li>Peer critique：同行间的评测</li>
+<li>dogfooding：内测</li>
+<li>heuristic evaluation：启发式评估（本课重点）</li>
+</ul>
+<p>实践方式：</p>
+<ul>
+<li>比较实验：例如给测试者做多种界面，通过比较找到最重要的因素。</li>
+<li>participants observation：到用户的实际环境去观察</li>
+<li>simulation&amp;formal model：模拟交互行为并借助模型或表达式，例如如何构建模型 让用户之在键盘上一次输入一整个单词。</li>
+</ul>
+<p>需要考虑的问题：</p>
+<ul>
+<li>设计可靠性：做第二遍评估还能得到同样的结果吗？</li>
+<li>对目标问题的精确性</li>
+<li>对目标用户的通用性：用户年龄、条件、使用环境等</li>
+<li>如何高效地获得反馈</li>
+</ul>
+<h2 id="3-计算机人机交互的出现和发展"><a href="#3-计算机人机交互的出现和发展" class="headerlink" title="3.计算机人机交互的出现和发展"></a>3.计算机人机交互的出现和发展</h2><p>略写</p>
+<p>包含了从基础的屏幕输入输出→鼠标的概念→基础图形界面的原型→早期系统</p>
+<p>提出设计的过程+发表的期刊+当时发布的历史视频。</p>
+<p>视频<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1p741167sz?p=4&vd_source=4a96784791ed29076f3826fc3c18b4a4">【斯坦福】人机交互课程P4</a></p>
+<p>可以得知的是，许多重要的设计它的原型可能都是笨拙粗略的，如果要制作找到未来人机交互的方向或许需要先打磨当下已经有的粗糙的石头。</p>
+<h2 id="4-参与者观察（participants-observation）"><a href="#4-参与者观察（participants-observation）" class="headerlink" title="4.参与者观察（participants observation）"></a>4.参与者观察（participants observation）</h2><p>深入到所研究对象的生活背景中，不暴露研究者真正的身份，在实际参与研究对象日常社会生活的过程中所进行隐蔽性的观察。</p>
+<p>与被观察者换位思考，如果要做一项新东西，也许需要更多去关注人们说的（关注的、期望的），而不是人们实际做的。</p>
+<p>需要考虑的因素，或者说目的：</p>
+<ul>
+<li>人们通常是怎么做这项工作&#x2F;怎么解决某个问题</li>
+<li>人们期望的交互结果，对他们来说有什么价值</li>
+<li>如何用设计去把技术用于解决用户的实际问题，而不是为实际问题做技术，因为用户通常不理解技术和这些问题的关系</li>
+<li>人群的异同？</li>
+<li>每个用户对问题考虑的侧重点、侧重因素不同 （例如路线、效率、时间、开销..<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20221022210815.png" alt="20221022210815"></li>
+</ul>
+<h2 id="5-访谈interviewing"><a href="#5-访谈interviewing" class="headerlink" title="5.访谈interviewing"></a>5.访谈interviewing</h2><p>需要访谈的情况：</p>
+<ul>
+<li>设计一个新系统，对目标用户进行的访谈</li>
+<li>一个旧系统，但是增加了新的目标群体</li>
+<li>…</li>
+</ul>
+<p> 避免让受访者进行自我评估，避免问一些人们容易过度估计的问题，避免具体问受访者等等…具体策略不写了</p>
+<!-- flag of hidden posts -->
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2023 Liteee的世界尽头
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @Liteee
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+
+    </body>
+</html>

@@ -172,6 +172,93 @@
 </div>
 
 <div class="post">
+    <a href="/2023/09/22/镜/开发草案/">
+        <h2 class="post-title">独立游戏项目开发草案</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/游戏开发/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                游戏开发
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2023/9/22
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h1><h2 id="1-确定视角"><a href="#1-确定视角" class="headerlink" title="1.确定视角"></a>1.确定视角</h2><p>横板3D</p>
+<ul>
+<li>便于构造多层垂直场景</li>
+<li>更多的动作性</li>
+<li>便于设计线性关卡</li>
+</ul>
+<h2 id="2-设计思路"><a href="#2-设计思路" class="headerlink" title="2.设计思路"></a>2.设计思路</h2><h3 id="参考设计"><a href="#参考设计" class="headerlink" title="参考设计"></a>参考设计</h3><p>受Dead ink启发，Dead ink在俯视游戏的垂直深度上做文章。俯视视角本就缺乏深度信息。</p>
+<p>但是通过遮挡和透视的设计，反而让玩家操作空间之外的深度获得了强化，塑造了开阔的、摇摇欲坠的效果。<br><img src="https://00-1305867505.cos.ap-guangzhou.myqcloud.com/20230922121623.png" alt="20230922121623"></p>
+<p>并且，Dead ink在玩法的设计上，强化了垂直方向的操作，例如垂直暗杀，地形杀。</p>
+<p>从中，我关注于以下要点：</p>
+<ul>
+<li>1.通过刻画玩家操作空间以外的部分来强化固定视角的关卡体验</li>
+<li>2.通过强化弱势视角的操作，来补足固定视角的缺陷。</li>
+<li>3.增加弱势层级的移动方式，来补足固定视角的缺陷。</li>
+<li>4.通过增加弱势层级之间的解密操作，来增加趣味性。</li>
+</ul>
+<p>实际上，Dead ink可以提炼的要点很多，但作为开发的第一个项目，我只想专精于几点。</p>
+<h2 id="横板设计"><a href="#横板设计" class="headerlink" title="横板设计"></a>横板设计</h2><p>将以上核心要点应用于横板3D游戏，我们可以考虑以下设计</p>
+<h2 id="1-额外空间设置"><a href="#1-额外空间设置" class="headerlink" title="1.额外空间设置"></a>1.额外空间设置</h2><p>在3D横板游戏中，玩家不能自由地进行Y轴的探索。但画面中应该包含其他Y轴的场景，而不是一面墙壁。</p>
+<ul>
+<li>镜子设计：镜子包括前后镜面和上下镜面。镜子里的场景应该与前景不相同的，另一个颜色的世界。</li>
+<li>镜像主角，在前后镜子中，有一个主角的替身使者，并且在开场就见到自己的镜像。在上下颠倒的场景中，镜像自然会倒转至屏幕上方。</li>
+</ul>
+<h3 id="2-强化镜像的操作"><a href="#2-强化镜像的操作" class="headerlink" title="2.强化镜像的操作"></a>2.强化镜像的操作</h3><ul>
+<li>镜像与主角共用同一套指令，但是招式和处理的谜题略微不同。</li>
+<li>主角有平面招式可以攻击到镜像中的敌人</li>
+<li>在Rouguelike元素中，需要取舍是对镜像进行强化还是对主角进行强化。</li>
+<li>两个世界中有特殊道具可以影响到另一个世界，例如光照，影子，钻孔，破坏，折射等。</li>
+</ul>
+<h3 id="3-增加Y轴的移动方式"><a href="#3-增加Y轴的移动方式" class="headerlink" title="3.增加Y轴的移动方式"></a>3.增加Y轴的移动方式</h3><ul>
+<li>转弯动画</li>
+<li>主世界前往镜像进行破坏，可以作为空间破坏类型的招式。</li>
+<li>镜像前往主世界进行破坏，可以作为单体强化招式。</li>
+<li>镜像敌人可以攻击到主角，需要进行躲避。</li>
+<li>镜像可以提供密道（备选）</li>
+</ul>
+<h3 id="4-层级解密"><a href="#4-层级解密" class="headerlink" title="4.层级解密"></a>4.层级解密</h3><ul>
+<li>主世界改变镜像物体</li>
+<li>镜像可以与某些物体交互，使之与主世界产生略微的不同步【时序上（加速减速），或者位置上分离】，以进行一些需要同步的解密</li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/镜/" style="color: #03a9f4">
+                镜
+            </a>
+        </span>
+        
+    </div>
+    <a href="/2023/09/22/镜/开发草案/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/06/30/算法/动态规划/快速理解动态规划/">
         <h2 class="post-title">快速理解动态规划</h2>
     </a>
@@ -256,7 +343,7 @@
         
         <span class="tag">
             
-            <a href="/tags/数据标注/" style="color: #00bcd4">
+            <a href="/tags/数据标注/" style="color: #ffa2c4">
                 数据标注
             </a>
         </span>

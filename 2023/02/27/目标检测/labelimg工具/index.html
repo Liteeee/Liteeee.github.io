@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Labelimg批量标注脚本 | Liteee的世界尽头</title><meta name="robots" content="noindex">
+        <title>Labelimg批量标注脚本 | Liteee的世界尽头</title>
         <meta name="author" content="Liteee">
         <meta name="description" content="这仅仅是暮色中的幻想，一睁眼水泡即杳然逝去，有的只是兽的蹄音，小镇仍一如往常。">
         <meta name="keywords" content="游戏">
@@ -149,7 +149,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/数据标注/" style="color: #00bcd4">
+                <a href="/tags/数据标注/" style="color: #ff7d73">
                     数据标注
                 </a>
             </span>
@@ -160,8 +160,8 @@
     <div class="content" v-pre>
         <p>网上没找到解决方案，现写一个labelimg批量标注工具<br> <span id="more"></span></p>
 <h1 id="使用背景"><a href="#使用背景" class="headerlink" title="使用背景"></a>使用背景</h1><p>在使用labelimg进行目标检测标注时，如果某些物体在相同地方重复出现多次，labelimg并没有提供适合的方式去批量标注。</p>
-<p>对于这种物体，人工标注会一是比较麻烦，二是手动标注每次都有偏差，不够精确。</p>
-<p>没找到有人做这个插件，解决labelimg不能跨图片批量复制选框的问题。</p>
+<p>对于这种物体，人工标注的方式一是比较麻烦，二是手动标注每次都有偏差，不如精确地标一次然后进行批处理。</p>
+<p>没找到有人做这个插件，因此写个脚本，解决labelimg不能跨图片批量复制选框的问题。</p>
 <h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>在视频任务中，待测物体在很多帧里的位置没有变化时。labelimg没有提供跨图片复制标注框的功能。</p>
 <p>通过批量修改标签xml文件的方式，来实现相应复制选框操作。因此写了个小工具</p>
 <p>可以大量减少标注工作量，也可以减少重复标注的不稳定性</p>
@@ -407,7 +407,7 @@ delete_last_label(floader_path,&quot;1022_186&quot;)
  # write_xml(tree, &quot;./out.xml&quot;)
 
 </code></pre>
-<!-- flag of hidden posts -->
+
     </div>
     
     
